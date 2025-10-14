@@ -1,0 +1,243 @@
+/**
+ * SCORPION UI V2 - MAIN STYLESHEET
+ * 
+ * This file contains:
+ * 1. Tailwind base styles
+ * 2. CSS variables generated from design tokens
+ * 3. Global styles and resets
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * DESIGN TOKENS AS CSS VARIABLES
+ * 
+ * These CSS custom properties are automatically generated from your tokens.json file.
+ * They switch automatically based on the light/dark theme.
+ * 
+ * Usage in CSS: background-color: var(--color-amber-500);
+ * Usage in Tailwind: Already configured! Just use: bg-amber-500
+ */
+
+@layer base {
+  :root {
+    /* Light theme CSS variables */
+    --color-amber-50: #FFFBEB;
+    --color-amber-100: #FEF3C7;
+    --color-amber-200: #FDE68A;
+    --color-amber-300: #FCD34D;
+    --color-amber-400: #FBBF24;
+    --color-amber-500: #F59E0B;
+    --color-amber-600: #D97706;
+    --color-amber-700: #B45309;
+    --color-amber-800: #92400E;
+    --color-amber-900: #78350F;
+    --color-amber-950: #451A03;
+    
+    --color-stone-50: #FAFAF9;
+    --color-stone-100: #F5F5F4;
+    --color-stone-200: #E7E5E4;
+    --color-stone-300: #D6D3D1;
+    --color-stone-400: #A8A29E;
+    --color-stone-500: #78716C;
+    --color-stone-600: #57534E;
+    --color-stone-700: #44403C;
+    --color-stone-800: #292524;
+    --color-stone-900: #1C1917;
+    --color-stone-950: #0C0A09;
+    
+    --color-green-50: #F0FDF4;
+    --color-green-100: #DCFCE7;
+    --color-green-200: #BBF7D0;
+    --color-green-300: #86EFAC;
+    --color-green-400: #4ADE80;
+    --color-green-500: #22C55E;
+    --color-green-600: #16A34A;
+    --color-green-700: #15803D;
+    --color-green-800: #166534;
+    --color-green-900: #14532D;
+    --color-green-950: #052E16;
+    
+    --color-blue-50: #EFF6FF;
+    --color-blue-100: #DBEAFE;
+    --color-blue-200: #BFDBFE;
+    --color-blue-300: #93C5FD;
+    --color-blue-400: #60A5FA;
+    --color-blue-500: #3B82F6;
+    --color-blue-600: #2563EB;
+    --color-blue-700: #1D4ED8;
+    --color-blue-800: #1E40AF;
+    --color-blue-900: #1E3A8A;
+    --color-blue-950: #172554;
+    
+    --color-purple-50: #FAF5FF;
+    --color-purple-100: #F3E8FF;
+    --color-purple-200: #E9D5FF;
+    --color-purple-300: #D8B4FE;
+    --color-purple-400: #C084FC;
+    --color-purple-500: #A855F7;
+    --color-purple-600: #9333EA;
+    --color-purple-700: #7E22CE;
+    --color-purple-800: #6B21A8;
+    --color-purple-900: #581C87;
+    --color-purple-950: #3B0764;
+    
+    --color-red-50: #FEF2F2;
+    --color-red-100: #FEE2E2;
+    --color-red-200: #FECACA;
+    --color-red-300: #FCA5A5;
+    --color-red-400: #F87171;
+    --color-red-500: #EF4444;
+    --color-red-600: #DC2626;
+    --color-red-700: #B91C1C;
+    --color-red-800: #991B1B;
+    --color-red-900: #7F1D1D;
+    --color-red-950: #450A0A;
+    
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    
+    /* Primary, secondary, and semantic colors (reference amber/stone) */
+    --color-primary-50: #FFFBEB;
+    --color-primary-100: #FEF3C7;
+    --color-primary-200: #FDE68A;
+    --color-primary-300: #FCD34D;
+    --color-primary-400: #FBBF24;
+    --color-primary-500: #F59E0B;
+    --color-primary-600: #D97706;
+    --color-primary-700: #B45309;
+    --color-primary-800: #92400E;
+    --color-primary-900: #78350F;
+    --color-primary-950: #451A03;
+    
+    --color-secondary-50: #FAFAF9;
+    --color-secondary-100: #F5F5F4;
+    --color-secondary-200: #E7E5E4;
+    --color-secondary-300: #D6D3D1;
+    --color-secondary-400: #A8A29E;
+    --color-secondary-500: #78716C;
+    --color-secondary-600: #57534E;
+    --color-secondary-700: #44403C;
+    --color-secondary-800: #292524;
+    --color-secondary-900: #1C1917;
+    --color-secondary-950: #0C0A09;
+    
+    /* Success colors (green) */
+    --color-success-50: #F0FDF4;
+    --color-success-100: #DCFCE7;
+    --color-success-200: #BBF7D0;
+    --color-success-300: #86EFAC;
+    --color-success-400: #4ADE80;
+    --color-success-500: #22C55E;
+    --color-success-600: #16A34A;
+    --color-success-700: #15803D;
+    --color-success-800: #166534;
+    --color-success-900: #14532D;
+    --color-success-950: #052E16;
+    
+    /* Info colors (blue) */
+    --color-info-50: #EFF6FF;
+    --color-info-100: #DBEAFE;
+    --color-info-200: #BFDBFE;
+    --color-info-300: #93C5FD;
+    --color-info-400: #60A5FA;
+    --color-info-500: #3B82F6;
+    --color-info-600: #2563EB;
+    --color-info-700: #1D4ED8;
+    --color-info-800: #1E40AF;
+    --color-info-900: #1E3A8A;
+    --color-info-950: #172554;
+    
+    /* Warning colors (purple) */
+    --color-warning-50: #FAF5FF;
+    --color-warning-100: #F3E8FF;
+    --color-warning-200: #E9D5FF;
+    --color-warning-300: #D8B4FE;
+    --color-warning-400: #C084FC;
+    --color-warning-500: #A855F7;
+    --color-warning-600: #9333EA;
+    --color-warning-700: #7E22CE;
+    --color-warning-800: #6B21A8;
+    --color-warning-900: #581C87;
+    --color-warning-950: #3B0764;
+    
+    /* Error colors (red) */
+    --color-error-50: #FEF2F2;
+    --color-error-100: #FEE2E2;
+    --color-error-200: #FECACA;
+    --color-error-300: #FCA5A5;
+    --color-error-400: #F87171;
+    --color-error-500: #EF4444;
+    --color-error-600: #DC2626;
+    --color-error-700: #B91C1C;
+    --color-error-800: #991B1B;
+    --color-error-900: #7F1D1D;
+    --color-error-950: #450A0A;
+    
+    /* Font tokens */
+    --font-family-mono: 'Fragment Mono', ui-monospace, monospace;
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    
+    /* Border radius tokens */
+    --radius-button: 12px;
+    --radius-container: 24px;
+    
+    /* Light theme surface and text colors */
+    --surface-page: #FFFBEB;
+    --surface-container: #FFFBEB;
+    --surface-container-stroke: #D6D3D1;
+    --text-primary: #1C1917;
+    --text-secondary: #57534E;
+    
+    /* Light theme button colors */
+    --button-primary-bg: #1C1917;
+    --button-primary-bg-hover: #292524;
+    --button-primary-text: #FFFFFF;
+    --button-secondary-bg: #FDE68A;
+    --button-secondary-bg-hover: #FCD34D;
+    --button-secondary-text: #1C1917;
+  }
+
+  .dark {
+    /* Dark theme overrides */
+    --surface-page: #1C1917;
+    --surface-container: #1C1917;
+    --surface-container-stroke: #44403C;
+    --text-primary: #FAFAF9;
+    --text-secondary: #A8A29E;
+    
+    /* Dark theme button colors */
+    --button-primary-bg: #FBBF24;
+    --button-primary-bg-hover: #F59E0B;
+    --button-primary-text: #000000;
+    --button-secondary-bg: #44403C;
+    --button-secondary-bg-hover: #57534E;
+    --button-secondary-text: #FAFAF9;
+  }
+
+  * {
+    @apply border-secondary-300 dark:border-secondary-700;
+  }
+
+  body {
+    @apply bg-[var(--surface-page)] text-[var(--text-primary)] antialiased;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+/**
+ * CUSTOM UTILITIES
+ */
+@layer utilities {
+  /* Smooth color transitions for theme switching */
+  .theme-transition {
+    @apply transition-colors duration-200 ease-in-out;
+  }
+}
