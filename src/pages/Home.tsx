@@ -7,6 +7,7 @@
 
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { ASSETS } from "@/lib/assets";
 
 export default function Home() {
   return (
@@ -22,17 +23,26 @@ export default function Home() {
       {/* Main Content */}
       <main className="container mx-auto px-6 py-12">
         {/* Hero Section */}
-        <section className="max-w-3xl">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <section className="max-w-4xl">
+          {/* Scorpion Hero Image */}
+          <div className="mb-8 flex justify-center">
+            <img 
+              src={ASSETS.scorpionHeroV2} 
+              alt="Scorpion UI" 
+              className="w-32 h-32 object-contain"
+            />
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
             Design System & Component Library
           </h2>
-          <p className="text-xl text-[var(--text-secondary)] mb-8">
+          <p className="text-xl text-[var(--text-secondary)] mb-8 text-center">
             A token-based design system built with React, TypeScript, and Tailwind CSS. 
             Featuring comprehensive documentation for colors, typography, and reusable components.
           </p>
           
           {/* Quick Links */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4 justify-center">
             <Link
               to="/tokens/colors"
               className="inline-flex items-center justify-center px-6 py-3 rounded-button bg-[var(--button-primary-bg)] text-[var(--button-primary-text)] hover:bg-[var(--button-primary-bg-hover)] transition-colors font-medium"
