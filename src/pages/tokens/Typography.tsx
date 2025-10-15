@@ -8,7 +8,7 @@
 
 export default function Typography() {
   return (
-    <div className="container mx-auto px-10 pt-10 pb-20">
+    <div className="container mx-auto px-5 lg:px-10 pt-5 lg:pt-10 pb-5 lg:pb-20">
       {/* 
         PAGE HEADER SECTION
         Title and description explaining what typography tokens are
@@ -26,7 +26,7 @@ export default function Typography() {
         Large display of token name and font family name (48px) directly in amber container
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-[24px] p-10">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Family</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Primary typeface</p>
@@ -51,14 +51,14 @@ export default function Typography() {
         Each shows the Point Break quote at that size, plus token name and pixel value
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-[24px] p-10">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Sizes</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Type scale from 3xl to extra small</p>
           </div>
           
           {/* Single container with all font sizes cascading from largest to smallest */}
-          <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden bg-white dark:bg-sepia-950 p-6">
+          <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl overflow-hidden bg-white dark:bg-sepia-950 p-6">
             <div className="flex flex-col gap-8">
               
               {/* font.size.3xl - 48px (NEW) */}

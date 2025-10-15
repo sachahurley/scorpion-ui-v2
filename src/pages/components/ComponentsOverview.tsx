@@ -9,7 +9,7 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export default function ComponentsOverview() {
   return (
-    <div className="container mx-auto px-10 pt-10 pb-20">
+    <div className="container mx-auto px-5 lg:px-10 pt-5 lg:pt-10 pb-5 lg:pb-20">
         <div className="max-w-4xl">
           <h1 className="text-4xl font-bold mb-4">Component Library</h1>
           <p className="text-xl text-[var(--text-secondary)] mb-12">
@@ -43,7 +43,7 @@ export default function ComponentsOverview() {
               </div>
               
               <div className="mt-6 p-4 bg-secondary-100 dark:bg-secondary-900 rounded-button">
-                <p className="font-medium mb-2">Usage:</p>
+                <p className="font-bold mb-2">Usage:</p>
                 <code className="block bg-sepia-900 text-amber-300 p-4 rounded text-sm font-mono overflow-x-auto">
 {`import { ThemeToggle } from "@/components/ui/ThemeToggle";
 

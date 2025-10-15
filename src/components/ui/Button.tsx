@@ -69,60 +69,60 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       large: "h-12 px-6 py-3.5",   // h-12 = 48px, px-6 = 24px
     };
 
-    // VARIANT STYLES - Color combinations for each variant
+    // VARIANT STYLES - Color combinations for each variant using SEMANTIC TOKENS
     // ✓ = Has tokens in tokens.json
     // ⚠️ = Assumption made, needs token definition
     const variantStyles = {
-      // ✓ PRIMARY - Has full token support
-      // Light: amber-400 bg → amber-500 hover | black text (same as dark)
-      // Dark: amber-400 bg → amber-500 hover | black text
+      // ✓ PRIMARY - Uses semantic primary tokens (resolves to amber)
+      // Light: primary-400 bg → primary-500 hover | black text (same as dark)
+      // Dark: primary-400 bg → primary-500 hover | black text
       primary: `
-        bg-amber-400 hover:bg-amber-500 active:bg-amber-600 text-black
-        dark:bg-amber-400 dark:hover:bg-amber-500 dark:active:bg-amber-600 dark:text-black
-        focus:ring-2 focus:ring-amber-400 dark:focus:ring-amber-400 focus:ring-offset-2
+        bg-primary-400 hover:bg-primary-500 active:bg-primary-600 text-black
+        dark:bg-primary-400 dark:hover:bg-primary-500 dark:active:bg-primary-600 dark:text-black
+        focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-400 focus:ring-offset-2
       `,
 
-      // ✓ SECONDARY - Has full token support
-      // Light: sepia-700 bg → sepia-600 hover | sepia-50 text (same as dark)
-      // Dark: sepia-700 bg → sepia-600 hover | sepia-50 text
+      // ✓ SECONDARY - Uses semantic secondary tokens (resolves to sepia)
+      // Light: secondary-700 bg → secondary-600 hover | secondary-50 text (same as dark)
+      // Dark: secondary-700 bg → secondary-600 hover | secondary-50 text
       secondary: `
-        bg-sepia-700 hover:bg-sepia-600 active:bg-sepia-500 text-sepia-50
-        dark:bg-sepia-700 dark:hover:bg-sepia-600 dark:active:bg-sepia-500 dark:text-sepia-50
-        focus:ring-2 focus:ring-sepia-700 dark:focus:ring-sepia-700 focus:ring-offset-2
+        bg-secondary-700 hover:bg-secondary-600 active:bg-secondary-500 text-secondary-50
+        dark:bg-secondary-700 dark:hover:bg-secondary-600 dark:active:bg-secondary-500 dark:text-secondary-50
+        focus:ring-2 focus:ring-secondary-700 dark:focus:ring-secondary-700 focus:ring-offset-2
       `,
 
-      // ⚠️ GHOST - ASSUMPTION: Transparent with subtle hover
-      // Uses sepia colors for hover states
+      // ⚠️ GHOST - Uses neutral secondary tokens for subtle UI
+      // Uses secondary (sepia) colors for hover states - no strong semantic meaning
       ghost: `
-        bg-transparent hover:bg-sepia-100 active:bg-sepia-200 text-sepia-900
-        dark:hover:bg-sepia-800 dark:active:bg-sepia-700 dark:text-sepia-50
-        focus:ring-2 focus:ring-sepia-300 dark:focus:ring-sepia-700 focus:ring-offset-2
+        bg-transparent hover:bg-secondary-200 active:bg-secondary-300 text-secondary-900
+        dark:hover:bg-secondary-700 dark:active:bg-secondary-600 dark:text-secondary-50
+        focus:ring-2 focus:ring-secondary-300 dark:focus:ring-secondary-700 focus:ring-offset-2
       `,
 
-      // ⚠️ LINK - ASSUMPTION: Text-only button that looks like a link
-      // Uses primary colors, underline on hover
+      // ⚠️ LINK - Uses semantic primary tokens for link color
+      // Links should use primary brand color
       link: `
-        bg-transparent hover:underline text-amber-600 hover:text-amber-700
-        dark:text-amber-400 dark:hover:text-amber-300
-        focus:ring-2 focus:ring-amber-600 dark:focus:ring-amber-400 focus:ring-offset-2
+        bg-transparent hover:underline text-primary-600 hover:text-primary-700
+        dark:text-primary-400 dark:hover:text-primary-300
+        focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400 focus:ring-offset-2
       `,
 
-      // ⚠️ OUTLINE - ASSUMPTION: Transparent with border
-      // Uses sepia colors for border and text
+      // ⚠️ OUTLINE - Uses neutral secondary tokens for borders
+      // Uses secondary (sepia) colors for border and text - neutral appearance
       outline: `
-        bg-transparent border-2 border-sepia-300 hover:border-sepia-400 hover:bg-sepia-50
-        active:bg-sepia-100 text-sepia-900
-        dark:border-sepia-700 dark:hover:border-sepia-600 dark:hover:bg-sepia-900
-        dark:active:bg-sepia-800 dark:text-sepia-50
-        focus:ring-2 focus:ring-sepia-300 dark:focus:ring-sepia-700 focus:ring-offset-2
+        bg-transparent border border-secondary-300 hover:border-secondary-400 hover:bg-secondary-50
+        active:bg-secondary-100 text-secondary-900
+        dark:border-secondary-700 dark:hover:border-secondary-600 dark:hover:bg-secondary-900
+        dark:active:bg-secondary-800 dark:text-secondary-50
+        focus:ring-2 focus:ring-secondary-300 dark:focus:ring-secondary-700 focus:ring-offset-2
       `,
 
-      // ⚠️ DESTRUCTIVE - ASSUMPTION: Red/error colored for dangerous actions
-      // Uses red color scale for destructive actions
+      // ⚠️ DESTRUCTIVE - Uses semantic error tokens (resolves to red)
+      // Error tokens for dangerous/destructive actions
       destructive: `
-        bg-red-600 hover:bg-red-700 active:bg-red-800 text-white
-        dark:bg-red-500 dark:hover:bg-red-600 dark:active:bg-red-700
-        focus:ring-2 focus:ring-red-600 dark:focus:ring-red-500 focus:ring-offset-2
+        bg-error-600 hover:bg-error-700 active:bg-error-800 text-white
+        dark:bg-error-500 dark:hover:bg-error-600 dark:active:bg-error-700
+        focus:ring-2 focus:ring-error-600 dark:focus:ring-error-500 focus:ring-offset-2
       `,
     };
 

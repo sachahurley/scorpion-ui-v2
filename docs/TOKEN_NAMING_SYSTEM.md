@@ -1,8 +1,9 @@
 # Scorpion UI Design Token Naming System
 
-**Version:** 2.0  
+**Version:** 2.3  
 **Purpose:** Reference guide for AI agents and developers working on the Scorpion UI project  
-**Token File Location:** `src/tokens/tokens.json`
+**Token File Location:** `src/tokens/tokens.json`  
+**Last Updated:** October 15, 2025
 
 ---
 
@@ -67,6 +68,22 @@
 - Does the token name in the docs match the JSON exactly?
 - Can I find this exact token name in the implementation?
 - Are there any aliases or variations that could cause confusion?
+
+### Rule 3: Implementation Standard (CSS Variables vs Tailwind Classes)
+
+**This project uses a HYBRID APPROACH - see detailed section below for complete guide.**
+
+**Quick Rule:**
+- ✅ Theme tokens (surface, text, buttons, elevation) → Use CSS variables: `bg-[var(--surface-card)]`
+- ✅ Specific color shades (success, error, semantic colors) → Use direct Tailwind: `bg-success-500`
+
+**Why this matters:**
+- Ensures consistent implementation across all components
+- Makes theme switching automatic and reliable
+- Provides clear guidance for AI agents and developers
+- Balances maintainability with code readability
+
+👉 **See "Implementation Standard" section below for complete decision tree and examples.**
 
 ---
 
@@ -175,22 +192,165 @@ radius.container → 24px
 **Location:** `light` and `dark` objects in `src/tokens/tokens.json`  
 **Purpose:** Theme-specific implementations that reference semantic or base tokens
 
+---
+
+## 🎯 Implementation Standard: When to Use CSS Variables vs Tailwind Classes
+
+**This project uses a HYBRID APPROACH for optimal maintainability and clarity.**
+
+### ✅ USE CSS Variables for Theme Tokens
+
+**Rule:** If the token exists in the `light` or `dark` theme objects, use CSS variables.
+
+**Syntax:** `bg-[var(--token-name)]` or `text-[var(--token-name)]`
+
+**Use for:**
+- **Surfaces:** `bg-[var(--surface-card)]`, `bg-[var(--surface-page)]`, `bg-[var(--surface-container)]`
+- **Text:** `text-[var(--text-primary)]`, `text-[var(--text-secondary)]`
+- **Borders:** `border-[var(--surface-container-stroke)]`
+- **Buttons:** `bg-[var(--button-primary-bg)]`, `hover:bg-[var(--button-primary-bg-hover)]`
+- **Elevation:** `shadow-[var(--elevation-1-shadow)]`, `border-[var(--elevation-1-border)]`
+
+**Example:**
+```tsx
+// ✅ CORRECT - Uses theme tokens via CSS variables
+<div className="bg-[var(--surface-card)] text-[var(--text-primary)] border-[var(--surface-container-stroke)]">
+  Card content
+</div>
+```
+
+**Why:** These tokens change between light/dark themes. Using CSS variables ensures automatic theme switching and maintains a single source of truth.
+
+### ✅ USE Direct Tailwind Classes for Base & Semantic Colors
+
+**Rule:** If you need a specific color shade from the base or semantic scales, use direct Tailwind classes.
+
+**Syntax:** `bg-{color}-{shade}` or `text-{color}-{shade}`
+
+**Use for:**
+- **Semantic colors:** `bg-success-500`, `text-error-600`, `border-warning-400`
+- **Specific shades:** `bg-amber-100`, `text-sepia-600`, `hover:bg-amber-200`
+- **Fixed colors:** `bg-white`, `bg-black`, `text-white`
+
+**Example:**
+```tsx
+// ✅ CORRECT - Uses direct Tailwind for specific color needs
+<div className="bg-success-100 text-success-800 border-success-500">
+  Success message
+</div>
+
+// ✅ CORRECT - Uses specific shade for hover effect
+<button className="bg-amber-400 hover:bg-amber-500">
+  Click me
+</button>
+```
+
+**Why:** Direct Tailwind classes are cleaner for specific color needs and provide better autocomplete/readability when you need a particular shade.
+
+### ❌ INCORRECT Examples
+
+```tsx
+// ❌ WRONG - Should use CSS variable for theme token
+<div className="bg-sepia-50 dark:bg-sepia-1000">  
+  // This hardcodes theme colors instead of using --surface-page
+</div>
+
+// ✅ CORRECT VERSION
+<div className="bg-[var(--surface-page)]">
+  // Automatically switches between themes
+</div>
+
+// ❌ WRONG - Should use direct Tailwind for semantic color
+<div className="bg-[var(--color-success-500)]">  
+  // This CSS variable doesn't exist
+</div>
+
+// ✅ CORRECT VERSION
+<div className="bg-success-500">
+  // Uses Tailwind's configured color scale
+</div>
+```
+
+### Quick Decision Tree
+
+```
+Do you need a color/style that changes with theme (light/dark)?
+├─ YES → Use CSS variable: `bg-[var(--surface-card)]`
+└─ NO → Is it a specific color shade you need?
+   ├─ YES → Use direct Tailwind: `bg-success-500`
+   └─ NO → Consider if you need a new theme token
+```
+
+---
+
 #### Surface Tokens
 **Pattern:** `{theme}.surface.{property}`
 
 **Light Theme:**
 ```
-light.surface.page              → {color.amber.50}
-light.surface.container         → {color.amber.50}
-light.surface.container-stroke  → {color.sepia.300}
+light.surface.page              → {color.sepia.50}
+light.surface.container         → {color.sepia.50}
+light.surface.card              → {color.white}
+light.surface.container-stroke  → {color.sepia.500}
 ```
 
 **Dark Theme:**
 ```
-dark.surface.page              → {color.sepia.900}
-dark.surface.container         → {color.sepia.900}
-dark.surface.container-stroke  → {color.sepia.700}
+dark.surface.page              → {color.sepia.1000}
+dark.surface.container         → {color.sepia.1000}
+dark.surface.card              → {color.sepia.975}
+dark.surface.container-stroke  → {color.sepia.800}
 ```
+
+#### Elevation Tokens (Shadows & Borders)
+**Pattern:** `{theme}.elevation.{level}.{property}`
+
+**Purpose:** Apple-inspired elevation system for cards, modals, and elevated UI elements. Dark mode uses subtle shadows with light borders for better depth perception.
+
+**Levels:** `0`, `1`, `2`, `3`  
+**Properties:** `shadow`, `border`
+
+**Light Theme:**
+```
+light.elevation.0.shadow  → none (flat, no elevation)
+light.elevation.0.border  → transparent
+
+light.elevation.1.shadow  → 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08)
+light.elevation.1.border  → {color.sepia.200}
+
+light.elevation.2.shadow  → 0 4px 12px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.10)
+light.elevation.2.border  → {color.sepia.300}
+
+light.elevation.3.shadow  → 0 10px 40px rgba(0,0,0,0.20), 0 4px 8px rgba(0,0,0,0.12)
+light.elevation.3.border  → {color.sepia.300}
+```
+
+**Dark Theme (Apple's Approach):**
+```
+dark.elevation.0.shadow  → none (flat, no elevation)
+dark.elevation.0.border  → transparent
+
+dark.elevation.1.shadow  → 0 2px 8px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.05)
+dark.elevation.1.border  → rgba(255, 255, 255, 0.08)
+
+dark.elevation.2.shadow  → 0 4px 16px rgba(0,0,0,0.5), 0 2px 0 rgba(255,255,255,0.08)
+dark.elevation.2.border  → rgba(255, 255, 255, 0.10)
+
+dark.elevation.3.shadow  → 0 8px 32px rgba(0,0,0,0.6), 0 2px 0 rgba(255,255,255,0.10)
+dark.elevation.3.border  → rgba(255, 255, 255, 0.12)
+```
+
+**Usage Guidelines:**
+- **Level 0:** Flat elements (no shadow needed)
+- **Level 1:** Default cards, containers (subtle elevation)
+- **Level 2:** Dropdowns, popovers, hover states (medium elevation)
+- **Level 3:** Modals, dialogs, tooltips (high elevation)
+
+**Dark Mode Features:**
+- Layered shadows (dark + light highlight)
+- Light borders for edge definition
+- Increased blur radius for softer appearance
+- Subtle top highlight simulates "light from above"
 
 #### Text Tokens
 **Pattern:** `{theme}.text.{hierarchy}`
@@ -496,17 +656,178 @@ When creating tokens for a new component, ensure:
 
 ---
 
+## Token Documentation Cards
+
+**What They Are:**  
+Token Documentation Cards are UI components used throughout the Scorpion UI documentation site to display which design tokens are used in a specific component. They break down a component's implementation into organized categories (Colors, Typography, Spacing, Border, etc.) showing the exact token names and values.
+
+**Purpose:**  
+- Bridge the gap between raw design tokens and actual component implementations
+- Help developers understand which tokens to use when implementing or customizing components
+- Provide a quick reference for token usage in each component
+- Ensure consistency by showing both light and dark theme token values
+
+**Structure:**  
+Each Token Documentation Card typically includes:
+- **Card Title:** The token category (e.g., "Colors", "Typography", "Spacing")
+- **Theme Sections:** Side-by-side comparison of Light and Dark theme values
+- **Token Names:** The exact token path (e.g., `color.amber.400`, `font.size.sm`)
+- **Resolved Values:** The actual computed values (e.g., `#FBBF24`, `14px`)
+- **Usage Context:** What each token is used for (e.g., "Default", "Hover", "Active")
+
+**Example Layout:**
+
+```
+┌─────────────────────────────────────────────────────┐
+│ Colors                                              │
+├─────────────────────────────────────────────────────┤
+│ Background (Light)        Background (Dark)         │
+│ Default: color.amber.400  Default: color.amber.400  │
+│ Hover: color.amber.500    Hover: color.amber.500    │
+│ Active: color.amber.600   Active: color.amber.600   │
+└─────────────────────────────────────────────────────┘
+```
+
+**Implementation Notes:**  
+- Token Documentation Cards are displayed on component documentation pages (e.g., Buttons page, Card page)
+- They should always show both light and dark theme tokens when applicable
+- Token names must match exactly between the cards and the actual `tokens.json` file
+- Cards help maintain the **Naming Consistency Across All Sources** rule (see Critical Rule #2)
+
+**Naming Convention:**  
+Use the term **"Token Documentation Cards"** consistently throughout:
+- Code comments
+- Component documentation
+- Developer discussions
+- Design system conversations
+
+---
+
+## When to Use Semantic Tokens vs Base Tokens
+
+**This is a critical architectural decision that affects maintainability and rebranding capability.**
+
+### ✅ USE SEMANTIC TOKENS in Component Implementations
+
+**Rule:** Components should consume semantic tokens (primary, secondary, error, success, etc.) NOT base tokens (amber, sepia, red, green).
+
+**Examples:**
+```tsx
+// ✅ CORRECT - Component uses semantic tokens
+<button className="bg-primary-400 hover:bg-primary-500 text-black">
+  Primary Button
+</button>
+
+<div className="text-error-600">
+  Error message
+</div>
+
+// ❌ WRONG - Component uses base tokens directly
+<button className="bg-amber-400 hover:bg-amber-500 text-black">
+  Primary Button  // This is tightly coupled to amber!
+</button>
+```
+
+**Why This Matters:**
+- ✅ **Easy Rebranding:** Change primary from amber to blue by updating ONE mapping
+- ✅ **Semantic Clarity:** Code communicates intent (primary action) not implementation detail (amber color)
+- ✅ **Token Hierarchy:** Respects the Base → Semantic → Theme token architecture
+- ✅ **Consistency:** All components follow the same pattern
+
+### ✅ USE SEMANTIC TOKENS in Component Documentation
+
+**Rule:** Token Documentation Cards should show semantic tokens with base resolution in parentheses.
+
+**Format:** `color.semantic.shade (base.shade)`
+
+**Examples:**
+```
+✅ CORRECT:
+Default: color.primary.400 (amber.400)
+Hover: color.primary.500 (amber.500)
+Error: color.error.600 (red.600)
+
+❌ WRONG:
+Default: color.amber.400
+Hover: color.amber.500
+Error: color.red.600
+```
+
+**Why Show Resolution:**
+- Developers see the semantic name (what to use)
+- Developers see the resolved color (what it actually is)
+- Maintains traceability from semantic → base
+- Helps understand the token hierarchy
+
+### ✅ USE BASE TOKENS in Palette Documentation
+
+**Rule:** Pages that document the color scales themselves (Colors page, SemanticColors page) should show base tokens.
+
+**Examples:**
+- **Colors.tsx** - Documents `color.amber.{50-950}`, `color.sepia.{50-950}` scales
+- **SemanticColors.tsx** - Documents the semantic mappings themselves
+
+**Why:**
+These pages ARE the source of truth for the palette - they document the base scales and how semantics map to them.
+
+### 🎯 Decision Matrix
+
+| **Location** | **Use Semantic?** | **Example** | **Why** |
+|-------------|------------------|-------------|---------|
+| Component Implementation (Button.tsx) | ✅ YES | `bg-primary-400` | Components should consume semantic meaning |
+| Component Documentation Cards | ✅ YES (with resolution) | `color.primary.400 (amber.400)` | Shows intent + resolution |
+| Layout Components (Sidebar, TopBar) | ⚠️ DEPENDS | `bg-secondary-600` for neutral UI | Use secondary for neutral elements |
+| Colors Page | ❌ NO | `color.amber.400` | Documenting the base palette itself |
+| Semantic Colors Page | ❌ NO | Shows mappings | Documenting semantic layer itself |
+
+### 📝 Semantic Token Mappings
+
+**Current mappings in tokens.json:**
+```
+color.primary.*   → color.amber.*    (Brand color)
+color.secondary.* → color.sepia.*    (Neutral/gray)
+color.success.*   → color.green.*    (Positive actions)
+color.info.*      → color.blue.*     (Informational)
+color.warning.*   → color.purple.*   (Caution)
+color.error.*     → color.red.*      (Destructive/danger)
+```
+
+### 🔄 Rebranding Example
+
+**If you wanted to change primary from amber to blue:**
+
+With semantic tokens (CORRECT approach):
+```json
+// Change ONE LINE in tokens.json
+"color.primary.500": { "$value": "{color.blue.500}" }
+
+// ✅ All components automatically update
+// ✅ Documentation stays accurate
+// ✅ Zero code changes needed
+```
+
+Without semantic tokens (WRONG approach):
+```tsx
+// Would need to change EVERY component file
+❌ Update Button.tsx: bg-amber-500 → bg-blue-500
+❌ Update Link.tsx: text-amber-600 → text-blue-600
+❌ Update all documentation cards
+❌ High risk of missing instances
+```
+
+---
+
 ## Appendix: Complete Token Type Reference
 
-| **$type** | **Used For** |
-|-----------|-------------|
-| `color` | All color values |
-| `fontFamilies` | Font family names |
-| `fontSizes` | Font size values |
-| `spacing` | Spacing/padding values |
-| `sizing` | Width/height values |
-| `borderRadius` | Border radius values |
-| `boxShadow` | Shadow definitions |
+| **$type** | **Used For** | **Example** |
+|-----------|-------------|-------------|
+| `color` | All color values | `#F59E0B` or `rgba(255, 255, 255, 0.08)` |
+| `fontFamilies` | Font family names | `"Fragment Mono"` |
+| `fontSizes` | Font size values | `16px` |
+| `spacing` | Spacing/padding values | `16px` |
+| `sizing` | Width/height values | `40px` |
+| `borderRadius` | Border radius values | `12px` |
+| `boxShadow` | Shadow definitions | `0 2px 8px rgba(0,0,0,0.4)` |
 
 ---
 
@@ -518,13 +839,25 @@ Before implementing any component:
 2. ✅ Confirm you understand the token hierarchy (Base → Semantic → Theme)
 3. ✅ Verify you're creating tokens in BOTH light and dark themes
 4. ✅ Double-check token names match exactly across JSON, docs, and code
-5. ✅ Reference existing component patterns before creating new ones
-6. ✅ Use semantic tokens (e.g., `{color.primary.500}`) not base tokens in theme layers
-7. ✅ Add proper `$type` to all new tokens
+5. ✅ **Use the HYBRID APPROACH:** CSS variables for theme tokens, direct Tailwind for specific colors
+6. ✅ Reference existing component patterns before creating new ones
+7. ✅ Use semantic tokens (e.g., `{color.primary.500}`) not base tokens in theme layers
+8. ✅ Add proper `$type` to all new tokens
+
+**Implementation Quick Reference:**
+- Theme tokens (surfaces, text, buttons) → `bg-[var(--surface-card)]`
+- Specific color shades (success, error) → `bg-success-500`
+- See "Implementation Standard" section for complete guide
 
 ---
 
-**Document Version:** 2.0  
-**Last Updated:** October 2025  
-**Maintained By:** Scorpion UI Design System Team
+**Document Version:** 2.3  
+**Last Updated:** October 15, 2025  
+**Maintained By:** Scorpion UI Design System Team  
+
+**Changelog:**
+- **v2.3** - Added comprehensive "Semantic Tokens vs Base Tokens" guidance section
+- **v2.2** - Added "Token Documentation Cards" section defining component documentation pattern
+- **v2.1** - Added Rule 3: Implementation Standard (CSS Variables vs Tailwind Classes)
+- **v2.0** - Initial comprehensive token naming system documentation
 

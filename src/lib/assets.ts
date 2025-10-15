@@ -14,6 +14,9 @@ export const ASSETS = {
   scorpionNeutral: '/scorpion-neutral.png',
   scorpionHero: '/scorpion-hero.png',
   scorpionHeroV2: '/scorpion-hero-v2.png',
+  scorpionUIGraphic2: '/scorpion-ui-graphic-2.png',
+  scorpionUIGraphic2Transparent: '/scorpion-ui-graphic-2-transparent.png',
+  scorpionUIGraphic3b: '/scorpion-ui-graphic-3b.png',
   scorpionFavicon: '/scorpion-favicon.svg',
   
   // Avatar images
@@ -35,6 +38,19 @@ export const ASSETS = {
   faviconIco: '/favicon.ico',
   faviconSvg: '/favicon.svg',
   appleTouchIcon: '/apple-touch-icon.png',
+  
+  // Homepage feature card icons
+  icons: {
+    // Design Tokens card
+    colorSyncLight: '/Icons/Light theme/2. System apps/ColorSync Utility.png',
+    colorSyncDark: '/Icons/Dark theme/2. System apps/ColorSync Utility.png',
+    // Components card
+    automatorLight: '/Icons/Light theme/2. System apps/Automator.png',
+    automatorDark: '/Icons/Dark theme/2. System apps/Automator.png',
+    // Theme System card
+    systemPrefsLight: '/Icons/Light theme/2. System apps/System preferences.png',
+    systemPrefsDark: '/Icons/Dark theme/2. System apps/System preferences.png',
+  },
 } as const;
 
 /**

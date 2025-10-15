@@ -38,9 +38,9 @@ export function ThemeToggle() {
       {/* Toggle Switch */}
       <button
         onClick={toggleTheme}
-        className="relative inline-flex items-center h-6 w-12 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 dark:focus:ring-offset-sepia-900"
+        className="relative inline-flex items-center h-6 w-12 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-900"
         style={{
-          backgroundColor: isDark ? '#F59E0B' : '#D6D3D1', // amber-500 : sepia-300
+          backgroundColor: isDark ? '#F59E0B' : '#D6D3D1', // primary-500 (amber-500) : secondary-300 (sepia-300)
         }}
         aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
         role="switch"
@@ -48,16 +48,16 @@ export function ThemeToggle() {
       >
         {/* Sliding Knob */}
         <span
-          className="inline-flex items-center justify-center h-5 w-5 transform transition-transform duration-300 bg-white dark:bg-sepia-900 rounded-full shadow-sm"
+          className="inline-flex items-center justify-center h-5 w-5 transform transition-transform duration-300 bg-white dark:bg-secondary-900 rounded-full shadow-sm"
           style={{
             transform: isDark ? 'translateX(26px)' : 'translateX(2px)',
           }}
         >
           {/* Icon inside knob */}
           {isDark ? (
-            <Moon className="w-3 h-3 text-amber-500" />
+            <Moon className="w-3 h-3 text-primary-500" />
           ) : (
-            <Sun className="w-3 h-3 text-sepia-700" />
+            <Sun className="w-3 h-3 text-secondary-700" />
           )}
         </span>
       </button>
