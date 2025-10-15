@@ -35,18 +35,23 @@
     --color-amber-800: #92400E;
     --color-amber-900: #78350F;
     --color-amber-950: #451A03;
+    --color-amber-975: #2D1102;
+    --color-amber-1000: #1A0A01;
     
-    --color-stone-50: #FAFAF9;
-    --color-stone-100: #F5F5F4;
-    --color-stone-200: #E7E5E4;
-    --color-stone-300: #D6D3D1;
-    --color-stone-400: #A8A29E;
-    --color-stone-500: #78716C;
-    --color-stone-600: #57534E;
-    --color-stone-700: #44403C;
-    --color-stone-800: #292524;
-    --color-stone-900: #1C1917;
-    --color-stone-950: #0C0A09;
+    --color-sepia-50: #FDFCFB;
+    --color-sepia-100: #FCFBFA;
+    --color-sepia-200: #F7F5F2;
+    --color-sepia-300: #F0EBE4;
+    --color-sepia-400: #E0DACE;
+    --color-sepia-500: #BFB4A3;
+    --color-sepia-600: #968A75;
+    --color-sepia-700: #695F4D;
+    --color-sepia-800: #474030;
+    --color-sepia-900: #2B2718;
+    --color-sepia-925: #221E13;
+    --color-sepia-950: #1A150F;
+    --color-sepia-975: #120D09;
+    --color-sepia-1000: #0A0704;
     
     --color-green-50: #F0FDF4;
     --color-green-100: #DCFCE7;
@@ -99,7 +104,7 @@
     --color-black: #000000;
     --color-white: #FFFFFF;
     
-    /* Primary, secondary, and semantic colors (reference amber/stone) */
+    /* Primary, secondary, and semantic colors (reference amber/sepia) */
     --color-primary-50: #FFFBEB;
     --color-primary-100: #FEF3C7;
     --color-primary-200: #FDE68A;
@@ -111,18 +116,23 @@
     --color-primary-800: #92400E;
     --color-primary-900: #78350F;
     --color-primary-950: #451A03;
+    --color-primary-975: #2D1102;
+    --color-primary-1000: #1A0A01;
     
-    --color-secondary-50: #FAFAF9;
-    --color-secondary-100: #F5F5F4;
-    --color-secondary-200: #E7E5E4;
-    --color-secondary-300: #D6D3D1;
-    --color-secondary-400: #A8A29E;
-    --color-secondary-500: #78716C;
-    --color-secondary-600: #57534E;
-    --color-secondary-700: #44403C;
-    --color-secondary-800: #292524;
-    --color-secondary-900: #1C1917;
-    --color-secondary-950: #0C0A09;
+    --color-secondary-50: #FDFCFB;
+    --color-secondary-100: #FCFBFA;
+    --color-secondary-200: #F7F5F2;
+    --color-secondary-300: #F0EBE4;
+    --color-secondary-400: #E0DACE;
+    --color-secondary-500: #BFB4A3;
+    --color-secondary-600: #968A75;
+    --color-secondary-700: #695F4D;
+    --color-secondary-800: #474030;
+    --color-secondary-900: #2B2718;
+    --color-secondary-925: #221E13;
+    --color-secondary-950: #1A150F;
+    --color-secondary-975: #120D09;
+    --color-secondary-1000: #0A0704;
     
     /* Success colors (green) */
     --color-success-50: #F0FDF4;
@@ -190,36 +200,38 @@
     --radius-container: 24px;
     
     /* Light theme surface and text colors */
-    --surface-page: #FFFBEB;
-    --surface-container: #FFFBEB;
-    --surface-container-stroke: #D6D3D1;
-    --text-primary: #1C1917;
-    --text-secondary: #57534E;
+    --surface-page: #FDFCFB;  /* sepia-50 - page background */
+    --surface-container: #FDFCFB;  /* sepia-50 - topbar & sidebar */
+    --surface-card: #F7F5F2;  /* sepia-200 - content cards */
+    --surface-container-stroke: #E0DACE;  /* sepia-400 - borders/strokes */
+    --text-primary: #2B2718;
+    --text-secondary: #968A75;
     
     /* Light theme button colors */
-    --button-primary-bg: #1C1917;
-    --button-primary-bg-hover: #292524;
+    --button-primary-bg: #2B2718;
+    --button-primary-bg-hover: #474030;
     --button-primary-text: #FFFFFF;
     --button-secondary-bg: #FDE68A;
     --button-secondary-bg-hover: #FCD34D;
-    --button-secondary-text: #1C1917;
+    --button-secondary-text: #2B2718;
   }
 
   .dark {
     /* Dark theme overrides */
-    --surface-page: #1C1917;
-    --surface-container: #1C1917;
-    --surface-container-stroke: #44403C;
-    --text-primary: #FAFAF9;
-    --text-secondary: #A8A29E;
+    --surface-page: #120D09;  /* sepia-975 - darkest page background */
+    --surface-container: #120D09;  /* sepia-975 - topbar & sidebar */
+    --surface-card: #1A150F;  /* sepia-950 - content cards (elevated) */
+    --surface-container-stroke: #695F4D;
+    --text-primary: #FDFCFB;
+    --text-secondary: #E0DACE;
     
     /* Dark theme button colors */
     --button-primary-bg: #FBBF24;
     --button-primary-bg-hover: #F59E0B;
     --button-primary-text: #000000;
-    --button-secondary-bg: #44403C;
-    --button-secondary-bg-hover: #57534E;
-    --button-secondary-text: #FAFAF9;
+    --button-secondary-bg: #695F4D;
+    --button-secondary-bg-hover: #968A75;
+    --button-secondary-text: #FDFCFB;
   }
 
   * {
@@ -240,4 +252,29 @@
   .theme-transition {
     @apply transition-colors duration-200 ease-in-out;
   }
+}
+
+/**
+ * RETRO SCORPION UI ANIMATIONS
+ * 
+ * This creates the animated color-cycling effect for the hero text
+ */
+@keyframes colorCycle {
+  0%, 100% {
+    color: #695F4D; /* sepia-700 - dark warm gray */
+  }
+  33% {
+    color: #F59E0B; /* amber-500 - orange */
+  }
+  66% {
+    color: #BFB4A3; /* sepia-500 - medium warm gray */
+  }
+}
+
+/* Animated hero text class */
+.hero-text-animated {
+  animation: colorCycle 6s ease-in-out infinite;
+  font-family: var(--font-family-mono); /* Fragment Mono from design tokens */
+  font-weight: 700;
+  text-transform: uppercase;
 }

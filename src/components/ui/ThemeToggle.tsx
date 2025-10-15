@@ -1,14 +1,13 @@
 /**
  * THEME TOGGLE COMPONENT
  * 
- * A simple button to switch between light and dark themes
- * Uses icons from lucide-react to show the current theme state
+ * A sliding toggle switch to switch between light and dark themes
+ * Uses design tokens for consistent styling across modes
  */
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -21,12 +20,10 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button 
-        className="p-2 rounded-button border border-secondary-300 dark:border-secondary-700 bg-transparent"
-        aria-label="Toggle theme"
-      >
-        <div className="w-5 h-5" />
-      </button>
+      <div className="flex items-center gap-3 px-3 py-2">
+        <div className="w-12 h-6 rounded-full bg-sepia-300 dark:bg-sepia-700" />
+        <span className="text-sm font-mono text-sepia-600 dark:text-sepia-400">Theme</span>
+      </div>
     );
   }
 
@@ -34,23 +31,42 @@ export function ThemeToggle() {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
+  const isDark = theme === "dark";
+
   return (
-    <button
-      onClick={toggleTheme}
-      className={cn(
-        "p-2 rounded-button border transition-colors",
-        "border-secondary-300 dark:border-secondary-700",
-        "hover:bg-secondary-100 dark:hover:bg-secondary-800",
-        "focus:outline-none focus:ring-2 focus:ring-primary-500"
-      )}
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-    >
-      {theme === "dark" ? (
-        <Sun className="w-5 h-5 text-amber-400" />
-      ) : (
-        <Moon className="w-5 h-5 text-stone-700" />
-      )}
-    </button>
+    <div className="flex items-center gap-3 px-3 py-2">
+      {/* Toggle Switch */}
+      <button
+        onClick={toggleTheme}
+        className="relative inline-flex items-center h-6 w-12 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 dark:focus:ring-offset-sepia-900"
+        style={{
+          backgroundColor: isDark ? '#F59E0B' : '#D6D3D1', // amber-500 : sepia-300
+        }}
+        aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
+        role="switch"
+        aria-checked={isDark}
+      >
+        {/* Sliding Knob */}
+        <span
+          className="inline-flex items-center justify-center h-5 w-5 transform transition-transform duration-300 bg-white dark:bg-sepia-900 rounded-full shadow-sm"
+          style={{
+            transform: isDark ? 'translateX(26px)' : 'translateX(2px)',
+          }}
+        >
+          {/* Icon inside knob */}
+          {isDark ? (
+            <Moon className="w-3 h-3 text-amber-500" />
+          ) : (
+            <Sun className="w-3 h-3 text-sepia-700" />
+          )}
+        </span>
+      </button>
+
+      {/* Label Text */}
+      <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">
+        {isDark ? 'Dark' : 'Light'}
+      </span>
+    </div>
   );
 }
 

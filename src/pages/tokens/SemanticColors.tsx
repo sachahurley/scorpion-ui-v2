@@ -1,164 +1,157 @@
 /**
- * FOUNDATION COLORS PAGE - BASE COLORS
+ * SEMANTIC COLORS PAGE
  * 
- * Documentation for base/foundation color tokens
- * These are primitive color values that never reference other tokens
- * Displays: Amber, Sepia, Green, Blue, Purple, Red scales + Black & White
+ * Documentation for semantic/alias color tokens
+ * These are color tokens that reference the foundation colors
+ * (e.g., primary → amber, secondary → sepia, success → green)
+ * 
+ * NOTE: The actual CSS classes still use base color names (bg-amber-50, bg-sepia-50, etc.)
+ * but we display them with semantic token names (color.primary.50, color.secondary.50, etc.)
  */
 
-export default function Colors() {
+export default function SemanticColors() {
   return (
     <div className="container mx-auto px-10 pt-10 pb-20">
         {/* 
-          BASE TOKENS SECTION - FULL WIDTH
-          Shows the foundation tokens (Amber scale) that form the primitive values
-          These never reference other tokens - they're the base of the design system
-          This section is outside the max-w-6xl container to fill the page width
+          SEMANTIC TOKENS SECTION
+          Shows semantic color tokens that reference base colors
+          These give meaning to colors (primary, success, error) rather than just naming them by hue
         */}
         <section className="mb-10">
-            {/* Section Header - explains what base tokens are */}
+            {/* Section Header - explains what semantic tokens are */}
             <div className="flex flex-col gap-2 mb-10">
-              <h2 className="text-2xl font-mono text-sepia-900 dark:text-sepia-50">Base Tokens (Global)</h2>
+              <h2 className="text-2xl font-mono text-sepia-900 dark:text-sepia-50">Semantic Tokens</h2>
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
-                Foundation tokens that never reference other tokens. These are the primitive values.
+                Color tokens with semantic meaning that reference foundation colors.
               </p>
           </div>
 
             {/* Container with page background and border */}
             <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-[24px] p-10">
-              {/* Subsection title for the Amber scale */}
+              {/* Subsection title for Primary scale */}
               <div className="mb-4">
-                <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Amber Scale</h3>
+                <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Primary Scale (references Amber)</h3>
         </div>
 
               {/* 
-                Responsive grid of color swatches using CSS Grid
-                - grid with auto-fill creates as many columns as fit
-                - minmax(180px, 1fr) means each card is at least 180px and grows equally
-                - gap-5 creates 20px spacing between cards
-                - ALL cards have the same width (determined by first row)
+                Grid of color swatches - same structure as base colors
+                Uses Amber colors but displays as "primary" in token names
               */}
               <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-5">
-                {/* 
-                  Each color swatch card:
-                  - border with rounded corners
-                  - color preview on top (80px height)
-                  - label section below with token name and hex value
-                */}
                 
-                {/* amber-50 */}
+                {/* primary-50 (amber-50) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-50 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.50</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.50</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FFFBEB</p>
                   </div>
                 </div>
 
-                {/* amber-100 */}
+                {/* primary-100 (amber-100) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-100 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.100</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.100</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FEF3C7</p>
                   </div>
                 </div>
 
-                {/* amber-200 */}
+                {/* primary-200 (amber-200) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-200 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.200</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.200</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FDE68A</p>
                   </div>
                 </div>
 
-                {/* amber-300 */}
+                {/* primary-300 (amber-300) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-300 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.300</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.300</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FCD34D</p>
                   </div>
                 </div>
 
-                {/* amber-400 */}
+                {/* primary-400 (amber-400) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-400 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.400</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.400</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FBBF24</p>
                   </div>
                 </div>
 
-                {/* amber-500 */}
+                {/* primary-500 (amber-500) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-500 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.500</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.500</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#F59E0B</p>
                   </div>
                 </div>
 
-                {/* amber-600 */}
+                {/* primary-600 (amber-600) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-600 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.600</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.600</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#D97706</p>
                           </div>
                             </div>
 
-                {/* amber-700 */}
+                {/* primary-700 (amber-700) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-700 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.700</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.700</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#B45309</p>
                   </div>
                 </div>
 
-                {/* amber-800 */}
+                {/* primary-800 (amber-800) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-800 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.800</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.800</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#92400E</p>
                   </div>
                             </div>
 
-                {/* amber-900 */}
+                {/* primary-900 (amber-900) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-900 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.900</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.900</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#78350F</p>
                               </div>
                     </div>
 
-                {/* amber-950 */}
+                {/* primary-950 (amber-950) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-950 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.950</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.950</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#451A03</p>
                   </div>
                 </div>
 
-                {/* amber-975 */}
+                {/* primary-975 (amber-975) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-975 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.975</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.975</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#2D1102</p>
                   </div>
                 </div>
 
-                {/* amber-1000 */}
+                {/* primary-1000 (amber-1000) */}
                 <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                   <div className="bg-amber-1000 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                   <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.amber.1000</p>
+                    <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.primary.1000</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#1A0A01</p>
                   </div>
                 </div>
@@ -166,122 +159,122 @@ export default function Colors() {
             </div>
         </section>
 
-        {/* SEPIA SCALE SECTION */}
+        {/* SECONDARY SCALE SECTION (Sepia colors) */}
         <section className="mb-10">
           <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-[24px] p-10">
             <div className="mb-4">
-              <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Sepia Scale</h3>
+              <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Secondary Scale (references Sepia)</h3>
             </div>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-5">
-              {/* sepia-50 */}
+              {/* secondary-50 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-50 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.50</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FDFCFB</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.50</p>
+                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FAFAF9</p>
                 </div>
               </div>
-              {/* sepia-100 */}
+              {/* secondary-100 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-100 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.100</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FCFBFA</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.100</p>
+                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#F5F5F4</p>
                 </div>
               </div>
-              {/* sepia-200 */}
+              {/* secondary-200 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-200 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.200</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#F7F5F2</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.200</p>
+                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#E7E5E4</p>
                 </div>
               </div>
-              {/* sepia-300 */}
+              {/* secondary-300 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-300 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.300</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#F0EBE4</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.300</p>
+                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#D6D3D1</p>
                 </div>
               </div>
-              {/* sepia-400 */}
+              {/* secondary-400 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-400 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.400</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#E0DACE</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.400</p>
+                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#A8A29E</p>
                 </div>
               </div>
-              {/* sepia-500 */}
+              {/* secondary-500 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-500 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.500</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#BFB4A3</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.500</p>
+                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#78716C</p>
                 </div>
               </div>
-              {/* sepia-600 */}
+              {/* secondary-600 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-600 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.600</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#968A75</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.600</p>
+                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#57534E</p>
                 </div>
               </div>
-              {/* sepia-700 */}
+              {/* secondary-700 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-700 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.700</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#695F4D</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.700</p>
+                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#44403C</p>
                 </div>
               </div>
-              {/* sepia-800 */}
+              {/* secondary-800 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-800 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.800</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.800</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#474030</p>
                 </div>
               </div>
-              {/* sepia-900 */}
+              {/* secondary-900 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-900 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.900</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.900</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#2B2718</p>
                 </div>
               </div>
-              {/* sepia-925 */}
+              {/* secondary-925 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-925 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.925</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.925</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#221E13</p>
                 </div>
               </div>
-              {/* sepia-950 */}
+              {/* secondary-950 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-950 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.950</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.950</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#1A150F</p>
                 </div>
               </div>
-              {/* sepia-975 */}
+              {/* secondary-975 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-975 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.975</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.975</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#120D09</p>
                 </div>
               </div>
-              {/* sepia-1000 */}
+              {/* secondary-1000 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-sepia-1000 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.sepia.1000</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.secondary.1000</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#0A0704</p>
                 </div>
               </div>
@@ -289,98 +282,98 @@ export default function Colors() {
           </div>
         </section>
 
-        {/* GREEN SCALE SECTION */}
+        {/* SUCCESS SCALE SECTION (Green colors) */}
         <section className="mb-10">
           <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-[24px] p-10">
             <div className="mb-4">
-              <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Green Scale</h3>
+              <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Success Scale (references Green)</h3>
             </div>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-5">
-              {/* green-50 */}
+              {/* success-50 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-green-50 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.green.50</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.success.50</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#F0FDF4</p>
                 </div>
               </div>
-              {/* green-100 */}
+              {/* success-100 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-green-100 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.green.100</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.success.100</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#DCFCE7</p>
                 </div>
               </div>
-              {/* green-200 */}
+              {/* success-200 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-green-200 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.green.200</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.success.200</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#BBF7D0</p>
                 </div>
               </div>
-              {/* green-300 */}
+              {/* success-300 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-green-300 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.green.300</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.success.300</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#86EFAC</p>
                 </div>
               </div>
-              {/* green-400 */}
+              {/* success-400 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-green-400 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.green.400</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.success.400</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#4ADE80</p>
                 </div>
               </div>
-              {/* green-500 */}
+              {/* success-500 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-green-500 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.green.500</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.success.500</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#22C55E</p>
                 </div>
               </div>
-              {/* green-600 */}
+              {/* success-600 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-green-600 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.green.600</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.success.600</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#16A34A</p>
                 </div>
               </div>
-              {/* green-700 */}
+              {/* success-700 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-green-700 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.green.700</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.success.700</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#15803D</p>
                 </div>
               </div>
-              {/* green-800 */}
+              {/* success-800 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-green-800 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.green.800</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.success.800</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#166534</p>
                 </div>
               </div>
-              {/* green-900 */}
+              {/* success-900 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-green-900 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.green.900</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.success.900</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#14532D</p>
                 </div>
               </div>
-              {/* green-950 */}
+              {/* success-950 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-green-950 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.green.950</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.success.950</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#052E16</p>
                 </div>
               </div>
@@ -388,98 +381,98 @@ export default function Colors() {
           </div>
         </section>
 
-        {/* BLUE SCALE SECTION */}
+        {/* INFO SCALE SECTION (Blue colors) */}
         <section className="mb-10">
           <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-[24px] p-10">
             <div className="mb-4">
-              <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Blue Scale</h3>
+              <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Info Scale (references Blue)</h3>
             </div>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-5">
-              {/* blue-50 */}
+              {/* info-50 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-blue-50 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.blue.50</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.info.50</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#EFF6FF</p>
                 </div>
               </div>
-              {/* blue-100 */}
+              {/* info-100 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-blue-100 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.blue.100</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.info.100</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#DBEAFE</p>
                 </div>
               </div>
-              {/* blue-200 */}
+              {/* info-200 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-blue-200 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.blue.200</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.info.200</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#BFDBFE</p>
                 </div>
               </div>
-              {/* blue-300 */}
+              {/* info-300 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-blue-300 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.blue.300</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.info.300</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#93C5FD</p>
                 </div>
               </div>
-              {/* blue-400 */}
+              {/* info-400 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-blue-400 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.blue.400</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.info.400</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#60A5FA</p>
                 </div>
               </div>
-              {/* blue-500 */}
+              {/* info-500 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-blue-500 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.blue.500</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.info.500</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#3B82F6</p>
                 </div>
               </div>
-              {/* blue-600 */}
+              {/* info-600 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-blue-600 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.blue.600</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.info.600</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#2563EB</p>
                 </div>
               </div>
-              {/* blue-700 */}
+              {/* info-700 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-blue-700 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.blue.700</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.info.700</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#1D4ED8</p>
                 </div>
               </div>
-              {/* blue-800 */}
+              {/* info-800 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-blue-800 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.blue.800</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.info.800</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#1E40AF</p>
                 </div>
               </div>
-              {/* blue-900 */}
+              {/* info-900 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-blue-900 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.blue.900</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.info.900</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#1E3A8A</p>
                 </div>
               </div>
-              {/* blue-950 */}
+              {/* info-950 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-blue-950 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.blue.950</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.info.950</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#172554</p>
                 </div>
               </div>
@@ -487,98 +480,98 @@ export default function Colors() {
           </div>
               </section>
 
-        {/* PURPLE SCALE SECTION */}
+        {/* WARNING SCALE SECTION (Purple colors) */}
         <section className="mb-10">
           <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-[24px] p-10">
             <div className="mb-4">
-              <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Purple Scale</h3>
+              <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Warning Scale (references Purple)</h3>
             </div>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-5">
-              {/* purple-50 */}
+              {/* warning-50 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-purple-50 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.purple.50</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.warning.50</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FAF5FF</p>
                 </div>
               </div>
-              {/* purple-100 */}
+              {/* warning-100 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-purple-100 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.purple.100</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.warning.100</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#F3E8FF</p>
                 </div>
               </div>
-              {/* purple-200 */}
+              {/* warning-200 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-purple-200 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.purple.200</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.warning.200</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#E9D5FF</p>
                 </div>
               </div>
-              {/* purple-300 */}
+              {/* warning-300 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-purple-300 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.purple.300</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.warning.300</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#D8B4FE</p>
                 </div>
               </div>
-              {/* purple-400 */}
+              {/* warning-400 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-purple-400 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.purple.400</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.warning.400</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#C084FC</p>
                 </div>
               </div>
-              {/* purple-500 */}
+              {/* warning-500 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-purple-500 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.purple.500</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.warning.500</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#A855F7</p>
                 </div>
               </div>
-              {/* purple-600 */}
+              {/* warning-600 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-purple-600 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.purple.600</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.warning.600</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#9333EA</p>
                 </div>
               </div>
-              {/* purple-700 */}
+              {/* warning-700 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-purple-700 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.purple.700</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.warning.700</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#7E22CE</p>
                 </div>
               </div>
-              {/* purple-800 */}
+              {/* warning-800 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-purple-800 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.purple.800</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.warning.800</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#6B21A8</p>
                 </div>
               </div>
-              {/* purple-900 */}
+              {/* warning-900 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-purple-900 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.purple.900</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.warning.900</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#581C87</p>
                 </div>
               </div>
-              {/* purple-950 */}
+              {/* warning-950 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-purple-950 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.purple.950</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.warning.950</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#3B0764</p>
                 </div>
               </div>
@@ -586,131 +579,104 @@ export default function Colors() {
           </div>
         </section>
 
-        {/* RED SCALE SECTION */}
+        {/* ERROR SCALE SECTION (Red colors) */}
         <section className="mb-10">
           <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-[24px] p-10">
             <div className="mb-4">
-              <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Red Scale</h3>
+              <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Error Scale (references Red)</h3>
             </div>
             <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-5">
-              {/* red-50 */}
+              {/* error-50 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-red-50 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.red.50</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.error.50</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FEF2F2</p>
                 </div>
               </div>
-              {/* red-100 */}
+              {/* error-100 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-red-100 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.red.100</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.error.100</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FEE2E2</p>
                 </div>
               </div>
-              {/* red-200 */}
+              {/* error-200 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-red-200 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.red.200</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.error.200</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FECACA</p>
                 </div>
               </div>
-              {/* red-300 */}
+              {/* error-300 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-red-300 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.red.300</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.error.300</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FCA5A5</p>
                 </div>
               </div>
-              {/* red-400 */}
+              {/* error-400 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-red-400 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.red.400</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.error.400</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#F87171</p>
                 </div>
               </div>
-              {/* red-500 */}
+              {/* error-500 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-red-500 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.red.500</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.error.500</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#EF4444</p>
                 </div>
               </div>
-              {/* red-600 */}
+              {/* error-600 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-red-600 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.red.600</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.error.600</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#DC2626</p>
                 </div>
               </div>
-              {/* red-700 */}
+              {/* error-700 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-red-700 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.red.700</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.error.700</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#B91C1C</p>
                 </div>
               </div>
-              {/* red-800 */}
+              {/* error-800 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-red-800 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.red.800</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.error.800</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#991B1B</p>
                 </div>
               </div>
-              {/* red-900 */}
+              {/* error-900 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-red-900 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.red.900</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.error.900</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#7F1D1D</p>
                 </div>
               </div>
-              {/* red-950 */}
+              {/* error-950 */}
               <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
                 <div className="bg-red-950 h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
                 <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.red.950</p>
+                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.error.950</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#450A0A</p>
                 </div>
               </div>
               </div>
             </div>
           </section>
-
-        {/* BLACK AND WHITE SECTION */}
-        <section className="mb-10">
-          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-[24px] p-10">
-            <div className="mb-4">
-              <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Neutrals</h3>
-            </div>
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-5">
-              {/* black */}
-              <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
-                <div className="bg-black h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
-                <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.black</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#000000</p>
-                </div>
-              </div>
-              {/* white */}
-              <div className="border-[0.5px] border-solid border-sepia-500 dark:border-sepia-700 rounded-2xl overflow-hidden">
-                <div className="bg-white h-20 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-700" />
-                <div className="bg-white dark:bg-sepia-950 p-3 flex flex-col gap-1">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">color.white</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">#FFFFFF</p>
-                </div>
-              </div>
-            </div>
-        </div>
-        </section>
     </div>
   );
 }

@@ -5,34 +5,11 @@
  * Will show all available components (coming soon)
  */
 
-import { Link } from "react-router-dom";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export default function ComponentsOverview() {
   return (
-    <div className="min-h-screen theme-transition">
-      {/* Header */}
-      <header className="border-b border-[var(--surface-container-stroke)] bg-[var(--surface-container)]">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <Link to="/" className="text-2xl font-bold hover:text-primary-600 transition-colors">
-              Scorpion UI v2
-            </Link>
-            <nav className="flex gap-4 text-sm">
-              <Link to="/tokens/colors" className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                Colors
-              </Link>
-              <Link to="/components" className="font-medium text-primary-600">
-                Components
-              </Link>
-            </nav>
-          </div>
-          <ThemeToggle />
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="container mx-auto px-6 py-12">
+    <div className="container mx-auto px-10 pt-10 pb-20">
         <div className="max-w-4xl">
           <h1 className="text-4xl font-bold mb-4">Component Library</h1>
           <p className="text-xl text-[var(--text-secondary)] mb-12">
@@ -67,7 +44,7 @@ export default function ComponentsOverview() {
               
               <div className="mt-6 p-4 bg-secondary-100 dark:bg-secondary-900 rounded-button">
                 <p className="font-medium mb-2">Usage:</p>
-                <code className="block bg-stone-900 text-amber-300 p-4 rounded text-sm font-mono overflow-x-auto">
+                <code className="block bg-sepia-900 text-amber-300 p-4 rounded text-sm font-mono overflow-x-auto">
 {`import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 <ThemeToggle />`}
@@ -76,7 +53,6 @@ export default function ComponentsOverview() {
             </div>
           </section>
         </div>
-      </main>
     </div>
   );
 }

@@ -59,6 +59,21 @@ scorpion-ui-v2/
 └── README.md                    # This file!
 ```
 
+## 📖 Documentation
+
+### Developer Reference Guides
+
+- **[Token Naming System Guide](docs/TOKEN_NAMING_SYSTEM.md)** - Complete reference for design token conventions, naming patterns, and critical rules for maintaining consistency across the system. Essential reading for anyone working with tokens or creating new components.
+
+### UI Documentation
+
+The interactive documentation website includes:
+- `/` - Homepage and overview
+- `/tokens/colors` - Color palette with copyable values
+- `/tokens/semantic-colors` - Semantic color system
+- `/tokens/typography` - Typography scales and usage
+- `/components` - Component library
+
 ## 🎯 How It Works
 
 ### Design Tokens
@@ -112,7 +127,7 @@ colors: {
 
 ```tsx
 // Option 1: Tailwind classes
-<div className="bg-amber-500 text-stone-900">
+<div className="bg-amber-500 text-sepia-900">
 
 // Option 2: CSS variables
 <div style={{ backgroundColor: 'var(--color-amber-500)' }}>
@@ -125,7 +140,7 @@ colors: {
 
 ### Base Colors
 - **Amber** (Primary) - Warm, energetic primary color
-- **Stone** (Secondary) - Neutral, versatile secondary color
+- **Sepia** (Secondary) - Warm neutral, versatile secondary color
 - **Green** (Success) - Positive actions and success states
 - **Blue** (Info) - Informational messages
 - **Purple** (Warning) - Warnings and cautions
@@ -134,7 +149,7 @@ colors: {
 ### Semantic Aliases
 Each base color has semantic aliases:
 - `primary-*` → `amber-*`
-- `secondary-*` → `stone-*`
+- `secondary-*` → `sepia-*`
 - `success-*` → `green-*`
 - `info-*` → `blue-*`
 - `warning-*` → `purple-*`
@@ -208,12 +223,6 @@ Want to use Scorpion UI in your portfolio or other projects? Here's how:
 2. Use design tokens (not hardcoded values!)
 3. Create documentation page in `src/pages/components/`
 4. Add route in `App.tsx`
-
-## 📚 Documentation Pages
-
-- `/` - Homepage and overview
-- `/tokens/colors` - Color palette with copyable values
-- `/components` - Component library (coming soon!)
 
 ## 🎓 Learning Resources
 
