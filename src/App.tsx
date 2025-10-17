@@ -20,6 +20,8 @@ import Animations from "@/pages/tokens/Animations";
 import ZIndex from "@/pages/tokens/ZIndex";
 import ComponentsOverview from "@/pages/components/ComponentsOverview";
 import Buttons from "@/pages/components/Buttons";
+import Inputs from "@/pages/components/Inputs";
+import Dropdowns from "@/pages/components/Dropdowns";
 import SideNavigation from "@/pages/patterns/SideNavigation";
 
 function App() {
@@ -48,6 +50,8 @@ function App() {
             {/* Components pages */}
             <Route path="/components" element={<ComponentsOverview />} />
             <Route path="/components/buttons" element={<Buttons />} />
+            <Route path="/components/inputs" element={<Inputs />} />
+            <Route path="/components/dropdowns" element={<Dropdowns />} />
             
             {/* Patterns pages */}
             <Route path="/patterns/side-navigation" element={<SideNavigation />} />

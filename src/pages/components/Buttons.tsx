@@ -8,10 +8,28 @@
  * 1. Page header (title + description)
  * 2. Variants section (all 6 button types)
  * 3. Sizes section (small, medium, large)
- * 4. Detailed token breakdown for each variant
+ * 4. Icon buttons section (left, right, icon-only)
+ * 5. Detailed token breakdown for each variant
  */
 
 import { Button } from "@/components/ui/Button";
+// Import icons from lucide-react for icon button examples
+import { 
+  Search, 
+  Settings, 
+  ChevronRight, 
+  Plus, 
+  X, 
+  Download,
+  Upload,
+  Trash2,
+  Edit,
+  Save,
+  Send,
+  ArrowLeft,
+  ArrowRight,
+  AlertCircle
+} from "lucide-react";
 
 export default function Buttons() {
   return (
@@ -86,6 +104,227 @@ export default function Buttons() {
             <div className="flex flex-col gap-2">
               <Button variant="primary" size="small">Small (32px)</Button>
               <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Height: 32px</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 
+        =================================================================
+        ICON BUTTONS SECTION
+        Shows buttons with icons on left, right, and icon-only variants
+        =================================================================
+      */}
+
+      {/* BUTTONS WITH LEFT ICONS */}
+      <section className="mb-10">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="mb-6">
+            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Buttons with Left Icons</h3>
+            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+              Icons positioned on the left side of button text. Icons automatically scale with button size.
+            </p>
+          </div>
+          
+          {/* All Variants with Left Icons */}
+          <div className="mb-8">
+            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">All Variants (Medium Size)</h4>
+            <div className="flex flex-wrap gap-4">
+              <Button variant="primary" iconLeft={<Search />}>Search</Button>
+              <Button variant="secondary" iconLeft={<Settings />}>Settings</Button>
+              <Button variant="ghost" iconLeft={<Edit />}>Edit</Button>
+              <Button variant="outline" iconLeft={<Download />}>Download</Button>
+              <Button variant="destructive" iconLeft={<Trash2 />}>Delete</Button>
+            </div>
+          </div>
+
+          {/* All Sizes with Left Icons */}
+          <div className="mb-8">
+            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">All Sizes (Primary Variant)</h4>
+            <div className="flex flex-wrap items-end gap-4">
+              <div className="flex flex-col gap-2">
+                <Button variant="primary" size="large" iconLeft={<Plus />}>Add Item</Button>
+                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Large (24px icon)</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <Button variant="primary" size="medium" iconLeft={<Plus />}>Add Item</Button>
+                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Medium (20px icon)</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <Button variant="primary" size="small" iconLeft={<Plus />}>Add Item</Button>
+                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Small (16px icon)</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Common Use Cases */}
+          <div>
+            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Common Use Cases</h4>
+            <div className="flex flex-wrap gap-4">
+              <Button variant="primary" iconLeft={<Save />}>Save Changes</Button>
+              <Button variant="primary" iconLeft={<Send />}>Send Message</Button>
+              <Button variant="secondary" iconLeft={<Upload />}>Upload File</Button>
+              <Button variant="outline" iconLeft={<ArrowLeft />}>Go Back</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BUTTONS WITH RIGHT ICONS */}
+      <section className="mb-10">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="mb-6">
+            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Buttons with Right Icons</h3>
+            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+              Icons positioned on the right side of button text. Perfect for navigation and directional actions.
+            </p>
+          </div>
+          
+          {/* All Variants with Right Icons */}
+          <div className="mb-8">
+            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">All Variants (Medium Size)</h4>
+            <div className="flex flex-wrap gap-4">
+              <Button variant="primary" iconRight={<ChevronRight />}>Continue</Button>
+              <Button variant="secondary" iconRight={<ChevronRight />}>Next Step</Button>
+              <Button variant="ghost" iconRight={<ChevronRight />}>View More</Button>
+              <Button variant="outline" iconRight={<Download />}>Export</Button>
+              <Button variant="destructive" iconRight={<AlertCircle />}>Remove</Button>
+            </div>
+          </div>
+
+          {/* All Sizes with Right Icons */}
+          <div className="mb-8">
+            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">All Sizes (Primary Variant)</h4>
+            <div className="flex flex-wrap items-end gap-4">
+              <div className="flex flex-col gap-2">
+                <Button variant="primary" size="large" iconRight={<ArrowRight />}>Get Started</Button>
+                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Large (24px icon)</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <Button variant="primary" size="medium" iconRight={<ArrowRight />}>Get Started</Button>
+                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Medium (20px icon)</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                <Button variant="primary" size="small" iconRight={<ArrowRight />}>Get Started</Button>
+                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Small (16px icon)</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Common Use Cases */}
+          <div>
+            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Common Use Cases</h4>
+            <div className="flex flex-wrap gap-4">
+              <Button variant="primary" iconRight={<ChevronRight />}>Next Page</Button>
+              <Button variant="secondary" iconRight={<ChevronRight />}>Learn More</Button>
+              <Button variant="outline" iconRight={<Download />}>Download Report</Button>
+              <Button variant="ghost" iconRight={<ArrowRight />}>View Details</Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ICON-ONLY BUTTONS */}
+      <section className="mb-10">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="mb-6">
+            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Icon-Only Buttons</h3>
+            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+              Compact buttons showing only an icon. Use aria-label for accessibility (screen readers).
+            </p>
+          </div>
+          
+          {/* Icon Variant - Square Buttons */}
+          <div className="mb-8">
+            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Icon Variant (28×28px Square)</h4>
+            <div className="flex flex-wrap gap-4 items-center">
+              <Button variant="icon" size="icon" aria-label="Search">
+                <Search />
+              </Button>
+              <Button variant="icon" size="icon" aria-label="Settings">
+                <Settings />
+              </Button>
+              <Button variant="icon" size="icon" aria-label="Edit">
+                <Edit />
+              </Button>
+              <Button variant="icon" size="icon" aria-label="Close">
+                <X />
+              </Button>
+              <Button variant="icon" size="icon" aria-label="Download">
+                <Download />
+              </Button>
+              <Button variant="icon" size="icon" aria-label="Delete" disabled>
+                <Trash2 />
+              </Button>
+            </div>
+          </div>
+
+          {/* Other Variants as Icon-Only */}
+          <div className="mb-8">
+            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Other Variants (Small Size, Icon-Only)</h4>
+            <div className="flex flex-wrap gap-4 items-center">
+              <Button variant="primary" size="small" aria-label="Add">
+                <Plus />
+              </Button>
+              <Button variant="secondary" size="small" aria-label="Settings">
+                <Settings />
+              </Button>
+              <Button variant="ghost" size="small" aria-label="Edit">
+                <Edit />
+              </Button>
+              <Button variant="outline" size="small" aria-label="Download">
+                <Download />
+              </Button>
+              <Button variant="destructive" size="small" aria-label="Delete">
+                <Trash2 />
+              </Button>
+            </div>
+          </div>
+
+          {/* All Sizes Comparison */}
+          <div className="mb-8">
+            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Size Comparison (Primary Variant)</h4>
+            <div className="flex flex-wrap gap-4 items-center">
+              <div className="flex flex-col gap-2 items-center">
+                <Button variant="primary" size="large" aria-label="Search">
+                  <Search />
+                </Button>
+                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Large</p>
+              </div>
+              <div className="flex flex-col gap-2 items-center">
+                <Button variant="primary" size="medium" aria-label="Search">
+                  <Search />
+                </Button>
+                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Medium</p>
+              </div>
+              <div className="flex flex-col gap-2 items-center">
+                <Button variant="primary" size="small" aria-label="Search">
+                  <Search />
+                </Button>
+                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Small</p>
+              </div>
+              <div className="flex flex-col gap-2 items-center">
+                <Button variant="icon" size="icon" aria-label="Search">
+                  <Search />
+                </Button>
+                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Icon (28×28)</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Accessibility Note */}
+          <div className="p-6 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-2xl">
+            <div className="flex gap-3">
+              <AlertCircle className="w-5 h-5 text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-2">
+                  ♿️ Accessibility Requirement
+                </p>
+                <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+                  Icon-only buttons must include an <code className="px-2 py-0.5 bg-sepia-200 dark:bg-sepia-800 rounded">aria-label</code> attribute 
+                  to describe the button's action for screen reader users. Example: <code className="px-2 py-0.5 bg-sepia-200 dark:bg-sepia-800 rounded">aria-label="Search"</code>
+                </p>
+              </div>
             </div>
           </div>
         </div>

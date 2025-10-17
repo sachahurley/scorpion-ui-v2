@@ -51,11 +51,11 @@ export function AboutCard() {
             className="w-8 h-8 rounded-full object-cover flex-shrink-0"
           />
           
-          {/* Text: "Built by Sacha Hurley" with LinkedIn link */}
+          {/* Text: "Built by Sacha Hurley" with personal website link */}
           <span className="flex-1 text-xs font-mono text-sepia-900 dark:text-sepia-50">
             Built by{' '}
             <a 
-              href="https://www.linkedin.com/in/sacha-hurley-2bb75947/" 
+              href="https://sacha.cool" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-primary-600 dark:text-primary-400 hover:underline"
@@ -112,18 +112,17 @@ export function AboutCard() {
               I created Scorpion UI to learn React, TypeScript, and modern design systems while using as many AI tools as possible to re-invent my design workflow. This is a living design system that demonstrates token-based theming and component architecture.
             </p>
             
-            {/* Link to website */}
+            {/* Link to LinkedIn */}
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
-              Visit{' '}
               <a 
-                href="https://sacha.cool" 
+                href="https://www.linkedin.com/in/sacha-hurley-2bb75947/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-primary-600 dark:text-primary-400 hover:underline"
                 // Prevent card from toggling when clicking link
                 onClick={(e) => e.stopPropagation()}
               >
-                sacha.cool
+                LinkedIn
               </a>
             </p>
           </div>

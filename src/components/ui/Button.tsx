@@ -25,6 +25,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost" | "link" | "outline" | "destructive" | "icon";
   size?: "small" | "medium" | "large" | "icon";
   disabled?: boolean;
+  // Icon support - can be any React element (typically from lucide-react)
+  iconLeft?: React.ReactNode;
+  iconRight?: React.ReactNode;
 }
 
 /**
@@ -35,6 +38,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * @param disabled - Whether button is disabled
  * @param className - Additional CSS classes to apply
  * @param children - Button content (text, icons, etc.)
+ * @param iconLeft - Icon element to display on the left side of text
+ * @param iconRight - Icon element to display on the right side of text
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -43,7 +48,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size = "medium", 
       disabled = false, 
       className = "", 
-      children, 
+      children,
+      iconLeft,
+      iconRight,
       ...props 
     },
     ref
@@ -147,14 +154,57 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       `,
     };
 
+    // ICON SIZING - Icons scale with button size
+    // Small: 16px, Medium: 20px, Large: 24px, Icon: 20px
+    const iconSizeStyles = {
+      small: "w-4 h-4",    // 16px
+      medium: "w-5 h-5",   // 20px
+      large: "w-6 h-6",    // 24px
+      icon: "w-5 h-5",     // 20px
+    };
+
+    // GAP SPACING - Space between icon and text
+    // Small: 6px, Medium: 8px, Large: 10px
+    const gapStyles = {
+      small: "gap-1.5",    // 6px
+      medium: "gap-2",     // 8px
+      large: "gap-2.5",    // 10px
+      icon: "gap-0",       // No gap for icon-only
+    };
+
+    // Helper function to wrap icons with proper sizing classes
+    // This ensures icons are perfectly centered and aligned with text
+    const renderIcon = (icon: React.ReactNode) => {
+      if (!icon) return null;
+      
+      // If it's a React element, clone it with size classes
+      if (typeof icon === 'object' && icon !== null && 'type' in icon) {
+        return (
+          <span className={`inline-flex items-center justify-center shrink-0 ${iconSizeStyles[size]}`}>
+            {icon}
+          </span>
+        );
+      }
+      
+      // Otherwise just render it as-is
+      return icon;
+    };
+
     return (
       <button
         ref={ref}
         disabled={disabled}
-        className={`${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`}
+        className={`${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${gapStyles[size]} ${className}`}
         {...props}
       >
+        {/* Left icon (if provided) */}
+        {iconLeft && renderIcon(iconLeft)}
+        
+        {/* Button text/children */}
         {children}
+        
+        {/* Right icon (if provided) */}
+        {iconRight && renderIcon(iconRight)}
       </button>
     );
   }
