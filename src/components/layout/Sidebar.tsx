@@ -25,9 +25,10 @@ interface SidebarProps {
 
 export function Sidebar({ isMobileMenuOpen, closeMobileMenu }: SidebarProps) {
   const location = useLocation();
-  const [isFoundationExpanded, setIsFoundationExpanded] = useState(true);
-  const [isComponentsExpanded, setIsComponentsExpanded] = useState(true);
-  const [isPatternsExpanded, setIsPatternsExpanded] = useState(true);
+  // All navigation sections start collapsed by default on page load
+  const [isFoundationExpanded, setIsFoundationExpanded] = useState(false);
+  const [isComponentsExpanded, setIsComponentsExpanded] = useState(false);
+  const [isPatternsExpanded, setIsPatternsExpanded] = useState(false);
 
   // Helper to check if route is active
   const isActive = (path: string) => location.pathname === path;
@@ -454,6 +455,66 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu }: SidebarProps) {
                     />
                   </svg>
                   <span>Buttons</span>
+                </Link>
+                <Link
+                  to="/components/inputs"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/components/inputs")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Inputs</span>
+                </Link>
+                <Link
+                  to="/components/dropdowns"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/components/dropdowns")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Dropdowns</span>
                 </Link>
               </div>
             )}
