@@ -92,10 +92,12 @@ export function Layout({ children }: LayoutProps) {
 
       <div className="flex">
         {/* Sidebar - fixed width on desktop, slides in on mobile */}
-        {/* Pass mobile menu state and close function to Sidebar */}
+        {/* Pass mobile menu state, close function, and music player controls to Sidebar */}
         <Sidebar 
           isMobileMenuOpen={isMobileMenuOpen}
           closeMobileMenu={closeMobileMenu}
+          isMusicPlayerOpen={isMusicPlayerOpen}
+          openMusicPlayer={openMusicPlayer}
         />
 
         {/* Main Content Area - scrolls under top bar */}

@@ -14,16 +14,23 @@
 
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Music2 } from "lucide-react";
 import { AboutCard } from "./AboutCard";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { Button } from "@/components/ui/Button";
 
 interface SidebarProps {
   // Indicates if mobile menu is currently open
   isMobileMenuOpen: boolean;
   // Function to close the mobile menu
   closeMobileMenu: () => void;
+  // Indicates if music player is currently open/visible
+  isMusicPlayerOpen: boolean;
+  // Function to open the music player
+  openMusicPlayer: () => void;
 }
 
-export function Sidebar({ isMobileMenuOpen, closeMobileMenu }: SidebarProps) {
+export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, openMusicPlayer }: SidebarProps) {
   const location = useLocation();
   // All navigation sections start collapsed by default on page load
   const [isFoundationExpanded, setIsFoundationExpanded] = useState(false);
@@ -66,6 +73,24 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu }: SidebarProps) {
       {/* Navigation Links - More padding on mobile for full-width, standard padding on desktop */}
       <nav className="flex-1 overflow-y-auto px-6 lg:px-4 py-6 lg:py-4">
         <div className="space-y-2">
+          {/* Mobile-Only Controls: Music Player + Theme Toggle */}
+          {/* Only visible on mobile screens (below lg breakpoint) */}
+          <div className="lg:hidden flex items-center gap-2 pb-4 mb-4 border-b border-sepia-600">
+            {/* Music Player Toggle Button - Opens music player when clicked */}
+            <Button
+              onClick={openMusicPlayer}
+              disabled={isMusicPlayerOpen}
+              variant="secondary"
+              size="icon"
+              aria-label={isMusicPlayerOpen ? "Music player is open" : "Open music player"}
+            >
+              <Music2 className="w-4 h-4" />
+            </Button>
+
+            {/* Theme toggle button */}
+            <ThemeToggle />
+          </div>
+
           {/* Home Link with Icon - Uses secondary button styling */}
           <Link
             to="/"

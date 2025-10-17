@@ -94,7 +94,8 @@ export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, 
         </div>
 
         {/* Right side: Music player toggle + Theme toggle */}
-        <div className="flex items-center gap-2">
+        {/* Hidden on mobile (below lg breakpoint), visible on desktop */}
+        <div className="hidden lg:flex items-center gap-2">
           {/* Music Player Toggle Button - Opens music player when clicked */}
           {/* Disabled when music player is already open */}
           <Button

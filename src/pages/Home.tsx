@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="container mx-auto pb-5 lg:pb-20">
         {/* Hero Section - Graphic with smaller margins for optical alignment */}
-        <section className="mb-0 mx-3 lg:mx-6 mt-5 lg:mt-10">
+        <section className="mb-6 mx-3 lg:mx-6 mt-5 lg:mt-10">
           {/* 
             Scorpion UI Graphic 3b:
             - Hero graphic with no animation
@@ -59,15 +59,17 @@ export default function Home() {
           Action Buttons Section
           - Primary button: Opens modal with project philosophy and approach (document icon indicates content overlay)
           - Secondary button: Links to GitHub repository (external arrow indicates new tab)
-          - Larger bottom margin (64px) creates breathing room before feature cards
-          - Button spacing: 8px gap between primary and secondary
+          - 32px bottom margin on mobile creates breathing room before feature cards
+          - Button spacing: 8px gap between primary and secondary on desktop, stacked on mobile
         */}
-        <section className="mb-16 mx-5 lg:mx-10">
-          <div className="flex gap-2">
+        <section className="mb-8 mx-5 lg:mx-10">
+          {/* Flex container: stacked vertically on mobile, side-by-side on desktop */}
+          <div className="flex flex-col lg:flex-row gap-2">
             <Button 
               variant="primary" 
               size="large"
               onClick={() => setIsModalOpen(true)}
+              className="w-full lg:w-auto"
             >
               Design Philosophy
               {/* Document icon - indicates readable content in modal */}
@@ -85,6 +87,7 @@ export default function Home() {
               variant="secondary" 
               size="large"
               onClick={() => window.open('https://github.com/sachahurley/scorpion-ui-v2', '_blank')}
+              className="w-full lg:w-auto"
             >
               View on GitHub
               {/* External link icon - indicates opens in new tab */}
