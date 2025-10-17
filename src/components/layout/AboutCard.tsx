@@ -28,13 +28,15 @@ export function AboutCard() {
           transition-all
           duration-300
           ease-in-out
+          border-[0.5px]
+          border-solid
+          border-sepia-500
+          dark:border-sepia-800
         "
-        // Using elevation.1 tokens for subtle card elevation
-        // Light mode: Clean subtle shadow with light border
-        // Dark mode: Layered shadow (dark + light highlight) with white border for edge definition
+        // Using elevation.1 tokens for shadow
+        // Border now matches page cards (sepia-500 light / sepia-800 dark)
         style={{
           boxShadow: 'var(--elevation-1-shadow)',
-          border: '0.5px solid var(--elevation-1-border)',
           borderBottom: 'none'
         }}
         // Click anywhere on card to toggle

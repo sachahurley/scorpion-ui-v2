@@ -24,6 +24,10 @@ export function Layout({ children }: LayoutProps) {
   // false = menu is closed, true = menu is open
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // State to manage music player visibility
+  // true = player is visible, false = player is hidden
+  const [isMusicPlayerOpen, setIsMusicPlayerOpen] = useState(true);
+
   // Function to toggle the mobile menu (open ↔ closed)
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -35,13 +39,27 @@ export function Layout({ children }: LayoutProps) {
     setIsMobileMenuOpen(false);
   };
 
+  // Function to open the music player
+  // Called from TopBar button
+  const openMusicPlayer = () => {
+    setIsMusicPlayerOpen(true);
+  };
+
+  // Function to close the music player
+  // Called from music player close button
+  const closeMusicPlayer = () => {
+    setIsMusicPlayerOpen(false);
+  };
+
   return (
     <div className="min-h-screen theme-transition">
       {/* Fixed Top Bar - spans full width */}
       {/* Pass mobile menu state and toggle function to TopBar */}
       <TopBar 
         isMobileMenuOpen={isMobileMenuOpen} 
-        toggleMobileMenu={toggleMobileMenu} 
+        toggleMobileMenu={toggleMobileMenu}
+        isMusicPlayerOpen={isMusicPlayerOpen}
+        openMusicPlayer={openMusicPlayer}
       />
 
       <div className="flex">
@@ -62,7 +80,10 @@ export function Layout({ children }: LayoutProps) {
       </div>
 
       {/* Music Player - Fixed bottom-right corner, visible on all pages */}
-      <MusicPlayer />
+      {/* Only rendered when open */}
+      {isMusicPlayerOpen && (
+        <MusicPlayer onClose={closeMusicPlayer} />
+      )}
     </div>
   );
 }

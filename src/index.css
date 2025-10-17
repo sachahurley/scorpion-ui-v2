@@ -194,10 +194,82 @@
     --font-size-lg: 18px;
     --font-size-xl: 20px;
     --font-size-2xl: 24px;
+    --font-size-3xl: 48px;
+    --font-size-4xl: 64px;
+    --font-size-5xl: 80px;
+    --font-size-6xl: 96px;
+    
+    /* Font line height tokens */
+    --line-height-none: 1;
+    --line-height-tight: 1.25;
+    --line-height-snug: 1.375;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.625;
+    --line-height-loose: 2;
+    
+    /* Font weight tokens */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
     
     /* Border radius tokens */
     --radius-button: 12px;
     --radius-container: 24px;
+    
+    /* Spacing tokens (matches Tailwind's 4px-based scale) */
+    --spacing-0: 0;
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 12px;
+    --spacing-4: 16px;
+    --spacing-5: 20px;
+    --spacing-6: 24px;
+    --spacing-8: 32px;
+    --spacing-10: 40px;
+    --spacing-12: 48px;
+    --spacing-16: 64px;
+    --spacing-20: 80px;
+    --spacing-24: 96px;
+    
+    /* Focus state tokens (global - same for both themes) */
+    --focus-ring-width: 2px;
+    --focus-ring-offset: 2px;
+    
+    /* Animation/Duration tokens */
+    --duration-instant: 0ms;
+    --duration-fast: 150ms;
+    --duration-normal: 200ms;
+    --duration-slow: 300ms;
+    --duration-slower: 500ms;
+    
+    /* Easing/Timing functions */
+    --easing-linear: linear;
+    --easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Z-Index layering system */
+    --z-index-base: 0;
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1020;
+    --z-index-overlay: 1030;
+    --z-index-modal: 1040;
+    --z-index-popover: 1050;
+    --z-index-tooltip: 1060;
+    
+    /* Opacity scale */
+    --opacity-0: 0;
+    --opacity-5: 0.05;
+    --opacity-10: 0.1;
+    --opacity-20: 0.2;
+    --opacity-30: 0.3;
+    --opacity-40: 0.4;
+    --opacity-50: 0.5;
+    --opacity-60: 0.6;
+    --opacity-70: 0.7;
+    --opacity-80: 0.8;
+    --opacity-90: 0.9;
+    --opacity-100: 1;
     
     /* Light theme surface and text colors */
     --surface-page: #FDFCFB;  /* sepia-50 - page background */
@@ -207,13 +279,19 @@
     --text-primary: #2B2718;
     --text-secondary: #968A75;
     
-    /* Light theme button colors (FIXED: Updated to match tokens.json) */
-    --button-primary-bg: #FBBF24;  /* amber-400 (was sepia-900) */
-    --button-primary-bg-hover: #F59E0B;  /* amber-500 (was sepia-800) */
-    --button-primary-text: #000000;  /* black (was white) */
-    --button-secondary-bg: #695F4D;  /* sepia-700 (was amber-200) */
-    --button-secondary-bg-hover: #968A75;  /* sepia-600 (was amber-300) */
-    --button-secondary-text: #FDFCFB;  /* sepia-50 (was sepia-900) */
+    /* Light theme focus ring colors */
+    --focus-ring-primary: #FBBF24;  /* primary-400 (amber-400) */
+    --focus-ring-secondary: #695F4D;  /* secondary-700 (sepia-700) */
+    --focus-ring-error: #DC2626;  /* error-600 (red-600) */
+    --focus-offset-color: #FDFCFB;  /* sepia-50 - page background */
+    
+    /* Light theme button colors (Standardized naming: background instead of bg) */
+    --button-primary-background: #FBBF24;  /* amber-400 */
+    --button-primary-background-hover: #F59E0B;  /* amber-500 */
+    --button-primary-text: #000000;  /* black */
+    --button-secondary-background: #695F4D;  /* sepia-700 */
+    --button-secondary-background-hover: #968A75;  /* sepia-600 */
+    --button-secondary-text: #FDFCFB;  /* sepia-50 */
     
     /* Light theme elevation tokens (shadows & borders for depth) */
     --elevation-0-shadow: none;
@@ -235,12 +313,18 @@
     --text-primary: #FDFCFB;
     --text-secondary: #E0DACE;
     
-    /* Dark theme button colors (Already correct - matches tokens.json) */
-    --button-primary-bg: #FBBF24;  /* amber-400 */
-    --button-primary-bg-hover: #F59E0B;  /* amber-500 */
+    /* Dark theme focus ring colors */
+    --focus-ring-primary: #FBBF24;  /* primary-400 (amber-400) */
+    --focus-ring-secondary: #695F4D;  /* secondary-700 (sepia-700) */
+    --focus-ring-error: #EF4444;  /* error-500 (red-500) */
+    --focus-offset-color: #0A0704;  /* sepia-1000 - page background */
+    
+    /* Dark theme button colors (Standardized naming: background instead of bg) */
+    --button-primary-background: #FBBF24;  /* amber-400 */
+    --button-primary-background-hover: #F59E0B;  /* amber-500 */
     --button-primary-text: #000000;  /* black */
-    --button-secondary-bg: #695F4D;  /* sepia-700 */
-    --button-secondary-bg-hover: #968A75;  /* sepia-600 */
+    --button-secondary-background: #695F4D;  /* sepia-700 */
+    --button-secondary-background-hover: #968A75;  /* sepia-600 */
     --button-secondary-text: #FDFCFB;  /* sepia-50 */
     
     /* Dark theme elevation tokens (Apple's approach: layered shadows + light borders) */

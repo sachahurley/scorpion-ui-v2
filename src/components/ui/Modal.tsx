@@ -93,10 +93,11 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
         - Covers entire viewport with dark shade
         - Clicking it closes the modal
         - Uses fade-in/fade-out animation
-        - z-50 ensures it sits above page content
+        - Uses z-index token for overlay layer (1030)
       */}
       <div
-        className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-5 animate-in fade-in duration-200"
+        className="fixed inset-0 bg-black/50 flex items-center justify-center p-5 animate-in fade-in duration-[200ms]"
+        style={{ zIndex: 'var(--z-index-overlay)' }}
         onClick={onClose}
       >
         {/* 

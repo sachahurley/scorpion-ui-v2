@@ -111,9 +111,54 @@ export default function Buttons() {
             </p>
           </div>
           
-          {/* Visual Example - Kept in container */}
+          {/* Visual Example - All button states shown side by side */}
           <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
-            <Button variant="primary" size="medium">Primary Button</Button>
+            <div className="space-y-4">
+              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
+              <div className="flex flex-wrap gap-4 items-start">
+                {/* Default State */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-primary-400 text-black">
+                    Primary
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Default</span>
+                </div>
+                
+                {/* Hover State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-primary-500 text-black">
+                    Primary
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Hover</span>
+                </div>
+                
+                {/* Focused State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button 
+                    className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-primary-400 text-black ring-2 ring-primary-400 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000"
+                  >
+                    Primary
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Focused</span>
+                </div>
+                
+                {/* Pressed/Active State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-primary-600 text-black">
+                    Primary
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Pressed</span>
+                </div>
+                
+                {/* Disabled State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 h-10 px-5 py-2.5 bg-primary-400 text-black opacity-50 cursor-not-allowed">
+                    Primary
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Disabled</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Token Documentation Cards - Redesigned with pills/chips, no containers */}
@@ -286,8 +331,54 @@ export default function Buttons() {
             </p>
           </div>
           
+          {/* Visual Example - All button states shown side by side */}
           <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
-            <Button variant="secondary" size="medium">Secondary Button</Button>
+            <div className="space-y-4">
+              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
+              <div className="flex flex-wrap gap-4 items-start">
+                {/* Default State */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-700 text-secondary-50">
+                    Secondary
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Default</span>
+                </div>
+                
+                {/* Hover State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-600 text-secondary-50">
+                    Secondary
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Hover</span>
+                </div>
+                
+                {/* Focused State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button 
+                    className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-700 text-secondary-50 ring-2 ring-secondary-700 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000"
+                  >
+                    Secondary
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Focused</span>
+                </div>
+                
+                {/* Pressed/Active State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-500 text-secondary-50">
+                    Secondary
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Pressed</span>
+                </div>
+                
+                {/* Disabled State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 h-10 px-5 py-2.5 bg-secondary-700 text-secondary-50 opacity-50 cursor-not-allowed">
+                    Secondary
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Disabled</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-6">
@@ -390,8 +481,54 @@ export default function Buttons() {
             </p>
           </div>
           
+          {/* Visual Example - All button states shown side by side */}
           <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
-            <Button variant="ghost" size="medium">Ghost Button</Button>
+            <div className="space-y-4">
+              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
+              <div className="flex flex-wrap gap-4 items-start">
+                {/* Default State */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent text-secondary-900 dark:text-secondary-50">
+                    Ghost
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Default</span>
+                </div>
+                
+                {/* Hover State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-200 dark:bg-secondary-700 text-secondary-900 dark:text-secondary-50">
+                    Ghost
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Hover</span>
+                </div>
+                
+                {/* Focused State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button 
+                    className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent text-secondary-900 dark:text-secondary-50 ring-2 ring-secondary-300 dark:ring-secondary-700 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000"
+                  >
+                    Ghost
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Focused</span>
+                </div>
+                
+                {/* Pressed/Active State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-300 dark:bg-secondary-600 text-secondary-900 dark:text-secondary-50">
+                    Ghost
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Pressed</span>
+                </div>
+                
+                {/* Disabled State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 h-10 px-5 py-2.5 bg-transparent text-secondary-900 dark:text-secondary-50 opacity-50 cursor-not-allowed">
+                    Ghost
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Disabled</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-6">
@@ -514,8 +651,54 @@ export default function Buttons() {
             </p>
           </div>
           
+          {/* Visual Example - All button states shown side by side */}
           <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
-            <Button variant="link" size="medium">Link Button</Button>
+            <div className="space-y-4">
+              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
+              <div className="flex flex-wrap gap-4 items-start">
+                {/* Default State */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent text-primary-600 dark:text-primary-400">
+                    Link
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Default</span>
+                </div>
+                
+                {/* Hover State - Forced with underline */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent text-primary-700 dark:text-primary-300 underline">
+                    Link
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Hover</span>
+                </div>
+                
+                {/* Focused State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button 
+                    className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent text-primary-600 dark:text-primary-400 ring-2 ring-primary-600 dark:ring-primary-400 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000"
+                  >
+                    Link
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Focused</span>
+                </div>
+                
+                {/* Pressed/Active State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent text-primary-700 dark:text-primary-300">
+                    Link
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Pressed</span>
+                </div>
+                
+                {/* Disabled State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 h-10 px-5 py-2.5 bg-transparent text-primary-600 dark:text-primary-400 opacity-50 cursor-not-allowed">
+                    Link
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Disabled</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-6">
@@ -631,8 +814,54 @@ export default function Buttons() {
             </p>
           </div>
           
+          {/* Visual Example - All button states shown side by side */}
           <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
-            <Button variant="outline" size="medium">Outline Button</Button>
+            <div className="space-y-4">
+              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
+              <div className="flex flex-wrap gap-4 items-start">
+                {/* Default State */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent border border-secondary-300 dark:border-secondary-700 text-secondary-900 dark:text-secondary-50">
+                    Outline
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Default</span>
+                </div>
+                
+                {/* Hover State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-50 dark:bg-secondary-900 border border-secondary-400 dark:border-secondary-600 text-secondary-900 dark:text-secondary-50">
+                    Outline
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Hover</span>
+                </div>
+                
+                {/* Focused State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button 
+                    className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent border border-secondary-300 dark:border-secondary-700 text-secondary-900 dark:text-secondary-50 ring-2 ring-secondary-300 dark:ring-secondary-700 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000"
+                  >
+                    Outline
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Focused</span>
+                </div>
+                
+                {/* Pressed/Active State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-100 dark:bg-secondary-800 border border-secondary-400 dark:border-secondary-600 text-secondary-900 dark:text-secondary-50">
+                    Outline
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Pressed</span>
+                </div>
+                
+                {/* Disabled State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 h-10 px-5 py-2.5 bg-transparent border border-secondary-300 dark:border-secondary-700 text-secondary-900 dark:text-secondary-50 opacity-50 cursor-not-allowed">
+                    Outline
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Disabled</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-6">
@@ -777,8 +1006,54 @@ export default function Buttons() {
             </p>
           </div>
           
+          {/* Visual Example - All button states shown side by side */}
           <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
-            <Button variant="destructive" size="medium">Destructive Button</Button>
+            <div className="space-y-4">
+              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
+              <div className="flex flex-wrap gap-4 items-start">
+                {/* Default State */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-error-600 dark:bg-error-500 text-white">
+                    Destructive
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Default</span>
+                </div>
+                
+                {/* Hover State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-error-700 dark:bg-error-600 text-white">
+                    Destructive
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Hover</span>
+                </div>
+                
+                {/* Focused State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button 
+                    className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-error-600 dark:bg-error-500 text-white ring-2 ring-error-600 dark:ring-error-500 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000"
+                  >
+                    Destructive
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Focused</span>
+                </div>
+                
+                {/* Pressed/Active State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-error-800 dark:bg-error-700 text-white">
+                    Destructive
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Pressed</span>
+                </div>
+                
+                {/* Disabled State - Forced */}
+                <div className="flex flex-col gap-2 items-center">
+                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 h-10 px-5 py-2.5 bg-error-600 dark:bg-error-500 text-white opacity-50 cursor-not-allowed">
+                    Destructive
+                  </button>
+                  <span className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Disabled</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-6">
@@ -876,6 +1151,108 @@ export default function Buttons() {
                     <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 
+        FOCUS STATES REFERENCE SECTION
+        Shows which focus tokens buttons use with link to foundation page
+        This is component-specific; full focus documentation is in foundation
+      */}
+      <section className="mb-10">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="mb-6">
+            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Focus States</h3>
+            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+              All buttons use the design system's focus state tokens for keyboard navigation and accessibility.
+            </p>
+          </div>
+
+          {/* Reference to foundation tokens */}
+          <div className="mb-6 p-6 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-2xl">
+            <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">
+              📖 Complete Documentation
+            </p>
+            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+              For complete focus state documentation, accessibility guidelines, and implementation details, see the <a href="/scorpion-ui-v2/foundation/focus-states" className="text-primary-600 dark:text-primary-400 underline hover:text-primary-700 dark:hover:text-primary-300">Focus States foundation page</a>.
+            </p>
+          </div>
+
+          {/* Token breakdown specific to buttons */}
+          <div className="space-y-6">
+            {/* Global Properties */}
+            <div>
+              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Focus Ring Properties (All Buttons)</h4>
+              <div className="flex flex-wrap gap-2">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: focus.ring.width (2px)</span>
+                </div>
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Offset: focus.ring.offset (2px)</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Primary Button Focus */}
+            <div>
+              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Primary Button Focus Color</h4>
+              <div className="flex flex-wrap gap-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="w-4 h-4 rounded-full bg-primary-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.primary → color.primary.400 (both themes)</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Secondary Button Focus */}
+            <div>
+              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Secondary/Ghost/Outline Button Focus Color</h4>
+              <div className="flex flex-wrap gap-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="w-4 h-4 rounded-full bg-secondary-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.secondary → color.secondary.700 (both themes)</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Destructive Button Focus */}
+            <div>
+              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Destructive Button Focus Color</h4>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Light Theme</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-error-600 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.error → color.error.600</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Dark Theme</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-error-500 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.error → color.error.500</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Interactive Test */}
+            <div>
+              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Test Keyboard Navigation</h4>
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+                <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">
+                  Press Tab to cycle through these buttons and see their focus rings:
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Button variant="primary">Primary</Button>
+                  <Button variant="secondary">Secondary</Button>
+                  <Button variant="destructive">Destructive</Button>
                 </div>
               </div>
             </div>

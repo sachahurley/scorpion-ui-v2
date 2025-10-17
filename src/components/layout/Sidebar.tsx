@@ -36,18 +36,21 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu }: SidebarProps) {
     <>
       {/* Dark Overlay - Only visible on mobile when menu is open */}
       {/* Clicking overlay closes the menu */}
+      {/* Uses z-index token for overlay layer (1030) */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden top-16"
+          className="fixed inset-0 bg-black/50 lg:hidden top-16"
+          style={{ zIndex: 'var(--z-index-overlay)' }}
           onClick={closeMobileMenu}
           aria-hidden="true"
         />
       )}
 
       {/* Sidebar Navigation */}
+      {/* Uses z-index token for modal layer since it appears above overlay on mobile */}
       <aside
         className={`
-          w-full lg:w-64 h-screen bg-[var(--surface-container)] flex flex-col fixed left-0 top-16 z-50
+          w-full lg:w-64 h-screen bg-[var(--surface-container)] flex flex-col fixed left-0 top-16
           transition-transform duration-300 ease-in-out
           ${
             // On mobile: slide in from left when open, hide off-screen when closed
@@ -57,7 +60,7 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu }: SidebarProps) {
               : '-translate-x-full lg:translate-x-0'
           }
         `}
-        style={{ height: 'calc(100vh - 4rem)' }}
+        style={{ height: 'calc(100vh - 4rem)', zIndex: 'var(--z-index-modal)' }}
       >
       {/* Navigation Links - More padding on mobile for full-width, standard padding on desktop */}
       <nav className="flex-1 overflow-y-auto px-6 lg:px-4 py-6 lg:py-4">
@@ -205,6 +208,186 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu }: SidebarProps) {
                     />
                   </svg>
                   <span>Typography</span>
+                </Link>
+                <Link
+                  to="/foundation/border-radius"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/foundation/border-radius")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Border Radius</span>
+                </Link>
+                <Link
+                  to="/foundation/spacing"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/foundation/spacing")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Spacing</span>
+                </Link>
+                <Link
+                  to="/foundation/surfaces-elevation"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/foundation/surfaces-elevation")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Surfaces & Elevation</span>
+                </Link>
+                <Link
+                  to="/foundation/focus-states"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/foundation/focus-states")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Focus States</span>
+                </Link>
+                <Link
+                  to="/foundation/animations"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/foundation/animations")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Animations</span>
+                </Link>
+                <Link
+                  to="/foundation/z-index"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/foundation/z-index")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Z-Index</span>
                 </Link>
               </div>
             )}

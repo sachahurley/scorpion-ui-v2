@@ -817,6 +817,123 @@ Without semantic tokens (WRONG approach):
 
 ---
 
+## Tailwind Default vs Custom Tokens
+
+Scorpion UI intentionally uses Tailwind's default values for certain token categories. This architectural decision balances customization with industry standards.
+
+### Using Tailwind Defaults (Intentional)
+
+These categories use Tailwind's built-in scales and are **NOT** defined as custom tokens in `tokens.json`:
+
+**Spacing Scale**
+- Uses Tailwind's 4px-based scale (0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24...)
+- Rationale: Industry-standard 4px base unit system
+- Usage: `p-4` (16px), `m-8` (32px), `gap-6` (24px)
+- **Why**: Tailwind's spacing system is universally understood by developers
+
+**Responsive Breakpoints**
+- Uses Tailwind's default breakpoints (sm: 640px, md: 768px, lg: 1024px, xl: 1280px, 2xl: 1536px)
+- Rationale: Standard mobile-first breakpoints aligned with common device sizes
+- Usage: `lg:px-10`, `md:grid-cols-2`
+- **Why**: Familiar API reduces learning curve
+
+**Grid System**
+- Uses Tailwind's default 12-column grid system
+- Rationale: Standard grid system used across design frameworks
+- Usage: `grid-cols-12`, `col-span-6`
+- **Why**: Flexible and well-established pattern
+
+**Default Border Widths**
+- Uses Tailwind's default border widths (1px, 2px, 4px, 8px)
+- Usage: `border`, `border-2`
+- **Why**: Standard border widths sufficient for most use cases
+
+### Custom Token Categories
+
+These categories have **custom token definitions** that reflect Scorpion UI's brand identity:
+
+**Colors** (Fully Custom)
+- Complete custom color palette: Amber, Sepia, Green, Blue, Purple, Red
+- Extended dark shades (925, 975, 1000) for deep dark themes
+- Semantic aliases (primary, secondary, success, info, warning, error)
+- **Why**: Core to brand identity and visual design
+
+**Typography** (Custom)
+- Custom font family: Fragment Mono
+- Custom font size scale: xs through 6xl (12px to 96px)
+- Text hierarchy tokens (primary, secondary)
+- **Why**: Distinctive monospace typography is a defining brand feature
+
+**Border Radius** (Custom)
+- Custom values: button (12px), container (24px)
+- **Why**: Specific rounded corners create cohesive design language
+
+**Elevation System** (Custom)
+- 4-level shadow system (0-3) with shadow + border per level
+- Apple-inspired dark mode approach with layered shadows
+- **Why**: Sophisticated depth system beyond Tailwind's basic shadows
+
+**Surfaces** (Custom)
+- Theme-aware background tokens (page, container, card, container-stroke)
+- **Why**: Automatic light/dark theme switching
+
+**Component Tokens** (Custom)
+- Button colors, sizes, and states
+- **Why**: Component-specific theming for consistency
+
+### Decision Framework
+
+**When deciding whether to create custom tokens or use Tailwind defaults, consider:**
+
+1. **Brand Identity** - Does this affect visual brand identity?
+   - Yes → Custom token
+   - No → Consider Tailwind default
+
+2. **Theme Variability** - Does this need to change between light/dark themes?
+   - Yes → Custom token
+   - No → Consider Tailwind default
+
+3. **Industry Standard** - Is there a universally accepted standard?
+   - Yes → Use Tailwind default
+   - No → Custom token
+
+4. **Maintenance Overhead** - Does customization add significant value?
+   - High value → Custom token
+   - Low value → Use Tailwind default
+
+### Benefits of This Hybrid Approach
+
+**Developer Experience**
+- Familiar spacing and breakpoint syntax
+- Reduced cognitive load for common utilities
+- Faster onboarding for new team members
+
+**Maintenance**
+- Focus custom token maintenance on brand-defining elements
+- Leverage Tailwind updates for spacing/breakpoints
+- Smaller tokens.json file is easier to manage
+
+**Consistency**
+- Industry-standard spacing creates visual rhythm
+- Responsive breakpoints align with device ecosystem
+- Custom colors and typography create unique brand identity
+
+### Documentation Convention
+
+**For Tailwind default categories:**
+- Document the available values in foundation pages
+- Explain the scale and usage patterns
+- Reference Tailwind documentation for deep dives
+- Note: "Uses Tailwind defaults" in page header
+
+**For custom token categories:**
+- Full token definitions in tokens.json
+- Complete documentation pages with all values
+- Token name references throughout
+- Show light/dark theme variations
+
+---
+
 ## Appendix: Complete Token Type Reference
 
 | **$type** | **Used For** | **Example** |
@@ -851,11 +968,12 @@ Before implementing any component:
 
 ---
 
-**Document Version:** 2.3  
-**Last Updated:** October 15, 2025  
+**Document Version:** 2.4  
+**Last Updated:** October 17, 2025  
 **Maintained By:** Scorpion UI Design System Team  
 
 **Changelog:**
+- **v2.4** - Added "Tailwind Default vs Custom Tokens" section documenting hybrid approach and architectural decisions
 - **v2.3** - Added comprehensive "Semantic Tokens vs Base Tokens" guidance section
 - **v2.2** - Added "Token Documentation Cards" section defining component documentation pattern
 - **v2.1** - Added Rule 3: Implementation Standard (CSS Variables vs Tailwind Classes)

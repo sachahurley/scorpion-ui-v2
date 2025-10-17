@@ -22,8 +22,8 @@ import { forwardRef, type ButtonHTMLAttributes } from "react";
 
 // Define the props interface for the Button component
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "ghost" | "link" | "outline" | "destructive";
-  size?: "small" | "medium" | "large";
+  variant?: "primary" | "secondary" | "ghost" | "link" | "outline" | "destructive" | "icon";
+  size?: "small" | "medium" | "large" | "icon";
   disabled?: boolean;
 }
 
@@ -63,10 +63,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     // Small: 32px height, 16px horizontal padding
     // Medium: 40px height, 20px horizontal padding
     // Large: 48px height, 24px horizontal padding
+    // Icon: 28px × 28px square (no padding, uses flex centering)
     const sizeStyles = {
       small: "h-8 px-4 py-1.5",    // h-8 = 32px, px-4 = 16px
       medium: "h-10 px-5 py-2.5",  // h-10 = 40px, px-5 = 20px
       large: "h-12 px-6 py-3.5",   // h-12 = 48px, px-6 = 24px
+      icon: "w-7 h-7",             // w-7 h-7 = 28px × 28px square
     };
 
     // VARIANT STYLES - Color combinations for each variant using SEMANTIC TOKENS
@@ -129,6 +131,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         bg-error-600 hover:bg-error-700 active:bg-error-800 text-white
         dark:bg-error-500 dark:hover:bg-error-600 dark:active:bg-error-700
         focus:ring-2 focus:ring-error-600 dark:focus:ring-error-500 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000
+      `,
+
+      // ✓ ICON - Icon-only buttons (square, no text padding)
+      // Uses neutral sepia colors for subtle appearance
+      // Light: sepia-100 bg → sepia-200 hover | sepia-900 text
+      // Dark: sepia-800 bg → sepia-700 hover | sepia-50 text
+      // Disabled has reduced contrast in both themes
+      // Uses 8px border radius (smaller than standard 12px button radius)
+      icon: `
+        bg-sepia-100 hover:bg-sepia-200 active:bg-sepia-300 text-sepia-900 rounded-[8px]
+        dark:bg-sepia-800 dark:hover:bg-sepia-700 dark:active:bg-sepia-600 dark:text-sepia-50
+        disabled:bg-sepia-50 disabled:text-sepia-300 dark:disabled:bg-sepia-900 dark:disabled:text-sepia-700
+        focus:ring-2 focus:ring-sepia-300 dark:focus:ring-sepia-700 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000
       `,
     };
 

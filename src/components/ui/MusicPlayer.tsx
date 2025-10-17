@@ -36,6 +36,8 @@
  */
 
 import { useState, useEffect, useRef } from "react";
+import { Volume2, VolumeX, X } from "lucide-react";
+import { Button } from "./Button";
 
 // Demo playlist data - Roy Orbison songs
 // In a real app, this would come from an API or database
@@ -53,24 +55,10 @@ interface Song {
 const DEMO_PLAYLIST: Song[] = [
   {
     id: 1,
-    artist: "8-Bit",
-    title: "Pixel Adventure",
-    albumCover: "https://picsum.photos/seed/8bit1/400/400",
+    artist: "Sacha Hurley",
+    title: "Stinger",
+    albumCover: `${import.meta.env.BASE_URL}album-cover-stinger-001.png`,
     duration: 120 // 2:00
-  },
-  {
-    id: 2,
-    artist: "Chiptune",
-    title: "Retro Dreams",
-    albumCover: "https://picsum.photos/seed/8bit2/400/400",
-    duration: 150 // 2:30
-  },
-  {
-    id: 3,
-    artist: "Synthwave",
-    title: "Digital Sunrise",
-    albumCover: "https://picsum.photos/seed/8bit3/400/400",
-    duration: 180 // 3:00
   },
 ];
 
@@ -84,6 +72,10 @@ function formatTime(seconds: number): string {
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 }
 
+interface MusicPlayerProps {
+  onClose: () => void;
+}
+
 /**
  * MusicPlayer Component
  * 
@@ -92,8 +84,9 @@ function formatTime(seconds: number): string {
  * 2. Simulates play/pause functionality
  * 3. Allows cycling through songs with next button
  * 4. Shows song info and album covers
+ * 5. Can be closed via close button (calls onClose)
  */
-export function MusicPlayer() {
+export function MusicPlayer({ onClose }: MusicPlayerProps) {
   // STATE: Track whether music is currently "playing"
   const [isPlaying, setIsPlaying] = useState(false);
   
@@ -108,6 +101,9 @@ export function MusicPlayer() {
   // STATE: Actual duration from loaded audio
   const [duration, setDuration] = useState(0);
   
+  // STATE: Track whether audio is muted
+  const [isMuted, setIsMuted] = useState(false);
+  
   // STATE: Position of the music player on screen
   // Allows dragging the player to any location
   // Default: bottom-right corner (24px from edges)
@@ -121,6 +117,9 @@ export function MusicPlayer() {
   
   // STATE: Track if component just mounted (for slide-in animation)
   const [justMounted, setJustMounted] = useState(true);
+  
+  // STATE: Track if we're on desktop (for conditional drag behavior)
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
   
   // REF: Reference to the HTML5 audio element
   // This allows us to control playback programmatically
@@ -182,6 +181,12 @@ export function MusicPlayer() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSongIndex]);
 
+  // EFFECT: Sync muted state with audio element
+  useEffect(() => {
+    if (!audioRef.current) return;
+    audioRef.current.muted = isMuted;
+  }, [isMuted]);
+
   // EFFECT: Handle drag event listeners
   // Attaches mousemove and mouseup events to document when dragging
   useEffect(() => {
@@ -213,6 +218,38 @@ export function MusicPlayer() {
     return () => clearTimeout(timer);
   }, []);
 
+  // EFFECT: Handle window resize to keep player visible (desktop only)
+  // Adjusts player position when window is resized to prevent it going off-screen
+  // Only applies on desktop (>= 1024px) where dragging is enabled
+  // Also updates isDesktop state for responsive behavior
+  useEffect(() => {
+    const handleResize = () => {
+      const desktopView = window.innerWidth >= 1024;
+      setIsDesktop(desktopView);
+      
+      // Only adjust position on desktop
+      if (desktopView) {
+        setPosition((prevPosition) => {
+          // Calculate maximum allowed positions based on new window size
+          const maxX = window.innerWidth - 380 - 24; // player width + margin
+          const maxY = window.innerHeight - 140 - 24; // player height + margin
+          
+          // Keep player within bounds
+          return {
+            x: Math.min(prevPosition.x, maxX),
+            y: Math.min(prevPosition.y, maxY),
+          };
+        });
+      }
+    };
+
+    // Add resize listener
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   /**
    * Toggle between play and pause
    * Controls the actual HTML5 audio element
@@ -225,6 +262,14 @@ export function MusicPlayer() {
       console.log("Audio ready state:", audioRef.current.readyState);
     }
     setIsPlaying(!isPlaying);
+  };
+
+  /**
+   * Toggle between mute and unmute
+   * Controls the audio volume state
+   */
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
   };
 
   /**
@@ -255,6 +300,12 @@ export function MusicPlayer() {
    * Disabled when on the first track (index 0)
    */
   const isPreviousDisabled = currentSongIndex === 0;
+
+  /**
+   * Check if Next button should be disabled
+   * Disabled when on the last track or if there's only one song
+   */
+  const isNextDisabled = currentSongIndex === DEMO_PLAYLIST.length - 1;
 
   /**
    * Handle audio time update
@@ -292,8 +343,12 @@ export function MusicPlayer() {
    * DRAG FUNCTIONALITY: Start dragging
    * Called when user clicks on the drag handle
    * Records starting mouse position
+   * Only works on desktop (>= 1024px)
    */
   const handleDragStart = (e: React.MouseEvent) => {
+    // Only allow dragging on desktop
+    if (!isDesktop) return;
+    
     setIsDragging(true);
     // Record where the mouse was when dragging started
     // We'll use this to calculate how far the mouse has moved
@@ -359,15 +414,20 @@ export function MusicPlayer() {
       />
       
       <div
-        className="fixed w-[380px] h-[140px] bg-[var(--surface-card)] rounded-[24px] overflow-visible z-[60]"
+        className="fixed w-[calc(100%-48px)] lg:w-[380px] h-[140px] bg-[var(--surface-card)] rounded-[24px] overflow-visible border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 left-6 bottom-6 lg:left-auto lg:bottom-auto"
         style={{
-          // Dynamic positioning based on state (allows dragging)
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          // Using elevation-1 tokens for subtle, well-defined card elevation
-          // More blur and subtlety than direct shadows
+          // Uses z-index token for popover layer (1050)
+          zIndex: 'var(--z-index-popover)',
+          // Dynamic positioning based on state (allows dragging on desktop only)
+          // Mobile: Uses Tailwind classes (left-6 bottom-6)
+          // Desktop (lg+): Uses inline styles for draggable positioning
+          ...(isDesktop ? {
+            left: `${position.x}px`,
+            top: `${position.y}px`,
+          } : {}),
+          // Using elevation-1 tokens for shadow
+          // Border now matches page cards (sepia-500 light / sepia-800 dark)
           boxShadow: 'var(--elevation-1-shadow)',
-          border: '0.5px solid var(--elevation-1-border)',
           // Slide-in animation from bottom
           // Starts off-screen (translateY 200px) and slides up
           transform: justMounted ? 'translateY(200px)' : 'translateY(0)',
@@ -383,10 +443,11 @@ export function MusicPlayer() {
         - White dots in dark mode, black dots in light mode
         - No background - just the dots
         - Changes cursor to grab/grabbing on hover/drag
+        - HIDDEN ON MOBILE: Only visible on desktop (lg+) where dragging is enabled
       */}
       <div
         onMouseDown={handleDragStart}
-        className="absolute top-1/2 -translate-y-1/2 cursor-grab active:cursor-grabbing"
+        className="hidden lg:block absolute top-1/2 -translate-y-1/2 cursor-grab active:cursor-grabbing"
         style={{
           // Position in center of left padding space
           // Padding is 16px (p-4), dots are 6px wide (2px+2px+2px)
@@ -407,6 +468,26 @@ export function MusicPlayer() {
           <div className="w-[2px] h-[2px] rounded-full bg-sepia-900 dark:bg-sepia-50"></div>
           <div className="w-[2px] h-[2px] rounded-full bg-sepia-900 dark:bg-sepia-50"></div>
         </div>
+      </div>
+
+      {/* 
+        CLOSE BUTTON - TOP RIGHT CORNER
+        - Positioned absolutely in top-right corner
+        - Small icon button with X icon
+        - Closes/hides the music player when clicked
+        - Visible on both mobile and desktop
+        - Uses ghost variant for subtle, minimal appearance
+      */}
+      <div className="absolute top-2 right-2">
+        <Button
+          onClick={onClose}
+          variant="ghost"
+          size="icon"
+          aria-label="Close music player"
+          className="w-6 h-6"
+        >
+          <X className="w-3 h-3" />
+        </Button>
       </div>
 
       {/* 
@@ -431,12 +512,21 @@ export function MusicPlayer() {
             - Cover fit to fill container (crops to fit)
           */}
           <div className="w-[108px] h-[108px] flex-shrink-0">
-            <div className="w-full h-full rounded-[12px] bg-sepia-200 dark:bg-sepia-800 overflow-hidden">
+            <div className="w-full h-full rounded-[12px] bg-sepia-200 dark:bg-sepia-800 overflow-hidden border-[0.5px] border-solid border-sepia-900 dark:border-sepia-900 flex items-center justify-center">
             {currentSong.albumCover ? (
               <img
                 src={currentSong.albumCover}
                 alt={`${currentSong.title} album cover`}
-                className="w-full h-full object-cover"
+                style={{ 
+                  width: '324px', 
+                  height: '324px',
+                  minWidth: '324px',
+                  minHeight: '324px',
+                  maxWidth: '324px',
+                  maxHeight: '324px',
+                  objectFit: 'cover',
+                  flexShrink: 0
+                }}
                 onError={(e) => {
                   // If image fails to load, show placeholder
                   e.currentTarget.style.display = 'none';
@@ -453,12 +543,13 @@ export function MusicPlayer() {
 
           {/* 
             RIGHT SECTION: SONG INFO + PROGRESS + CONTROLS
-            - Vertically stacked layout (flex-col with justify-between)
+            - Vertically stacked layout (flex-col with gap-2 for 8px spacing)
             - Takes remaining space
-            - Content flush top and bottom (108px height matches album art)
-            - Space distributed evenly between sections
+            - Content centered vertically (justify-center)
+            - 8px gap between each section (song info, progress, controls)
+            - Elements "hug" together in center instead of spreading
           */}
-          <div className="flex-1 flex flex-col justify-between h-[108px]">
+          <div className="flex-1 flex flex-col justify-center gap-2 h-[108px]">
             {/* 
               SONG INFO SECTION
               - Shows artist name and song title from current song
@@ -518,71 +609,117 @@ export function MusicPlayer() {
 
             {/* 
               CONTROLS ROW
-              - Horizontal layout for buttons
-              - gap-2 adds 8px space between buttons
-              - Aligned to start (left side)
-              - Order: Previous | Play/Pause | Next
+              - Horizontal layout with space-between
+              - Left group: Previous | Play/Pause | Next (gap-1 = 4px between)
+              - Right: Volume button (pushed to far right)
             */}
-            <div className="flex items-center gap-2">
-              {/* 
-                PREVIOUS BUTTON
-                - Go back to previous song in playlist
-                - Disabled when on first track (can't go back further)
-                - Shows left arrow with line icon (line + triangle, properly centered)
-                - Grayed out when disabled
-                - w-7 h-7 = 28px square button
-              */}
-              <button
-                onClick={handlePrevious}
-                disabled={isPreviousDisabled}
-                className={`w-7 h-7 flex items-center justify-center rounded-[8px] transition-all duration-200 ${
-                  isPreviousDisabled
-                    ? 'bg-sepia-50 dark:bg-sepia-900 text-sepia-300 dark:text-sepia-700 cursor-not-allowed'
-                    : 'bg-sepia-100 dark:bg-sepia-800 text-sepia-900 dark:text-sepia-50 hover:bg-sepia-200 dark:hover:bg-sepia-700'
-                }`}
-                aria-label="Previous song"
-              >
-                <span className="flex items-center font-sans text-[11px] leading-none" style={{ letterSpacing: '-1px' }}>
-                  <span>│</span>
-                  <span>◀</span>
-                </span>
-              </button>
+            <div className="flex items-center justify-between">
+              {/* LEFT GROUP: Playback controls */}
+              <div className="flex items-center gap-1">
+                {/* 
+                  PREVIOUS BUTTON
+                  - Go back to previous song in playlist
+                  - Disabled when on first track (can't go back further)
+                  - Shows left arrow with line icon (line + triangle, properly centered)
+                  - Now uses Button component with secondary variant
+                  - 28px square button using design system tokens
+                  - Optical centering: slight adjustments for visual balance
+                */}
+                <Button
+                  onClick={handlePrevious}
+                  disabled={isPreviousDisabled}
+                  variant="secondary"
+                  size="icon"
+                  aria-label="Previous song"
+                >
+                  <span 
+                    className="flex items-center font-sans text-[11px] leading-none" 
+                    style={{ 
+                      letterSpacing: '-1px',
+                      transform: 'translateX(-0.5px)' // Optical centering adjustment
+                    }}
+                  >
+                    <span>│</span>
+                    <span>◀</span>
+                  </span>
+                </Button>
 
-              {/* 
-                PLAY/PAUSE BUTTON
-                - Icon-only button (no text)
-                - Shows play ▶ or pause ⏸ based on isPlaying state
-                - Changes color on hover for feedback
-                - Uses sepia tokens for colors
-                - Smooth transition on interactions
-                - w-7 h-7 = 28px square button
-              */}
-              <button
-                onClick={togglePlayPause}
-                className="w-7 h-7 flex items-center justify-center rounded-[8px] bg-sepia-100 dark:bg-sepia-800 text-sepia-900 dark:text-sepia-50 hover:bg-sepia-200 dark:hover:bg-sepia-700 transition-all duration-200 text-xs"
-                aria-label={isPlaying ? "Pause" : "Play"}
-              >
-                {isPlaying ? "⏸" : "▶"}
-              </button>
+                {/* 
+                  PLAY/PAUSE BUTTON
+                  - Icon-only button (no text)
+                  - Shows play ▶ or pause ⏸ based on isPlaying state
+                  - Now uses Button component with secondary variant
+                  - 28px square button using design system tokens
+                  - Optical centering: play icon shifted right, pause centered
+                */}
+                <Button
+                  onClick={togglePlayPause}
+                  variant="secondary"
+                  size="icon"
+                  aria-label={isPlaying ? "Pause" : "Play"}
+                  className="text-xs"
+                >
+                  <span 
+                    style={{ 
+                      transform: isPlaying ? 'none' : 'translateX(0.5px)', // Play icon optical centering
+                      display: 'inline-block'
+                    }}
+                  >
+                    {isPlaying ? "⏸" : "▶"}
+                  </span>
+                </Button>
 
+                {/* 
+                  NEXT BUTTON
+                  - Skip to next song in playlist
+                  - Disabled when on last track (can't go forward further)
+                  - Shows next track icon (triangle + line, properly centered)
+                  - Now uses Button component with secondary variant
+                  - 28px square button using design system tokens
+                  - Optical centering: slight adjustments for visual balance
+                */}
+                <Button
+                  onClick={handleNext}
+                  disabled={isNextDisabled}
+                  variant="secondary"
+                  size="icon"
+                  aria-label="Next song"
+                >
+                  <span 
+                    className="flex items-center font-sans text-[11px] leading-none" 
+                    style={{ 
+                      letterSpacing: '-1px',
+                      transform: 'translateX(0.5px)' // Optical centering adjustment
+                    }}
+                  >
+                    <span>▶</span>
+                    <span>│</span>
+                  </span>
+                </Button>
+              </div>
+
+              {/* RIGHT: Volume control */}
               {/* 
-                NEXT BUTTON
-                - Skip to next song in playlist
-                - Cycles back to start after last song
-                - Similar styling to play/pause button
-                - Shows next track icon (triangle + line, properly centered)
-                - Same hover and transition effects
+                VOLUME/MUTE BUTTON
+                - Toggle between muted and unmuted
+                - Shows Volume2 icon when unmuted, VolumeX icon when muted
+                - Uses Lucide React icons (not emoji)
+                - Uses Button component with secondary variant
+                - 28px square button using design system tokens
+                - Positioned on far right with space from other controls
               */}
-              <button
-                onClick={handleNext}
-                className="w-7 h-7 flex items-center justify-center rounded-[8px] bg-sepia-100 dark:bg-sepia-800 text-sepia-900 dark:text-sepia-50 hover:bg-sepia-200 dark:hover:bg-sepia-700 transition-all duration-200"
-                aria-label="Next song"
+              <Button
+                onClick={toggleMute}
+                variant="secondary"
+                size="icon"
+                aria-label={isMuted ? "Unmute" : "Mute"}
               >
-                <span className="flex items-center font-sans text-[11px] leading-none" style={{ letterSpacing: '-1px' }}>
-                  <span>▶</span>
-                  <span>│</span>
-                </span>
-              </button>
+                {isMuted ? (
+                  <VolumeX className="w-3.5 h-3.5" />
+                ) : (
+                  <Volume2 className="w-3.5 h-3.5" />
+                )}
+              </Button>
             </div>
           </div>
         </div>

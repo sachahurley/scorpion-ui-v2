@@ -12,6 +12,12 @@ import Home from "@/pages/Home";
 import Colors from "@/pages/tokens/Colors";
 import SemanticColors from "@/pages/tokens/SemanticColors";
 import Typography from "@/pages/tokens/Typography";
+import BorderRadius from "@/pages/tokens/BorderRadius";
+import SurfacesElevation from "@/pages/tokens/SurfacesElevation";
+import Spacing from "@/pages/tokens/Spacing";
+import FocusStates from "@/pages/tokens/FocusStates";
+import Animations from "@/pages/tokens/Animations";
+import ZIndex from "@/pages/tokens/ZIndex";
 import ComponentsOverview from "@/pages/components/ComponentsOverview";
 import Buttons from "@/pages/components/Buttons";
 import SideNavigation from "@/pages/patterns/SideNavigation";
@@ -29,6 +35,12 @@ function App() {
             <Route path="/foundation/base-colors" element={<Colors />} />
             <Route path="/foundation/semantic-colors" element={<SemanticColors />} />
             <Route path="/foundation/typography" element={<Typography />} />
+            <Route path="/foundation/spacing" element={<Spacing />} />
+            <Route path="/foundation/border-radius" element={<BorderRadius />} />
+            <Route path="/foundation/surfaces-elevation" element={<SurfacesElevation />} />
+            <Route path="/foundation/focus-states" element={<FocusStates />} />
+            <Route path="/foundation/animations" element={<Animations />} />
+            <Route path="/foundation/z-index" element={<ZIndex />} />
             
             {/* Legacy route redirect for backwards compatibility */}
             <Route path="/tokens/colors" element={<Colors />} />

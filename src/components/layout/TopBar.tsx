@@ -13,19 +13,28 @@
  */
 
 import { Link } from "react-router-dom";
+import { Music2 } from "lucide-react";
 import { ASSETS } from "@/lib/assets";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { Button } from "@/components/ui/Button";
 
 interface TopBarProps {
   // Indicates if mobile menu is currently open
   isMobileMenuOpen: boolean;
   // Function to toggle the mobile menu open/closed
   toggleMobileMenu: () => void;
+  // Indicates if music player is currently open/visible
+  isMusicPlayerOpen: boolean;
+  // Function to open the music player
+  openMusicPlayer: () => void;
 }
 
-export function TopBar({ isMobileMenuOpen, toggleMobileMenu }: TopBarProps) {
+export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, openMusicPlayer }: TopBarProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-[var(--surface-container)] border-b-[0.5px] border-solid border-[var(--surface-container-stroke)]">
+    <header 
+      className="fixed top-0 left-0 right-0 h-16 bg-[var(--surface-container)] border-b-[0.5px] border-solid border-[var(--surface-container-stroke)]"
+      style={{ zIndex: 'var(--z-index-sticky)' }}
+    >
       {/* Flex container: mobile menu button + branding on left, theme toggle on right */}
       <div className="h-full pl-4 lg:pl-7 pr-6 flex items-center justify-between gap-3">
         {/* Left side: Mobile menu button + Clickable Scorpion UI branding */}
@@ -84,8 +93,23 @@ export function TopBar({ isMobileMenuOpen, toggleMobileMenu }: TopBarProps) {
           </Link>
         </div>
 
-        {/* Right side: Theme toggle */}
-        <ThemeToggle />
+        {/* Right side: Music player toggle + Theme toggle */}
+        <div className="flex items-center gap-2">
+          {/* Music Player Toggle Button - Opens music player when clicked */}
+          {/* Disabled when music player is already open */}
+          <Button
+            onClick={openMusicPlayer}
+            disabled={isMusicPlayerOpen}
+            variant="secondary"
+            size="icon"
+            aria-label={isMusicPlayerOpen ? "Music player is open" : "Open music player"}
+          >
+            <Music2 className="w-4 h-4" />
+          </Button>
+
+          {/* Theme toggle button */}
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );
