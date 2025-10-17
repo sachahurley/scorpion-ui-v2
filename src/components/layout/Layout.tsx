@@ -8,9 +8,13 @@
  * - Manages mobile menu state (open/closed)
  * - Passes toggle functions to TopBar and Sidebar
  * - Sidebar slides in from left on mobile screens
+ * 
+ * Scroll Behavior:
+ * - Automatically scrolls to top when navigating between pages
  */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { TopBar } from "./TopBar";
 import { Sidebar } from "./Sidebar";
 import { MusicPlayer } from "@/components/ui/MusicPlayer";
@@ -20,6 +24,9 @@ interface LayoutProps {
 }
 
 export function Layout({ children }: LayoutProps) {
+  // Get current location to detect route changes
+  const location = useLocation();
+  
   // State to manage mobile menu open/closed
   // false = menu is closed, true = menu is open
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -27,6 +34,27 @@ export function Layout({ children }: LayoutProps) {
   // State to manage music player visibility
   // true = player is visible, false = player is hidden
   const [isMusicPlayerOpen, setIsMusicPlayerOpen] = useState(true);
+
+  // SCROLL TO TOP: Run whenever the route/pathname changes
+  // This ensures every new page starts at the top
+  useEffect(() => {
+    // Disable browser's automatic scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    // Scroll to top immediately and forcefully
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    // Also try with requestAnimationFrame to catch any late renders
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
+  }, [location.pathname]); // Runs every time the pathname changes
 
   // Function to toggle the mobile menu (open ↔ closed)
   const toggleMobileMenu = () => {
