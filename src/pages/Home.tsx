@@ -16,34 +16,51 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="container mx-auto pb-5 lg:pb-20">
-        {/* Hero Section - Graphic with smaller margins for optical alignment */}
-        <section className="mb-6 mx-3 lg:mx-6 mt-5 lg:mt-10">
+        {/* Hero Section - Unified Responsive Logo Lockup */}
+        <section className="mb-10 mt-5 lg:mt-10">
           {/* 
-            Scorpion UI Graphic 3b:
-            - Hero graphic with no animation
-            - 40px margin on top, left, and right (mx-10 mt-10 = 40px)
-            - Responsive and scales with viewport
-            - Light mode: sepia-900 (#2B2718 - dark warm)
-            - Dark mode: sepia-50 (#FDFCFB - light warm)
+            Hero Layout - All Elements Scale Together as ONE UNIT:
+            - Container has responsive height (viewport-based: 15vh mobile, 20vh desktop)
+            - ALL THREE elements share EXACT SAME HEIGHT (h-full)
+            - Each element's width determined by its aspect ratio
+            - Torches: aspect-[304/721] (narrow, tall)
+            - Scorpion: aspect-[2924/521] (wide, short)
+            - justify-between: Pushes torches to left/right edges, scorpion fills middle
+            - No gap: All three elements touch, creating seamless edge-to-edge layout
+            - As viewport changes, container height changes, all three scale proportionally together
+            - Result: Torches at edges, scorpion centered, all scaling together
           */}
-          <div className="relative w-full">
-            {/* Light mode version - sepia-900 tint */}
+          <div className="flex items-center justify-between w-full h-[15vh] lg:h-[20vh]">
+            {/* Left Torch - Height fills container, width determined by 304:721 ratio */}
+            <img 
+              src={ASSETS.torch001}
+              alt="Torch"
+              className="h-full w-auto object-contain shrink-0"
+            />
+            
+            {/* Scorpion UI Graphic - Height fills container, width determined by 2924:521 ratio */}
             <img 
               src={ASSETS.scorpionUIGraphic3b}
               alt="Scorpion UI"
-              className="w-full block dark:hidden"
+              className="h-full w-auto object-contain block dark:hidden"
               style={{
                 filter: 'brightness(0) saturate(100%) invert(10%) sepia(21%) saturate(939%) hue-rotate(344deg) brightness(94%) contrast(91%)'
               }}
             />
-            {/* Dark mode version - sepia-50 tint */}
             <img 
               src={ASSETS.scorpionUIGraphic3b}
               alt="Scorpion UI"
-              className="w-full block hidden dark:block"
+              className="h-full w-auto object-contain block hidden dark:block"
               style={{
                 filter: 'brightness(0) saturate(100%) invert(99%) sepia(7%) saturate(221%) hue-rotate(328deg) brightness(104%) contrast(96%)'
               }}
+            />
+            
+            {/* Right Torch - Height fills container, width determined by 304:721 ratio */}
+            <img 
+              src={ASSETS.torch001}
+              alt="Torch"
+              className="h-full w-auto object-contain shrink-0"
             />
           </div>
         </section>

@@ -25,6 +25,9 @@ export const ASSETS = {
   scorpionUIGraphic3b: asset('/scorpion-ui-graphic-3b.png'),
   scorpionFavicon: asset('/scorpion-favicon.svg'),
   
+  // Torch graphic
+  torch001: asset('/torch-001.png'),
+  
   // Avatar images
   avatar8bit: asset('/avatar_8bit.png'),
   avatarProfile2: asset('/avatar-profile-2.png'),
