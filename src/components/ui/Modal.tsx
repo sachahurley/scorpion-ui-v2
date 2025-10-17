@@ -105,11 +105,15 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
           - Max height: 80% of viewport (80vh)
           - Card styling with background, border, and shadow
           - Clicking inside the modal does NOT close it (stopPropagation)
-          - Uses elevation.2 shadow tokens for drop shadow
+          - Uses elevation-2 shadow tokens for medium elevation
           - rounded-[24px] uses radius.container token
         */}
         <div
-          className="w-[740px] max-h-[80vh] bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] flex flex-col overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.15),0_2px_4px_rgba(0,0,0,0.10)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.5),0_2px_0_rgba(255,255,255,0.08)]"
+          className="w-[740px] max-h-[80vh] bg-[var(--surface-card)] rounded-[24px] flex flex-col overflow-hidden"
+          style={{
+            boxShadow: 'var(--elevation-2-shadow)',
+            border: '0.5px solid var(--elevation-2-border)'
+          }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* 

@@ -49,9 +49,18 @@ export function AboutCard() {
             className="w-8 h-8 rounded-full object-cover flex-shrink-0"
           />
           
-          {/* Text: "Built by Sacha Hurley" */}
+          {/* Text: "Built by Sacha Hurley" with LinkedIn link */}
           <span className="flex-1 text-xs font-mono text-sepia-900 dark:text-sepia-50">
-            Built by Sacha Hurley
+            Built by{' '}
+            <a 
+              href="https://www.linkedin.com/in/sacha-hurley-2bb75947/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary-600 dark:text-primary-400 hover:underline"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Sacha Hurley
+            </a>
           </span>
           
           {/* Chevron Icon - Rotates based on expanded state */}
@@ -96,10 +105,7 @@ export function AboutCard() {
               borderTop: '0.5px solid var(--elevation-1-border)'
             }}
           >
-            {/* About Text Content */}
-            <h3 className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-3">
-              About This Project
-            </h3>
+            {/* About Text Content - starts directly with content */}
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mb-4 leading-relaxed">
               I created Scorpion UI to learn React, TypeScript, and modern design systems while using as many AI tools as possible to re-invent my design workflow. This is a living design system that demonstrates token-based theming and component architecture.
             </p>

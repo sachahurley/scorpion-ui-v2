@@ -218,7 +218,7 @@
     /* Light theme elevation tokens (shadows & borders for depth) */
     --elevation-0-shadow: none;
     --elevation-0-border: transparent;
-    --elevation-1-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+    --elevation-1-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
     --elevation-1-border: #F7F5F2;  /* sepia-200 */
     --elevation-2-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.10);
     --elevation-2-border: #F0EBE4;  /* sepia-300 */
@@ -247,7 +247,7 @@
     --elevation-0-shadow: none;
     --elevation-0-border: transparent;
     /* Level 1: Subtle card elevation with light border for edge definition */
-    --elevation-1-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.05);
+    --elevation-1-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.06);
     --elevation-1-border: rgba(255, 255, 255, 0.08);
     /* Level 2: Medium elevation (dropdowns, popovers) */
     --elevation-2-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 2px 0 rgba(255, 255, 255, 0.08);
