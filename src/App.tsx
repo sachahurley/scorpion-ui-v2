@@ -19,7 +19,7 @@ import SideNavigation from "@/pages/patterns/SideNavigation";
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/scorpion-ui-v2">
         <Layout>
           <Routes>
             {/* All pages now use the same layout with sidebar */}

@@ -18,7 +18,7 @@
  * - large: 48px height
  */
 
-import { ButtonHTMLAttributes, forwardRef } from "react";
+import { forwardRef, type ButtonHTMLAttributes } from "react";
 
 // Define the props interface for the Button component
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -76,53 +76,59 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       // ✓ PRIMARY - Uses semantic primary tokens (resolves to amber)
       // Light: primary-400 bg → primary-500 hover | black text (same as dark)
       // Dark: primary-400 bg → primary-500 hover | black text
+      // Focus: 2px ring with 2px offset (matches page background: sepia-50 light / sepia-1000 dark)
       primary: `
         bg-primary-400 hover:bg-primary-500 active:bg-primary-600 text-black
         dark:bg-primary-400 dark:hover:bg-primary-500 dark:active:bg-primary-600 dark:text-black
-        focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-400 focus:ring-offset-2
+        focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000
       `,
 
       // ✓ SECONDARY - Uses semantic secondary tokens (resolves to sepia)
       // Light: secondary-700 bg → secondary-600 hover | secondary-50 text (same as dark)
       // Dark: secondary-700 bg → secondary-600 hover | secondary-50 text
+      // Focus: 2px ring with 2px offset (matches page background: sepia-50 light / sepia-1000 dark)
       secondary: `
         bg-secondary-700 hover:bg-secondary-600 active:bg-secondary-500 text-secondary-50
         dark:bg-secondary-700 dark:hover:bg-secondary-600 dark:active:bg-secondary-500 dark:text-secondary-50
-        focus:ring-2 focus:ring-secondary-700 dark:focus:ring-secondary-700 focus:ring-offset-2
+        focus:ring-2 focus:ring-secondary-700 dark:focus:ring-secondary-700 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000
       `,
 
       // ⚠️ GHOST - Uses neutral secondary tokens for subtle UI
       // Uses secondary (sepia) colors for hover states - no strong semantic meaning
+      // Focus: 2px ring with 2px offset (matches page background: sepia-50 light / sepia-1000 dark)
       ghost: `
         bg-transparent hover:bg-secondary-200 active:bg-secondary-300 text-secondary-900
         dark:hover:bg-secondary-700 dark:active:bg-secondary-600 dark:text-secondary-50
-        focus:ring-2 focus:ring-secondary-300 dark:focus:ring-secondary-700 focus:ring-offset-2
+        focus:ring-2 focus:ring-secondary-300 dark:focus:ring-secondary-700 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000
       `,
 
       // ⚠️ LINK - Uses semantic primary tokens for link color
       // Links should use primary brand color
+      // Focus: 2px ring with 2px offset (matches page background: sepia-50 light / sepia-1000 dark)
       link: `
         bg-transparent hover:underline text-primary-600 hover:text-primary-700
         dark:text-primary-400 dark:hover:text-primary-300
-        focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400 focus:ring-offset-2
+        focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000
       `,
 
       // ⚠️ OUTLINE - Uses neutral secondary tokens for borders
       // Uses secondary (sepia) colors for border and text - neutral appearance
+      // Focus: 2px ring with 2px offset (matches page background: sepia-50 light / sepia-1000 dark)
       outline: `
         bg-transparent border border-secondary-300 hover:border-secondary-400 hover:bg-secondary-50
         active:bg-secondary-100 text-secondary-900
         dark:border-secondary-700 dark:hover:border-secondary-600 dark:hover:bg-secondary-900
         dark:active:bg-secondary-800 dark:text-secondary-50
-        focus:ring-2 focus:ring-secondary-300 dark:focus:ring-secondary-700 focus:ring-offset-2
+        focus:ring-2 focus:ring-secondary-300 dark:focus:ring-secondary-700 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000
       `,
 
       // ⚠️ DESTRUCTIVE - Uses semantic error tokens (resolves to red)
       // Error tokens for dangerous/destructive actions
+      // Focus: 2px ring with 2px offset (matches page background: sepia-50 light / sepia-1000 dark)
       destructive: `
         bg-error-600 hover:bg-error-700 active:bg-error-800 text-white
         dark:bg-error-500 dark:hover:bg-error-600 dark:active:bg-error-700
-        focus:ring-2 focus:ring-error-600 dark:focus:ring-error-500 focus:ring-offset-2
+        focus:ring-2 focus:ring-error-600 dark:focus:ring-error-500 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000
       `,
     };
 

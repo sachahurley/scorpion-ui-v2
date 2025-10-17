@@ -13,6 +13,7 @@
 import { useState } from "react";
 import { TopBar } from "./TopBar";
 import { Sidebar } from "./Sidebar";
+import { MusicPlayer } from "@/components/ui/MusicPlayer";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -59,6 +60,9 @@ export function Layout({ children }: LayoutProps) {
           </div>
         </main>
       </div>
+
+      {/* Music Player - Fixed bottom-right corner, visible on all pages */}
+      <MusicPlayer />
     </div>
   );
 }

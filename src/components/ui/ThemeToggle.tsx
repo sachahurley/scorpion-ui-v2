@@ -38,7 +38,7 @@ export function ThemeToggle() {
       {/* Toggle Switch */}
       <button
         onClick={toggleTheme}
-        className="relative inline-flex items-center h-6 w-12 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-secondary-900"
+        className="relative inline-flex items-center h-6 w-12 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000"
         style={{
           backgroundColor: isDark ? '#F59E0B' : '#D6D3D1', // primary-500 (amber-500) : secondary-300 (sepia-300)
         }}

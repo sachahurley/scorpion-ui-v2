@@ -3,53 +3,59 @@
  * 
  * Centralized references to all static assets in the public folder
  * This makes it easy to use your graphics and icons throughout the app
+ * 
+ * Uses import.meta.env.BASE_URL to support deployment to subdirectories (like GitHub Pages)
  */
+
+// Helper function to prepend the base URL to asset paths
+// This ensures images work both locally and on GitHub Pages
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 
 export const ASSETS = {
   // Scorpion graphics
-  scorpion1: '/scorpion-1.png',
-  scorpion2: '/scorpion-2.png',
-  scorpionBlack: '/scorpion-black.png',
-  scorpionWhite: '/scorpion-white.png',
-  scorpionNeutral: '/scorpion-neutral.png',
-  scorpionHero: '/scorpion-hero.png',
-  scorpionHeroV2: '/scorpion-hero-v2.png',
-  scorpionUIGraphic2: '/scorpion-ui-graphic-2.png',
-  scorpionUIGraphic2Transparent: '/scorpion-ui-graphic-2-transparent.png',
-  scorpionUIGraphic3b: '/scorpion-ui-graphic-3b.png',
-  scorpionFavicon: '/scorpion-favicon.svg',
+  scorpion1: asset('/scorpion-1.png'),
+  scorpion2: asset('/scorpion-2.png'),
+  scorpionBlack: asset('/scorpion-black.png'),
+  scorpionWhite: asset('/scorpion-white.png'),
+  scorpionNeutral: asset('/scorpion-neutral.png'),
+  scorpionHero: asset('/scorpion-hero.png'),
+  scorpionHeroV2: asset('/scorpion-hero-v2.png'),
+  scorpionUIGraphic2: asset('/scorpion-ui-graphic-2.png'),
+  scorpionUIGraphic2Transparent: asset('/scorpion-ui-graphic-2-transparent.png'),
+  scorpionUIGraphic3b: asset('/scorpion-ui-graphic-3b.png'),
+  scorpionFavicon: asset('/scorpion-favicon.svg'),
   
   // Avatar images
-  avatar8bit: '/avatar_8bit.png',
-  avatarProfile2: '/avatar-profile-2.png',
+  avatar8bit: asset('/avatar_8bit.png'),
+  avatarProfile2: asset('/avatar-profile-2.png'),
   
   // Landscape backgrounds
-  landscape01: '/landscape-01.png',
-  landscape1: '/landscape-1.png',
-  landscape2: '/landscape-2.png',
-  landscape3: '/landscape-3.png',
-  landscape4: '/landscape-4.png',
-  landscape5: '/landscape-5.png',
-  landscape6: '/landscape-6.png',
+  landscape01: asset('/landscape-01.png'),
+  landscape1: asset('/landscape-1.png'),
+  landscape2: asset('/landscape-2.png'),
+  landscape3: asset('/landscape-3.png'),
+  landscape4: asset('/landscape-4.png'),
+  landscape5: asset('/landscape-5.png'),
+  landscape6: asset('/landscape-6.png'),
   
   // Favicons
-  favicon16: '/favicon-16x16.png',
-  favicon32: '/favicon-32x32.png',
-  faviconIco: '/favicon.ico',
-  faviconSvg: '/favicon.svg',
-  appleTouchIcon: '/apple-touch-icon.png',
+  favicon16: asset('/favicon-16x16.png'),
+  favicon32: asset('/favicon-32x32.png'),
+  faviconIco: asset('/favicon.ico'),
+  faviconSvg: asset('/favicon.svg'),
+  appleTouchIcon: asset('/apple-touch-icon.png'),
   
   // Homepage feature card icons
   icons: {
     // Design Tokens card
-    colorSyncLight: '/Icons/Light theme/2. System apps/ColorSync Utility.png',
-    colorSyncDark: '/Icons/Dark theme/2. System apps/ColorSync Utility.png',
+    colorSyncLight: asset('/Icons/Light theme/2. System apps/ColorSync Utility.png'),
+    colorSyncDark: asset('/Icons/Dark theme/2. System apps/ColorSync Utility.png'),
     // Components card
-    automatorLight: '/Icons/Light theme/2. System apps/Automator.png',
-    automatorDark: '/Icons/Dark theme/2. System apps/Automator.png',
+    automatorLight: asset('/Icons/Light theme/2. System apps/Automator.png'),
+    automatorDark: asset('/Icons/Dark theme/2. System apps/Automator.png'),
     // Theme System card
-    systemPrefsLight: '/Icons/Light theme/2. System apps/System preferences.png',
-    systemPrefsDark: '/Icons/Dark theme/2. System apps/System preferences.png',
+    systemPrefsLight: asset('/Icons/Light theme/2. System apps/System preferences.png'),
+    systemPrefsDark: asset('/Icons/Dark theme/2. System apps/System preferences.png'),
   },
 } as const;
 
@@ -61,20 +67,20 @@ export const ASSETS = {
 export const ICON_PATHS = {
   // Dark theme icons
   darkTheme: {
-    userApps: '/Icons/Dark theme/1. User apps/',
-    systemApps: '/Icons/Dark theme/2. System apps/',
-    systemFolders: '/Icons/Dark theme/3. System folders/',
-    extensions: '/Icons/Dark theme/4. Extensions/',
-    drives: '/Icons/Dark theme/5. Drives/',
+    userApps: asset('/Icons/Dark theme/1. User apps/'),
+    systemApps: asset('/Icons/Dark theme/2. System apps/'),
+    systemFolders: asset('/Icons/Dark theme/3. System folders/'),
+    extensions: asset('/Icons/Dark theme/4. Extensions/'),
+    drives: asset('/Icons/Dark theme/5. Drives/'),
   },
   
   // Light theme icons
   lightTheme: {
-    userApps: '/Icons/Light theme/1. User apps/',
-    systemApps: '/Icons/Light theme/2. System apps/',
-    systemFolders: '/Icons/Light theme/3. System folders/',
-    extensions: '/Icons/Light theme/4. Extensions/',
-    drives: '/Icons/Light theme/5. Drives/',
+    userApps: asset('/Icons/Light theme/1. User apps/'),
+    systemApps: asset('/Icons/Light theme/2. System apps/'),
+    systemFolders: asset('/Icons/Light theme/3. System folders/'),
+    extensions: asset('/Icons/Light theme/4. Extensions/'),
+    drives: asset('/Icons/Light theme/5. Drives/'),
   },
 } as const;
 

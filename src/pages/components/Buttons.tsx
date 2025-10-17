@@ -239,6 +239,39 @@ export default function Buttons() {
                 </div>
               </div>
             </div>
+
+            {/* Focus States Section */}
+            <div>
+              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Focus States</h4>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light & Dark)</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.primary.400 (amber.400)</span>
+                  </div>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -306,6 +339,39 @@ export default function Buttons() {
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
                     <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">color.secondary.50 (sepia.50)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Focus States Section */}
+            <div>
+              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Focus States</h4>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light & Dark)</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.secondary.700 (sepia.700)</span>
+                  </div>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
                   </div>
                 </div>
               </div>
@@ -389,6 +455,51 @@ export default function Buttons() {
                 </div>
               </div>
             </div>
+
+            {/* Focus States Section */}
+            <div>
+              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Focus States</h4>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light)</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.secondary.300 (sepia.300)</span>
+                  </div>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Dark)</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.secondary.700 (sepia.700)</span>
+                  </div>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -457,6 +568,51 @@ export default function Buttons() {
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
                     <div className="w-4 h-4 rounded-full bg-amber-300 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.primary.300 (amber.300)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Focus States Section */}
+            <div>
+              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Focus States</h4>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light)</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-amber-600 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.primary.600 (amber.600)</span>
+                  </div>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Dark)</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.primary.400 (amber.400)</span>
+                  </div>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
                   </div>
                 </div>
               </div>
@@ -562,6 +718,51 @@ export default function Buttons() {
                 </div>
               </div>
             </div>
+
+            {/* Focus States Section */}
+            <div>
+              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Focus States</h4>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light)</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.secondary.300 (sepia.300)</span>
+                  </div>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Dark)</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.secondary.700 (sepia.700)</span>
+                  </div>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -629,6 +830,51 @@ export default function Buttons() {
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
                     <div className="w-4 h-4 rounded-full bg-white border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">color.white</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Focus States Section */}
+            <div>
+              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Focus States</h4>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light)</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.error.600 (red.600)</span>
+                  </div>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Dark)</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-red-500 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.error.500 (red.500)</span>
+                  </div>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
+                <div className="flex flex-wrap gap-2">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
                   </div>
                 </div>
               </div>

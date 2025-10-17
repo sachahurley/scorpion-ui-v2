@@ -77,7 +77,7 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu }: SidebarProps) {
             `}
           >
             <img 
-              src="/Icons/Dark theme/2. System apps/Home.png" 
+              src={`${import.meta.env.BASE_URL}Icons/Dark theme/2. System apps/Home.png`}
               alt="Home" 
               className="w-7 h-7 object-contain"
             />
@@ -91,7 +91,7 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu }: SidebarProps) {
               className="w-full flex items-center gap-3 px-3 py-2 rounded-button hover:bg-sepia-600 hover:text-sepia-50 transition-colors font-mono text-sm"
             >
               <img 
-                src="/Icons/Dark theme/3. System folders/Library.png" 
+                src={`${import.meta.env.BASE_URL}Icons/Dark theme/3. System folders/Library.png`}
                 alt="Foundation" 
                 className="w-7 h-7 object-contain"
               />
@@ -217,7 +217,7 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu }: SidebarProps) {
               className="w-full flex items-center gap-3 px-3 py-2 rounded-button hover:bg-sepia-600 hover:text-sepia-50 transition-colors font-mono text-sm"
             >
               <img 
-                src="/Icons/Dark theme/3. System folders/Applications.png" 
+                src={`${import.meta.env.BASE_URL}Icons/Dark theme/3. System folders/Applications.png`}
                 alt="Components" 
                 className="w-7 h-7 object-contain"
               />
@@ -283,7 +283,7 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu }: SidebarProps) {
               className="w-full flex items-center gap-3 px-3 py-2 rounded-button hover:bg-sepia-600 hover:text-sepia-50 transition-colors font-mono text-sm"
             >
               <img 
-                src="/Icons/Dark theme/2. System apps/Mission Control.png" 
+                src={`${import.meta.env.BASE_URL}Icons/Dark theme/2. System apps/Mission Control.png`}
                 alt="Patterns" 
                 className="w-7 h-7 object-contain"
               />
