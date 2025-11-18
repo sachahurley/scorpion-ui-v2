@@ -693,6 +693,156 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, 
                   </svg>
                   <span>Selects</span>
                 </Link>
+                <Link
+                  to="/components/badges"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/components/badges")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Badges</span>
+                </Link>
+                <Link
+                  to="/components/dividers"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/components/dividers")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Dividers</span>
+                </Link>
+                <Link
+                  to="/components/tooltips"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/components/tooltips")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Tooltips</span>
+                </Link>
+                <Link
+                  to="/components/alerts"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/components/alerts")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Alerts</span>
+                </Link>
+                <Link
+                  to="/components/avatars"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/components/avatars")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Avatars</span>
+                </Link>
               </div>
             )}
           </div>

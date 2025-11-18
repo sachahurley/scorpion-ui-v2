@@ -27,6 +27,11 @@ import Textareas from "@/pages/components/Textareas";
 import Checkboxes from "@/pages/components/Checkboxes";
 import Radios from "@/pages/components/Radios";
 import Selects from "@/pages/components/Selects";
+import Badges from "@/pages/components/Badges";
+import Dividers from "@/pages/components/Dividers";
+import Tooltips from "@/pages/components/Tooltips";
+import Alerts from "@/pages/components/Alerts";
+import Avatars from "@/pages/components/Avatars";
 import SideNavigation from "@/pages/patterns/SideNavigation";
 import Cards from "@/pages/patterns/Cards";
 import Forms from "@/pages/patterns/Forms";
@@ -64,6 +69,11 @@ function App() {
             <Route path="/components/checkboxes" element={<Checkboxes />} />
             <Route path="/components/radios" element={<Radios />} />
             <Route path="/components/selects" element={<Selects />} />
+            <Route path="/components/badges" element={<Badges />} />
+            <Route path="/components/dividers" element={<Dividers />} />
+            <Route path="/components/tooltips" element={<Tooltips />} />
+            <Route path="/components/alerts" element={<Alerts />} />
+            <Route path="/components/avatars" element={<Avatars />} />
             
             {/* Patterns pages */}
             <Route path="/patterns/side-navigation" element={<SideNavigation />} />
