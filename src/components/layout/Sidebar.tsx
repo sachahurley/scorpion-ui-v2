@@ -28,9 +28,11 @@ interface SidebarProps {
   isMusicPlayerOpen: boolean;
   // Function to open the music player
   openMusicPlayer: () => void;
+  // Function to close the music player
+  closeMusicPlayer: () => void;
 }
 
-export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, openMusicPlayer }: SidebarProps) {
+export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, openMusicPlayer, closeMusicPlayer }: SidebarProps) {
   const location = useLocation();
   // All navigation sections start collapsed by default on page load
   const [isFoundationExpanded, setIsFoundationExpanded] = useState(false);
@@ -78,13 +80,13 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, 
           <div className="lg:hidden flex items-center gap-2 pb-4 mb-4 border-b border-sepia-600">
             {/* Music Player Toggle Button - Opens music player when clicked */}
             <Button
-              onClick={openMusicPlayer}
-              disabled={isMusicPlayerOpen}
-              variant="secondary"
-              size="icon"
-              aria-label={isMusicPlayerOpen ? "Music player is open" : "Open music player"}
+              onClick={isMusicPlayerOpen ? closeMusicPlayer : openMusicPlayer}
+              variant="outline"
+              size="small"
+              className={isMusicPlayerOpen ? "bg-secondary-200 dark:bg-secondary-700" : ""}
+              aria-label={isMusicPlayerOpen ? "Close music player" : "Open music player"}
             >
-              <Music2 className="w-4 h-4" />
+              <Music2 />
             </Button>
 
             {/* Theme toggle button */}
@@ -541,6 +543,156 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, 
                   </svg>
                   <span>Dropdowns</span>
                 </Link>
+                <Link
+                  to="/components/toggles"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/components/toggles")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Toggles</span>
+                </Link>
+                <Link
+                  to="/components/textareas"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/components/textareas")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Textareas</span>
+                </Link>
+                <Link
+                  to="/components/checkboxes"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/components/checkboxes")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Checkboxes</span>
+                </Link>
+                <Link
+                  to="/components/radios"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/components/radios")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Radios</span>
+                </Link>
+                <Link
+                  to="/components/selects"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/components/selects")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Selects</span>
+                </Link>
               </div>
             )}
           </div>
@@ -606,6 +758,66 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, 
                     />
                   </svg>
                   <span>Side Navigation</span>
+                </Link>
+                <Link
+                  to="/patterns/cards"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/patterns/cards")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Cards</span>
+                </Link>
+                <Link
+                  to="/patterns/forms"
+                  onClick={closeMobileMenu}
+                  className={`
+                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
+                    transition-colors
+                    ${
+                      isActive("/patterns/forms")
+                        ? "bg-sepia-700 text-sepia-50 font-bold"
+                        : "hover:bg-sepia-600 hover:text-sepia-50"
+                    }
+                  `}
+                >
+                  {/* L-shaped arrow SVG for sub-page navigation */}
+                  <svg 
+                    className="w-7 h-7" 
+                    viewBox="0 0 28 28" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span>Forms</span>
                 </Link>
               </div>
             )}

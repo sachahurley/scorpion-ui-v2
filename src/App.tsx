@@ -22,7 +22,14 @@ import ComponentsOverview from "@/pages/components/ComponentsOverview";
 import Buttons from "@/pages/components/Buttons";
 import Inputs from "@/pages/components/Inputs";
 import Dropdowns from "@/pages/components/Dropdowns";
+import Toggles from "@/pages/components/Toggles";
+import Textareas from "@/pages/components/Textareas";
+import Checkboxes from "@/pages/components/Checkboxes";
+import Radios from "@/pages/components/Radios";
+import Selects from "@/pages/components/Selects";
 import SideNavigation from "@/pages/patterns/SideNavigation";
+import Cards from "@/pages/patterns/Cards";
+import Forms from "@/pages/patterns/Forms";
 
 function App() {
   return (
@@ -52,9 +59,16 @@ function App() {
             <Route path="/components/buttons" element={<Buttons />} />
             <Route path="/components/inputs" element={<Inputs />} />
             <Route path="/components/dropdowns" element={<Dropdowns />} />
+            <Route path="/components/toggles" element={<Toggles />} />
+            <Route path="/components/textareas" element={<Textareas />} />
+            <Route path="/components/checkboxes" element={<Checkboxes />} />
+            <Route path="/components/radios" element={<Radios />} />
+            <Route path="/components/selects" element={<Selects />} />
             
             {/* Patterns pages */}
             <Route path="/patterns/side-navigation" element={<SideNavigation />} />
+            <Route path="/patterns/cards" element={<Cards />} />
+            <Route path="/patterns/forms" element={<Forms />} />
           </Routes>
         </Layout>
       </BrowserRouter>

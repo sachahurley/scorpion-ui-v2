@@ -26,7 +26,7 @@ export default function Typography() {
         Large display of token name and font family name (48px) directly in amber container
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Family</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Primary typeface</p>
@@ -51,7 +51,7 @@ export default function Typography() {
         Each shows the Point Break quote at that size, plus token name and pixel value
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Sizes</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Type scale from 6xl (96px) to xs (12px) for all typography needs</p>
@@ -182,7 +182,7 @@ export default function Typography() {
         These control the default text colors throughout the design system
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Text Hierarchy</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Theme-aware text colors for primary and secondary content</p>

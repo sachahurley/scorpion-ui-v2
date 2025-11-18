@@ -17,51 +17,73 @@ export default function Home() {
   return (
     <div className="container mx-auto pb-5 lg:pb-20">
         {/* Hero Section - Unified Responsive Logo Lockup */}
-        <section className="mb-10 mt-5 lg:mt-10">
+        <section className="mb-6 lg:mb-10 mt-5 lg:mt-10 px-5 lg:px-10">
           {/* 
-            Hero Layout - All Elements Scale Together as ONE UNIT:
-            - Container has responsive height (viewport-based: 15vh mobile, 20vh desktop)
-            - ALL THREE elements share EXACT SAME HEIGHT (h-full)
-            - Each element's width determined by its aspect ratio
-            - Torches: aspect-[304/721] (narrow, tall)
-            - Scorpion: aspect-[2924/521] (wide, short)
+            Hero Layout - Scorpion-Driven Scaling:
+            - Container height is determined by the Scorpion graphic's aspect ratio
+            - Scorpion graphic sizes itself based on available width (respects padding)
+            - Scorpion maintains its aspect ratio (2924:521) - very wide, short
+            - Torches scale to match the Scorpion's height proportionally
+            - Torches maintain their aspect ratio (304:721) - very tall, narrow
             - justify-between: Pushes torches to left/right edges, scorpion fills middle
-            - No gap: All three elements touch, creating seamless edge-to-edge layout
-            - As viewport changes, container height changes, all three scale proportionally together
-            - Result: Torches at edges, scorpion centered, all scaling together
+            - All three elements scale together as viewport changes
+            - Result: Torches at edges match Scorpion height, all scale proportionally
           */}
-          <div className="flex items-center justify-between w-full h-[15vh] lg:h-[20vh]">
-            {/* Left Torch - Height fills container, width determined by 304:721 ratio */}
-            <img 
-              src={ASSETS.torch001}
-              alt="Torch"
-              className="h-full w-auto object-contain shrink-0"
-            />
-            
-            {/* Scorpion UI Graphic - Height fills container, width determined by 2924:521 ratio */}
-            <img 
-              src={ASSETS.scorpionUIGraphic3b}
-              alt="Scorpion UI"
-              className="h-full w-auto object-contain block dark:hidden"
-              style={{
-                filter: 'brightness(0) saturate(100%) invert(10%) sepia(21%) saturate(939%) hue-rotate(344deg) brightness(94%) contrast(91%)'
-              }}
-            />
-            <img 
-              src={ASSETS.scorpionUIGraphic3b}
-              alt="Scorpion UI"
-              className="h-full w-auto object-contain block hidden dark:block"
-              style={{
-                filter: 'brightness(0) saturate(100%) invert(99%) sepia(7%) saturate(221%) hue-rotate(328deg) brightness(104%) contrast(96%)'
-              }}
-            />
-            
-            {/* Right Torch - Height fills container, width determined by 304:721 ratio */}
-            <img 
-              src={ASSETS.torch001}
-              alt="Torch"
-              className="h-full w-auto object-contain shrink-0"
-            />
+          {/* Wrapper establishes height based on Scorpion's aspect ratio and available width */}
+          <div 
+            className="w-full"
+            style={{
+              aspectRatio: '2924 / 521'
+            }}
+          >
+            <div className="flex items-center w-full h-full min-w-0">
+              {/* Left Torch - Scales to match container height, maintains 304:721 aspect ratio */}
+              <img 
+                src={ASSETS.torch001}
+                alt="Torch"
+                className="h-full w-auto shrink-0"
+                style={{
+                  aspectRatio: '304 / 721'
+                }}
+              />
+              
+              {/* Spacer - Right of left torch */}
+              <div className="w-4 lg:w-8 shrink-0"></div>
+              
+              {/* Scorpion UI Graphic - Fills available width, height matches container */}
+              {/* Aspect ratio: 2924:521 (very wide, short) */}
+              <div className="flex-1 min-w-0 flex items-center justify-center h-full">
+                <img 
+                  src={ASSETS.scorpionUIGraphic3b}
+                  alt="Scorpion UI"
+                  className="w-full h-full object-contain block dark:hidden"
+                  style={{
+                    filter: 'brightness(0) saturate(100%) invert(10%) sepia(21%) saturate(939%) hue-rotate(344deg) brightness(94%) contrast(91%)'
+                  }}
+                />
+                <img 
+                  src={ASSETS.scorpionUIGraphic3b}
+                  alt="Scorpion UI"
+                  className="w-full h-full object-contain block hidden dark:block"
+                  style={{
+                    filter: 'brightness(0) saturate(100%) invert(99%) sepia(7%) saturate(221%) hue-rotate(328deg) brightness(104%) contrast(96%)'
+                  }}
+                />
+              </div>
+              
+              {/* Spacer - Left of right torch */}
+              <div className="w-4 lg:w-8 shrink-0"></div>
+              
+              {/* Right Torch - Scales to match container height, maintains 304:721 aspect ratio */}
+              <img 
+                src={ASSETS.torch001}
+                alt="Torch"
+                className="h-full w-auto shrink-0"
+                style={{
+                  aspectRatio: '304 / 721'
+                }}
+              />
+            </div>
           </div>
         </section>
 
@@ -125,7 +147,7 @@ export default function Home() {
         <section className="mb-10 px-5 lg:px-10">
           <div className="grid md:grid-cols-3 gap-5">
             {/* Card 1: Design Tokens */}
-            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
               <div>
                 {/* ColorSync Utility Icon - switches between light/dark */}
                 <div className="mb-4">
@@ -148,7 +170,7 @@ export default function Home() {
             </div>
 
             {/* Card 2: Components */}
-            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
               <div>
                 {/* Automator Icon - switches between light/dark */}
                 <div className="mb-4">
@@ -171,7 +193,7 @@ export default function Home() {
             </div>
 
             {/* Card 3: Theme System */}
-            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
               <div>
                 {/* System Preferences Icon - switches between light/dark */}
                 <div className="mb-4">

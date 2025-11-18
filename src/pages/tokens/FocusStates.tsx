@@ -23,7 +23,7 @@ export default function FocusStates() {
 
       {/* FOCUS RING PROPERTIES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Focus Ring Properties</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -79,9 +79,8 @@ export default function FocusStates() {
                   <div className="w-32 h-12 bg-primary-400 rounded-button flex items-center justify-center relative">
                     <span className="text-xs font-mono text-black">Element</span>
                     {/* Simulated focus ring with offset */}
-                    <div className="absolute inset-0 rounded-button" style={{ 
-                      boxShadow: '0 0 0 2px var(--surface-card), 0 0 0 4px var(--focus-ring-primary)',
-                      transform: 'scale(1.1)'
+                    <div className="absolute inset-[-2px] rounded-button" style={{ 
+                      boxShadow: '0 0 0 2px var(--surface-card), 0 0 0 4px var(--focus-ring-primary)'
                     }}></div>
                   </div>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mt-2">2px offset between element and ring</p>
@@ -94,7 +93,7 @@ export default function FocusStates() {
 
       {/* FOCUS RING COLORS SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Focus Ring Colors</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -235,7 +234,7 @@ export default function FocusStates() {
 
       {/* INTERACTIVE DEMONSTRATION SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Interactive Demonstration</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -261,7 +260,7 @@ export default function FocusStates() {
 
       {/* ACCESSIBILITY GUIDELINES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Accessibility Guidelines</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -303,7 +302,7 @@ export default function FocusStates() {
 
       {/* IMPLEMENTATION EXAMPLES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Implementation Examples</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">

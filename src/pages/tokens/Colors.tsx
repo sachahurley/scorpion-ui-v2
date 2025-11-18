@@ -25,7 +25,7 @@ export default function Colors() {
           </div>
 
             {/* Container with page background and border */}
-            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
               {/* Subsection title for the Amber scale */}
               <div className="mb-4">
                 <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Amber Scale</h3>
@@ -168,7 +168,7 @@ export default function Colors() {
 
         {/* SEPIA SCALE SECTION */}
         <section className="mb-10">
-          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
             <div className="mb-4">
               <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Sepia Scale</h3>
             </div>
@@ -291,7 +291,7 @@ export default function Colors() {
 
         {/* GREEN SCALE SECTION */}
         <section className="mb-10">
-          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
             <div className="mb-4">
               <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Green Scale</h3>
             </div>
@@ -390,7 +390,7 @@ export default function Colors() {
 
         {/* BLUE SCALE SECTION */}
         <section className="mb-10">
-          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
             <div className="mb-4">
               <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Blue Scale</h3>
             </div>
@@ -489,7 +489,7 @@ export default function Colors() {
 
         {/* PURPLE SCALE SECTION */}
         <section className="mb-10">
-          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
             <div className="mb-4">
               <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Purple Scale</h3>
             </div>
@@ -588,7 +588,7 @@ export default function Colors() {
 
         {/* RED SCALE SECTION */}
         <section className="mb-10">
-          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
             <div className="mb-4">
               <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Red Scale</h3>
             </div>
@@ -687,7 +687,7 @@ export default function Colors() {
 
         {/* BLACK AND WHITE SECTION */}
         <section className="mb-10">
-          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
             <div className="mb-4">
               <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Neutrals</h3>
             </div>

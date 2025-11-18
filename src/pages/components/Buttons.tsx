@@ -19,7 +19,6 @@ import {
   Settings, 
   ChevronRight, 
   Plus, 
-  X, 
   Download,
   Upload,
   Trash2,
@@ -56,7 +55,7 @@ export default function Buttons() {
         Uses the same container style as other documentation pages
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Variants</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -83,7 +82,7 @@ export default function Buttons() {
         All use 14px Fragment Mono text
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sizes</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -118,7 +117,7 @@ export default function Buttons() {
 
       {/* BUTTONS WITH LEFT ICONS */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Buttons with Left Icons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -172,7 +171,7 @@ export default function Buttons() {
 
       {/* BUTTONS WITH RIGHT ICONS */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Buttons with Right Icons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -226,7 +225,7 @@ export default function Buttons() {
 
       {/* ICON-ONLY BUTTONS */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Icon-Only Buttons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -234,37 +233,12 @@ export default function Buttons() {
             </p>
           </div>
           
-          {/* Icon Variant - Square Buttons */}
+          {/* Small Size - All Variants */}
           <div className="mb-8">
-            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Icon Variant (28×28px Square)</h4>
+            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Small Size (32×32px, 16px icon)</h4>
             <div className="flex flex-wrap gap-4 items-center">
-              <Button variant="icon" size="icon" aria-label="Search">
+              <Button variant="primary" size="small" aria-label="Search">
                 <Search />
-              </Button>
-              <Button variant="icon" size="icon" aria-label="Settings">
-                <Settings />
-              </Button>
-              <Button variant="icon" size="icon" aria-label="Edit">
-                <Edit />
-              </Button>
-              <Button variant="icon" size="icon" aria-label="Close">
-                <X />
-              </Button>
-              <Button variant="icon" size="icon" aria-label="Download">
-                <Download />
-              </Button>
-              <Button variant="icon" size="icon" aria-label="Delete" disabled>
-                <Trash2 />
-              </Button>
-            </div>
-          </div>
-
-          {/* Other Variants as Icon-Only */}
-          <div className="mb-8">
-            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Other Variants (Small Size, Icon-Only)</h4>
-            <div className="flex flex-wrap gap-4 items-center">
-              <Button variant="primary" size="small" aria-label="Add">
-                <Plus />
               </Button>
               <Button variant="secondary" size="small" aria-label="Settings">
                 <Settings />
@@ -281,34 +255,47 @@ export default function Buttons() {
             </div>
           </div>
 
-          {/* All Sizes Comparison */}
+          {/* Medium Size - All Variants */}
           <div className="mb-8">
-            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Size Comparison (Primary Variant)</h4>
+            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Medium Size (40×40px, 20px icon)</h4>
             <div className="flex flex-wrap gap-4 items-center">
-              <div className="flex flex-col gap-2 items-center">
-                <Button variant="primary" size="large" aria-label="Search">
-                  <Search />
-                </Button>
-                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Large</p>
-              </div>
-              <div className="flex flex-col gap-2 items-center">
-                <Button variant="primary" size="medium" aria-label="Search">
-                  <Search />
-                </Button>
-                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Medium</p>
-              </div>
-              <div className="flex flex-col gap-2 items-center">
-                <Button variant="primary" size="small" aria-label="Search">
-                  <Search />
-                </Button>
-                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Small</p>
-              </div>
-              <div className="flex flex-col gap-2 items-center">
-                <Button variant="icon" size="icon" aria-label="Search">
-                  <Search />
-                </Button>
-                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Icon (28×28)</p>
-              </div>
+              <Button variant="primary" size="medium" aria-label="Search">
+                <Search />
+              </Button>
+              <Button variant="secondary" size="medium" aria-label="Settings">
+                <Settings />
+              </Button>
+              <Button variant="ghost" size="medium" aria-label="Edit">
+                <Edit />
+              </Button>
+              <Button variant="outline" size="medium" aria-label="Download">
+                <Download />
+              </Button>
+              <Button variant="destructive" size="medium" aria-label="Delete">
+                <Trash2 />
+              </Button>
+            </div>
+          </div>
+
+          {/* Large Size - All Variants */}
+          <div className="mb-8">
+            <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Large Size (48×48px, 24px icon)</h4>
+            <div className="flex flex-wrap gap-4 items-center">
+              <Button variant="primary" size="large" aria-label="Search">
+                <Search />
+              </Button>
+              <Button variant="secondary" size="large" aria-label="Settings">
+                <Settings />
+              </Button>
+              <Button variant="ghost" size="large" aria-label="Edit">
+                <Edit />
+              </Button>
+              <Button variant="outline" size="large" aria-label="Download">
+                <Download />
+              </Button>
+              <Button variant="destructive" size="large" aria-label="Delete">
+                <Trash2 />
+              </Button>
             </div>
           </div>
 
@@ -341,7 +328,7 @@ export default function Buttons() {
 
       {/* PRIMARY BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           {/* Card Title & Subtitle - Updated text sizes: title=16px (text-base), subtitle=14px (text-sm) */}
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Primary Button</h3>
@@ -562,7 +549,7 @@ export default function Buttons() {
 
       {/* SECONDARY BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Secondary Button</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -712,7 +699,7 @@ export default function Buttons() {
 
       {/* GHOST BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Ghost Button</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -882,7 +869,7 @@ export default function Buttons() {
 
       {/* LINK BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Link Button</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -1045,7 +1032,7 @@ export default function Buttons() {
 
       {/* OUTLINE BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Outline Button</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -1237,7 +1224,7 @@ export default function Buttons() {
 
       {/* DESTRUCTIVE BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Destructive Button</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -1403,7 +1390,7 @@ export default function Buttons() {
         This is component-specific; full focus documentation is in foundation
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Focus States</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">

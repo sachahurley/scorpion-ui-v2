@@ -29,7 +29,11 @@ import {
   FileText,
   Eye,
   Star,
-  MoreVertical
+  MoreVertical,
+  Globe,
+  Check,
+  ChevronRight,
+  ChevronDown
 } from "lucide-react";
 
 export default function Dropdowns() {
@@ -59,7 +63,7 @@ export default function Dropdowns() {
         Simple dropdown with text-only items
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Basic Dropdown</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -91,11 +95,73 @@ export default function Dropdowns() {
       </section>
 
       {/* 
+        SIZES SECTION
+        Small, medium, and large dropdown variants
+      */}
+      <section className="mb-10">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+          <div className="mb-6">
+            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sizes</h3>
+            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+              Dropdowns come in three sizes matching buttons and inputs. Corner radius matches the trigger button size.
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap gap-4 items-end">
+            {/* Small Size */}
+            <div className="flex flex-col gap-2">
+              <Dropdown
+                label="Small"
+                size="small"
+                items={[
+                  { label: "View Details", onClick: () => console.log("View") },
+                  { label: "Edit Item", onClick: handleEdit },
+                  { label: "Share", onClick: handleShare },
+                  { label: "Download", onClick: handleDownload },
+                ]}
+              />
+              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">size="small" (32px, 6px radius)</p>
+            </div>
+
+            {/* Medium Size */}
+            <div className="flex flex-col gap-2">
+              <Dropdown
+                label="Medium"
+                size="medium"
+                items={[
+                  { label: "View Details", onClick: () => console.log("View") },
+                  { label: "Edit Item", onClick: handleEdit },
+                  { label: "Share", onClick: handleShare },
+                  { label: "Download", onClick: handleDownload },
+                ]}
+              />
+              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">size="medium" (40px, 8px radius)</p>
+            </div>
+
+            {/* Large Size */}
+            <div className="flex flex-col gap-2">
+              <Dropdown
+                label="Large"
+                size="large"
+                items={[
+                  { label: "View Details", onClick: () => console.log("View") },
+                  { label: "Edit Item", onClick: handleEdit },
+                  { label: "Share", onClick: handleShare },
+                  { label: "Download", onClick: handleDownload },
+                ]}
+              />
+              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">size="large" (48px, 12px radius)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 
         WITH ICONS SECTION
         Menu items with left-aligned icons
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Icons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -144,7 +210,7 @@ export default function Dropdowns() {
         Using custom trigger buttons with different variants
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Custom Trigger Buttons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -185,7 +251,7 @@ export default function Dropdowns() {
             <Dropdown
               trigger={
                 <Button variant="icon" size="icon" aria-label="More options">
-                  <MoreVertical className="w-5 h-5" />
+                  <MoreVertical />
                 </Button>
               }
               items={[
@@ -203,7 +269,7 @@ export default function Dropdowns() {
         Left vs Right aligned menus
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Menu Alignment</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -248,7 +314,7 @@ export default function Dropdowns() {
         Menu items with destructive/danger styling
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Destructive Actions</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -283,10 +349,132 @@ export default function Dropdowns() {
       </section>
 
       {/* 
+        WITH LEFT AND RIGHT ICONS SECTION
+        Menu items with left icon grouped with label, and right icon aligned to right edge
+      */}
+      <section className="mb-10">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+          <div className="mb-6">
+            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Left and Right Icons</h3>
+            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+              Menu items with a left icon grouped with the label, and a right icon aligned to the right edge. Useful for selection states, navigation indicators, or additional actions.
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap gap-4">
+            {/* Language Selector Example */}
+            <div className="flex flex-col gap-2">
+              <Dropdown
+                trigger={
+                  <Button 
+                    variant="outline" 
+                    size="medium" 
+                    iconLeft={<Globe />}
+                    iconRight={<ChevronDown />}
+                  >
+                    Select Language
+                  </Button>
+                }
+                items={[
+                  { 
+                    label: "English", 
+                    onClick: () => console.log("English selected"),
+                    icon: <Globe className="w-5 h-5" />,
+                    iconRight: <Check className="w-5 h-5" />
+                  },
+                  { 
+                    label: "Spanish", 
+                    onClick: () => console.log("Spanish selected"),
+                    icon: <Globe className="w-5 h-5" />
+                  },
+                  { 
+                    label: "French", 
+                    onClick: () => console.log("French selected"),
+                    icon: <Globe className="w-5 h-5" />
+                  },
+                  { 
+                    label: "German", 
+                    onClick: () => console.log("German selected"),
+                    icon: <Globe className="w-5 h-5" />
+                  },
+                ]}
+                size="medium"
+              />
+              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Language selector with checkmark</p>
+            </div>
+
+            {/* Navigation Example */}
+            <div className="flex flex-col gap-2">
+              <Dropdown
+                trigger={
+                  <Button variant="outline" size="medium">
+                    Navigate To
+                  </Button>
+                }
+                items={[
+                  { 
+                    label: "Settings", 
+                    onClick: () => console.log("Settings"),
+                    icon: <Settings className="w-5 h-5" />,
+                    iconRight: <ChevronRight className="w-5 h-5" />
+                  },
+                  { 
+                    label: "Profile", 
+                    onClick: () => console.log("Profile"),
+                    icon: <User className="w-5 h-5" />,
+                    iconRight: <ChevronRight className="w-5 h-5" />
+                  },
+                  { 
+                    label: "Documents", 
+                    onClick: () => console.log("Documents"),
+                    icon: <FileText className="w-5 h-5" />,
+                    iconRight: <ChevronRight className="w-5 h-5" />
+                  },
+                ]}
+                size="medium"
+              />
+              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Navigation with chevron indicators</p>
+            </div>
+
+            {/* Mixed States Example */}
+            <div className="flex flex-col gap-2">
+              <Dropdown
+                trigger={
+                  <Button variant="outline" size="medium">
+                    View Options
+                  </Button>
+                }
+                items={[
+                  { 
+                    label: "Grid View", 
+                    onClick: () => console.log("Grid"),
+                    icon: <Eye className="w-5 h-5" />,
+                    iconRight: <Check className="w-5 h-5" />
+                  },
+                  { 
+                    label: "List View", 
+                    onClick: () => console.log("List"),
+                    icon: <Eye className="w-5 h-5" />
+                  },
+                  { 
+                    label: "Compact View", 
+                    onClick: () => console.log("Compact"),
+                    icon: <Eye className="w-5 h-5" />
+                  },
+                ]}
+                size="medium"
+              />
+              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">View selector with active state</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 
         DISABLED STATE SECTION
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Disabled Items</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -317,7 +505,7 @@ export default function Dropdowns() {
 
       {/* DROPDOWN TOKEN BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           {/* Card Title & Subtitle */}
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Dropdown Token Breakdown</h3>
@@ -520,7 +708,7 @@ export default function Dropdowns() {
         Documentation for accessibility features
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Keyboard Navigation</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">

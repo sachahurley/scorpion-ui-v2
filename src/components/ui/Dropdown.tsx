@@ -20,7 +20,8 @@ import { ChevronDown } from "lucide-react";
 export interface DropdownItem {
   label: string;
   onClick: () => void;
-  icon?: ReactNode;
+  icon?: ReactNode; // Left icon (grouped with label)
+  iconRight?: ReactNode; // Right icon (aligned to right edge)
   variant?: "default" | "destructive";
   disabled?: boolean;
 }
@@ -31,6 +32,7 @@ export interface DropdownProps {
   items: DropdownItem[];
   align?: "left" | "right";
   label?: string; // Label for the default trigger button
+  size?: "small" | "medium" | "large"; // Size variant matching buttons/inputs
 }
 
 /**
@@ -45,7 +47,8 @@ export function Dropdown({
   trigger, 
   items, 
   align = "left",
-  label = "Actions"
+  label = "Actions",
+  size = "medium"
 }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
@@ -149,6 +152,33 @@ export function Dropdown({
     }
   }, [focusedIndex]);
 
+  // Size styles matching buttons and inputs
+  // Small: 32px height, 6px corner radius (rounded-md)
+  // Medium: 40px height, 8px corner radius (rounded-lg)
+  // Large: 48px height, 12px corner radius (rounded-button)
+  const sizeStyles = {
+    small: {
+      button: "h-8 px-4 py-1.5 rounded-md",        // h-8 = 32px, px-4 = 16px, rounded-md = 6px
+      menu: "rounded-md",                            // 6px corner radius
+      menuItem: "first:rounded-t-[6px] last:rounded-b-[6px]", // 6px corner radius for first/last items
+      icon: "w-4 h-4",                              // 16px icon
+    },
+    medium: {
+      button: "h-10 px-5 py-2.5 rounded-lg",        // h-10 = 40px, px-5 = 20px, rounded-lg = 8px
+      menu: "rounded-lg",                            // 8px corner radius
+      menuItem: "first:rounded-t-[8px] last:rounded-b-[8px]", // 8px corner radius for first/last items
+      icon: "w-5 h-5",                               // 20px icon
+    },
+    large: {
+      button: "h-12 px-6 py-3.5 rounded-button",    // h-12 = 48px, px-6 = 24px, rounded-button = 12px
+      menu: "rounded-button",                        // 12px corner radius
+      menuItem: "first:rounded-t-[12px] last:rounded-b-[12px]", // 12px corner radius for first/last items
+      icon: "w-6 h-6",                               // 24px icon
+    },
+  };
+
+  const currentSizeStyles = sizeStyles[size];
+
   // Default trigger button if none provided
   const defaultTrigger = (
     <button
@@ -156,10 +186,9 @@ export function Dropdown({
       className={`
         inline-flex items-center justify-center gap-2
         font-mono text-sm
-        rounded-button
+        ${currentSizeStyles.button}
         transition-colors duration-200
         cursor-pointer
-        h-10 px-5 py-2.5
         bg-secondary-700 hover:bg-secondary-600 active:bg-secondary-500 text-secondary-50
         dark:bg-secondary-700 dark:hover:bg-secondary-600 dark:active:bg-secondary-500 dark:text-secondary-50
         focus:ring-2 focus:ring-secondary-700 dark:focus:ring-secondary-700 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000
@@ -168,7 +197,7 @@ export function Dropdown({
       aria-expanded={isOpen}
     >
       {label}
-      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+      <ChevronDown className={`${currentSizeStyles.icon} transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
     </button>
   );
 
@@ -201,10 +230,9 @@ export function Dropdown({
             min-w-[200px]
             bg-white dark:bg-sepia-975
             border border-sepia-300 dark:border-sepia-700
-            rounded-[24px]
+            ${currentSizeStyles.menu}
             shadow-lg
-            py-2
-            z-dropdown
+            z-[1051]
             animate-in fade-in slide-in-from-top-2 duration-200
           `}
         >
@@ -220,7 +248,7 @@ export function Dropdown({
                 disabled={isDisabled}
                 onClick={() => handleItemClick(item)}
                 className={`
-                  w-full flex items-center gap-3
+                  w-full flex items-center gap-2
                   px-4 py-3
                   font-mono text-sm text-left
                   transition-colors duration-150
@@ -228,18 +256,29 @@ export function Dropdown({
                     ? 'opacity-50 cursor-not-allowed'
                     : isDestructive
                       ? 'text-error-600 dark:text-error-500 hover:bg-error-50 dark:hover:bg-error-950/20'
-                      : 'text-sepia-900 dark:text-sepia-50 hover:bg-sepia-100 dark:hover:bg-sepia-900'
+                      : 'text-sepia-900 dark:text-sepia-50 hover:bg-sepia-200 dark:hover:bg-sepia-900'
                   }
-                  ${isFocused && !isDisabled ? 'bg-sepia-100 dark:bg-sepia-900' : ''}
-                  first:rounded-t-[24px] last:rounded-b-[24px]
+                  ${isFocused && !isDisabled ? 'bg-sepia-200 dark:bg-sepia-900' : ''}
+                  ${currentSizeStyles.menuItem}
                 `}
               >
-                {item.icon && (
-                  <span className="inline-flex items-center justify-center w-5 h-5 flex-shrink-0">
-                    {item.icon}
+                {/* Left icon and label grouped together */}
+                {/* Gap-2 (8px) matches medium button gap spacing for consistency */}
+                <div className="flex items-center gap-2 flex-1 min-w-0">
+                  {item.icon && (
+                    <span className={`inline-flex items-center justify-center ${currentSizeStyles.icon} flex-shrink-0`}>
+                      {item.icon}
+                    </span>
+                  )}
+                  <span className="truncate">{item.label}</span>
+                </div>
+                
+                {/* Right icon aligned to right edge */}
+                {item.iconRight && (
+                  <span className={`inline-flex items-center justify-center ${currentSizeStyles.icon} flex-shrink-0 ml-auto`}>
+                    {item.iconRight}
                   </span>
                 )}
-                <span>{item.label}</span>
               </button>
             );
           })}

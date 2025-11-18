@@ -1,40 +1,39 @@
 /**
- * INPUT COMPONENT
+ * TEXTAREA COMPONENT
  * 
- * Reusable text input component with multiple sizes
+ * Reusable textarea component with multiple sizes
  * Built entirely from design tokens defined in tokens.json
  * 
- * SIZES: Matching button heights
- * - small: 32px height
- * - medium: 40px height (default)
- * - large: 48px height
+ * SIZES: Matching input heights
+ * - small: 32px min-height (matches small input)
+ * - medium: 40px min-height (matches medium input - default)
+ * - large: 48px min-height (matches large input)
  * 
  * STATES:
- * - default: Standard input appearance
+ * - default: Standard textarea appearance
  * - hover: Subtle border change on mouse over
  * - focused: Primary color focus ring (keyboard accessible)
  * - disabled: Reduced opacity, not interactive
  * - error: Red border to indicate validation issues
  */
 
-import { forwardRef, type InputHTMLAttributes } from "react";
+import { forwardRef, type TextareaHTMLAttributes } from "react";
 
-// Define the props interface for the Input component
-// Omit the native HTML 'size' attribute to avoid conflict with our custom size prop
-export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+// Define the props interface for the Textarea component
+export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   size?: "small" | "medium" | "large";
   error?: boolean;
 }
 
 /**
- * Input Component
+ * Textarea Component
  * 
- * @param size - Input size matching button heights (default: "medium")
- * @param error - Whether input has a validation error
- * @param disabled - Whether input is disabled
+ * @param size - Textarea size matching input heights (default: "medium")
+ * @param error - Whether textarea has a validation error
+ * @param disabled - Whether textarea is disabled
  * @param className - Additional CSS classes to apply
  */
-export const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
     { 
       size = "medium", 
@@ -45,7 +44,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
-    // BASE STYLES - Applied to all inputs
+    // BASE STYLES - Applied to all textareas
     // Uses tokens: font.size.sm (14px)
     // Border width: 1px for all states
     // Border radius is size-specific (see sizeStyles)
@@ -57,16 +56,18 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       placeholder:text-sepia-400 dark:placeholder:text-sepia-600
       disabled:cursor-not-allowed disabled:opacity-50
       focus:outline-none
+      resize-y
     `;
 
-    // SIZE STYLES - All values matching button sizes from tokens.json
-    // Heights match button component exactly: 32px, 40px, 48px
-    // Horizontal padding slightly less than buttons for better text alignment
-    // Corner radius matches button sizes: 6px (small), 8px (medium), 12px (large)
+    // SIZE STYLES - All values matching input sizes from tokens.json
+    // Min-heights match input component exactly: 32px, 40px, 48px
+    // Horizontal padding slightly less than inputs for better text alignment
+    // Corner radius matches input sizes: 6px (small), 8px (medium), 12px (large)
+    // Vertical padding provides comfortable spacing for multi-line text
     const sizeStyles = {
-      small: "h-8 px-3 py-1.5 rounded-md",        // h-8 = 32px, px-3 = 12px, rounded-md = 6px
-      medium: "h-10 px-4 py-2.5 rounded-lg",     // h-10 = 40px, px-4 = 16px, rounded-lg = 8px
-      large: "h-12 px-5 py-3.5 rounded-button",   // h-12 = 48px, px-5 = 20px, rounded-button = 12px
+      small: "min-h-8 px-3 py-1.5 rounded-md",        // min-h-8 = 32px, px-3 = 12px, rounded-md = 6px
+      medium: "min-h-10 px-4 py-2.5 rounded-lg",       // min-h-10 = 40px, px-4 = 16px, rounded-lg = 8px
+      large: "min-h-12 px-5 py-3.5 rounded-button",    // min-h-12 = 48px, px-5 = 20px, rounded-button = 12px
     };
 
     // STATE STYLES - Color combinations for different states using SEMANTIC TOKENS
@@ -91,7 +92,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       `;
 
     return (
-      <input
+      <textarea
         ref={ref}
         disabled={disabled}
         className={`${baseStyles} ${sizeStyles[size]} ${stateStyles} ${className}`}
@@ -102,5 +103,5 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 );
 
 // Set display name for debugging
-Input.displayName = "Input";
+Textarea.displayName = "Textarea";
 

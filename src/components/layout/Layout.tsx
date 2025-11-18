@@ -33,7 +33,12 @@ export function Layout({ children }: LayoutProps) {
 
   // State to manage music player visibility
   // true = player is visible, false = player is hidden
-  const [isMusicPlayerOpen, setIsMusicPlayerOpen] = useState(true);
+  // Default: hidden (false) - must be toggled to show
+  const [isMusicPlayerOpen, setIsMusicPlayerOpen] = useState(false);
+  
+  // State to manage music player closing animation
+  // true = player is animating out, false = normal state
+  const [isMusicPlayerClosing, setIsMusicPlayerClosing] = useState(false);
 
   // SCROLL TO TOP: Run whenever the route/pathname changes
   // This ensures every new page starts at the top
@@ -74,9 +79,15 @@ export function Layout({ children }: LayoutProps) {
   };
 
   // Function to close the music player
-  // Called from music player close button
+  // Called from music player close button or toggle button
+  // Triggers slide-out animation, then removes component
   const closeMusicPlayer = () => {
-    setIsMusicPlayerOpen(false);
+    setIsMusicPlayerClosing(true);
+    // Wait for animation to complete (500ms) before removing component
+    setTimeout(() => {
+      setIsMusicPlayerOpen(false);
+      setIsMusicPlayerClosing(false);
+    }, 500);
   };
 
   return (
@@ -88,6 +99,7 @@ export function Layout({ children }: LayoutProps) {
         toggleMobileMenu={toggleMobileMenu}
         isMusicPlayerOpen={isMusicPlayerOpen}
         openMusicPlayer={openMusicPlayer}
+        closeMusicPlayer={closeMusicPlayer}
       />
 
       <div className="flex">
@@ -98,6 +110,7 @@ export function Layout({ children }: LayoutProps) {
           closeMobileMenu={closeMobileMenu}
           isMusicPlayerOpen={isMusicPlayerOpen}
           openMusicPlayer={openMusicPlayer}
+          closeMusicPlayer={closeMusicPlayer}
         />
 
         {/* Main Content Area - scrolls under top bar */}
@@ -112,7 +125,7 @@ export function Layout({ children }: LayoutProps) {
       {/* Music Player - Fixed bottom-right corner, visible on all pages */}
       {/* Only rendered when open */}
       {isMusicPlayerOpen && (
-        <MusicPlayer onClose={closeMusicPlayer} />
+        <MusicPlayer onClose={closeMusicPlayer} isClosing={isMusicPlayerClosing} />
       )}
     </div>
   );

@@ -27,9 +27,11 @@ interface TopBarProps {
   isMusicPlayerOpen: boolean;
   // Function to open the music player
   openMusicPlayer: () => void;
+  // Function to close the music player
+  closeMusicPlayer: () => void;
 }
 
-export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, openMusicPlayer }: TopBarProps) {
+export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, openMusicPlayer, closeMusicPlayer }: TopBarProps) {
   return (
     <header 
       className="fixed top-0 left-0 right-0 h-16 bg-[var(--surface-container)] border-b-[0.5px] border-solid border-[var(--surface-container-stroke)]"
@@ -99,13 +101,13 @@ export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, 
           {/* Music Player Toggle Button - Opens music player when clicked */}
           {/* Disabled when music player is already open */}
           <Button
-            onClick={openMusicPlayer}
-            disabled={isMusicPlayerOpen}
-            variant="secondary"
-            size="icon"
-            aria-label={isMusicPlayerOpen ? "Music player is open" : "Open music player"}
+            onClick={isMusicPlayerOpen ? closeMusicPlayer : openMusicPlayer}
+            variant="outline"
+            size="small"
+            className={isMusicPlayerOpen ? "bg-secondary-200 dark:bg-secondary-700" : ""}
+            aria-label={isMusicPlayerOpen ? "Close music player" : "Open music player"}
           >
-            <Music2 className="w-4 h-4" />
+            <Music2 />
           </Button>
 
           {/* Theme toggle button */}

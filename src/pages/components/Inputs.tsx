@@ -41,7 +41,7 @@ export default function Inputs() {
         Heights match button component for visual consistency
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sizes</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -73,7 +73,7 @@ export default function Inputs() {
         Default, Hover, Focused, Disabled, Error
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">States</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -162,7 +162,7 @@ export default function Inputs() {
         Shows proper form structure with labels
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Labels</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -217,8 +217,8 @@ export default function Inputs() {
 
             {/* Required Field */}
             <div className="space-y-2">
-              <label htmlFor="name" className="block text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">
-                Full Name <span className="text-error-600 dark:text-error-500">*</span>
+              <label htmlFor="name" className="block text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 relative">
+                <span className="text-error-600 dark:text-error-500 absolute -left-[12px]">*</span> Full Name
               </label>
               <Input 
                 id="name" 
@@ -236,7 +236,7 @@ export default function Inputs() {
         Different placeholder text examples
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Placeholder Examples</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -263,7 +263,7 @@ export default function Inputs() {
 
       {/* INPUT TOKEN BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           {/* Card Title & Subtitle */}
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Input Token Breakdown</h3>
@@ -493,7 +493,7 @@ export default function Inputs() {
         Important information about accessible form inputs
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Accessibility Guidelines</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">

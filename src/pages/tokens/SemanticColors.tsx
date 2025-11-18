@@ -27,7 +27,7 @@ export default function SemanticColors() {
           </div>
 
             {/* Container with page background and border */}
-            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
               {/* Subsection title for Primary scale */}
               <div className="mb-4">
                 <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Primary Scale (references Amber)</h3>
@@ -161,7 +161,7 @@ export default function SemanticColors() {
 
         {/* SECONDARY SCALE SECTION (Sepia colors) */}
         <section className="mb-10">
-          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
             <div className="mb-4">
               <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Secondary Scale (references Sepia)</h3>
             </div>
@@ -284,7 +284,7 @@ export default function SemanticColors() {
 
         {/* SUCCESS SCALE SECTION (Green colors) */}
         <section className="mb-10">
-          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
             <div className="mb-4">
               <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Success Scale (references Green)</h3>
             </div>
@@ -383,7 +383,7 @@ export default function SemanticColors() {
 
         {/* INFO SCALE SECTION (Blue colors) */}
         <section className="mb-10">
-          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
             <div className="mb-4">
               <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Info Scale (references Blue)</h3>
             </div>
@@ -482,7 +482,7 @@ export default function SemanticColors() {
 
         {/* WARNING SCALE SECTION (Purple colors) */}
         <section className="mb-10">
-          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
             <div className="mb-4">
               <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Warning Scale (references Purple)</h3>
             </div>
@@ -581,7 +581,7 @@ export default function SemanticColors() {
 
         {/* ERROR SCALE SECTION (Red colors) */}
         <section className="mb-10">
-          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-8">
+          <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
             <div className="mb-4">
               <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Error Scale (references Red)</h3>
             </div>
