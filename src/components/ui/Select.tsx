@@ -237,7 +237,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
   // Scroll focused item into view
   useEffect(() => {
     if (focusedIndex >= 0 && menuRef.current) {
-      const enabledOptions = options.filter(opt => !opt.disabled);
       const items = menuRef.current.querySelectorAll('[role="option"]');
       // Find the actual DOM index of the focused option
       let domIndex = 0;

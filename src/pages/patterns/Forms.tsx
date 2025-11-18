@@ -22,7 +22,7 @@ import { Select } from "@/components/ui/Select";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { Radio } from "@/components/ui/Radio";
 import { Switch } from "@/components/ui/Switch";
-import { Mail, User, Eye, EyeOff, MapPin, CreditCard, Lock, AlertCircle, Phone, Building } from "lucide-react";
+import { Mail, Eye, EyeOff, MapPin, CreditCard, Lock, AlertCircle } from "lucide-react";
 
 export default function Forms() {
   // Contact Form State (Small)
@@ -70,8 +70,7 @@ export default function Forms() {
   const [cardNumber, setCardNumber] = useState("");
   const [cardExpiry, setCardExpiry] = useState("");
   const [cardCVC, setCardCVC] = useState("");
-  const [billingSame, setBillingSame] = useState(true);
-  const [checkoutErrors, setCheckoutErrors] = useState<Record<string, string>>({});
+  const [checkoutErrors, setCheckoutErrors] = useState<Record<string, string | undefined>>({});
 
   // Validation helpers
   const validateEmail = (email: string) => {
