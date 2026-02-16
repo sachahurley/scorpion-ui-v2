@@ -23,7 +23,7 @@ export default function FocusStates() {
 
       {/* FOCUS RING PROPERTIES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Focus Ring Properties</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -36,16 +36,16 @@ export default function FocusStates() {
             <div>
               <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-3">Ring Width</p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.width</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">2px</span>
                 </div>
               </div>
               
               {/* Visual demonstration */}
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <div className="inline-block">
                   <div className="w-32 h-12 bg-primary-400 rounded-button flex items-center justify-center relative">
                     <span className="text-xs font-mono text-black">Element</span>
@@ -63,15 +63,15 @@ export default function FocusStates() {
             <div>
               <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-3">Ring Offset</p>
               <div className="flex flex-wrap gap-2 mb-4">
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.offset</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">2px</span>
                 </div>
               </div>
               
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">
                   The offset creates a 2px gap between the element and the focus ring, improving visibility against backgrounds.
                 </p>
@@ -93,7 +93,7 @@ export default function FocusStates() {
 
       {/* FOCUS RING COLORS SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Focus Ring Colors</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -110,8 +110,8 @@ export default function FocusStates() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Light Theme</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-primary-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-primary-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.primary → color.primary.400</span>
                   </div>
                 </div>
@@ -121,15 +121,15 @@ export default function FocusStates() {
               <div className="mb-4">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Dark Theme</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-primary-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-primary-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.primary → color.primary.400</span>
                   </div>
                 </div>
               </div>
 
               {/* Interactive Example */}
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mb-3">Try clicking then pressing Tab to see the focus ring:</p>
                 <Button variant="primary">Click me, then Tab</Button>
               </div>
@@ -143,8 +143,8 @@ export default function FocusStates() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Light Theme</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-secondary-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-secondary-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.secondary → color.secondary.700</span>
                   </div>
                 </div>
@@ -154,15 +154,15 @@ export default function FocusStates() {
               <div className="mb-4">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Dark Theme</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-secondary-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-secondary-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.secondary → color.secondary.700</span>
                   </div>
                 </div>
               </div>
 
               {/* Interactive Example */}
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <Button variant="secondary">Secondary button focus</Button>
               </div>
             </div>
@@ -175,8 +175,8 @@ export default function FocusStates() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Light Theme</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-error-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-error-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.error → color.error.600</span>
                   </div>
                 </div>
@@ -186,15 +186,15 @@ export default function FocusStates() {
               <div className="mb-4">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Dark Theme</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-error-500 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-error-500 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.error → color.error.500</span>
                   </div>
                 </div>
               </div>
 
               {/* Interactive Example */}
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <Button variant="destructive">Destructive button focus</Button>
               </div>
             </div>
@@ -210,8 +210,8 @@ export default function FocusStates() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Light Theme</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.offset → color.sepia.50</span>
                   </div>
                 </div>
@@ -221,8 +221,8 @@ export default function FocusStates() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Dark Theme</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.offset → color.sepia.1000</span>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ export default function FocusStates() {
 
       {/* INTERACTIVE DEMONSTRATION SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Interactive Demonstration</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -242,7 +242,7 @@ export default function FocusStates() {
             </p>
           </div>
 
-          <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <div className="flex flex-wrap gap-4">
               <Button variant="primary">Primary</Button>
               <Button variant="secondary">Secondary</Button>
@@ -260,7 +260,7 @@ export default function FocusStates() {
 
       {/* ACCESSIBILITY GUIDELINES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Accessibility Guidelines</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -269,7 +269,7 @@ export default function FocusStates() {
           </div>
 
           <div className="space-y-4">
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">WCAG 2.1 Success Criterion 2.4.7</p>
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-3">
                 "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible."
@@ -279,7 +279,7 @@ export default function FocusStates() {
               </p>
             </div>
 
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Best Practices</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Never remove focus outlines with <code className="px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded">outline: none</code></li>
@@ -290,7 +290,7 @@ export default function FocusStates() {
               </ul>
             </div>
 
-            <div className="p-6 bg-warning-50 dark:bg-warning-900/20 border border-warning-200 dark:border-warning-800 rounded-2xl">
+            <div className="p-6 bg-warning-50 dark:bg-warning-900/20 border border-warning-200 dark:border-warning-800 rounded-none">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-2">⚠️ Important</p>
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
                 Focus indicators are legally required for accessibility compliance in many jurisdictions. Always maintain visible focus states.
@@ -302,7 +302,7 @@ export default function FocusStates() {
 
       {/* IMPLEMENTATION EXAMPLES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Implementation Examples</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -314,7 +314,7 @@ export default function FocusStates() {
             {/* Tailwind Classes Example */}
             <div>
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Using Tailwind Classes</p>
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-sepia-950">
                 <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
 {`<button className="
   focus:ring-2 
@@ -332,7 +332,7 @@ export default function FocusStates() {
             {/* CSS Variables Example */}
             <div>
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Using CSS Variables</p>
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-sepia-950">
                 <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
 {`<button className="focus:ring-[var(--focus-ring-width)]">
   /* Ring width: 2px from CSS variable */

@@ -13,22 +13,8 @@
  */
 
 import { Button } from "@/components/ui/Button";
-// Import icons from lucide-react for icon button examples
-import { 
-  Search, 
-  Settings, 
-  ChevronRight, 
-  Plus, 
-  Download,
-  Upload,
-  Trash2,
-  Edit,
-  Save,
-  Send,
-  ArrowLeft,
-  ArrowRight,
-  AlertCircle
-} from "lucide-react";
+// TUI Tier 2: Import TuiIcon for Unicode character icons
+import { TuiIcon } from "@/components/ui/TuiIcon";
 
 export default function Buttons() {
   return (
@@ -55,7 +41,7 @@ export default function Buttons() {
         Uses the same container style as other documentation pages
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Variants</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -82,7 +68,7 @@ export default function Buttons() {
         All use 14px Fragment Mono text
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sizes</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -117,7 +103,7 @@ export default function Buttons() {
 
       {/* BUTTONS WITH LEFT ICONS */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Buttons with Left Icons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -129,11 +115,11 @@ export default function Buttons() {
           <div className="mb-8">
             <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">All Variants (Medium Size)</h4>
             <div className="flex flex-wrap gap-4">
-              <Button variant="primary" iconLeft={<Search />}>Search</Button>
-              <Button variant="secondary" iconLeft={<Settings />}>Settings</Button>
-              <Button variant="ghost" iconLeft={<Edit />}>Edit</Button>
-              <Button variant="outline" iconLeft={<Download />}>Download</Button>
-              <Button variant="destructive" iconLeft={<Trash2 />}>Delete</Button>
+              <Button variant="primary" iconLeft={<TuiIcon name="Search" />}>Search</Button>
+              <Button variant="secondary" iconLeft={<TuiIcon name="Settings" />}>Settings</Button>
+              <Button variant="ghost" iconLeft={<TuiIcon name="Edit" />}>Edit</Button>
+              <Button variant="outline" iconLeft={<TuiIcon name="Download" />}>Download</Button>
+              <Button variant="destructive" iconLeft={<TuiIcon name="Trash2" />}>Delete</Button>
             </div>
           </div>
 
@@ -142,15 +128,15 @@ export default function Buttons() {
             <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">All Sizes (Primary Variant)</h4>
             <div className="flex flex-wrap items-end gap-4">
               <div className="flex flex-col gap-2">
-                <Button variant="primary" size="large" iconLeft={<Plus />}>Add Item</Button>
+                <Button variant="primary" size="large" iconLeft={<TuiIcon name="Plus" />}>Add Item</Button>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Large (24px icon)</p>
               </div>
               <div className="flex flex-col gap-2">
-                <Button variant="primary" size="medium" iconLeft={<Plus />}>Add Item</Button>
+                <Button variant="primary" size="medium" iconLeft={<TuiIcon name="Plus" />}>Add Item</Button>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Medium (20px icon)</p>
               </div>
               <div className="flex flex-col gap-2">
-                <Button variant="primary" size="small" iconLeft={<Plus />}>Add Item</Button>
+                <Button variant="primary" size="small" iconLeft={<TuiIcon name="Plus" />}>Add Item</Button>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Small (16px icon)</p>
               </div>
             </div>
@@ -160,10 +146,10 @@ export default function Buttons() {
           <div>
             <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Common Use Cases</h4>
             <div className="flex flex-wrap gap-4">
-              <Button variant="primary" iconLeft={<Save />}>Save Changes</Button>
-              <Button variant="primary" iconLeft={<Send />}>Send Message</Button>
-              <Button variant="secondary" iconLeft={<Upload />}>Upload File</Button>
-              <Button variant="outline" iconLeft={<ArrowLeft />}>Go Back</Button>
+              <Button variant="primary" iconLeft={<TuiIcon name="Save" />}>Save Changes</Button>
+              <Button variant="primary" iconLeft={<TuiIcon name="Send" />}>Send Message</Button>
+              <Button variant="secondary" iconLeft={<TuiIcon name="Upload" />}>Upload File</Button>
+              <Button variant="outline" iconLeft={<TuiIcon name="ArrowLeft" />}>Go Back</Button>
             </div>
           </div>
         </div>
@@ -171,7 +157,7 @@ export default function Buttons() {
 
       {/* BUTTONS WITH RIGHT ICONS */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Buttons with Right Icons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -183,11 +169,11 @@ export default function Buttons() {
           <div className="mb-8">
             <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">All Variants (Medium Size)</h4>
             <div className="flex flex-wrap gap-4">
-              <Button variant="primary" iconRight={<ChevronRight />}>Continue</Button>
-              <Button variant="secondary" iconRight={<ChevronRight />}>Next Step</Button>
-              <Button variant="ghost" iconRight={<ChevronRight />}>View More</Button>
-              <Button variant="outline" iconRight={<Download />}>Export</Button>
-              <Button variant="destructive" iconRight={<AlertCircle />}>Remove</Button>
+              <Button variant="primary" iconRight={<TuiIcon name="ChevronRight" />}>Continue</Button>
+              <Button variant="secondary" iconRight={<TuiIcon name="ChevronRight" />}>Next Step</Button>
+              <Button variant="ghost" iconRight={<TuiIcon name="ChevronRight" />}>View More</Button>
+              <Button variant="outline" iconRight={<TuiIcon name="Download" />}>Export</Button>
+              <Button variant="destructive" iconRight={<TuiIcon name="AlertCircle" />}>Remove</Button>
             </div>
           </div>
 
@@ -196,15 +182,15 @@ export default function Buttons() {
             <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">All Sizes (Primary Variant)</h4>
             <div className="flex flex-wrap items-end gap-4">
               <div className="flex flex-col gap-2">
-                <Button variant="primary" size="large" iconRight={<ArrowRight />}>Get Started</Button>
+                <Button variant="primary" size="large" iconRight={<TuiIcon name="ArrowRight" />}>Get Started</Button>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Large (24px icon)</p>
               </div>
               <div className="flex flex-col gap-2">
-                <Button variant="primary" size="medium" iconRight={<ArrowRight />}>Get Started</Button>
+                <Button variant="primary" size="medium" iconRight={<TuiIcon name="ArrowRight" />}>Get Started</Button>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Medium (20px icon)</p>
               </div>
               <div className="flex flex-col gap-2">
-                <Button variant="primary" size="small" iconRight={<ArrowRight />}>Get Started</Button>
+                <Button variant="primary" size="small" iconRight={<TuiIcon name="ArrowRight" />}>Get Started</Button>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Small (16px icon)</p>
               </div>
             </div>
@@ -214,10 +200,10 @@ export default function Buttons() {
           <div>
             <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Common Use Cases</h4>
             <div className="flex flex-wrap gap-4">
-              <Button variant="primary" iconRight={<ChevronRight />}>Next Page</Button>
-              <Button variant="secondary" iconRight={<ChevronRight />}>Learn More</Button>
-              <Button variant="outline" iconRight={<Download />}>Download Report</Button>
-              <Button variant="ghost" iconRight={<ArrowRight />}>View Details</Button>
+              <Button variant="primary" iconRight={<TuiIcon name="ChevronRight" />}>Next Page</Button>
+              <Button variant="secondary" iconRight={<TuiIcon name="ChevronRight" />}>Learn More</Button>
+              <Button variant="outline" iconRight={<TuiIcon name="Download" />}>Download Report</Button>
+              <Button variant="ghost" iconRight={<TuiIcon name="ArrowRight" />}>View Details</Button>
             </div>
           </div>
         </div>
@@ -225,7 +211,7 @@ export default function Buttons() {
 
       {/* ICON-ONLY BUTTONS */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Icon-Only Buttons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -238,19 +224,19 @@ export default function Buttons() {
             <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Small Size (32×32px, 16px icon)</h4>
             <div className="flex flex-wrap gap-4 items-center">
               <Button variant="primary" size="small" aria-label="Search">
-                <Search />
+                <TuiIcon name="Search" />
               </Button>
               <Button variant="secondary" size="small" aria-label="Settings">
-                <Settings />
+                <TuiIcon name="Settings" />
               </Button>
               <Button variant="ghost" size="small" aria-label="Edit">
-                <Edit />
+                <TuiIcon name="Edit" />
               </Button>
               <Button variant="outline" size="small" aria-label="Download">
-                <Download />
+                <TuiIcon name="Download" />
               </Button>
               <Button variant="destructive" size="small" aria-label="Delete">
-                <Trash2 />
+                <TuiIcon name="Trash2" />
               </Button>
             </div>
           </div>
@@ -260,19 +246,19 @@ export default function Buttons() {
             <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Medium Size (40×40px, 20px icon)</h4>
             <div className="flex flex-wrap gap-4 items-center">
               <Button variant="primary" size="medium" aria-label="Search">
-                <Search />
+                <TuiIcon name="Search" />
               </Button>
               <Button variant="secondary" size="medium" aria-label="Settings">
-                <Settings />
+                <TuiIcon name="Settings" />
               </Button>
               <Button variant="ghost" size="medium" aria-label="Edit">
-                <Edit />
+                <TuiIcon name="Edit" />
               </Button>
               <Button variant="outline" size="medium" aria-label="Download">
-                <Download />
+                <TuiIcon name="Download" />
               </Button>
               <Button variant="destructive" size="medium" aria-label="Delete">
-                <Trash2 />
+                <TuiIcon name="Trash2" />
               </Button>
             </div>
           </div>
@@ -282,27 +268,27 @@ export default function Buttons() {
             <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Large Size (48×48px, 24px icon)</h4>
             <div className="flex flex-wrap gap-4 items-center">
               <Button variant="primary" size="large" aria-label="Search">
-                <Search />
+                <TuiIcon name="Search" />
               </Button>
               <Button variant="secondary" size="large" aria-label="Settings">
-                <Settings />
+                <TuiIcon name="Settings" />
               </Button>
               <Button variant="ghost" size="large" aria-label="Edit">
-                <Edit />
+                <TuiIcon name="Edit" />
               </Button>
               <Button variant="outline" size="large" aria-label="Download">
-                <Download />
+                <TuiIcon name="Download" />
               </Button>
               <Button variant="destructive" size="large" aria-label="Delete">
-                <Trash2 />
+                <TuiIcon name="Trash2" />
               </Button>
             </div>
           </div>
 
           {/* Accessibility Note */}
-          <div className="p-6 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-2xl">
+          <div className="p-6 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-none">
             <div className="flex gap-3">
-              <AlertCircle className="w-5 h-5 text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5" />
+              <TuiIcon name="AlertCircle" size="5" className="text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5" />
               <div>
                 <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-2">
                   ♿️ Accessibility Requirement
@@ -328,7 +314,7 @@ export default function Buttons() {
 
       {/* PRIMARY BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           {/* Card Title & Subtitle - Updated text sizes: title=16px (text-base), subtitle=14px (text-sm) */}
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Primary Button</h3>
@@ -338,7 +324,7 @@ export default function Buttons() {
           </div>
           
           {/* Visual Example - All button states shown side by side */}
-          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <div className="space-y-4">
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
               <div className="flex flex-wrap gap-4 items-start">
@@ -397,16 +383,16 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: color.primary.400 (amber.400)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-500 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-500 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.primary.500 (amber.500)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Active: color.primary.600 (amber.600)</span>
                   </div>
                 </div>
@@ -416,16 +402,16 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: color.primary.400 (amber.400)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-500 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-500 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.primary.500 (amber.500)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Active: color.primary.600 (amber.600)</span>
                   </div>
                 </div>
@@ -435,8 +421,8 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Text (Light & Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-black border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-black border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">color.black</span>
                   </div>
                 </div>
@@ -448,11 +434,11 @@ export default function Buttons() {
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Typography</h4>
               <div className="flex flex-wrap gap-2">
                 {/* Font Family - Shown in actual font */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Font Family: <span className="font-mono">Fragment Mono</span></span>
                 </div>
                 {/* Font Size - Shown at actual size */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Font Size: <span className="text-sm">14px</span></span>
                 </div>
               </div>
@@ -466,10 +452,10 @@ export default function Buttons() {
                 <div>
                   <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Small</p>
                   <div className="flex flex-wrap gap-2">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding X: 16px</span>
                     </div>
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding Y: 6px</span>
                     </div>
                   </div>
@@ -478,10 +464,10 @@ export default function Buttons() {
                 <div>
                   <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Medium (Default)</p>
                   <div className="flex flex-wrap gap-2">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding X: 20px</span>
                     </div>
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding Y: 10px</span>
                     </div>
                   </div>
@@ -490,10 +476,10 @@ export default function Buttons() {
                 <div>
                   <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Large</p>
                   <div className="flex flex-wrap gap-2">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding X: 24px</span>
                     </div>
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding Y: 14px</span>
                     </div>
                   </div>
@@ -505,7 +491,7 @@ export default function Buttons() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Border</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Border Radius: radius.button (12px)</span>
                 </div>
               </div>
@@ -517,11 +503,11 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light & Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.primary.400 (amber.400)</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
                   </div>
                 </div>
@@ -529,15 +515,15 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
                   </div>
                 </div>
@@ -549,7 +535,7 @@ export default function Buttons() {
 
       {/* SECONDARY BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Secondary Button</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -558,7 +544,7 @@ export default function Buttons() {
           </div>
           
           {/* Visual Example - All button states shown side by side */}
-          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <div className="space-y-4">
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
               <div className="flex flex-wrap gap-4 items-start">
@@ -615,16 +601,16 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: color.secondary.700 (sepia.700)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.secondary.600 (sepia.600)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-500 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-500 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Active: color.secondary.500 (sepia.500)</span>
                   </div>
                 </div>
@@ -634,16 +620,16 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: color.secondary.700 (sepia.700)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.secondary.600 (sepia.600)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-500 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-500 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Active: color.secondary.500 (sepia.500)</span>
                   </div>
                 </div>
@@ -653,8 +639,8 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Text (Light & Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">color.secondary.50 (sepia.50)</span>
                   </div>
                 </div>
@@ -667,11 +653,11 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light & Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.secondary.700 (sepia.700)</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
                   </div>
                 </div>
@@ -679,15 +665,15 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
                   </div>
                 </div>
@@ -699,7 +685,7 @@ export default function Buttons() {
 
       {/* GHOST BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Ghost Button</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -708,7 +694,7 @@ export default function Buttons() {
           </div>
           
           {/* Visual Example - All button states shown side by side */}
-          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <div className="space-y-4">
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
               <div className="flex flex-wrap gap-4 items-start">
@@ -765,15 +751,15 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: transparent</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-200 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-200 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.secondary.200 (sepia.200)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Active: color.secondary.300 (sepia.300)</span>
                   </div>
                 </div>
@@ -783,15 +769,15 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: transparent</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.secondary.700 (sepia.700)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Active: color.secondary.600 (sepia.600)</span>
                   </div>
                 </div>
@@ -801,8 +787,8 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Text (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-900 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-900 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">color.secondary.900 (sepia.900)</span>
                   </div>
                 </div>
@@ -811,8 +797,8 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Text (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">color.secondary.50 (sepia.50)</span>
                   </div>
                 </div>
@@ -825,11 +811,11 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.secondary.300 (sepia.300)</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
                   </div>
                 </div>
@@ -837,11 +823,11 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.secondary.700 (sepia.700)</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
                   </div>
                 </div>
@@ -849,15 +835,15 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
                   </div>
                 </div>
@@ -869,7 +855,7 @@ export default function Buttons() {
 
       {/* LINK BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Link Button</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -878,7 +864,7 @@ export default function Buttons() {
           </div>
           
           {/* Visual Example - All button states shown side by side */}
-          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <div className="space-y-4">
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
               <div className="flex flex-wrap gap-4 items-start">
@@ -935,7 +921,7 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Always transparent</span>
                   </div>
                 </div>
@@ -945,7 +931,7 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Text Decoration</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Underline on hover</span>
                   </div>
                 </div>
@@ -955,12 +941,12 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Text (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: color.primary.600 (amber.600)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.primary.700 (amber.700)</span>
                   </div>
                 </div>
@@ -970,12 +956,12 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Text (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: color.primary.400 (amber.400)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-300 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-300 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.primary.300 (amber.300)</span>
                   </div>
                 </div>
@@ -988,11 +974,11 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.primary.600 (amber.600)</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
                   </div>
                 </div>
@@ -1000,11 +986,11 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.primary.400 (amber.400)</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
                   </div>
                 </div>
@@ -1012,15 +998,15 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
                   </div>
                 </div>
@@ -1032,7 +1018,7 @@ export default function Buttons() {
 
       {/* OUTLINE BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Outline Button</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -1041,7 +1027,7 @@ export default function Buttons() {
           </div>
           
           {/* Visual Example - All button states shown side by side */}
-          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <div className="space-y-4">
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
               <div className="flex flex-wrap gap-4 items-start">
@@ -1098,15 +1084,15 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: transparent</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.secondary.50 (sepia.50)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-100 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-100 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Active: color.secondary.100 (sepia.100)</span>
                   </div>
                 </div>
@@ -1116,15 +1102,15 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: transparent</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-900 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-900 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.secondary.900 (sepia.900)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-800 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-800 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Active: color.secondary.800 (sepia.800)</span>
                   </div>
                 </div>
@@ -1134,12 +1120,12 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Border (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: color.secondary.300 (sepia.300)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.secondary.400 (sepia.400)</span>
                   </div>
                 </div>
@@ -1149,12 +1135,12 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Border (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: color.sepia.700</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.sepia.600</span>
                   </div>
                 </div>
@@ -1165,10 +1151,10 @@ export default function Buttons() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Border</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Border Width: 1px</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Border Radius: radius.button (12px)</span>
                 </div>
               </div>
@@ -1180,11 +1166,11 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.secondary.300 (sepia.300)</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
                   </div>
                 </div>
@@ -1192,11 +1178,11 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.secondary.700 (sepia.700)</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
                   </div>
                 </div>
@@ -1204,15 +1190,15 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
                   </div>
                 </div>
@@ -1224,7 +1210,7 @@ export default function Buttons() {
 
       {/* DESTRUCTIVE BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Destructive Button</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -1233,7 +1219,7 @@ export default function Buttons() {
           </div>
           
           {/* Visual Example - All button states shown side by side */}
-          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <div className="space-y-4">
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
               <div className="flex flex-wrap gap-4 items-start">
@@ -1290,16 +1276,16 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: color.error.600 (red.600)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.error.700 (red.700)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-800 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-800 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Active: color.error.800 (red.800)</span>
                   </div>
                 </div>
@@ -1309,16 +1295,16 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-500 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-500 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: color.error.500 (red.500)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.error.600 (red.600)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Active: color.error.700 (red.700)</span>
                   </div>
                 </div>
@@ -1328,8 +1314,8 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Text (Both Themes)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-white border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-white border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">color.white</span>
                   </div>
                 </div>
@@ -1342,11 +1328,11 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.error.600 (red.600)</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
                   </div>
                 </div>
@@ -1354,11 +1340,11 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-500 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-500 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.error.500 (red.500)</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
                   </div>
                 </div>
@@ -1366,15 +1352,15 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
                   </div>
                 </div>
@@ -1390,7 +1376,7 @@ export default function Buttons() {
         This is component-specific; full focus documentation is in foundation
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Focus States</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -1399,7 +1385,7 @@ export default function Buttons() {
           </div>
 
           {/* Reference to foundation tokens */}
-          <div className="mb-6 p-6 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-2xl">
+          <div className="mb-6 p-6 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-none">
             <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">
               📖 Complete Documentation
             </p>
@@ -1414,10 +1400,10 @@ export default function Buttons() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Focus Ring Properties (All Buttons)</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: focus.ring.width (2px)</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Offset: focus.ring.offset (2px)</span>
                 </div>
               </div>
@@ -1427,8 +1413,8 @@ export default function Buttons() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Primary Button Focus Color</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                  <div className="w-4 h-4 rounded-full bg-primary-400 border border-sepia-300 dark:border-sepia-600"></div>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                  <div className="w-4 h-4 rounded-none bg-primary-400 border border-sepia-300 dark:border-sepia-600"></div>
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.primary → color.primary.400 (both themes)</span>
                 </div>
               </div>
@@ -1438,8 +1424,8 @@ export default function Buttons() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Secondary/Ghost/Outline Button Focus Color</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                  <div className="w-4 h-4 rounded-full bg-secondary-700 border border-sepia-300 dark:border-sepia-600"></div>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                  <div className="w-4 h-4 rounded-none bg-secondary-700 border border-sepia-300 dark:border-sepia-600"></div>
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.secondary → color.secondary.700 (both themes)</span>
                 </div>
               </div>
@@ -1451,8 +1437,8 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Light Theme</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-error-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-error-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.error → color.error.600</span>
                   </div>
                 </div>
@@ -1460,8 +1446,8 @@ export default function Buttons() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Dark Theme</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-error-500 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-error-500 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">focus.ring.error → color.error.500</span>
                   </div>
                 </div>
@@ -1471,7 +1457,7 @@ export default function Buttons() {
             {/* Interactive Test */}
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Test Keyboard Navigation</h4>
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">
                   Press Tab to cycle through these buttons and see their focus rings:
                 </p>

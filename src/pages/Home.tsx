@@ -147,7 +147,7 @@ export default function Home() {
         <section className="mb-10 px-5 lg:px-10">
           <div className="grid md:grid-cols-3 gap-5">
             {/* Card 1: Design Tokens */}
-            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
               <div>
                 {/* ColorSync Utility Icon - switches between light/dark */}
                 <div className="mb-4">
@@ -170,7 +170,7 @@ export default function Home() {
             </div>
 
             {/* Card 2: Components */}
-            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
               <div>
                 {/* Automator Icon - switches between light/dark */}
                 <div className="mb-4">
@@ -193,7 +193,7 @@ export default function Home() {
             </div>
 
             {/* Card 3: Theme System */}
-            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+            <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
               <div>
                 {/* System Preferences Icon - switches between light/dark */}
                 <div className="mb-4">

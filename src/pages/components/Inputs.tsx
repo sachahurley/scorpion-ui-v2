@@ -14,7 +14,7 @@
  */
 
 import { Input } from "@/components/ui/Input";
-import { AlertCircle } from "lucide-react";
+import { TuiIcon } from "@/components/ui/TuiIcon";
 
 export default function Inputs() {
   return (
@@ -41,7 +41,7 @@ export default function Inputs() {
         Heights match button component for visual consistency
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sizes</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -73,7 +73,7 @@ export default function Inputs() {
         Default, Hover, Focused, Disabled, Error
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">States</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -82,7 +82,7 @@ export default function Inputs() {
           </div>
           
           {/* All States with forced visual representations */}
-          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="mb-8 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <div className="space-y-4">
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All interaction states:</p>
               
@@ -162,7 +162,7 @@ export default function Inputs() {
         Shows proper form structure with labels
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Labels</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -210,7 +210,7 @@ export default function Inputs() {
                 placeholder="Enter your password" 
               />
               <p className="text-xs font-mono text-error-600 dark:text-error-500 flex items-center gap-1">
-                <AlertCircle className="w-3 h-3" />
+                <TuiIcon name="AlertCircle" size="3" />
                 Password must be at least 8 characters long
               </p>
             </div>
@@ -236,7 +236,7 @@ export default function Inputs() {
         Different placeholder text examples
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Placeholder Examples</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -263,7 +263,7 @@ export default function Inputs() {
 
       {/* INPUT TOKEN BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           {/* Card Title & Subtitle */}
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Input Token Breakdown</h3>
@@ -282,16 +282,16 @@ export default function Inputs() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Border (Light)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: color.sepia.300</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.sepia.400</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Focus: color.primary.400</span>
                   </div>
                 </div>
@@ -301,16 +301,16 @@ export default function Inputs() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Border (Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default: color.sepia.700</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover: color.sepia.600</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Focus: color.primary.400</span>
                   </div>
                 </div>
@@ -320,12 +320,12 @@ export default function Inputs() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-white border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-white border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Light: color.white</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-975 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-975 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Dark: color.sepia.975</span>
                   </div>
                 </div>
@@ -335,12 +335,12 @@ export default function Inputs() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Text</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-900 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-900 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Light: color.sepia.900</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Dark: color.sepia.50</span>
                   </div>
                 </div>
@@ -350,12 +350,12 @@ export default function Inputs() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Placeholder Text</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Light: color.sepia.400</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Dark: color.sepia.600</span>
                   </div>
                 </div>
@@ -365,16 +365,16 @@ export default function Inputs() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Error State</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Border (Light): color.error.600</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-500 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-500 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Border (Dark): color.error.500</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Background (Light): color.error.50</span>
                   </div>
                 </div>
@@ -386,11 +386,11 @@ export default function Inputs() {
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Typography</h4>
               <div className="flex flex-wrap gap-2">
                 {/* Font Family - Shown in actual font */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Font Family: <span className="font-mono">Fragment Mono</span></span>
                 </div>
                 {/* Font Size - Shown at actual size */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Font Size: <span className="text-sm">14px</span></span>
                 </div>
               </div>
@@ -404,10 +404,10 @@ export default function Inputs() {
                 <div>
                   <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Small</p>
                   <div className="flex flex-wrap gap-2">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding X: 12px</span>
                     </div>
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding Y: 6px</span>
                     </div>
                   </div>
@@ -416,10 +416,10 @@ export default function Inputs() {
                 <div>
                   <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Medium (Default)</p>
                   <div className="flex flex-wrap gap-2">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding X: 16px</span>
                     </div>
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding Y: 10px</span>
                     </div>
                   </div>
@@ -428,10 +428,10 @@ export default function Inputs() {
                 <div>
                   <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Large</p>
                   <div className="flex flex-wrap gap-2">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding X: 20px</span>
                     </div>
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding Y: 14px</span>
                     </div>
                   </div>
@@ -443,10 +443,10 @@ export default function Inputs() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Border</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Border Radius: radius.button (12px)</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Border Width: 1px</span>
                 </div>
               </div>
@@ -458,11 +458,11 @@ export default function Inputs() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring (Light & Dark)</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Color: color.primary.400 (amber.400)</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Ring Width: 2px</span>
                   </div>
                 </div>
@@ -470,15 +470,15 @@ export default function Inputs() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Ring Offset</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Width: 2px</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Light): color.sepia.50 (page background)</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Offset Color (Dark): color.sepia.1000 (page background)</span>
                   </div>
                 </div>
@@ -493,7 +493,7 @@ export default function Inputs() {
         Important information about accessible form inputs
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Accessibility Guidelines</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -501,9 +501,9 @@ export default function Inputs() {
             </p>
           </div>
 
-          <div className="p-6 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-2xl">
+          <div className="p-6 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-none">
             <div className="flex gap-3">
-              <AlertCircle className="w-5 h-5 text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5" />
+              <TuiIcon name="AlertCircle" size="5" className="text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5" />
               <div className="space-y-3">
                 <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">
                   ♿️ Accessibility Requirements

@@ -47,13 +47,12 @@ export function Divider({
     large: variant === "horizontal" ? "my-8" : "mx-8",      // 32px margin
   };
 
-  // BASE DIVIDER STYLES - Border color using semantic tokens
-  // Uses secondary (sepia) colors for neutral appearance
+  // TUI Tier 2: terminal accent color for divider borders
   const dividerBaseStyles = `
-    border-sepia-300 dark:border-sepia-700
+    border-term-dim
   `;
 
-  // Horizontal divider (default)
+  // Horizontal divider (default) -- terminal accent colored border
   if (variant === "horizontal") {
     return (
       <div
@@ -70,7 +69,7 @@ export function Divider({
     );
   }
 
-  // Vertical divider
+  // Vertical divider -- terminal accent colored border
   if (variant === "vertical") {
     return (
       <div
@@ -87,7 +86,7 @@ export function Divider({
     );
   }
 
-  // Horizontal divider with centered text
+  // TUI Tier 2: withText variant uses ─── Label ─── box-drawing characters
   if (variant === "withText" && text) {
     return (
       <div
@@ -100,16 +99,20 @@ export function Divider({
         role="separator"
         aria-label={typeof text === "string" ? text : undefined}
       >
-        {/* Left line */}
-        <div className={`flex-1 border-t border-solid ${dividerBaseStyles}`} />
+        {/* Left box-drawing line */}
+        <span className="flex-1 overflow-hidden whitespace-nowrap font-mono text-term-dim leading-none select-none" aria-hidden="true">
+          {"─".repeat(80)}
+        </span>
         
         {/* Centered text */}
-        <span className="px-4 font-mono text-xs text-sepia-600 dark:text-sepia-400">
+        <span className="px-2 font-mono text-xs text-term-dim whitespace-nowrap">
           {text}
         </span>
         
-        {/* Right line */}
-        <div className={`flex-1 border-t border-solid ${dividerBaseStyles}`} />
+        {/* Right box-drawing line */}
+        <span className="flex-1 overflow-hidden whitespace-nowrap font-mono text-term-dim leading-none select-none" aria-hidden="true">
+          {"─".repeat(80)}
+        </span>
       </div>
     );
   }
@@ -129,4 +132,8 @@ export function Divider({
     />
   );
 }
+
+
+
+
 

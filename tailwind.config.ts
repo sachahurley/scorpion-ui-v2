@@ -93,6 +93,17 @@ export default {
           900: 'var(--color-red-900)',
           950: 'var(--color-red-950)',
         },
+        // TUI Tier 2: ANSI terminal accent colors
+        term: {
+          green: 'var(--color-term-green)',
+          amber: 'var(--color-term-amber)',
+          cyan: 'var(--color-term-cyan)',
+          magenta: 'var(--color-term-magenta)',
+          red: 'var(--color-term-red)',
+          blue: 'var(--color-term-blue)',
+          white: 'var(--color-term-white)',
+          dim: 'var(--color-term-dim)',
+        },
         // Semantic color aliases
         primary: {
           50: 'var(--color-primary-50)',

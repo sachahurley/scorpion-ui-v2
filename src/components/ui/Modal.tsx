@@ -90,14 +90,14 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
       {/* 
         BACKDROP / SCRIM
         - Full-screen semi-transparent overlay
-        - Covers entire viewport with dark shade
+        - Covers entire viewport with dark shade (including sidebar)
         - Clicking it closes the modal
         - Uses fade-in/fade-out animation
-        - Uses z-index token for overlay layer (1030)
+        - Uses z-index token for modal layer (1040) to ensure it covers sidebar
       */}
       <div
         className="fixed inset-0 bg-black/50 flex items-center justify-center p-5 animate-in fade-in duration-[200ms]"
-        style={{ zIndex: 'var(--z-index-overlay)' }}
+        style={{ zIndex: 'var(--z-index-modal)' }}
         onClick={onClose}
       >
         {/* 
@@ -110,7 +110,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
           - rounded-[24px] uses radius.container token
         */}
         <div
-          className="w-[740px] max-h-[80vh] bg-[var(--surface-card)] rounded-[24px] flex flex-col overflow-hidden"
+          className="w-[740px] max-h-[80vh] bg-[var(--surface-card)] rounded-none flex flex-col overflow-hidden"
           style={{
             boxShadow: 'var(--elevation-2-shadow)',
             border: '0.5px solid var(--elevation-2-border)'
@@ -125,25 +125,25 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
             - 24px padding matches card padding from Colors page
             - Border bottom separates header from content
           */}
+          {/* TUI Tier 2: double-line box-drawing title bar ╔══ Title ══╗ */}
           <div className="flex items-center justify-between px-8 py-6 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-800">
-            {/* Title text using primary text color token */}
-            <h2 className="text-base font-mono text-sepia-900 dark:text-sepia-50 font-medium">
-              {title}
+            {/* Title with double-line box-drawing decoration */}
+            <h2 className="text-base font-mono text-sepia-900 dark:text-sepia-50 font-medium flex items-center gap-0 flex-1 min-w-0">
+              <span className="text-term-dim dark:text-term-amber whitespace-pre" aria-hidden="true">╔══ </span>
+              <span className="truncate">{title}</span>
+              <span className="text-term-dim dark:text-term-amber ml-1 flex-1 overflow-hidden whitespace-nowrap" aria-hidden="true">
+                {"═".repeat(80)}
+              </span>
+              <span className="text-term-dim dark:text-term-amber whitespace-pre" aria-hidden="true"> ══╗</span>
             </h2>
 
-            {/* 
-              CLOSE BUTTON
-              - X icon to close modal
-              - Hover state darkens/lightens based on theme
-              - Uses secondary text color for subtle appearance
-              - Transition for smooth hover effect
-            */}
+            {/* TUI close button: [x] text instead of icon */}
             <button
               onClick={onClose}
-              className="text-sepia-600 dark:text-sepia-400 hover:text-sepia-900 dark:hover:text-sepia-50 transition-colors duration-200 text-xl leading-none"
+              className="ml-4 font-mono text-sm text-term-dim dark:text-term-amber hover:text-term-red dark:hover:text-term-red transition-colors duration-200 leading-none"
               aria-label="Close modal"
             >
-              ×
+              [x]
             </button>
           </div>
 

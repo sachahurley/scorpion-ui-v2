@@ -250,9 +250,9 @@
     --font-weight-medium: 500;
     --font-weight-bold: 700;
     
-    /* Border radius tokens */
-    --radius-button: 12px;
-    --radius-container: 24px;
+    /* Border radius tokens -- TUI: sharp corners, no curves */
+    --radius-button: 0px;
+    --radius-container: 0px;
     
     /* Spacing tokens (matches Tailwind's 4px-based scale) */
     --spacing-0: 0;
@@ -273,12 +273,12 @@
     --focus-ring-width: 2px;
     --focus-ring-offset: 2px;
     
-    /* Animation/Duration tokens */
+    /* Animation/Duration tokens -- TUI: snappy, near-instant responses */
     --duration-instant: 0ms;
-    --duration-fast: 150ms;
-    --duration-normal: 200ms;
-    --duration-slow: 300ms;
-    --duration-slower: 500ms;
+    --duration-fast: 50ms;
+    --duration-normal: 75ms;
+    --duration-slow: 100ms;
+    --duration-slower: 150ms;
     
     /* Easing/Timing functions */
     --easing-linear: linear;
@@ -309,6 +309,16 @@
     --opacity-90: 0.9;
     --opacity-100: 1;
     
+    /* ANSI terminal accent colors -- TUI Tier 2 */
+    --color-term-green: #00CC33;
+    --color-term-amber: #CC8800;
+    --color-term-cyan: #00AACC;
+    --color-term-magenta: #CC00CC;
+    --color-term-red: #CC0022;
+    --color-term-blue: #0066CC;
+    --color-term-white: #E0E0E0;
+    --color-term-dim: #666666;
+    
     /* Light theme surface and text colors */
     --surface-page: #FDFCFB;  /* sepia-50 - page background */
     --surface-container: #FDFCFB;  /* sepia-50 - topbar & sidebar */
@@ -332,24 +342,34 @@
     --button-secondary-background-hover: #968A75;  /* sepia-600 */
     --button-secondary-text: #FDFCFB;  /* sepia-50 */
     
-    /* Light theme elevation tokens (shadows & borders for depth) */
+    /* Light theme elevation tokens -- TUI: flat, no shadows, borders only */
     --elevation-0-shadow: none;
     --elevation-0-border: transparent;
-    --elevation-1-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+    --elevation-1-shadow: none;
     --elevation-1-border: #F7F5F2;  /* sepia-200 */
-    --elevation-2-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.10);
+    --elevation-2-shadow: none;
     --elevation-2-border: #F0EBE4;  /* sepia-300 */
-    --elevation-3-shadow: 0 10px 40px rgba(0, 0, 0, 0.20), 0 4px 8px rgba(0, 0, 0, 0.12);
+    --elevation-3-shadow: none;
     --elevation-3-border: #F0EBE4;  /* sepia-300 */
   }
 
   .dark {
-    /* Dark theme overrides */
+    /* Dark theme ANSI colors -- brighter for dark backgrounds */
+    --color-term-green: #39FF14;
+    --color-term-amber: #FFD700;
+    --color-term-cyan: #00E5FF;
+    --color-term-magenta: #FF44FF;
+    --color-term-red: #FF3344;
+    --color-term-blue: #4499FF;
+    --color-term-white: #F0F0F0;
+    --color-term-dim: #888888;
+    
+    /* Dark theme overrides -- TUI: amber CRT monitor tint on text */
     --surface-page: #0A0704;  /* sepia-1000 - darkest page background */
     --surface-container: #0A0704;  /* sepia-1000 - topbar & sidebar */
     --surface-card: #120D09;  /* sepia-975 - content cards */
     --surface-container-stroke: #474030;  /* sepia-800 - borders/dividers */
-    --text-primary: #FDFCFB;
+    --text-primary: #FFE8B0;  /* warm amber-tinted white for CRT feel */
     --text-secondary: #E0DACE;
     
     /* Dark theme focus ring colors */
@@ -367,17 +387,14 @@
     --button-secondary-background-hover: #968A75;  /* sepia-600 */
     --button-secondary-text: #FDFCFB;  /* sepia-50 */
     
-    /* Dark theme elevation tokens (Apple's approach: layered shadows + light borders) */
+    /* Dark theme elevation tokens -- TUI: flat, no shadows, borders only */
     --elevation-0-shadow: none;
     --elevation-0-border: transparent;
-    /* Level 1: Subtle card elevation with light border for edge definition */
-    --elevation-1-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.06);
+    --elevation-1-shadow: none;
     --elevation-1-border: rgba(255, 255, 255, 0.08);
-    /* Level 2: Medium elevation (dropdowns, popovers) */
-    --elevation-2-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 2px 0 rgba(255, 255, 255, 0.08);
+    --elevation-2-shadow: none;
     --elevation-2-border: rgba(255, 255, 255, 0.10);
-    /* Level 3: High elevation (modals, dialogs) */
-    --elevation-3-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 2px 0 rgba(255, 255, 255, 0.10);
+    --elevation-3-shadow: none;
     --elevation-3-border: rgba(255, 255, 255, 0.12);
   }
 
@@ -387,7 +404,8 @@
 
   body {
     @apply bg-[var(--surface-page)] text-[var(--text-primary)] antialiased;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    /* TUI: 100% monospace -- Fragment Mono everywhere */
+    font-family: var(--font-family-mono);
   }
 }
 

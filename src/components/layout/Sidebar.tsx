@@ -14,7 +14,7 @@
 
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Music2 } from "lucide-react";
+// TUI Tier 2: Lucide icons removed, using Unicode characters instead
 import { AboutCard } from "./AboutCard";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Button } from "@/components/ui/Button";
@@ -77,7 +77,7 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, 
         <div className="space-y-2">
           {/* Mobile-Only Controls: Music Player + Theme Toggle */}
           {/* Only visible on mobile screens (below lg breakpoint) */}
-          <div className="lg:hidden flex items-center gap-2 pb-4 mb-4 border-b border-sepia-600">
+          <div className="lg:hidden flex items-center gap-3 pb-4 mb-4 border-b border-sepia-600">
             {/* Music Player Toggle Button - Opens music player when clicked */}
             <Button
               onClick={isMusicPlayerOpen ? closeMusicPlayer : openMusicPlayer}
@@ -86,7 +86,7 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, 
               className={isMusicPlayerOpen ? "bg-secondary-200 dark:bg-secondary-700" : ""}
               aria-label={isMusicPlayerOpen ? "Close music player" : "Open music player"}
             >
-              <Music2 />
+              <span className="font-mono" aria-hidden="true">♫</span>
             </Button>
 
             {/* Theme toggle button */}
@@ -236,36 +236,6 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, 
                     />
                   </svg>
                   <span>Typography</span>
-                </Link>
-                <Link
-                  to="/foundation/border-radius"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/foundation/border-radius")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Border Radius</span>
                 </Link>
                 <Link
                   to="/foundation/spacing"

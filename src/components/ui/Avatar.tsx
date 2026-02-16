@@ -23,7 +23,6 @@
  */
 
 import { useState, type ReactNode } from "react";
-import { User } from "lucide-react";
 
 export interface AvatarProps {
   src?: string;
@@ -122,7 +121,7 @@ export function Avatar({
       <div
         className={`
           ${currentSize.container}
-          rounded-full
+          rounded-none
           overflow-hidden
           flex items-center justify-center
           bg-secondary-200 dark:bg-secondary-800
@@ -153,9 +152,9 @@ export function Avatar({
           </div>
         )}
 
-        {/* Default Icon */}
+        {/* TUI Tier 2: @ character instead of Lucide User icon */}
         {showDefaultIcon && (
-          <User className={`${currentSize.icon} text-secondary-600 dark:text-secondary-400`} />
+          <span className={`${currentSize.icon} inline-flex items-center justify-center font-mono font-bold text-secondary-600 dark:text-secondary-400`} aria-hidden="true">@</span>
         )}
       </div>
 
@@ -167,7 +166,7 @@ export function Avatar({
             ${currentSize.statusOffset}
             ${currentSize.status}
             ${statusColors[status]}
-            rounded-full
+            rounded-none
             border-2 border-white dark:border-sepia-950
           `}
           aria-label={`Status: ${status}`}
@@ -176,4 +175,8 @@ export function Avatar({
     </div>
   );
 }
+
+
+
+
 

@@ -35,7 +35,7 @@ export default function ZIndex() {
 
       {/* LAYER HIERARCHY VISUALIZATION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Layer Hierarchy</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -44,13 +44,13 @@ export default function ZIndex() {
           </div>
 
           {/* Stacked layers visualization */}
-          <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <div className="relative h-[400px]">
               {layers.map((layer, index) => (
                 <div
                   key={layer.name}
                   className={`
-                    absolute left-0 right-0 p-4 rounded-2xl border-2 cursor-pointer
+                    absolute left-0 right-0 p-4 rounded-none border-2 cursor-pointer
                     transition-all duration-300 ${layer.color}
                     ${activeLayer === layer.name ? 'scale-105 border-primary-500' : 'border-sepia-400 dark:border-sepia-600'}
                   `}
@@ -81,7 +81,7 @@ export default function ZIndex() {
 
       {/* TOKEN VALUES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Token Values</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -91,7 +91,7 @@ export default function ZIndex() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {layers.map((layer) => (
-              <div key={layer.name} className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+              <div key={layer.name} className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">{layer.name}</span>
                   <span className="text-sm font-mono font-bold text-primary-600 dark:text-primary-400">{layer.value}</span>
@@ -102,7 +102,7 @@ export default function ZIndex() {
           </div>
 
           {/* Spacing explanation */}
-          <div className="mt-6 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="mt-6 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-2">20-Point Increment System</p>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
               Each layer is separated by 20 points, allowing for intermediate values if needed while maintaining clear hierarchy. Starting at 1000 leaves room below for special cases.
@@ -113,7 +113,7 @@ export default function ZIndex() {
 
       {/* USAGE GUIDELINES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Usage Guidelines</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -122,7 +122,7 @@ export default function ZIndex() {
           </div>
 
           <div className="space-y-4">
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Layer Selection Rules</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• <span className="font-bold">base (0)</span> - All normal page content, cards, text</li>
@@ -135,7 +135,7 @@ export default function ZIndex() {
               </ul>
             </div>
 
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Best Practices</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Always use tokens instead of arbitrary values</li>
@@ -146,7 +146,7 @@ export default function ZIndex() {
               </ul>
             </div>
 
-            <div className="p-6 bg-error-50 dark:bg-error-900/20 border border-error-200 dark:border-error-800 rounded-2xl">
+            <div className="p-6 bg-error-50 dark:bg-error-900/20 border border-error-200 dark:border-error-800 rounded-none">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-2">🔴 Common Mistakes</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Using random z-index values (z-[999], z-[9999])</li>
@@ -161,7 +161,7 @@ export default function ZIndex() {
 
       {/* INTERACTIVE DEMO SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Interactive Demo</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -169,7 +169,7 @@ export default function ZIndex() {
             </p>
           </div>
 
-          <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             {/* Layer toggle buttons */}
             <div className="flex flex-wrap gap-2 mb-6">
               <button
@@ -215,7 +215,7 @@ export default function ZIndex() {
             </div>
 
             {/* Demo area */}
-            <div className="relative h-64 bg-sepia-50 dark:bg-sepia-950 rounded-2xl overflow-hidden">
+            <div className="relative h-64 bg-sepia-50 dark:bg-sepia-950 rounded-none overflow-hidden">
               {/* Base content */}
               <div className="absolute inset-0 p-6">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Base Content (z-index: 0)</p>
@@ -224,7 +224,7 @@ export default function ZIndex() {
 
               {/* Dropdown layer */}
               {activeLayer === "dropdown" && (
-                <div className="absolute top-12 left-12 w-48 p-4 bg-blue-100 dark:bg-blue-900 border-2 border-blue-500 rounded-2xl shadow-lg" style={{ zIndex: 1000 }}>
+                <div className="absolute top-12 left-12 w-48 p-4 bg-blue-100 dark:bg-blue-900 border-2 border-blue-500 rounded-none shadow-none" style={{ zIndex: 1000 }}>
                   <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">Dropdown</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">z-index: 1000</p>
                 </div>
@@ -233,7 +233,7 @@ export default function ZIndex() {
               {/* Overlay layer */}
               {activeLayer === "overlay" && (
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center" style={{ zIndex: 1030 }}>
-                  <div className="p-4 bg-purple-100 dark:bg-purple-900 border-2 border-purple-500 rounded-2xl">
+                  <div className="p-4 bg-purple-100 dark:bg-purple-900 border-2 border-purple-500 rounded-none">
                     <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">Overlay</p>
                     <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">z-index: 1030</p>
                   </div>
@@ -245,7 +245,7 @@ export default function ZIndex() {
                 <>
                   <div className="absolute inset-0 bg-black/50" style={{ zIndex: 1030 }} />
                   <div className="absolute inset-0 flex items-center justify-center" style={{ zIndex: 1040 }}>
-                    <div className="w-64 p-6 bg-amber-100 dark:bg-amber-900 border-2 border-amber-500 rounded-2xl shadow-2xl">
+                    <div className="w-64 p-6 bg-amber-100 dark:bg-amber-900 border-2 border-amber-500 rounded-none shadow-none">
                       <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">Modal</p>
                       <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">z-index: 1040</p>
                       <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mt-2">Above overlay (1030)</p>
@@ -256,7 +256,7 @@ export default function ZIndex() {
 
               {/* Tooltip layer */}
               {activeLayer === "tooltip" && (
-                <div className="absolute top-20 right-12 w-48 p-3 bg-primary-100 dark:bg-primary-900 border-2 border-primary-500 rounded-2xl shadow-xl" style={{ zIndex: 1060 }}>
+                <div className="absolute top-20 right-12 w-48 p-3 bg-primary-100 dark:bg-primary-900 border-2 border-primary-500 rounded-none shadow-none" style={{ zIndex: 1060 }}>
                   <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">Tooltip</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">z-index: 1060</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mt-1">Highest layer</p>
@@ -269,7 +269,7 @@ export default function ZIndex() {
 
       {/* IMPLEMENTATION SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Implementation</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -281,7 +281,7 @@ export default function ZIndex() {
             {/* Tailwind Classes */}
             <div>
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Using Tailwind Classes</p>
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-sepia-950">
                 <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
 {`<!-- Tailwind doesn't have z-1040, use CSS variable instead -->
 <div className="z-[var(--z-index-modal)]">
@@ -299,7 +299,7 @@ export default function ZIndex() {
             {/* Component Examples */}
             <div>
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Real-World Examples</p>
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <ul className="space-y-3">
                   <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
                     <span className="font-bold text-sepia-900 dark:text-sepia-50">Sidebar:</span> Use zIndex.sticky (1020) for fixed navigation
@@ -325,7 +325,7 @@ export default function ZIndex() {
 
       {/* TROUBLESHOOTING SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Troubleshooting</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -334,7 +334,7 @@ export default function ZIndex() {
           </div>
 
           <div className="space-y-4">
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-2">Element not appearing above another?</p>
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-2">Check if the parent has a stacking context:</p>
               <ul className="space-y-1 ml-4">
@@ -344,7 +344,7 @@ export default function ZIndex() {
               </ul>
             </div>
 
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-2">Modal appearing behind sidebar?</p>
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
                 Ensure modal is rendered at root level (not nested inside sidebar). Use React portals or place modal/overlay components at app root.

@@ -25,7 +25,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost" | "link" | "outline" | "destructive" | "icon";
   size?: "small" | "medium" | "large" | "icon";
   disabled?: boolean;
-  // Icon support - can be any React element (typically from lucide-react)
+  // Icon support - can be any React element (TUI: typically TuiIcon or Unicode characters)
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
 }
@@ -106,29 +106,31 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       const iconOnly = isIconOnly();
       
       // For icon-only buttons (any variant), use square dimensions matching the size
+      // TUI: all corners sharp (rounded-none)
       if (iconOnly || variant === "icon") {
         switch (size) {
           case "small":
-            return "h-8 w-8 rounded-md";        // 32px × 32px square, rounded-md = 6px
+            return "h-8 w-8 rounded-none";
           case "large":
-            return "h-12 w-12 rounded-button";   // 48px × 48px square, rounded-button = 12px
+            return "h-12 w-12 rounded-none";
           case "icon":
-            return "h-10 w-10 rounded-lg";       // Legacy: 40px × 40px square, rounded-lg = 8px
+            return "h-10 w-10 rounded-none";
           default: // medium
-            return "h-10 w-10 rounded-lg";      // 40px × 40px square, rounded-lg = 8px
+            return "h-10 w-10 rounded-none";
         }
       }
       
       // For regular buttons with labels, use standard size styles
+      // TUI: all corners sharp (rounded-none)
       switch (size) {
         case "small":
-          return "h-8 px-4 py-1.5 rounded-md";        // h-8 = 32px, px-4 = 16px, rounded-md = 6px
+          return "h-8 px-4 py-1.5 rounded-none";
         case "large":
-          return "h-12 px-6 py-3.5 rounded-button";    // h-12 = 48px, px-6 = 24px, rounded-button = 12px
+          return "h-12 px-6 py-3.5 rounded-none";
         case "icon":
-          return "h-10 w-10 rounded-lg";              // Legacy: maps to medium
+          return "h-10 w-10 rounded-none";
         default: // medium
-          return "h-10 px-5 py-2.5 rounded-lg";       // h-10 = 40px, px-5 = 20px, rounded-lg = 8px
+          return "h-10 px-5 py-2.5 rounded-none";
       }
     };
 
@@ -205,7 +207,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       // Light: sepia-100 bg → sepia-200 hover | sepia-900 text
       // Dark: sepia-800 bg → sepia-700 hover | sepia-50 text
       // Disabled has reduced contrast in both themes
-      // Border radius is set in sizeStyles (rounded-md = 6px, matches small buttons)
+      // Border radius is set in sizeStyles (rounded-none = 0px, TUI sharp corners)
       // Ring color set via inline style to ensure consistency
       icon: `
         bg-sepia-100 hover:bg-sepia-200 active:bg-sepia-300 text-sepia-900

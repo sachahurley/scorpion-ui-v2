@@ -24,7 +24,6 @@
  */
 
 import { type ReactNode } from "react";
-import { X } from "lucide-react";
 
 export interface BadgeProps {
   variant?: "default" | "primary" | "success" | "warning" | "error" | "info";
@@ -63,43 +62,32 @@ export function Badge({
     large: "h-7 px-3 py-1.5 text-sm",    // h-7 = 28px, px-3 = 12px, text-sm = 14px
   };
 
-  // VARIANT STYLES - Color combinations using semantic tokens
-  // All variants support light and dark themes
+  // TUI Tier 2: bracket-style badges with ANSI terminal accent colors
+  // Transparent background, colored text only -- e.g. [SUCCESS]
   const variantStyles = {
-    // Default: Neutral secondary (sepia) colors
     default: `
-      bg-secondary-200 dark:bg-secondary-800
-      text-secondary-900 dark:text-secondary-50
+      bg-transparent
+      text-term-dim
     `,
-    
-    // Primary: Amber brand color
     primary: `
-      bg-primary-100 dark:bg-primary-900
-      text-primary-900 dark:text-primary-50
+      bg-transparent
+      text-term-amber
     `,
-    
-    // Success: Green for positive states
     success: `
-      bg-success-100 dark:bg-success-900
-      text-success-900 dark:text-success-50
+      bg-transparent
+      text-term-green
     `,
-    
-    // Warning: Purple for warnings
     warning: `
-      bg-warning-100 dark:bg-warning-900
-      text-warning-900 dark:text-warning-50
+      bg-transparent
+      text-term-magenta
     `,
-    
-    // Error: Red for errors
     error: `
-      bg-error-100 dark:bg-error-900
-      text-error-900 dark:text-error-50
+      bg-transparent
+      text-term-red
     `,
-    
-    // Info: Blue for informational messages
     info: `
-      bg-info-100 dark:bg-info-900
-      text-info-900 dark:text-info-50
+      bg-transparent
+      text-term-cyan
     `,
   };
 
@@ -110,19 +98,12 @@ export function Badge({
     large: "w-4 h-4",    // 16px
   };
 
-  // CLOSE BUTTON SIZES - Close button scales with badge size
-  const closeButtonSizes = {
-    small: "w-3 h-3",     // 12px
-    medium: "w-3.5 h-3.5", // 14px
-    large: "w-4 h-4",    // 16px
-  };
-
   return (
     <span
       className={`
         inline-flex items-center gap-1.5
         font-mono font-medium
-        rounded-md
+        rounded-none
         ${sizeStyles[size]}
         ${variantStyles[variant]}
         ${className}
@@ -135,10 +116,14 @@ export function Badge({
         </span>
       )}
       
-      {/* Badge Content */}
-      <span className="inline-flex items-center">{children}</span>
+      {/* TUI Tier 2: bracket-wrapped content [LABEL] */}
+      <span className="inline-flex items-center">
+        <span aria-hidden="true">[</span>
+        {children}
+        <span aria-hidden="true">]</span>
+      </span>
       
-      {/* Close Button */}
+      {/* Close Button -- TUI text "x" instead of Lucide icon */}
       {onClose && (
         <button
           onClick={(e) => {
@@ -147,19 +132,22 @@ export function Badge({
           }}
           className={`
             inline-flex items-center justify-center
-            ${closeButtonSizes[size]}
-            rounded-sm
-            hover:bg-black/10 dark:hover:bg-white/10
+            font-mono font-bold
+            hover:text-term-red
             transition-colors duration-150
             flex-shrink-0
             focus:outline-none focus:ring-1 focus:ring-offset-1
           `}
           aria-label="Remove badge"
         >
-          <X className={closeButtonSizes[size]} />
+          x
         </button>
       )}
     </span>
   );
 }
+
+
+
+
 

@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Dropdown } from "@/components/ui/Dropdown";
 import { Switch } from "@/components/ui/Switch";
-import { User, Mail, Eye, EyeOff, Bell, Moon, Globe, Check, ChevronDown } from "lucide-react";
+import { TuiIcon } from "@/components/ui/TuiIcon";
 
 export default function Cards() {
   // Sign In Form State
@@ -231,9 +231,9 @@ export default function Cards() {
                     aria-label={showSignInPassword ? "Hide password" : "Show password"}
                   >
                     {showSignInPassword ? (
-                      <EyeOff className="w-5 h-5" />
+                      <TuiIcon name="EyeOff" size="5" />
                     ) : (
-                      <Eye className="w-5 h-5" />
+                      <TuiIcon name="Eye" size="5" />
                     )}
                   </button>
                 </div>
@@ -371,9 +371,9 @@ export default function Cards() {
                     aria-label={showSignUpPassword ? "Hide password" : "Show password"}
                   >
                     {showSignUpPassword ? (
-                      <EyeOff className="w-5 h-5" />
+                      <TuiIcon name="EyeOff" size="5" />
                     ) : (
-                      <Eye className="w-5 h-5" />
+                      <TuiIcon name="Eye" size="5" />
                     )}
                   </button>
                 </div>
@@ -412,9 +412,9 @@ export default function Cards() {
                     aria-label={showSignUpConfirmPassword ? "Hide password" : "Show password"}
                   >
                     {showSignUpConfirmPassword ? (
-                      <EyeOff className="w-5 h-5" />
+                      <TuiIcon name="EyeOff" size="5" />
                     ) : (
-                      <Eye className="w-5 h-5" />
+                      <TuiIcon name="Eye" size="5" />
                     )}
                   </button>
                 </div>
@@ -445,8 +445,8 @@ export default function Cards() {
           <Card
             headerContent={
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-primary-400 flex items-center justify-center">
-                  <User className="w-8 h-8 text-black" />
+                <div className="w-16 h-16 rounded-none bg-primary-400 flex items-center justify-center">
+                  <TuiIcon name="User" size="8" className="text-black" />
                 </div>
                 <div>
                   <h3 className="text-base font-mono font-bold text-sepia-900 dark:text-sepia-50">
@@ -521,7 +521,7 @@ export default function Cards() {
                   value={profileBio}
                   onChange={(e) => setProfileBio(e.target.value)}
                   rows={3}
-                  className="w-full px-4 py-2.5 rounded-lg border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-975 text-sepia-900 dark:text-sepia-50 font-mono text-sm placeholder:text-sepia-400 dark:placeholder:text-sepia-600 focus:outline-none focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000 transition-all duration-200"
+                  className="w-full px-4 py-2.5 rounded-none border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-975 text-sepia-900 dark:text-sepia-50 font-mono text-sm placeholder:text-sepia-400 dark:placeholder:text-sepia-600 focus:outline-none focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000 transition-all duration-200"
                   placeholder="Tell us about yourself..."
                 />
               </div>
@@ -572,7 +572,7 @@ export default function Cards() {
                   {/* Email Notifications Toggle */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <Mail className="w-5 h-5 text-sepia-600 dark:text-sepia-400" />
+                      <TuiIcon name="Mail" size="5" className="text-sepia-600 dark:text-sepia-400" />
                       <div>
                         <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50">
                           Email Notifications
@@ -594,7 +594,7 @@ export default function Cards() {
                   {/* Push Notifications Toggle */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <Bell className="w-5 h-5 text-sepia-600 dark:text-sepia-400" />
+                      <TuiIcon name="Bell" size="5" className="text-sepia-600 dark:text-sepia-400" />
                       <div>
                         <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50">
                           Push Notifications
@@ -624,7 +624,7 @@ export default function Cards() {
                   {/* Dark Mode Toggle */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <Moon className="w-5 h-5 text-sepia-600 dark:text-sepia-400" />
+                      <TuiIcon name="Moon" size="5" className="text-sepia-600 dark:text-sepia-400" />
                       <div>
                         <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50">
                           Dark Mode
@@ -653,8 +653,8 @@ export default function Cards() {
                         <Button 
                           variant="outline" 
                           size="medium" 
-                          iconLeft={<Globe />}
-                          iconRight={<ChevronDown />}
+                          iconLeft={<TuiIcon name="Globe" />}
+                          iconRight={<TuiIcon name="ChevronDown" />}
                           className="w-full justify-start"
                         >
                           {language === "en" ? "English" : language === "es" ? "Spanish" : language === "fr" ? "French" : "German"}
@@ -664,26 +664,26 @@ export default function Cards() {
                         { 
                           label: "English", 
                           onClick: () => setLanguage("en"),
-                          icon: <Globe className="w-5 h-5" />,
-                          iconRight: language === "en" ? <Check className="w-5 h-5" /> : undefined
+                          icon: <TuiIcon name="Globe" size="5" />,
+                          iconRight: language === "en" ? <TuiIcon name="Check" size="5" /> : undefined
                         },
                         { 
                           label: "Spanish", 
                           onClick: () => setLanguage("es"),
-                          icon: <Globe className="w-5 h-5" />,
-                          iconRight: language === "es" ? <Check className="w-5 h-5" /> : undefined
+                          icon: <TuiIcon name="Globe" size="5" />,
+                          iconRight: language === "es" ? <TuiIcon name="Check" size="5" /> : undefined
                         },
                         { 
                           label: "French", 
                           onClick: () => setLanguage("fr"),
-                          icon: <Globe className="w-5 h-5" />,
-                          iconRight: language === "fr" ? <Check className="w-5 h-5" /> : undefined
+                          icon: <TuiIcon name="Globe" size="5" />,
+                          iconRight: language === "fr" ? <TuiIcon name="Check" size="5" /> : undefined
                         },
                         { 
                           label: "German", 
                           onClick: () => setLanguage("de"),
-                          icon: <Globe className="w-5 h-5" />,
-                          iconRight: language === "de" ? <Check className="w-5 h-5" /> : undefined
+                          icon: <TuiIcon name="Globe" size="5" />,
+                          iconRight: language === "de" ? <TuiIcon name="Check" size="5" /> : undefined
                         },
                       ]}
                       size="medium"
@@ -722,7 +722,7 @@ export default function Cards() {
               {/* Attribution - Locked to bottom */}
               <div className="flex items-center gap-4 pt-4 mt-6 border-t border-sepia-300 dark:border-sepia-700">
                 {/* Circular Avatar */}
-                <div className="w-16 h-16 rounded-full bg-primary-400 flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 rounded-none bg-primary-400 flex items-center justify-center flex-shrink-0">
                   <span className="text-xl font-mono font-bold text-black">SJ</span>
                 </div>
                 
@@ -754,7 +754,7 @@ export default function Cards() {
               
               {/* Attribution - Locked to bottom */}
               <div className="flex items-center gap-4 pt-4 mt-6 border-t border-sepia-300 dark:border-sepia-700">
-                <div className="w-16 h-16 rounded-full bg-secondary-600 flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 rounded-none bg-secondary-600 flex items-center justify-center flex-shrink-0">
                   <span className="text-xl font-mono font-bold text-white">MC</span>
                 </div>
                 <div className="flex-1 min-w-0">
@@ -779,7 +779,7 @@ export default function Cards() {
         Documentation of design tokens used in cards
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Card Token Breakdown</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -792,19 +792,19 @@ export default function Cards() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Card Container</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Background</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">var(--surface-card)</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Radius</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">24px (rounded-[24px])</p>
+                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">24px (rounded-none)</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">0.5px solid sepia-500/800</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Padding</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">16px mobile / 24px desktop</p>
                 </div>
@@ -815,15 +815,15 @@ export default function Cards() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Header Section</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Title Font</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">font-mono, 16px, bold</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Subtitle Font</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">font-mono, 14px, regular</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Bottom</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">0.5px solid sepia-500/800</p>
                 </div>
@@ -834,11 +834,11 @@ export default function Cards() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Footer Section</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Background</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">sepia-50 / sepia-975</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Top</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">0.5px solid sepia-500/800</p>
                 </div>

@@ -109,7 +109,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
           className={`
             relative inline-flex items-center
             ${currentSizeStyles.track}
-            rounded-full
+            rounded-none
             transition-colors duration-300
             focus:outline-none focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000
             ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
@@ -125,9 +125,9 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
             className={`
               inline-flex items-center justify-center
               ${currentSizeStyles.knob}
-              rounded-full
+              rounded-none
               bg-white dark:bg-secondary-900
-              shadow-sm
+              shadow-none
               transform transition-transform duration-300
             `}
             style={{

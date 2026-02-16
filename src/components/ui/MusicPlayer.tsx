@@ -36,7 +36,6 @@
  */
 
 import { useState, useEffect, useRef } from "react";
-import { Volume2, VolumeX, X } from "lucide-react";
 import { Button } from "./Button";
 
 // Demo playlist data - Roy Orbison songs
@@ -416,7 +415,7 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
       />
       
       <div
-        className="fixed w-[calc(100%-48px)] lg:w-[380px] bg-[var(--surface-card)] rounded-[24px] overflow-visible border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 left-6 bottom-6 lg:left-auto lg:bottom-auto"
+        className="fixed w-[calc(100%-48px)] lg:w-[380px] bg-[var(--surface-card)] rounded-none overflow-visible border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 left-6 bottom-6 lg:left-auto lg:bottom-auto"
         style={{
           // Uses z-index token for popover layer (1050)
           zIndex: 'var(--z-index-popover)',
@@ -462,14 +461,14 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
         {/* 2×3 grid of dots: 2px dots with 2px gaps */}
         <div className="grid grid-cols-2 gap-[2px]">
           {/* Row 1 */}
-          <div className="w-[2px] h-[2px] rounded-full bg-sepia-900 dark:bg-sepia-50"></div>
-          <div className="w-[2px] h-[2px] rounded-full bg-sepia-900 dark:bg-sepia-50"></div>
+          <div className="w-[2px] h-[2px] rounded-none bg-sepia-900 dark:bg-sepia-50"></div>
+          <div className="w-[2px] h-[2px] rounded-none bg-sepia-900 dark:bg-sepia-50"></div>
           {/* Row 2 */}
-          <div className="w-[2px] h-[2px] rounded-full bg-sepia-900 dark:bg-sepia-50"></div>
-          <div className="w-[2px] h-[2px] rounded-full bg-sepia-900 dark:bg-sepia-50"></div>
+          <div className="w-[2px] h-[2px] rounded-none bg-sepia-900 dark:bg-sepia-50"></div>
+          <div className="w-[2px] h-[2px] rounded-none bg-sepia-900 dark:bg-sepia-50"></div>
           {/* Row 3 */}
-          <div className="w-[2px] h-[2px] rounded-full bg-sepia-900 dark:bg-sepia-50"></div>
-          <div className="w-[2px] h-[2px] rounded-full bg-sepia-900 dark:bg-sepia-50"></div>
+          <div className="w-[2px] h-[2px] rounded-none bg-sepia-900 dark:bg-sepia-50"></div>
+          <div className="w-[2px] h-[2px] rounded-none bg-sepia-900 dark:bg-sepia-50"></div>
         </div>
       </div>
 
@@ -486,10 +485,10 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
           onClick={onClose}
           variant="ghost"
           size="medium"
-          className="lg:h-8 lg:w-8 lg:rounded-md"
+          className="lg:h-8 lg:w-8 lg:rounded-none"
           aria-label="Close music player"
         >
-          <X className="w-5 h-5 lg:w-4 lg:h-4" />
+          <span className="font-mono font-bold text-base lg:text-sm" aria-hidden="true">✗</span>
         </Button>
       </div>
 
@@ -514,7 +513,7 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
             - Cover fit to fill container (crops to fit)
           */}
           <div className="w-[84px] h-[84px] lg:w-[140px] lg:h-full flex-shrink-0">
-            <div className="w-full h-full rounded-[12px] bg-sepia-200 dark:bg-sepia-800 overflow-hidden border-[0.5px] border-solid border-sepia-900 dark:border-sepia-900 flex items-center justify-center">
+            <div className="w-full h-full rounded-none bg-sepia-200 dark:bg-sepia-800 overflow-hidden border-[0.5px] border-solid border-sepia-900 dark:border-sepia-900 flex items-center justify-center">
             {currentSong.albumCover ? (
               <img
                 src={currentSong.albumCover}
@@ -591,10 +590,10 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
                 - Height: 6px for better visibility
                 - Rounded ends for polished look
               */}
-              <div className="w-full h-1.5 bg-sepia-200 dark:bg-sepia-800 rounded-full overflow-hidden">
+              <div className="w-full h-1.5 bg-sepia-200 dark:bg-sepia-800 rounded-none overflow-hidden">
                 {/* Progress fill - width animates based on actual playback */}
                 <div 
-                  className="h-full bg-sepia-600 dark:bg-sepia-400 rounded-full transition-all duration-100 ease-linear"
+                  className="h-full bg-sepia-600 dark:bg-sepia-400 rounded-none transition-all duration-100 ease-linear"
                   style={{ width: `${progressPercentage}%` }}
                 />
               </div>
@@ -623,7 +622,7 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
                   disabled={isPreviousDisabled}
                   variant="secondary"
                   size="medium"
-                  className="lg:h-8 lg:w-8 lg:rounded-md"
+                  className="lg:h-8 lg:w-8 lg:rounded-none"
                   aria-label="Previous song"
                 >
                   <span className="flex items-center justify-center w-5 h-5 lg:w-4 lg:h-4">
@@ -646,7 +645,7 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
                   onClick={togglePlayPause}
                   variant="secondary"
                   size="medium"
-                  className="lg:h-8 lg:w-8 lg:rounded-md"
+                  className="lg:h-8 lg:w-8 lg:rounded-none"
                   aria-label={isPlaying ? "Pause" : "Play"}
                 >
                   <span className="flex items-center justify-center w-5 h-5 lg:w-4 lg:h-4">
@@ -668,7 +667,7 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
                   disabled={isNextDisabled}
                   variant="secondary"
                   size="medium"
-                  className="lg:h-8 lg:w-8 lg:rounded-md"
+                  className="lg:h-8 lg:w-8 lg:rounded-none"
                   aria-label="Next song"
                 >
                   <span className="flex items-center justify-center w-5 h-5 lg:w-4 lg:h-4">
@@ -694,13 +693,14 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
                 onClick={toggleMute}
                 variant="secondary"
                 size="medium"
-                className="lg:h-8 lg:w-8 lg:rounded-md"
+                className="lg:h-8 lg:w-8 lg:rounded-none"
                 aria-label={isMuted ? "Unmute" : "Mute"}
               >
+                {/* TUI Tier 2: Unicode characters instead of Lucide icons */}
                 {isMuted ? (
-                  <VolumeX className="w-5 h-5 lg:w-4 lg:h-4" />
+                  <span className="font-mono font-bold text-base lg:text-sm" aria-hidden="true">✖</span>
                 ) : (
-                  <Volume2 className="w-5 h-5 lg:w-4 lg:h-4" />
+                  <span className="font-mono font-bold text-base lg:text-sm" aria-hidden="true">♫</span>
                 )}
               </Button>
             </div>

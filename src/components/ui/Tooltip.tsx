@@ -130,11 +130,11 @@ export function Tooltip({
             className={`
               bg-[var(--surface-card)]
               border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800
-              rounded-lg
+              rounded-none
               px-3 py-2
               font-mono text-xs
               text-sepia-900 dark:text-sepia-50
-              shadow-lg
+              shadow-none
               whitespace-normal
             `}
             style={{
@@ -151,7 +151,7 @@ export function Tooltip({
               ${arrowStyles[position]}
             `}
             style={{
-              filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))",
+              filter: "none",
             }}
           />
         </div>
@@ -159,4 +159,8 @@ export function Tooltip({
     </div>
   );
 }
+
+
+
+
 

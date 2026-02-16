@@ -25,7 +25,6 @@
  */
 
 import { useState, useRef, useEffect, forwardRef, useImperativeHandle, type ReactNode, type SelectHTMLAttributes } from "react";
-import { ChevronDown, Check } from "lucide-react";
 
 // Define the props interface for the Select component
 export interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
@@ -261,22 +260,22 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
   // Size styles matching Dropdown component exactly
   const sizeStyles = {
     small: {
-      trigger: "h-8 pl-3 pr-7 py-1.5 rounded-md",        // h-8 = 32px, pl-3 = 12px, pr-7 = 28px, rounded-md = 6px
-      menu: "rounded-md",                                 // 6px corner radius
-      menuItem: "first:rounded-t-[6px] last:rounded-b-[6px]", // 6px corner radius for first/last items
-      icon: "w-4 h-4",                                   // 16px icon
+      trigger: "h-8 pl-3 pr-7 py-1.5 rounded-none",       // TUI: sharp corners
+      menu: "rounded-none",
+      menuItem: "",
+      icon: "w-4 h-4",
     },
     medium: {
-      trigger: "h-10 pl-4 pr-8 py-2.5 rounded-lg",       // h-10 = 40px, pl-4 = 16px, pr-8 = 32px, rounded-lg = 8px
-      menu: "rounded-lg",                                 // 8px corner radius
-      menuItem: "first:rounded-t-[8px] last:rounded-b-[8px]", // 8px corner radius for first/last items
-      icon: "w-5 h-5",                                    // 20px icon
+      trigger: "h-10 pl-4 pr-8 py-2.5 rounded-none",      // TUI: sharp corners
+      menu: "rounded-none",
+      menuItem: "",
+      icon: "w-5 h-5",
     },
     large: {
-      trigger: "h-12 pl-5 pr-9 py-3.5 rounded-button",    // h-12 = 48px, pl-5 = 20px, pr-9 = 36px, rounded-button = 12px
-      menu: "rounded-button",                             // 12px corner radius
-      menuItem: "first:rounded-t-[12px] last:rounded-b-[12px]", // 12px corner radius for first/last items
-      icon: "w-6 h-6",                                    // 24px icon
+      trigger: "h-12 pl-5 pr-9 py-3.5 rounded-none",      // TUI: sharp corners
+      menu: "rounded-none",
+      menuItem: "",
+      icon: "w-6 h-6",
     },
   };
 
@@ -342,16 +341,21 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
         aria-label={props['aria-label'] || 'Select an option'}
       >
         <span className="truncate text-left flex-1">{selectedLabel || 'Select...'}</span>
-        <ChevronDown 
+        {/* TUI Tier 2: Unicode ▼ instead of Lucide ChevronDown */}
+        <span
           className={`
             ${currentSizeStyles.icon}
+            inline-flex items-center justify-center font-mono leading-none
             text-sepia-600 dark:text-sepia-400
             transition-transform duration-200
             flex-shrink-0 ml-2
             ${isOpen ? 'rotate-180' : ''}
             ${disabled ? 'opacity-50' : ''}
           `}
-        />
+          aria-hidden="true"
+        >
+          ▼
+        </span>
       </button>
 
       {/* Custom dropdown menu - matching Dropdown component exactly */}
@@ -365,7 +369,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
             bg-white dark:bg-sepia-975
             border border-sepia-300 dark:border-sepia-700
             ${currentSizeStyles.menu}
-            shadow-lg
+            shadow-none
             z-[1051]
             animate-in fade-in slide-in-from-top-2 duration-200
             max-h-[300px] overflow-y-auto
@@ -402,9 +406,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
                 {/* Option label */}
                 <span className="truncate flex-1 min-w-0">{option.label}</span>
                 
-                {/* Checkmark icon for selected option */}
+                {/* TUI Tier 2: Unicode ✓ instead of Lucide Check */}
                 {isSelected && (
-                  <Check className={`${currentSizeStyles.icon} text-primary-400 dark:text-primary-400 flex-shrink-0`} />
+                  <span className={`${currentSizeStyles.icon} inline-flex items-center justify-center font-mono font-bold text-primary-400 dark:text-primary-400 flex-shrink-0`} aria-hidden="true">✓</span>
                 )}
               </button>
             );

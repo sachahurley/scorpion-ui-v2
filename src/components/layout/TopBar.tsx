@@ -13,7 +13,6 @@
  */
 
 import { Link } from "react-router-dom";
-import { Music2 } from "lucide-react";
 import { ASSETS } from "@/lib/assets";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Button } from "@/components/ui/Button";
@@ -107,7 +106,7 @@ export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, 
             className={isMusicPlayerOpen ? "bg-secondary-200 dark:bg-secondary-700" : ""}
             aria-label={isMusicPlayerOpen ? "Close music player" : "Open music player"}
           >
-            <Music2 />
+            <span className="font-mono" aria-hidden="true">♫</span>
           </Button>
 
           {/* Theme toggle button */}

@@ -19,7 +19,7 @@ export default function Dividers() {
 
       {/* Variants Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Variants</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -55,7 +55,7 @@ export default function Dividers() {
 
       {/* Spacing Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Spacing Options</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -66,7 +66,7 @@ export default function Dividers() {
           <div className="space-y-6">
             <div>
               <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mb-2">None (0px margin)</p>
-              <div className="bg-sepia-100 dark:bg-sepia-900 p-4 rounded-lg">
+              <div className="bg-sepia-100 dark:bg-sepia-900 p-4 rounded-none">
                 <div className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Content above</div>
                 <Divider variant="horizontal" spacing="none" />
                 <div className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mt-2">Content below</div>
@@ -75,7 +75,7 @@ export default function Dividers() {
 
             <div>
               <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mb-2">Small (4px margin)</p>
-              <div className="bg-sepia-100 dark:bg-sepia-900 p-4 rounded-lg">
+              <div className="bg-sepia-100 dark:bg-sepia-900 p-4 rounded-none">
                 <div className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Content above</div>
                 <Divider variant="horizontal" spacing="small" />
                 <div className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Content below</div>
@@ -84,7 +84,7 @@ export default function Dividers() {
 
             <div>
               <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mb-2">Medium (16px margin)</p>
-              <div className="bg-sepia-100 dark:bg-sepia-900 p-4 rounded-lg">
+              <div className="bg-sepia-100 dark:bg-sepia-900 p-4 rounded-none">
                 <div className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Content above</div>
                 <Divider variant="horizontal" spacing="medium" />
                 <div className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Content below</div>
@@ -93,7 +93,7 @@ export default function Dividers() {
 
             <div>
               <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mb-2">Large (32px margin)</p>
-              <div className="bg-sepia-100 dark:bg-sepia-900 p-4 rounded-lg">
+              <div className="bg-sepia-100 dark:bg-sepia-900 p-4 rounded-none">
                 <div className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Content above</div>
                 <Divider variant="horizontal" spacing="large" />
                 <div className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Content below</div>
@@ -105,7 +105,7 @@ export default function Dividers() {
 
       {/* Common Use Cases */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Common Use Cases</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -117,7 +117,7 @@ export default function Dividers() {
             {/* List Separators */}
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">List Separators</h4>
-              <div className="bg-sepia-50 dark:bg-sepia-975 p-4 rounded-lg space-y-0">
+              <div className="bg-sepia-50 dark:bg-sepia-975 p-4 rounded-none space-y-0">
                 <div className="py-3 text-sm font-mono text-sepia-900 dark:text-sepia-50">Item 1</div>
                 <Divider variant="horizontal" spacing="none" />
                 <div className="py-3 text-sm font-mono text-sepia-900 dark:text-sepia-50">Item 2</div>
@@ -145,15 +145,15 @@ export default function Dividers() {
             {/* Form Dividers */}
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Form Dividers</h4>
-              <div className="bg-sepia-50 dark:bg-sepia-975 p-4 rounded-lg space-y-4">
+              <div className="bg-sepia-50 dark:bg-sepia-975 p-4 rounded-none space-y-4">
                 <div>
                   <label className="block text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-1">Email</label>
-                  <input type="email" className="w-full px-3 py-2 rounded-lg border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-950 text-sm font-mono" placeholder="you@example.com" />
+                  <input type="email" className="w-full px-3 py-2 rounded-none border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-950 text-sm font-mono" placeholder="you@example.com" />
                 </div>
                 <Divider variant="withText" text="OR" spacing="small" />
                 <div>
                   <label className="block text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-1">Phone</label>
-                  <input type="tel" className="w-full px-3 py-2 rounded-lg border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-950 text-sm font-mono" placeholder="(555) 123-4567" />
+                  <input type="tel" className="w-full px-3 py-2 rounded-none border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-950 text-sm font-mono" placeholder="(555) 123-4567" />
                 </div>
               </div>
             </div>
@@ -175,7 +175,7 @@ export default function Dividers() {
 
       {/* Token Breakdown */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Token Breakdown</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -188,12 +188,12 @@ export default function Dividers() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Color Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Color</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Light: sepia-300</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Dark: sepia-700</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Text Color</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Light: sepia-600</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Dark: sepia-400</p>
@@ -205,19 +205,19 @@ export default function Dividers() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Spacing Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">None</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">0px margin</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Small</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">4px margin</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Medium</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">16px margin</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Large</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">32px margin</p>
                 </div>
@@ -228,11 +228,11 @@ export default function Dividers() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Typography</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Family</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Fragment Mono</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Size</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">12px (text-xs)</p>
                 </div>
@@ -244,4 +244,8 @@ export default function Dividers() {
     </div>
   );
 }
+
+
+
+
 

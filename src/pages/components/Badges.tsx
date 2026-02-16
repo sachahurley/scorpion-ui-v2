@@ -6,7 +6,7 @@
  */
 
 import { Badge } from "@/components/ui/Badge";
-import { CheckCircle, AlertTriangle, AlertCircle, Info, Tag } from "lucide-react";
+import { TuiIcon } from "@/components/ui/TuiIcon";
 import { useState } from "react";
 
 export default function Badges() {
@@ -24,7 +24,7 @@ export default function Badges() {
 
       {/* Variants Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Variants</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -45,7 +45,7 @@ export default function Badges() {
 
       {/* Sizes Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sizes</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -72,7 +72,7 @@ export default function Badges() {
 
       {/* With Icons Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Icons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -81,18 +81,18 @@ export default function Badges() {
           </div>
           
           <div className="flex flex-wrap gap-4">
-            <Badge variant="success" iconLeft={<CheckCircle />}>Completed</Badge>
-            <Badge variant="warning" iconLeft={<AlertTriangle />}>Pending</Badge>
-            <Badge variant="error" iconLeft={<AlertCircle />}>Failed</Badge>
-            <Badge variant="info" iconLeft={<Info />}>New</Badge>
-            <Badge variant="primary" iconLeft={<Tag />}>Featured</Badge>
+            <Badge variant="success" iconLeft={<TuiIcon name="CheckCircle" size="3" />}>Completed</Badge>
+            <Badge variant="warning" iconLeft={<TuiIcon name="AlertTriangle" size="3" />}>Pending</Badge>
+            <Badge variant="error" iconLeft={<TuiIcon name="AlertCircle" size="3" />}>Failed</Badge>
+            <Badge variant="info" iconLeft={<TuiIcon name="Info" size="3" />}>New</Badge>
+            <Badge variant="primary" iconLeft={<TuiIcon name="Tag" size="3" />}>Featured</Badge>
           </div>
         </div>
       </section>
 
       {/* With Close Button Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Dismissible Badges</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -135,7 +135,7 @@ export default function Badges() {
 
       {/* Common Use Cases */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Common Use Cases</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -148,10 +148,10 @@ export default function Badges() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Status Indicators</h4>
               <div className="flex flex-wrap gap-3">
-                <Badge variant="success" iconLeft={<CheckCircle />}>Active</Badge>
-                <Badge variant="warning" iconLeft={<AlertTriangle />}>Pending</Badge>
-                <Badge variant="error" iconLeft={<AlertCircle />}>Inactive</Badge>
-                <Badge variant="info" iconLeft={<Info />}>Draft</Badge>
+                <Badge variant="success" iconLeft={<TuiIcon name="CheckCircle" size="3" />}>Active</Badge>
+                <Badge variant="warning" iconLeft={<TuiIcon name="AlertTriangle" size="3" />}>Pending</Badge>
+                <Badge variant="error" iconLeft={<TuiIcon name="AlertCircle" size="3" />}>Inactive</Badge>
+                <Badge variant="info" iconLeft={<TuiIcon name="Info" size="3" />}>Draft</Badge>
               </div>
             </div>
 
@@ -184,7 +184,7 @@ export default function Badges() {
 
       {/* Token Breakdown */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Token Breakdown</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -197,19 +197,19 @@ export default function Badges() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Size Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Small</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Height: 20px (h-5)</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Padding: 8px horizontal</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Text: 12px (text-xs)</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Medium</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Height: 24px (h-6)</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Padding: 10px horizontal</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Text: 12px (text-xs)</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Large</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Height: 28px (h-7)</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Padding: 12px horizontal</p>
@@ -222,32 +222,32 @@ export default function Badges() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Variant Colors</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-2">Default</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background: secondary-200/800</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Text: secondary-900/50</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-2">Primary</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background: primary-100/900</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Text: primary-900/50</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-2">Success</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background: success-100/900</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Text: success-900/50</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-2">Warning</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background: warning-100/900</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Text: warning-900/50</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-2">Error</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background: error-100/900</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Text: error-900/50</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-2">Info</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background: info-100/900</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Text: info-900/50</p>
@@ -259,17 +259,17 @@ export default function Badges() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Typography</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Family</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Fragment Mono</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Weight</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Medium (500)</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Radius</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">6px (rounded-md)</p>
+                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">0px (rounded-none)</p>
                 </div>
               </div>
             </div>
@@ -279,4 +279,8 @@ export default function Badges() {
     </div>
   );
 }
+
+
+
+
 

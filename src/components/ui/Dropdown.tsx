@@ -14,7 +14,6 @@
  */
 
 import { useState, useRef, useEffect, type ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
 
 // Menu item interface
 export interface DropdownItem {
@@ -153,27 +152,27 @@ export function Dropdown({
   }, [focusedIndex]);
 
   // Size styles matching buttons and inputs
-  // Small: 32px height, 6px corner radius (rounded-md)
-  // Medium: 40px height, 8px corner radius (rounded-lg)
+  // Small: 32px height, 0px corner radius (rounded-none, TUI sharp corners)
+  // Medium: 40px height, 0px corner radius (rounded-none, TUI sharp corners)
   // Large: 48px height, 12px corner radius (rounded-button)
   const sizeStyles = {
     small: {
-      button: "h-8 px-4 py-1.5 rounded-md",        // h-8 = 32px, px-4 = 16px, rounded-md = 6px
-      menu: "rounded-md",                            // 6px corner radius
-      menuItem: "first:rounded-t-[6px] last:rounded-b-[6px]", // 6px corner radius for first/last items
-      icon: "w-4 h-4",                              // 16px icon
+      button: "h-8 px-4 py-1.5 rounded-none",       // TUI: sharp corners
+      menu: "rounded-none",
+      menuItem: "",
+      icon: "w-4 h-4",
     },
     medium: {
-      button: "h-10 px-5 py-2.5 rounded-lg",        // h-10 = 40px, px-5 = 20px, rounded-lg = 8px
-      menu: "rounded-lg",                            // 8px corner radius
-      menuItem: "first:rounded-t-[8px] last:rounded-b-[8px]", // 8px corner radius for first/last items
-      icon: "w-5 h-5",                               // 20px icon
+      button: "h-10 px-5 py-2.5 rounded-none",      // TUI: sharp corners
+      menu: "rounded-none",
+      menuItem: "",
+      icon: "w-5 h-5",
     },
     large: {
-      button: "h-12 px-6 py-3.5 rounded-button",    // h-12 = 48px, px-6 = 24px, rounded-button = 12px
-      menu: "rounded-button",                        // 12px corner radius
-      menuItem: "first:rounded-t-[12px] last:rounded-b-[12px]", // 12px corner radius for first/last items
-      icon: "w-6 h-6",                               // 24px icon
+      button: "h-12 px-6 py-3.5 rounded-none",      // TUI: sharp corners
+      menu: "rounded-none",
+      menuItem: "",
+      icon: "w-6 h-6",
     },
   };
 
@@ -197,7 +196,8 @@ export function Dropdown({
       aria-expanded={isOpen}
     >
       {label}
-      <ChevronDown className={`${currentSizeStyles.icon} transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+      {/* TUI Tier 2: Unicode ▼ instead of Lucide ChevronDown */}
+      <span className={`${currentSizeStyles.icon} inline-flex items-center justify-center font-mono leading-none transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true">▼</span>
     </button>
   );
 
@@ -231,7 +231,7 @@ export function Dropdown({
             bg-white dark:bg-sepia-975
             border border-sepia-300 dark:border-sepia-700
             ${currentSizeStyles.menu}
-            shadow-lg
+            shadow-none
             z-[1051]
             animate-in fade-in slide-in-from-top-2 duration-200
           `}

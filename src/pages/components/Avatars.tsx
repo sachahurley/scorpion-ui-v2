@@ -5,7 +5,7 @@
  */
 
 import { Avatar } from "@/components/ui/Avatar";
-import { User, Mail, Settings } from "lucide-react";
+import { TuiIcon } from "@/components/ui/TuiIcon";
 
 export default function Avatars() {
   return (
@@ -20,7 +20,7 @@ export default function Avatars() {
 
       {/* Variants Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Variants</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -51,7 +51,7 @@ export default function Avatars() {
             {/* Icon Avatar */}
             <div className="flex flex-col items-center gap-2">
               <Avatar
-                icon={<User />}
+                icon={<TuiIcon name="User" size="5" />}
                 size="large"
               />
               <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Icon</p>
@@ -62,7 +62,7 @@ export default function Avatars() {
 
       {/* Sizes Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sizes</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -93,7 +93,7 @@ export default function Avatars() {
 
       {/* Status Indicators */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Status Indicators</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -132,7 +132,7 @@ export default function Avatars() {
 
       {/* Common Use Cases */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Common Use Cases</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -202,9 +202,9 @@ export default function Avatars() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Icon Avatars</h4>
               <div className="flex flex-wrap gap-4">
-                <Avatar icon={<User />} size="medium" />
-                <Avatar icon={<Mail />} size="medium" />
-                <Avatar icon={<Settings />} size="medium" />
+                <Avatar icon={<TuiIcon name="User" size="5" />} size="medium" />
+                <Avatar icon={<TuiIcon name="Mail" size="5" />} size="medium" />
+                <Avatar icon={<TuiIcon name="Settings" size="5" />} size="medium" />
               </div>
             </div>
           </div>
@@ -213,7 +213,7 @@ export default function Avatars() {
 
       {/* Token Breakdown */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Token Breakdown</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -226,22 +226,22 @@ export default function Avatars() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Size Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Small</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">24px × 24px</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Text: 12px</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Medium</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">40px × 40px</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Text: 14px</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Large</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">64px × 64px</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Text: 18px</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">XL</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">96px × 96px</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Text: 24px</p>
@@ -253,25 +253,25 @@ export default function Avatars() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Color Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Background</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Light: secondary-200</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Dark: secondary-800</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Text Color</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Light: secondary-900</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Dark: secondary-50</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Status Online</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">success-500</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Status Offline</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">secondary-400/600</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Status Away</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">warning-500</p>
                 </div>
@@ -282,15 +282,15 @@ export default function Avatars() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Typography</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Family</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Fragment Mono</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Weight</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Bold (700)</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Radius</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">100% (circular)</p>
                 </div>
@@ -302,4 +302,8 @@ export default function Avatars() {
     </div>
   );
 }
+
+
+
+
 

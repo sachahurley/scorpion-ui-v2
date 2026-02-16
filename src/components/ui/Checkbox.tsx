@@ -23,7 +23,6 @@
  */
 
 import { forwardRef, type InputHTMLAttributes, type ReactNode } from "react";
-import { Check } from "lucide-react";
 
 export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   size?: "small" | "medium" | "large";
@@ -63,17 +62,17 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     // Large: 24px × 24px (matches large icon size)
     const sizeStyles = {
       small: {
-        checkbox: "w-4 h-4 rounded-md",           // 16px × 16px, rounded-md = 6px
-        icon: "w-2.5 h-2.5",                      // 10px icon (smaller for better fit)
-        label: "text-sm",                          // 14px text
+        checkbox: "w-4 h-4 rounded-none",          // TUI: sharp corners
+        icon: "w-2.5 h-2.5",
+        label: "text-sm",
       },
       medium: {
-        checkbox: "w-5 h-5 rounded-md",           // 20px × 20px, rounded-md = 6px
-        icon: "w-3 h-3",                           // 12px icon (smaller for better fit)
-        label: "text-sm",                         // 14px text
+        checkbox: "w-5 h-5 rounded-none",          // TUI: sharp corners
+        icon: "w-3 h-3",
+        label: "text-sm",
       },
       large: {
-        checkbox: "w-6 h-6 rounded-lg",           // 24px × 24px, rounded-lg = 8px
+        checkbox: "w-6 h-6 rounded-none",          // TUI: sharp corners
         icon: "w-3.5 h-3.5",                      // 14px icon (smaller for better fit)
         label: "text-sm",                         // 14px text
       },
@@ -165,18 +164,21 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           onKeyDown={handleKeyDown}
           tabIndex={disabled ? -1 : 0}
         >
-          {/* Checkmark icon - only visible when checked */}
+          {/* TUI Tier 2: Unicode checkmark ✓ instead of Lucide Check icon */}
           {checked && (
-            <Check 
+            <span
               className={`
                 ${currentSizeStyles.icon}
+                inline-flex items-center justify-center font-mono font-bold leading-none
                 ${error 
                   ? 'text-white dark:text-white' 
                   : 'text-black dark:text-black'
                 }
               `}
-              strokeWidth={3}
-            />
+              aria-hidden="true"
+            >
+              ✓
+            </span>
           )}
         </div>
 

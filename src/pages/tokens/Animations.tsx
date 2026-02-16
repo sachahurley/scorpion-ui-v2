@@ -12,13 +12,13 @@ import { useState } from "react";
 export default function Animations() {
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Duration values
+  // Duration values -- TUI: snappy, near-instant responses
   const durations = [
     { name: "duration.instant", value: "0ms", ms: 0 },
-    { name: "duration.fast", value: "150ms", ms: 150 },
-    { name: "duration.normal", value: "200ms", ms: 200 },
-    { name: "duration.slow", value: "300ms", ms: 300 },
-    { name: "duration.slower", value: "500ms", ms: 500 },
+    { name: "duration.fast", value: "50ms", ms: 50 },
+    { name: "duration.normal", value: "75ms", ms: 75 },
+    { name: "duration.slow", value: "100ms", ms: 100 },
+    { name: "duration.slower", value: "150ms", ms: 150 },
   ];
 
   // Easing functions
@@ -47,7 +47,7 @@ export default function Animations() {
 
       {/* DURATION TOKENS SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Duration Tokens</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -60,16 +60,16 @@ export default function Animations() {
               <div key={duration.name} className="space-y-2">
                 {/* Token info */}
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">{duration.name}</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">{duration.value}</span>
                   </div>
                 </div>
 
                 {/* Visual timing bar */}
-                <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+                <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <div className="relative h-8 bg-sepia-100 dark:bg-sepia-900 rounded overflow-hidden">
                     <div 
                       className={`h-full bg-primary-400 transition-all ${isAnimating ? 'w-full' : 'w-0'}`}
@@ -98,7 +98,7 @@ export default function Animations() {
 
       {/* EASING FUNCTIONS SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Easing Functions</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -111,21 +111,21 @@ export default function Animations() {
               <div key={easing.name}>
                 {/* Token info */}
                 <div className="flex flex-wrap gap-2 mb-3">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">{easing.name}</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-xs font-mono text-sepia-900 dark:text-sepia-50">{easing.value}</span>
                   </div>
                 </div>
 
                 {/* Visual demonstration */}
-                <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+                <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <div className="relative h-16">
                     <div 
                       className={`absolute top-0 w-16 h-16 bg-primary-400 rounded-button transition-all ${isAnimating ? 'left-[calc(100%-4rem)]' : 'left-0'}`}
                       style={{ 
-                        transitionDuration: '500ms',
+                        transitionDuration: '150ms',
                         transitionTimingFunction: easing.css
                       }}
                     />
@@ -155,7 +155,7 @@ export default function Animations() {
 
       {/* USAGE GUIDELINES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Usage Guidelines</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -165,19 +165,19 @@ export default function Animations() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Duration Guidelines */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Duration Selection</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400"><span className="font-bold">instant (0ms)</span> - Instant changes, no transition</li>
-                <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400"><span className="font-bold">fast (150ms)</span> - Quick interactions, hover states</li>
-                <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400"><span className="font-bold">normal (200ms)</span> - Default transitions, color changes</li>
-                <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400"><span className="font-bold">slow (300ms)</span> - Panel slides, drawer animations</li>
-                <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400"><span className="font-bold">slower (500ms)</span> - Page transitions, complex animations</li>
+                <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400"><span className="font-bold">fast (50ms)</span> - Quick interactions, hover states</li>
+                <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400"><span className="font-bold">normal (75ms)</span> - Default transitions, color changes</li>
+                <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400"><span className="font-bold">slow (100ms)</span> - Panel slides, drawer animations</li>
+                <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400"><span className="font-bold">slower (150ms)</span> - Page transitions, complex animations</li>
               </ul>
             </div>
 
             {/* Easing Guidelines */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Easing Selection</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400"><span className="font-bold">linear</span> - Loading bars, simple slides</li>
@@ -189,7 +189,7 @@ export default function Animations() {
           </div>
 
           {/* Best Practices */}
-          <div className="mt-6 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="mt-6 p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Motion Design Principles</p>
             <ul className="space-y-2">
               <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Faster transitions (fast/normal) for hover states and color changes</li>
@@ -205,7 +205,7 @@ export default function Animations() {
 
       {/* INTERACTIVE COMPARISON SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Interactive Examples</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -215,59 +215,59 @@ export default function Animations() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Fast + EaseOut */}
-            <div className="group p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950 transition-all duration-[150ms] ease-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
+            <div className="group p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950 transition-all duration-[50ms] ease-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
               <div className="flex gap-2 mb-3">
-                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-xs font-mono text-sepia-900 dark:text-sepia-50">fast</span>
                 </div>
-                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-xs font-mono text-sepia-900 dark:text-sepia-50">easeOut</span>
                 </div>
               </div>
               <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Hover States</p>
-              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">150ms + easeOut for responsive, snappy hover effects</p>
+              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">50ms + easeOut for near-instant, snappy hover effects</p>
             </div>
 
             {/* Normal + EaseInOut */}
-            <div className="group p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950 transition-all duration-[200ms] ease-in-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
+            <div className="group p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950 transition-all duration-[75ms] ease-in-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
               <div className="flex gap-2 mb-3">
-                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-xs font-mono text-sepia-900 dark:text-sepia-50">normal</span>
                 </div>
-                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-xs font-mono text-sepia-900 dark:text-sepia-50">easeInOut</span>
                 </div>
               </div>
               <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Color Transitions</p>
-              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">200ms + easeInOut for smooth, balanced color changes</p>
+              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">75ms + easeInOut for crisp, balanced color changes</p>
             </div>
 
             {/* Slow + EaseOut */}
-            <div className="group p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950 transition-all duration-[300ms] ease-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:scale-105 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
+            <div className="group p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950 transition-all duration-[100ms] ease-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:scale-105 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
               <div className="flex gap-2 mb-3">
-                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-xs font-mono text-sepia-900 dark:text-sepia-50">slow</span>
                 </div>
-                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-xs font-mono text-sepia-900 dark:text-sepia-50">easeOut</span>
                 </div>
               </div>
               <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Scale Transforms</p>
-              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">300ms + easeOut for smooth scaling animations</p>
+              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">100ms + easeOut for quick scaling animations</p>
             </div>
 
             {/* Slower + EaseInOut */}
-            <div className="group p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950 transition-all duration-[500ms] ease-in-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
+            <div className="group p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950 transition-all duration-[150ms] ease-in-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
               <div className="flex gap-2 mb-3">
-                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-xs font-mono text-sepia-900 dark:text-sepia-50">slower</span>
                 </div>
-                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-2 py-1 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-xs font-mono text-sepia-900 dark:text-sepia-50">easeInOut</span>
                 </div>
               </div>
               <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Complex Animations</p>
-              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">500ms + easeInOut for elaborate, graceful animations</p>
+              <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">150ms + easeInOut for the longest transitions</p>
             </div>
           </div>
 
@@ -279,7 +279,7 @@ export default function Animations() {
 
       {/* IMPLEMENTATION SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Implementation</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -291,11 +291,11 @@ export default function Animations() {
             {/* Tailwind Classes */}
             <div>
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Using Tailwind Classes</p>
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-sepia-950">
                 <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
 {`<div className="
   transition-colors 
-  duration-[200ms]
+  duration-[75ms]
   ease-in-out
 ">
   /* Uses duration.normal + easing.easeInOut */
@@ -307,7 +307,7 @@ export default function Animations() {
             {/* CSS Variables */}
             <div>
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Using CSS Variables</p>
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-sepia-950">
                 <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
 {`<div style={{ 
   transitionDuration: 'var(--duration-normal)',
@@ -322,13 +322,13 @@ export default function Animations() {
             {/* Common Patterns */}
             <div>
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Common Patterns</p>
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <ul className="space-y-2">
-                  <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Buttons: fast (150ms) + easeOut</li>
-                  <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Color changes: normal (200ms) + easeInOut</li>
-                  <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Dropdowns: slow (300ms) + easeOut</li>
-                  <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Modals: slower (500ms) + easeOut</li>
-                  <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Theme switching: normal (200ms) + easeInOut</li>
+                  <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Buttons: fast (50ms) + easeOut</li>
+                  <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Color changes: normal (75ms) + easeInOut</li>
+                  <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Dropdowns: slow (100ms) + easeOut</li>
+                  <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Modals: slower (150ms) + easeOut</li>
+                  <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Theme switching: normal (75ms) + easeInOut</li>
                 </ul>
               </div>
             </div>

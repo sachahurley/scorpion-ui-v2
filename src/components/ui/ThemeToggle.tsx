@@ -6,7 +6,6 @@
  * Includes Moon/Sun icons inside the knob to indicate current theme
  */
 
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Switch } from "@/components/ui/Switch";
@@ -23,7 +22,7 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <div className="flex items-center gap-3">
-        <div className="w-11 h-6 rounded-full bg-sepia-300 dark:bg-sepia-700" />
+        <div className="w-11 h-6 rounded-none bg-sepia-300 dark:bg-sepia-700" />
         <span className="text-sm font-mono text-sepia-600 dark:text-sepia-400">Theme</span>
       </div>
     );
@@ -41,7 +40,7 @@ export function ThemeToggle() {
         checked={isDark}
         onCheckedChange={toggleTheme}
         size="small"
-        icon={isDark ? <Moon className="w-3 h-3 text-primary-500" /> : <Sun className="w-3 h-3 text-secondary-700" />}
+        icon={isDark ? <span className="w-3 h-3 inline-flex items-center justify-center font-mono text-[10px] text-primary-500" aria-hidden="true">☾</span> : <span className="w-3 h-3 inline-flex items-center justify-center font-mono text-[10px] text-secondary-700" aria-hidden="true">☀</span>}
         aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
       />
 

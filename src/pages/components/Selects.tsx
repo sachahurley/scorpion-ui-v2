@@ -13,7 +13,7 @@
  */
 
 import { Select } from "@/components/ui/Select";
-import { AlertCircle } from "lucide-react";
+import { TuiIcon } from "@/components/ui/TuiIcon";
 
 export default function Selects() {
   return (
@@ -35,7 +35,7 @@ export default function Selects() {
         Small: 32px height, Medium: 40px height (default), Large: 48px height
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sizes</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -79,7 +79,7 @@ export default function Selects() {
         Default, Hover, Focused, Disabled, Error
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">States</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -128,7 +128,7 @@ export default function Selects() {
                   <option value="ca">Canada</option>
                 </Select>
                 <p className="text-xs font-mono text-error-600 dark:text-error-500 flex items-center gap-1">
-                  <AlertCircle className="w-3 h-3" />
+                  <TuiIcon name="AlertCircle" size="3" />
                   Please select a country
                 </p>
               </div>
@@ -142,7 +142,7 @@ export default function Selects() {
         Proper form structure with labels
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Labels</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -190,7 +190,7 @@ export default function Selects() {
         Common select use cases
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Use Cases</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -200,7 +200,7 @@ export default function Selects() {
           
           <div className="space-y-6">
             {/* Form with Multiple Selects */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">User Profile</h4>
               <div className="space-y-4">
                 <div className="space-y-2">
@@ -238,7 +238,7 @@ export default function Selects() {
         Documentation of design tokens used in selects
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Select Token Breakdown</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -255,16 +255,16 @@ export default function Selects() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Border</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default (Light): color.sepia.300</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Default (Dark): color.sepia.700</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Focus: color.primary.400</span>
                   </div>
                 </div>
@@ -274,12 +274,12 @@ export default function Selects() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Error State</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Border (Light): color.error.600</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-500 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-500 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Border (Dark): color.error.500</span>
                   </div>
                 </div>
@@ -290,10 +290,10 @@ export default function Selects() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Typography</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Font Family: <span className="font-mono">Fragment Mono</span></span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Font Size: <span className="text-sm">14px</span></span>
                 </div>
               </div>
@@ -307,10 +307,10 @@ export default function Selects() {
                 <div>
                   <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Small</p>
                   <div className="flex flex-wrap gap-2">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Height: 32px</span>
                     </div>
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding X: 12px</span>
                     </div>
                   </div>
@@ -319,10 +319,10 @@ export default function Selects() {
                 <div>
                   <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Medium (Default)</p>
                   <div className="flex flex-wrap gap-2">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Height: 40px</span>
                     </div>
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding X: 16px</span>
                     </div>
                   </div>
@@ -331,10 +331,10 @@ export default function Selects() {
                 <div>
                   <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Large</p>
                   <div className="flex flex-wrap gap-2">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Height: 48px</span>
                     </div>
-                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                    <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                       <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding X: 20px</span>
                     </div>
                   </div>

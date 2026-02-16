@@ -12,7 +12,6 @@ import Home from "@/pages/Home";
 import Colors from "@/pages/tokens/Colors";
 import SemanticColors from "@/pages/tokens/SemanticColors";
 import Typography from "@/pages/tokens/Typography";
-import BorderRadius from "@/pages/tokens/BorderRadius";
 import SurfacesElevation from "@/pages/tokens/SurfacesElevation";
 import Spacing from "@/pages/tokens/Spacing";
 import FocusStates from "@/pages/tokens/FocusStates";
@@ -50,7 +49,6 @@ function App() {
             <Route path="/foundation/semantic-colors" element={<SemanticColors />} />
             <Route path="/foundation/typography" element={<Typography />} />
             <Route path="/foundation/spacing" element={<Spacing />} />
-            <Route path="/foundation/border-radius" element={<BorderRadius />} />
             <Route path="/foundation/surfaces-elevation" element={<SurfacesElevation />} />
             <Route path="/foundation/focus-states" element={<FocusStates />} />
             <Route path="/foundation/animations" element={<Animations />} />

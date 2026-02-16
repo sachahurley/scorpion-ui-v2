@@ -38,7 +38,7 @@ export default function Spacing() {
 
       {/* SPACING SCALE SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Spacing Scale</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -52,10 +52,10 @@ export default function Spacing() {
               <div key={spacing.name} className="flex items-center gap-4">
                 {/* Token name and value chips */}
                 <div className="flex gap-2 min-w-[280px]">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">{spacing.name}</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">{spacing.value}</span>
                   </div>
                 </div>
@@ -75,7 +75,7 @@ export default function Spacing() {
 
       {/* 4PX BASE UNIT SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">4px Base Unit</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -83,7 +83,7 @@ export default function Spacing() {
             </p>
           </div>
 
-          <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <div className="space-y-3">
               <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50">
                 <span className="font-bold">Base Unit:</span> 4px
@@ -106,7 +106,7 @@ export default function Spacing() {
 
       {/* COMMON USE CASES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Common Use Cases</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -116,7 +116,7 @@ export default function Spacing() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Small Spacing */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Small Spacing (0-3)</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• spacing.0: Reset spacing to zero</li>
@@ -127,7 +127,7 @@ export default function Spacing() {
             </div>
 
             {/* Medium Spacing */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Medium Spacing (4-8)</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• spacing.4 (16px): Button horizontal padding</li>
@@ -138,7 +138,7 @@ export default function Spacing() {
             </div>
 
             {/* Large Spacing */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Large Spacing (10-16)</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• spacing.10 (40px): Section margins</li>
@@ -148,7 +148,7 @@ export default function Spacing() {
             </div>
 
             {/* Extra Large Spacing */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Extra Large Spacing (20-24)</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• spacing.20 (80px): Major section dividers</li>
@@ -161,7 +161,7 @@ export default function Spacing() {
 
       {/* INTERACTIVE EXAMPLES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Interactive Examples</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -173,7 +173,7 @@ export default function Spacing() {
             {/* Padding Example */}
             <div>
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Component Padding</p>
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {/* Small padding */}
                   <div className="border-2 border-dashed border-primary-300 dark:border-primary-700 rounded">
@@ -202,7 +202,7 @@ export default function Spacing() {
             {/* Gap Example */}
             <div>
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Element Gaps</p>
-              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+              <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <div className="space-y-6">
                   {/* gap-2 example */}
                   <div>
@@ -243,7 +243,7 @@ export default function Spacing() {
 
       {/* USAGE GUIDELINES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Usage Guidelines</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -252,7 +252,7 @@ export default function Spacing() {
           </div>
 
           <div className="space-y-4">
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Tailwind Class Syntax</p>
               <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-3">
                 Use Tailwind's spacing utilities to apply these values:
@@ -265,7 +265,7 @@ export default function Spacing() {
               </div>
             </div>
 
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Design Principles</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-sepia-600 dark:text-sepia-400">• Stick to the 4px grid for visual consistency</li>

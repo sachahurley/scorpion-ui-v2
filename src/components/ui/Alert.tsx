@@ -20,7 +20,6 @@
  */
 
 import { type ReactNode } from "react";
-import { X, CheckCircle, AlertTriangle, AlertCircle, Info } from "lucide-react";
 
 export interface AlertProps {
   variant?: "default" | "success" | "warning" | "error" | "info";
@@ -49,17 +48,21 @@ export function Alert({
   onClose,
   className = "",
 }: AlertProps) {
-  // DEFAULT ICONS - Each variant has a default icon
-  const defaultIcons = {
-    default: <Info className="w-5 h-5" />,
-    success: <CheckCircle className="w-5 h-5" />,
-    warning: <AlertTriangle className="w-5 h-5" />,
-    error: <AlertCircle className="w-5 h-5" />,
-    info: <Info className="w-5 h-5" />,
+  // TUI Tier 2: text severity prefixes instead of Lucide SVG icons
+  const severityPrefixes: Record<string, string> = {
+    default: "[i]",
+    success: "[ok]",
+    warning: "[!!]",
+    error: "[ERR]",
+    info: "[i]",
   };
 
-  // Use custom icon if provided, otherwise use default for variant
-  const icon = iconLeft || defaultIcons[variant];
+  // Use custom icon if provided, otherwise use the TUI text prefix
+  const icon = iconLeft || (
+    <span className="font-mono text-sm font-bold whitespace-nowrap">
+      {severityPrefixes[variant]}
+    </span>
+  );
 
   // VARIANT STYLES - Color combinations using semantic tokens
   // All variants support light and dark themes
@@ -128,7 +131,7 @@ export function Alert({
       className={`
         flex items-start gap-3
         p-4
-        border border-solid rounded-lg
+        border border-solid rounded-none
         ${styles.container}
         ${className}
       `}
@@ -160,20 +163,22 @@ export function Alert({
           onClick={onClose}
           className={`
             flex-shrink-0
-            w-5 h-5
-            rounded-sm
-            flex items-center justify-center
+            font-mono text-xs font-bold
             ${styles.description}
-            hover:bg-black/10 dark:hover:bg-white/10
+            hover:text-term-red
             transition-colors duration-150
             focus:outline-none focus:ring-1 focus:ring-offset-1
           `}
           aria-label="Close alert"
         >
-          <X className="w-4 h-4" />
+          [x]
         </button>
       )}
     </div>
   );
 }
+
+
+
+
 

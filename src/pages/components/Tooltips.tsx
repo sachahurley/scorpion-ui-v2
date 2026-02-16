@@ -6,7 +6,7 @@
 
 import { Tooltip } from "@/components/ui/Tooltip";
 import { Button } from "@/components/ui/Button";
-import { Info, HelpCircle, AlertCircle, Settings } from "lucide-react";
+import { TuiIcon } from "@/components/ui/TuiIcon";
 
 export default function Tooltips() {
   return (
@@ -21,7 +21,7 @@ export default function Tooltips() {
 
       {/* Positions Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Positions</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -63,7 +63,7 @@ export default function Tooltips() {
 
       {/* Common Use Cases */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Common Use Cases</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -77,23 +77,23 @@ export default function Tooltips() {
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Icon Explanations</h4>
               <div className="flex flex-wrap gap-4">
                 <Tooltip content="Get help and support">
-                  <button className="p-2 rounded-lg hover:bg-sepia-200 dark:hover:bg-sepia-800 transition-colors">
-                    <HelpCircle className="w-5 h-5 text-sepia-600 dark:text-sepia-400" />
+                  <button className="p-2 rounded-none hover:bg-sepia-200 dark:hover:bg-sepia-800 transition-colors">
+                    <TuiIcon name="HelpCircle" size="5" className="text-sepia-600 dark:text-sepia-400" />
                   </button>
                 </Tooltip>
                 <Tooltip content="View information">
-                  <button className="p-2 rounded-lg hover:bg-sepia-200 dark:hover:bg-sepia-800 transition-colors">
-                    <Info className="w-5 h-5 text-sepia-600 dark:text-sepia-400" />
+                  <button className="p-2 rounded-none hover:bg-sepia-200 dark:hover:bg-sepia-800 transition-colors">
+                    <TuiIcon name="Info" size="5" className="text-sepia-600 dark:text-sepia-400" />
                   </button>
                 </Tooltip>
                 <Tooltip content="Settings and preferences">
-                  <button className="p-2 rounded-lg hover:bg-sepia-200 dark:hover:bg-sepia-800 transition-colors">
-                    <Settings className="w-5 h-5 text-sepia-600 dark:text-sepia-400" />
+                  <button className="p-2 rounded-none hover:bg-sepia-200 dark:hover:bg-sepia-800 transition-colors">
+                    <TuiIcon name="Settings" size="5" className="text-sepia-600 dark:text-sepia-400" />
                   </button>
                 </Tooltip>
                 <Tooltip content="Warning message">
-                  <button className="p-2 rounded-lg hover:bg-sepia-200 dark:hover:bg-sepia-800 transition-colors">
-                    <AlertCircle className="w-5 h-5 text-sepia-600 dark:text-sepia-400" />
+                  <button className="p-2 rounded-none hover:bg-sepia-200 dark:hover:bg-sepia-800 transition-colors">
+                    <TuiIcon name="AlertCircle" size="5" className="text-sepia-600 dark:text-sepia-400" />
                   </button>
                 </Tooltip>
               </div>
@@ -109,12 +109,12 @@ export default function Tooltips() {
                       Password
                     </label>
                     <Tooltip content="Password must be at least 8 characters and include numbers and special characters">
-                      <Info className="w-4 h-4 text-sepia-600 dark:text-sepia-400 cursor-help" />
+                      <TuiIcon name="Info" size="4" className="text-sepia-600 dark:text-sepia-400 cursor-help" />
                     </Tooltip>
                   </div>
                   <input
                     type="password"
-                    className="w-full px-3 py-2 rounded-lg border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-950 text-sm font-mono"
+                    className="w-full px-3 py-2 rounded-none border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-950 text-sm font-mono"
                     placeholder="Enter password"
                   />
                 </div>
@@ -124,12 +124,12 @@ export default function Tooltips() {
                       API Key
                     </label>
                     <Tooltip content="Your API key is kept secure and never shared with third parties">
-                      <Info className="w-4 h-4 text-sepia-600 dark:text-sepia-400 cursor-help" />
+                      <TuiIcon name="Info" size="4" className="text-sepia-600 dark:text-sepia-400 cursor-help" />
                     </Tooltip>
                   </div>
                   <input
                     type="text"
-                    className="w-full px-3 py-2 rounded-lg border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-950 text-sm font-mono"
+                    className="w-full px-3 py-2 rounded-none border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-950 text-sm font-mono"
                     placeholder="sk-..."
                   />
                 </div>
@@ -170,7 +170,7 @@ export default function Tooltips() {
 
       {/* Token Breakdown */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Token Breakdown</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -183,21 +183,21 @@ export default function Tooltips() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Color Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Background</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">var(--surface-card)</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Text Color</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Light: sepia-900</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Dark: sepia-50</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Light: sepia-500</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Dark: sepia-800</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Shadow</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">var(--elevation-2-shadow)</p>
                 </div>
@@ -208,12 +208,12 @@ export default function Tooltips() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Spacing Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Padding</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">12px horizontal (px-3)</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">8px vertical (py-2)</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Offset</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">8px gap from trigger (mt-2/mb-2/ml-2/mr-2)</p>
                 </div>
@@ -224,17 +224,17 @@ export default function Tooltips() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Typography</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Family</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Fragment Mono</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Size</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">12px (text-xs)</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Radius</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">8px (rounded-lg)</p>
+                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">0px (rounded-none)</p>
                 </div>
               </div>
             </div>
@@ -242,7 +242,7 @@ export default function Tooltips() {
             {/* Z-Index */}
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Z-Index</h4>
-              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">var(--z-index-tooltip) = 1060</p>
               </div>
             </div>
@@ -252,4 +252,8 @@ export default function Tooltips() {
     </div>
   );
 }
+
+
+
+
 

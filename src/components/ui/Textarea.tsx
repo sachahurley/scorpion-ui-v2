@@ -65,9 +65,9 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     // Corner radius matches input sizes: 6px (small), 8px (medium), 12px (large)
     // Vertical padding provides comfortable spacing for multi-line text
     const sizeStyles = {
-      small: "min-h-8 px-3 py-1.5 rounded-md",        // min-h-8 = 32px, px-3 = 12px, rounded-md = 6px
-      medium: "min-h-10 px-4 py-2.5 rounded-lg",       // min-h-10 = 40px, px-4 = 16px, rounded-lg = 8px
-      large: "min-h-12 px-5 py-3.5 rounded-button",    // min-h-12 = 48px, px-5 = 20px, rounded-button = 12px
+      small: "min-h-8 px-3 py-1.5 rounded-none",       // TUI: sharp corners
+      medium: "min-h-10 px-4 py-2.5 rounded-none",      // TUI: sharp corners
+      large: "min-h-12 px-5 py-3.5 rounded-none",       // TUI: sharp corners
     };
 
     // STATE STYLES - Color combinations for different states using SEMANTIC TOKENS

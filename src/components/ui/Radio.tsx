@@ -156,7 +156,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
           className={`
             relative inline-flex items-center justify-center
             ${currentSizeStyles.radio}
-            rounded-full
+            rounded-none
             border-2
             ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
             ${radioStyles}
@@ -173,7 +173,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
             <div 
               className={`
                 ${currentSizeStyles.dot}
-                rounded-full
+                rounded-none
                 ${error 
                   ? 'bg-white dark:bg-white' 
                   : 'bg-black dark:bg-black'

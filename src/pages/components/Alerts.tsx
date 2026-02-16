@@ -6,7 +6,7 @@
 
 import { Alert } from "@/components/ui/Alert";
 import { useState } from "react";
-import { CheckCircle, AlertTriangle, AlertCircle, Info, Bell } from "lucide-react";
+import { TuiIcon } from "@/components/ui/TuiIcon";
 
 export default function Alerts() {
   const [dismissedAlerts, setDismissedAlerts] = useState<string[]>([]);
@@ -23,7 +23,7 @@ export default function Alerts() {
 
       {/* Variants Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Variants</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -43,7 +43,7 @@ export default function Alerts() {
 
       {/* With Title and Description */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Title and Description</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -73,7 +73,7 @@ export default function Alerts() {
 
       {/* Dismissible Alerts */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Dismissible Alerts</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -120,7 +120,7 @@ export default function Alerts() {
 
       {/* Custom Icons */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Custom Icons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -133,13 +133,13 @@ export default function Alerts() {
               variant="info"
               title="Notifications"
               description="You have 3 new notifications"
-              iconLeft={<Bell className="w-5 h-5" />}
+              iconLeft={<TuiIcon name="Bell" size="5" />}
             />
             <Alert
               variant="success"
               title="All Systems Operational"
               description="Everything is running smoothly"
-              iconLeft={<CheckCircle className="w-5 h-5" />}
+              iconLeft={<TuiIcon name="CheckCircle" size="5" />}
             />
           </div>
         </div>
@@ -147,7 +147,7 @@ export default function Alerts() {
 
       {/* Description Only */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Description Only</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -166,7 +166,7 @@ export default function Alerts() {
 
       {/* Token Breakdown */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Token Breakdown</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -179,31 +179,31 @@ export default function Alerts() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Variant Colors</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-2">Default</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background: secondary-50/950</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Border: secondary-300/700</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Icon: secondary-700/300</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-2">Success</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background: success-50/950</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Border: success-300/700</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Icon: success-600/400</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-2">Warning</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background: warning-50/950</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Border: warning-300/700</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Icon: warning-600/400</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-2">Error</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background: error-50/950</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Border: error-300/700</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Icon: error-600/500</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-2">Info</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background: info-50/950</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Border: info-300/700</p>
@@ -216,11 +216,11 @@ export default function Alerts() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Spacing Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Padding</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">16px (p-4)</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Gap</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">12px (gap-3)</p>
                 </div>
@@ -231,21 +231,21 @@ export default function Alerts() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Typography</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Family</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Fragment Mono</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Title Size</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">14px (text-sm), bold</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Description Size</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">14px (text-sm), regular</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Radius</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">8px (rounded-lg)</p>
+                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">0px (rounded-none)</p>
                 </div>
               </div>
             </div>
@@ -255,4 +255,8 @@ export default function Alerts() {
     </div>
   );
 }
+
+
+
+
 

@@ -18,11 +18,11 @@ export function AboutCard() {
   return (
     // Container flush to bottom with 12px left/right insets only
     <div className="px-3">
-      {/* Card with rounded TOP corners only, drop shadow, and overflow hidden for animation */}
+      {/* Card with sharp corners (TUI), and overflow hidden for animation */}
       <div 
         className="
           bg-[var(--surface-card)] 
-          rounded-t-[16px]
+          rounded-none
           overflow-hidden
           cursor-pointer
           transition-all
@@ -48,7 +48,7 @@ export function AboutCard() {
           <img 
             src={ASSETS.avatar8bit} 
             alt="Sacha Hurley" 
-            className="w-8 h-8 rounded-full object-cover flex-shrink-0"
+            className="w-8 h-8 rounded-none object-cover flex-shrink-0"
           />
           
           {/* Text: "Built by Sacha Hurley" with personal website link */}

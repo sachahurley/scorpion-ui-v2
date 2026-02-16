@@ -64,9 +64,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     // Horizontal padding slightly less than buttons for better text alignment
     // Corner radius matches button sizes: 6px (small), 8px (medium), 12px (large)
     const sizeStyles = {
-      small: "h-8 px-3 py-1.5 rounded-md",        // h-8 = 32px, px-3 = 12px, rounded-md = 6px
-      medium: "h-10 px-4 py-2.5 rounded-lg",     // h-10 = 40px, px-4 = 16px, rounded-lg = 8px
-      large: "h-12 px-5 py-3.5 rounded-button",   // h-12 = 48px, px-5 = 20px, rounded-button = 12px
+      small: "h-8 px-3 py-1.5 rounded-none",       // TUI: sharp corners
+      medium: "h-10 px-4 py-2.5 rounded-none",    // TUI: sharp corners
+      large: "h-12 px-5 py-3.5 rounded-none",     // TUI: sharp corners
     };
 
     // STATE STYLES - Color combinations for different states using SEMANTIC TOKENS

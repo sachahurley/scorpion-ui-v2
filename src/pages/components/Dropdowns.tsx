@@ -16,25 +16,8 @@
 
 import { Dropdown } from "@/components/ui/Dropdown";
 import { Button } from "@/components/ui/Button";
-import { 
-  Edit, 
-  Download, 
-  Share2, 
-  Copy, 
-  Archive,
-  Trash2,
-  Settings,
-  User,
-  LogOut,
-  FileText,
-  Eye,
-  Star,
-  MoreVertical,
-  Globe,
-  Check,
-  ChevronRight,
-  ChevronDown
-} from "lucide-react";
+// TUI Tier 2: Import TuiIcon for Unicode character icons
+import { TuiIcon } from "@/components/ui/TuiIcon";
 
 export default function Dropdowns() {
   // Sample handlers for demonstration
@@ -63,7 +46,7 @@ export default function Dropdowns() {
         Simple dropdown with text-only items
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Basic Dropdown</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -99,7 +82,7 @@ export default function Dropdowns() {
         Small, medium, and large dropdown variants
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sizes</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -161,7 +144,7 @@ export default function Dropdowns() {
         Menu items with left-aligned icons
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Icons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -174,10 +157,10 @@ export default function Dropdowns() {
             <Dropdown
               label="File Actions"
               items={[
-                { label: "Edit", onClick: handleEdit, icon: <Edit className="w-5 h-5" /> },
-                { label: "Download", onClick: handleDownload, icon: <Download className="w-5 h-5" /> },
-                { label: "Share", onClick: handleShare, icon: <Share2 className="w-5 h-5" /> },
-                { label: "Copy Link", onClick: handleCopy, icon: <Copy className="w-5 h-5" /> },
+                { label: "Edit", onClick: handleEdit, icon: <TuiIcon name="Edit" size="5" /> },
+                { label: "Download", onClick: handleDownload, icon: <TuiIcon name="Download" size="5" /> },
+                { label: "Share", onClick: handleShare, icon: <TuiIcon name="Share2" size="5" /> },
+                { label: "Copy Link", onClick: handleCopy, icon: <TuiIcon name="Copy" size="5" /> },
               ]}
             />
 
@@ -185,9 +168,9 @@ export default function Dropdowns() {
             <Dropdown
               label="User Menu"
               items={[
-                { label: "Profile", onClick: () => console.log("Profile"), icon: <User className="w-5 h-5" /> },
-                { label: "Settings", onClick: () => console.log("Settings"), icon: <Settings className="w-5 h-5" /> },
-                { label: "Sign Out", onClick: () => console.log("Sign Out"), icon: <LogOut className="w-5 h-5" /> },
+                { label: "Profile", onClick: () => console.log("Profile"), icon: <TuiIcon name="User" size="5" /> },
+                { label: "Settings", onClick: () => console.log("Settings"), icon: <TuiIcon name="Settings" size="5" /> },
+                { label: "Sign Out", onClick: () => console.log("Sign Out"), icon: <TuiIcon name="LogOut" size="5" /> },
               ]}
             />
 
@@ -195,10 +178,10 @@ export default function Dropdowns() {
             <Dropdown
               label="More"
               items={[
-                { label: "View", onClick: () => console.log("View"), icon: <Eye className="w-5 h-5" /> },
-                { label: "Star", onClick: () => console.log("Star"), icon: <Star className="w-5 h-5" /> },
-                { label: "Export", onClick: () => console.log("Export"), icon: <FileText className="w-5 h-5" /> },
-                { label: "Archive", onClick: handleArchive, icon: <Archive className="w-5 h-5" /> },
+                { label: "View", onClick: () => console.log("View"), icon: <TuiIcon name="Eye" size="5" /> },
+                { label: "Star", onClick: () => console.log("Star"), icon: <TuiIcon name="Star" size="5" /> },
+                { label: "Export", onClick: () => console.log("Export"), icon: <TuiIcon name="FileText" size="5" /> },
+                { label: "Archive", onClick: handleArchive, icon: <TuiIcon name="Archive" size="5" /> },
               ]}
             />
           </div>
@@ -210,7 +193,7 @@ export default function Dropdowns() {
         Using custom trigger buttons with different variants
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Custom Trigger Buttons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -242,8 +225,8 @@ export default function Dropdowns() {
             <Dropdown
               trigger={<Button variant="outline">Outline Dropdown</Button>}
               items={[
-                { label: "View", onClick: () => console.log("View"), icon: <Eye className="w-5 h-5" /> },
-                { label: "Edit", onClick: () => console.log("Edit"), icon: <Edit className="w-5 h-5" /> },
+                { label: "View", onClick: () => console.log("View"), icon: <TuiIcon name="Eye" size="5" /> },
+                { label: "Edit", onClick: () => console.log("Edit"), icon: <TuiIcon name="Edit" size="5" /> },
               ]}
             />
 
@@ -251,13 +234,13 @@ export default function Dropdowns() {
             <Dropdown
               trigger={
                 <Button variant="icon" size="icon" aria-label="More options">
-                  <MoreVertical />
+                  <TuiIcon name="MoreVertical" />
                 </Button>
               }
               items={[
-                { label: "Edit", onClick: handleEdit, icon: <Edit className="w-5 h-5" /> },
-                { label: "Share", onClick: handleShare, icon: <Share2 className="w-5 h-5" /> },
-                { label: "Download", onClick: handleDownload, icon: <Download className="w-5 h-5" /> },
+                { label: "Edit", onClick: handleEdit, icon: <TuiIcon name="Edit" size="5" /> },
+                { label: "Share", onClick: handleShare, icon: <TuiIcon name="Share2" size="5" /> },
+                { label: "Download", onClick: handleDownload, icon: <TuiIcon name="Download" size="5" /> },
               ]}
             />
           </div>
@@ -269,7 +252,7 @@ export default function Dropdowns() {
         Left vs Right aligned menus
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Menu Alignment</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -314,7 +297,7 @@ export default function Dropdowns() {
         Menu items with destructive/danger styling
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Destructive Actions</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -327,10 +310,10 @@ export default function Dropdowns() {
             <Dropdown
               label="File Options"
               items={[
-                { label: "Edit", onClick: handleEdit, icon: <Edit className="w-5 h-5" /> },
-                { label: "Download", onClick: handleDownload, icon: <Download className="w-5 h-5" /> },
-                { label: "Archive", onClick: handleArchive, icon: <Archive className="w-5 h-5" /> },
-                { label: "Delete", onClick: handleDelete, icon: <Trash2 className="w-5 h-5" />, variant: "destructive" },
+                { label: "Edit", onClick: handleEdit, icon: <TuiIcon name="Edit" size="5" /> },
+                { label: "Download", onClick: handleDownload, icon: <TuiIcon name="Download" size="5" /> },
+                { label: "Archive", onClick: handleArchive, icon: <TuiIcon name="Archive" size="5" /> },
+                { label: "Delete", onClick: handleDelete, icon: <TuiIcon name="Trash2" size="5" />, variant: "destructive" },
               ]}
             />
 
@@ -338,10 +321,10 @@ export default function Dropdowns() {
             <Dropdown
               label="Manage Item"
               items={[
-                { label: "View Details", onClick: () => console.log("View"), icon: <Eye className="w-5 h-5" /> },
-                { label: "Edit Info", onClick: handleEdit, icon: <Edit className="w-5 h-5" /> },
-                { label: "Share", onClick: handleShare, icon: <Share2 className="w-5 h-5" /> },
-                { label: "Remove", onClick: handleDelete, icon: <Trash2 className="w-5 h-5" />, variant: "destructive" },
+                { label: "View Details", onClick: () => console.log("View"), icon: <TuiIcon name="Eye" size="5" /> },
+                { label: "Edit Info", onClick: handleEdit, icon: <TuiIcon name="Edit" size="5" /> },
+                { label: "Share", onClick: handleShare, icon: <TuiIcon name="Share2" size="5" /> },
+                { label: "Remove", onClick: handleDelete, icon: <TuiIcon name="Trash2" size="5" />, variant: "destructive" },
               ]}
             />
           </div>
@@ -353,7 +336,7 @@ export default function Dropdowns() {
         Menu items with left icon grouped with label, and right icon aligned to right edge
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Left and Right Icons</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -369,8 +352,8 @@ export default function Dropdowns() {
                   <Button 
                     variant="outline" 
                     size="medium" 
-                    iconLeft={<Globe />}
-                    iconRight={<ChevronDown />}
+                    iconLeft={<TuiIcon name="Globe" />}
+                    iconRight={<TuiIcon name="ChevronDown" />}
                   >
                     Select Language
                   </Button>
@@ -379,23 +362,23 @@ export default function Dropdowns() {
                   { 
                     label: "English", 
                     onClick: () => console.log("English selected"),
-                    icon: <Globe className="w-5 h-5" />,
-                    iconRight: <Check className="w-5 h-5" />
+                    icon: <TuiIcon name="Globe" size="5" />,
+                    iconRight: <TuiIcon name="Check" size="5" />
                   },
                   { 
                     label: "Spanish", 
                     onClick: () => console.log("Spanish selected"),
-                    icon: <Globe className="w-5 h-5" />
+                    icon: <TuiIcon name="Globe" size="5" />
                   },
                   { 
                     label: "French", 
                     onClick: () => console.log("French selected"),
-                    icon: <Globe className="w-5 h-5" />
+                    icon: <TuiIcon name="Globe" size="5" />
                   },
                   { 
                     label: "German", 
                     onClick: () => console.log("German selected"),
-                    icon: <Globe className="w-5 h-5" />
+                    icon: <TuiIcon name="Globe" size="5" />
                   },
                 ]}
                 size="medium"
@@ -415,20 +398,20 @@ export default function Dropdowns() {
                   { 
                     label: "Settings", 
                     onClick: () => console.log("Settings"),
-                    icon: <Settings className="w-5 h-5" />,
-                    iconRight: <ChevronRight className="w-5 h-5" />
+                    icon: <TuiIcon name="Settings" size="5" />,
+                    iconRight: <TuiIcon name="ChevronRight" size="5" />
                   },
                   { 
                     label: "Profile", 
                     onClick: () => console.log("Profile"),
-                    icon: <User className="w-5 h-5" />,
-                    iconRight: <ChevronRight className="w-5 h-5" />
+                    icon: <TuiIcon name="User" size="5" />,
+                    iconRight: <TuiIcon name="ChevronRight" size="5" />
                   },
                   { 
                     label: "Documents", 
                     onClick: () => console.log("Documents"),
-                    icon: <FileText className="w-5 h-5" />,
-                    iconRight: <ChevronRight className="w-5 h-5" />
+                    icon: <TuiIcon name="FileText" size="5" />,
+                    iconRight: <TuiIcon name="ChevronRight" size="5" />
                   },
                 ]}
                 size="medium"
@@ -448,18 +431,18 @@ export default function Dropdowns() {
                   { 
                     label: "Grid View", 
                     onClick: () => console.log("Grid"),
-                    icon: <Eye className="w-5 h-5" />,
-                    iconRight: <Check className="w-5 h-5" />
+                    icon: <TuiIcon name="Eye" size="5" />,
+                    iconRight: <TuiIcon name="Check" size="5" />
                   },
                   { 
                     label: "List View", 
                     onClick: () => console.log("List"),
-                    icon: <Eye className="w-5 h-5" />
+                    icon: <TuiIcon name="Eye" size="5" />
                   },
                   { 
                     label: "Compact View", 
                     onClick: () => console.log("Compact"),
-                    icon: <Eye className="w-5 h-5" />
+                    icon: <TuiIcon name="Eye" size="5" />
                   },
                 ]}
                 size="medium"
@@ -474,7 +457,7 @@ export default function Dropdowns() {
         DISABLED STATE SECTION
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Disabled Items</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -486,10 +469,10 @@ export default function Dropdowns() {
             <Dropdown
               label="Mixed States"
               items={[
-                { label: "Available Action", onClick: () => console.log("Available"), icon: <Edit className="w-5 h-5" /> },
-                { label: "Disabled Action", onClick: () => console.log("Disabled"), icon: <Share2 className="w-5 h-5" />, disabled: true },
-                { label: "Another Action", onClick: () => console.log("Another"), icon: <Download className="w-5 h-5" /> },
-                { label: "Also Disabled", onClick: () => console.log("Disabled 2"), icon: <Archive className="w-5 h-5" />, disabled: true },
+                { label: "Available Action", onClick: () => console.log("Available"), icon: <TuiIcon name="Edit" size="5" /> },
+                { label: "Disabled Action", onClick: () => console.log("Disabled"), icon: <TuiIcon name="Share2" size="5" />, disabled: true },
+                { label: "Another Action", onClick: () => console.log("Another"), icon: <TuiIcon name="Download" size="5" /> },
+                { label: "Also Disabled", onClick: () => console.log("Disabled 2"), icon: <TuiIcon name="Archive" size="5" />, disabled: true },
               ]}
             />
           </div>
@@ -505,7 +488,7 @@ export default function Dropdowns() {
 
       {/* DROPDOWN TOKEN BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           {/* Card Title & Subtitle */}
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Dropdown Token Breakdown</h3>
@@ -519,7 +502,7 @@ export default function Dropdowns() {
             {/* Trigger Button */}
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Trigger Button</h4>
-              <div className="p-4 bg-sepia-50 dark:bg-sepia-950 rounded-2xl">
+              <div className="p-4 bg-sepia-50 dark:bg-sepia-950 rounded-none">
                 <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
                   The trigger button uses the same tokens as the Button component. See the{" "}
                   <a href="/components/buttons" className="text-primary-600 dark:text-primary-400 underline hover:text-primary-700 dark:hover:text-primary-300">
@@ -538,12 +521,12 @@ export default function Dropdowns() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-white border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-white border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Light: color.white</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-975 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-975 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Dark: color.sepia.975</span>
                   </div>
                 </div>
@@ -553,15 +536,15 @@ export default function Dropdowns() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Border</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Light: color.sepia.300</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Dark: color.sepia.700</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Width: 1px</span>
                   </div>
                 </div>
@@ -571,7 +554,7 @@ export default function Dropdowns() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Border Radius</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">radius.container (24px)</span>
                   </div>
                 </div>
@@ -581,7 +564,7 @@ export default function Dropdowns() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Elevation</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">shadow-lg (Tailwind default)</span>
                   </div>
                 </div>
@@ -596,12 +579,12 @@ export default function Dropdowns() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Default Item Text</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-900 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-900 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Light: color.sepia.900</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Dark: color.sepia.50</span>
                   </div>
                 </div>
@@ -611,12 +594,12 @@ export default function Dropdowns() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Hover Background</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-100 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-100 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Light: color.sepia.100</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-sepia-900 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-900 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Dark: color.sepia.900</span>
                   </div>
                 </div>
@@ -626,16 +609,16 @@ export default function Dropdowns() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Destructive Item</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Text (Light): color.error.600</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-500 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-500 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Text (Dark): color.error.500</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-full bg-red-50 border border-sepia-300 dark:border-sepia-600"></div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
+                    <div className="w-4 h-4 rounded-none bg-red-50 border border-sepia-300 dark:border-sepia-600"></div>
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover (Light): color.error.50</span>
                   </div>
                 </div>
@@ -645,13 +628,13 @@ export default function Dropdowns() {
               <div className="mb-3">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Item Spacing</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding X: 16px</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding Y: 12px</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                     <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Icon Gap: 12px</span>
                   </div>
                 </div>
@@ -662,10 +645,10 @@ export default function Dropdowns() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Typography</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Font Family: <span className="font-mono">Fragment Mono</span></span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Font Size: <span className="text-sm">14px</span></span>
                 </div>
               </div>
@@ -675,13 +658,13 @@ export default function Dropdowns() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Positioning</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Z-Index: zIndex.dropdown (1000)</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Position: absolute</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Min Width: 200px</span>
                 </div>
               </div>
@@ -691,10 +674,10 @@ export default function Dropdowns() {
             <div>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Animation</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Duration: 200ms</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-full border border-sepia-300 dark:border-sepia-700">
+                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
                   <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Effect: fade-in + slide-in</span>
                 </div>
               </div>
@@ -708,7 +691,7 @@ export default function Dropdowns() {
         Documentation for accessibility features
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Keyboard Navigation</h3>
             <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
@@ -716,7 +699,7 @@ export default function Dropdowns() {
             </p>
           </div>
 
-          <div className="p-6 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-2xl">
+          <div className="p-6 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-none">
             <div className="space-y-4">
               <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">
                 ⌨️ Keyboard Shortcuts

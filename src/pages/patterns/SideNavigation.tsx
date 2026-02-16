@@ -38,7 +38,7 @@ export default function SideNavigation() {
         Displays different states: default, hover, active
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Component Overview</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -47,7 +47,7 @@ export default function SideNavigation() {
           </div>
           
           {/* Visual representation - screenshot or mockup of sidebar */}
-          <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+          <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
             <div className="flex gap-6 items-start">
               {/* Mock sidebar preview */}
               <div className="w-64 bg-sepia-50 dark:bg-sepia-975 rounded-button p-4 border border-sepia-200 dark:border-sepia-800">
@@ -96,7 +96,7 @@ export default function SideNavigation() {
         Shows all the different states: default, hover, active, expanded/collapsed
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Interactive States</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -106,7 +106,7 @@ export default function SideNavigation() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Default State */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <h4 className="text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Default State</h4>
               <div className="flex items-center gap-3 px-3 py-2 rounded-button bg-sepia-50 dark:bg-sepia-975 border border-sepia-200 dark:border-sepia-800">
                 <div className="w-7 h-7 bg-sepia-300 dark:bg-sepia-700 rounded"></div>
@@ -118,7 +118,7 @@ export default function SideNavigation() {
             </div>
 
             {/* Hover State */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <h4 className="text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Hover State</h4>
               <div className="flex items-center gap-3 px-3 py-2 rounded-button bg-sepia-600 text-sepia-50 border border-sepia-500">
                 <div className="w-7 h-7 bg-sepia-500 rounded"></div>
@@ -130,7 +130,7 @@ export default function SideNavigation() {
             </div>
 
             {/* Active/Selected State */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <h4 className="text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Active/Selected State</h4>
               <div className="flex items-center gap-3 px-3 py-2 rounded-button bg-sepia-700 text-sepia-50 border border-sepia-600">
                 <div className="w-7 h-7 bg-sepia-600 rounded"></div>
@@ -142,7 +142,7 @@ export default function SideNavigation() {
             </div>
 
             {/* Expanded Section State */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-2xl bg-white dark:bg-sepia-950">
+            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <h4 className="text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Expanded Section</h4>
               <div className="space-y-1">
                 <div className="flex items-center gap-3 px-3 py-2 rounded-button bg-sepia-50 dark:bg-sepia-975 border border-sepia-200 dark:border-sepia-800">
@@ -174,7 +174,7 @@ export default function SideNavigation() {
         Documents the Sepia colors used for all navigation states
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Secondary Button Colors</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -187,7 +187,7 @@ export default function SideNavigation() {
             <div>
               <h4 className="text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Active State (Current Page)</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-12 h-12 rounded-button bg-sepia-700 border border-sepia-600"></div>
                     <div>
@@ -198,7 +198,7 @@ export default function SideNavigation() {
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background for active navigation items (both light & dark mode)</p>
                 </div>
                 
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-12 h-12 rounded-button bg-sepia-50 border border-sepia-200"></div>
                     <div>
@@ -215,7 +215,7 @@ export default function SideNavigation() {
             <div>
               <h4 className="text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Hover State</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-12 h-12 rounded-button bg-sepia-600 border border-sepia-500"></div>
                     <div>
@@ -226,7 +226,7 @@ export default function SideNavigation() {
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Background on hover (both light & dark mode)</p>
                 </div>
                 
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-12 h-12 rounded-button bg-sepia-50 border border-sepia-200"></div>
                     <div>
@@ -247,7 +247,7 @@ export default function SideNavigation() {
         Documents the background colors for the sidebar container itself
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Container Background Colors</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -257,7 +257,7 @@ export default function SideNavigation() {
 
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-12 h-12 rounded-button bg-sepia-50 border border-sepia-200"></div>
                   <div>
@@ -268,7 +268,7 @@ export default function SideNavigation() {
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Uses var(--surface-container) semantic token</p>
               </div>
 
-              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-12 h-12 rounded-button bg-sepia-975 border border-sepia-900"></div>
                   <div>
@@ -288,7 +288,7 @@ export default function SideNavigation() {
         Comprehensive documentation of all design tokens used
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Complete Token Reference</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -300,7 +300,7 @@ export default function SideNavigation() {
             {/* Typography Tokens */}
             <div>
               <h4 className="text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Typography</h4>
-              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Font Family: font.family.mono (Fragment Mono)</p>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Font Size: font.size.sm (14px)</p>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Font Weight: 400 (regular) / 500 (active state)</p>
@@ -311,23 +311,23 @@ export default function SideNavigation() {
             <div>
               <h4 className="text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Spacing</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Navigation Item Padding</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Horizontal: 12px (px-3)</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Vertical: 8px (py-2)</p>
                 </div>
                 
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Icon-Text Gap</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Gap: 12px (gap-3)</p>
                 </div>
 
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Container Padding</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">All sides: 16px (p-4)</p>
                 </div>
 
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Section Spacing</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Gap between items: 8px (space-y-2)</p>
                 </div>
@@ -338,22 +338,22 @@ export default function SideNavigation() {
             <div>
               <h4 className="text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Border & Layout</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Radius</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">radius.button (12px) - for navigation items</p>
                 </div>
                 
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sidebar Width</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Fixed: 256px (w-64)</p>
                 </div>
 
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Icon Size</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">28px × 28px (w-7 h-7)</p>
                 </div>
 
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
                   <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Transition</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">transition-colors (smooth color changes)</p>
                 </div>
@@ -368,7 +368,7 @@ export default function SideNavigation() {
         Shows actual Tailwind classes and implementation details
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Implementation Example</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -380,7 +380,7 @@ export default function SideNavigation() {
             {/* Active State Code */}
             <div>
               <h4 className="text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-2">Active Navigation Item (Secondary Button Style)</h4>
-              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-sepia-950 dark:bg-black">
+              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-sepia-950 dark:bg-black">
                 <code className="text-xs font-mono text-amber-300">
                   <span className="text-sepia-400">className=</span>
                   <span className="text-green-400">"</span>
@@ -401,7 +401,7 @@ export default function SideNavigation() {
             {/* Hover State Code */}
             <div>
               <h4 className="text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-2">Default/Hover Navigation Item (Secondary Button Style)</h4>
-              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-sepia-950 dark:bg-black">
+              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-sepia-950 dark:bg-black">
                 <code className="text-xs font-mono text-amber-300">
                   <span className="text-sepia-400">className=</span>
                   <span className="text-green-400">"</span>
@@ -427,7 +427,7 @@ export default function SideNavigation() {
         Best practices for using this pattern
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-[24px] p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
           <div className="mb-6">
             <h3 className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-1">Usage Guidelines</h3>
             <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
@@ -436,28 +436,28 @@ export default function SideNavigation() {
           </div>
 
           <div className="space-y-4">
-            <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+            <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 font-bold mb-2">✓ Always indicate the active page</p>
               <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
                 Use the secondary button active state (sepia-700 background) to highlight which page the user is currently on. This provides crucial wayfinding.
               </p>
             </div>
 
-            <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+            <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 font-bold mb-2">✓ Use consistent button styling</p>
               <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
                 Navigation uses secondary button styling throughout - sepia-700 for active, sepia-600 for hover. This creates consistency with your button components.
               </p>
             </div>
 
-            <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+            <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 font-bold mb-2">✓ Maintain consistent spacing</p>
               <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
                 Use the same padding, gaps, and sizing across all navigation items for a cohesive feel.
               </p>
             </div>
 
-            <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-xl bg-white dark:bg-sepia-950">
+            <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
               <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 font-bold mb-2">✓ Use icons consistently</p>
               <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
                 All navigation items at the same level should have icons of the same size (28px × 28px) for visual balance.
