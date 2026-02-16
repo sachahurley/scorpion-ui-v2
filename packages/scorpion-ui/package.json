@@ -1,6 +1,6 @@
 {
   "name": "@sachahurley/scorpion-ui",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A TUI-inspired token-based design system for React with TypeScript support",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
