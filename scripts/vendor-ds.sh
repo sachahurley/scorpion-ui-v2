@@ -35,10 +35,11 @@ git -C "$SCORP_DS_DIR" fetch origin main -q 2>/dev/null || \
 REF="origin/main"
 ds_file() { git -C "$SCORP_DS_DIR" show "$REF:$1"; }
 
-# Components mirrored from the DS (MusicPlayer is site-owned; ListRow/Toast/
-# Tabs/Table/Slider/BottomSheet/CaseStudy have no showcase page yet).
-COMPONENTS=(Alert Avatar Badge Button Card Checkbox Divider Dropdown Input
-  Modal Radio Select Switch Textarea ThemeToggle Tooltip TuiIcon)
+# Components mirrored from the DS (MusicPlayer is site-owned: it wears the
+# DS pattern shell but keeps the site's real audio engine).
+COMPONENTS=(Alert Avatar Badge BottomSheet Button Card CaseStudy Checkbox
+  Divider Dropdown Input ListRow Modal Radio Select Slider Switch Table
+  Tabs Textarea ThemeToggle Toast Tooltip TuiIcon)
 
 STAGE="$(mktemp -d)"
 trap 'rm -rf "$STAGE"' EXIT

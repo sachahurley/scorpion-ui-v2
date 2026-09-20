@@ -31,9 +31,16 @@ import Dividers from "@/pages/components/Dividers";
 import Tooltips from "@/pages/components/Tooltips";
 import Alerts from "@/pages/components/Alerts";
 import Avatars from "@/pages/components/Avatars";
+import Sliders from "@/pages/components/Sliders";
+import Tables from "@/pages/components/Tables";
+import TabsPage from "@/pages/components/TabsPage";
+import Toasts from "@/pages/components/Toasts";
+import ListRows from "@/pages/components/ListRows";
+import BottomSheets from "@/pages/components/BottomSheets";
 import SideNavigation from "@/pages/patterns/SideNavigation";
 import Cards from "@/pages/patterns/Cards";
 import Forms from "@/pages/patterns/Forms";
+import CaseStudyPage from "@/pages/patterns/CaseStudy";
 
 function App() {
   return (
@@ -72,11 +79,18 @@ function App() {
             <Route path="/components/tooltips" element={<Tooltips />} />
             <Route path="/components/alerts" element={<Alerts />} />
             <Route path="/components/avatars" element={<Avatars />} />
+            <Route path="/components/list-rows" element={<ListRows />} />
+            <Route path="/components/sliders" element={<Sliders />} />
+            <Route path="/components/tables" element={<Tables />} />
+            <Route path="/components/tabs" element={<TabsPage />} />
+            <Route path="/components/toasts" element={<Toasts />} />
+            <Route path="/components/bottom-sheets" element={<BottomSheets />} />
             
             {/* Patterns pages */}
             <Route path="/patterns/side-navigation" element={<SideNavigation />} />
             <Route path="/patterns/cards" element={<Cards />} />
             <Route path="/patterns/forms" element={<Forms />} />
+            <Route path="/patterns/case-study" element={<CaseStudyPage />} />
           </Routes>
         </Layout>
       </BrowserRouter>
