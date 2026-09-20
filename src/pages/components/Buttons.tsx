@@ -330,7 +330,7 @@ export default function Buttons() {
               <div className="flex flex-wrap gap-4 items-start">
                 {/* Default State */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-primary-400 text-black">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-primary-background)] text-[var(--button-primary-text)]">
                     Primary
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Default</span>
@@ -338,7 +338,7 @@ export default function Buttons() {
                 
                 {/* Hover State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-primary-500 text-black">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-primary-background-hover)] text-[var(--button-primary-text)]">
                     Primary
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Hover</span>
@@ -347,7 +347,7 @@ export default function Buttons() {
                 {/* Focused State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
                   <button 
-                    className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-primary-400 text-black ring-2 ring-primary-400 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000"
+                    className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-primary-background)] text-[var(--button-primary-text)] [box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]"
                   >
                     Primary
                   </button>
@@ -356,7 +356,7 @@ export default function Buttons() {
                 
                 {/* Pressed/Active State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-primary-600 text-black">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-primary-background-hover)] text-[var(--button-primary-text)] brightness-95">
                     Primary
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Pressed</span>
@@ -364,7 +364,7 @@ export default function Buttons() {
                 
                 {/* Disabled State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 h-10 px-5 py-2.5 bg-primary-400 text-black opacity-50 cursor-not-allowed">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] h-10 px-5 py-2.5 bg-[var(--button-primary-background)] text-[var(--button-primary-text)] opacity-50 cursor-not-allowed">
                     Primary
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Disabled</span>
@@ -492,7 +492,7 @@ export default function Buttons() {
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Border</h4>
               <div className="flex flex-wrap gap-2">
                 <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                  <span className="text-sm font-mono text-[var(--text-primary)]">Border Radius: radius.button (12px)</span>
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Shape: plate-round (stepped clip-path, radius utilities retired)</span>
                 </div>
               </div>
             </div>
@@ -513,18 +513,10 @@ export default function Buttons() {
                 </div>
               </div>
               <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Offset</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Placement</p>
                 <div className="flex flex-wrap gap-2">
                   <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Width: 2px</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Light): color.sepia.50 (page background)</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Dark): color.sepia.1000 (page background)</span>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Inset box-shadow inside the plate edge: no offset (the plate clip swallows outside outlines)</span>
                   </div>
                 </div>
               </div>
@@ -550,7 +542,7 @@ export default function Buttons() {
               <div className="flex flex-wrap gap-4 items-start">
                 {/* Default State */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-700 text-secondary-50">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-secondary-background)] text-[var(--button-secondary-text)]">
                     Secondary
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Default</span>
@@ -558,7 +550,7 @@ export default function Buttons() {
                 
                 {/* Hover State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-600 text-secondary-50">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-secondary-background-hover)] text-[var(--button-secondary-text-hover)]">
                     Secondary
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Hover</span>
@@ -567,7 +559,7 @@ export default function Buttons() {
                 {/* Focused State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
                   <button 
-                    className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-700 text-secondary-50 ring-2 ring-secondary-700 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000"
+                    className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-secondary-background)] text-[var(--button-secondary-text)] [box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-secondary)]"
                   >
                     Secondary
                   </button>
@@ -576,7 +568,7 @@ export default function Buttons() {
                 
                 {/* Pressed/Active State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-500 text-secondary-50">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-secondary-background-hover)] text-[var(--button-secondary-text-hover)] brightness-95">
                     Secondary
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Pressed</span>
@@ -584,7 +576,7 @@ export default function Buttons() {
                 
                 {/* Disabled State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 h-10 px-5 py-2.5 bg-secondary-700 text-secondary-50 opacity-50 cursor-not-allowed">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] h-10 px-5 py-2.5 bg-[var(--button-secondary-background)] text-[var(--button-secondary-text)] opacity-50 cursor-not-allowed">
                     Secondary
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Disabled</span>
@@ -663,18 +655,10 @@ export default function Buttons() {
                 </div>
               </div>
               <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Offset</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Placement</p>
                 <div className="flex flex-wrap gap-2">
                   <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Width: 2px</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Light): color.sepia.50 (page background)</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Dark): color.sepia.1000 (page background)</span>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Inset box-shadow inside the plate edge: no offset (the plate clip swallows outside outlines)</span>
                   </div>
                 </div>
               </div>
@@ -700,7 +684,7 @@ export default function Buttons() {
               <div className="flex flex-wrap gap-4 items-start">
                 {/* Default State */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent text-secondary-900 dark:text-secondary-50">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-ghost-background)] text-[var(--button-ghost-text)]">
                     Ghost
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Default</span>
@@ -708,7 +692,7 @@ export default function Buttons() {
                 
                 {/* Hover State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-200 dark:bg-secondary-700 text-secondary-900 dark:text-secondary-50">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-ghost-background-hover)] text-[var(--button-ghost-text)]">
                     Ghost
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Hover</span>
@@ -717,7 +701,7 @@ export default function Buttons() {
                 {/* Focused State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
                   <button 
-                    className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent text-secondary-900 dark:text-secondary-50 ring-2 ring-secondary-300 dark:ring-secondary-700 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000"
+                    className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-ghost-background)] text-[var(--button-ghost-text)] [box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-secondary)]"
                   >
                     Ghost
                   </button>
@@ -726,7 +710,7 @@ export default function Buttons() {
                 
                 {/* Pressed/Active State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-300 dark:bg-secondary-600 text-secondary-900 dark:text-secondary-50">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-ghost-background-hover)] text-[var(--button-ghost-text)] brightness-95">
                     Ghost
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Pressed</span>
@@ -734,7 +718,7 @@ export default function Buttons() {
                 
                 {/* Disabled State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 h-10 px-5 py-2.5 bg-transparent text-secondary-900 dark:text-secondary-50 opacity-50 cursor-not-allowed">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] h-10 px-5 py-2.5 bg-[var(--button-ghost-background)] text-[var(--button-ghost-text)] opacity-50 cursor-not-allowed">
                     Ghost
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Disabled</span>
@@ -809,23 +793,11 @@ export default function Buttons() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Focus States</h4>
               <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring (Light)</p>
-                <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Color: color.secondary.300 (sepia.300)</span>
-                  </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Width: 2px</span>
-                  </div>
-                </div>
-              </div>
-              <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring (Dark)</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring (Light & Dark)</p>
                 <div className="flex flex-wrap gap-2">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
                     <div className="w-4 h-4 rounded-none bg-sepia-700 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Color: color.secondary.700 (sepia.700)</span>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Color: focus.ring.secondary (sepia.700, both themes)</span>
                   </div>
                   <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
                     <span className="text-sm font-mono text-[var(--text-primary)]">Ring Width: 2px</span>
@@ -833,18 +805,10 @@ export default function Buttons() {
                 </div>
               </div>
               <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Offset</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Placement</p>
                 <div className="flex flex-wrap gap-2">
                   <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Width: 2px</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Light): color.sepia.50 (page background)</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Dark): color.sepia.1000 (page background)</span>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Inset box-shadow inside the plate edge: no offset (the plate clip swallows outside outlines)</span>
                   </div>
                 </div>
               </div>
@@ -870,7 +834,7 @@ export default function Buttons() {
               <div className="flex flex-wrap gap-4 items-start">
                 {/* Default State */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent text-primary-600 dark:text-primary-400">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-transparent text-[var(--button-link-text)]">
                     Link
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Default</span>
@@ -878,7 +842,7 @@ export default function Buttons() {
                 
                 {/* Hover State - Forced with underline */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent text-primary-700 dark:text-primary-300 underline">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-transparent text-[var(--button-link-text-hover)] underline">
                     Link
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Hover</span>
@@ -887,7 +851,7 @@ export default function Buttons() {
                 {/* Focused State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
                   <button 
-                    className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent text-primary-600 dark:text-primary-400 ring-2 ring-primary-600 dark:ring-primary-400 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000"
+                    className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-transparent text-[var(--button-link-text)] [box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]"
                   >
                     Link
                   </button>
@@ -896,7 +860,7 @@ export default function Buttons() {
                 
                 {/* Pressed/Active State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent text-primary-700 dark:text-primary-300">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-transparent text-[var(--button-link-text-hover)]">
                     Link
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Pressed</span>
@@ -904,7 +868,7 @@ export default function Buttons() {
                 
                 {/* Disabled State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 h-10 px-5 py-2.5 bg-transparent text-primary-600 dark:text-primary-400 opacity-50 cursor-not-allowed">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] h-10 px-5 py-2.5 bg-transparent text-[var(--button-link-text)] opacity-50 cursor-not-allowed">
                     Link
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Disabled</span>
@@ -972,23 +936,11 @@ export default function Buttons() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Focus States</h4>
               <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring (Light)</p>
-                <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-amber-600 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Color: color.primary.600 (amber.600)</span>
-                  </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Width: 2px</span>
-                  </div>
-                </div>
-              </div>
-              <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring (Dark)</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring (Light & Dark)</p>
                 <div className="flex flex-wrap gap-2">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
                     <div className="w-4 h-4 rounded-none bg-amber-400 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Color: color.primary.400 (amber.400)</span>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Color: focus.ring.primary (amber.400, both themes)</span>
                   </div>
                   <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
                     <span className="text-sm font-mono text-[var(--text-primary)]">Ring Width: 2px</span>
@@ -996,18 +948,10 @@ export default function Buttons() {
                 </div>
               </div>
               <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Offset</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Placement</p>
                 <div className="flex flex-wrap gap-2">
                   <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Width: 2px</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Light): color.sepia.50 (page background)</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Dark): color.sepia.1000 (page background)</span>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Inset box-shadow inside the plate edge: no offset (the plate clip swallows outside outlines)</span>
                   </div>
                 </div>
               </div>
@@ -1033,7 +977,7 @@ export default function Buttons() {
               <div className="flex flex-wrap gap-4 items-start">
                 {/* Default State */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent border border-secondary-300 dark:border-secondary-700 text-secondary-900 dark:text-secondary-50">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 relative isolate bg-[var(--button-outline-border)] text-[var(--button-outline-text)] before:content-[''] before:absolute before:inset-px before:-z-[1] before:[clip-path:var(--plate-round)] before:bg-[var(--button-outline-background)]">
                     Outline
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Default</span>
@@ -1041,7 +985,7 @@ export default function Buttons() {
                 
                 {/* Hover State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-50 dark:bg-secondary-900 border border-secondary-400 dark:border-secondary-600 text-secondary-900 dark:text-secondary-50">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 relative isolate bg-[var(--button-outline-border)] text-[var(--button-outline-text)] before:content-[''] before:absolute before:inset-px before:-z-[1] before:[clip-path:var(--plate-round)] before:bg-[var(--button-outline-background-hover)]">
                     Outline
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Hover</span>
@@ -1050,7 +994,7 @@ export default function Buttons() {
                 {/* Focused State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
                   <button 
-                    className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-transparent border border-secondary-300 dark:border-secondary-700 text-secondary-900 dark:text-secondary-50 ring-2 ring-secondary-300 dark:ring-secondary-700 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000"
+                    className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 relative isolate bg-[var(--button-outline-border)] text-[var(--button-outline-text)] before:content-[''] before:absolute before:inset-px before:-z-[1] before:[clip-path:var(--plate-round)] before:bg-[var(--button-outline-background)] before:[box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-secondary)]"
                   >
                     Outline
                   </button>
@@ -1059,7 +1003,7 @@ export default function Buttons() {
                 
                 {/* Pressed/Active State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-secondary-100 dark:bg-secondary-800 border border-secondary-400 dark:border-secondary-600 text-secondary-900 dark:text-secondary-50">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 relative isolate bg-[var(--button-outline-border)] text-[var(--button-outline-text)] brightness-95 before:content-[''] before:absolute before:inset-px before:-z-[1] before:[clip-path:var(--plate-round)] before:bg-[var(--button-outline-background-hover)]">
                     Outline
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Pressed</span>
@@ -1067,7 +1011,7 @@ export default function Buttons() {
                 
                 {/* Disabled State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 h-10 px-5 py-2.5 bg-transparent border border-secondary-300 dark:border-secondary-700 text-secondary-900 dark:text-secondary-50 opacity-50 cursor-not-allowed">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] h-10 px-5 py-2.5 relative isolate bg-[var(--button-outline-border)] text-[var(--button-outline-text)] before:content-[''] before:absolute before:inset-px before:-z-[1] before:[clip-path:var(--plate-round)] before:bg-[var(--button-outline-background)] opacity-50 cursor-not-allowed">
                     Outline
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Disabled</span>
@@ -1155,7 +1099,7 @@ export default function Buttons() {
                   <span className="text-sm font-mono text-[var(--text-primary)]">Border Width: 1px</span>
                 </div>
                 <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                  <span className="text-sm font-mono text-[var(--text-primary)]">Border Radius: radius.button (12px)</span>
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Shape: plate-round (stepped clip-path, radius utilities retired)</span>
                 </div>
               </div>
             </div>
@@ -1164,23 +1108,11 @@ export default function Buttons() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Focus States</h4>
               <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring (Light)</p>
-                <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Color: color.secondary.300 (sepia.300)</span>
-                  </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Width: 2px</span>
-                  </div>
-                </div>
-              </div>
-              <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring (Dark)</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring (Light & Dark)</p>
                 <div className="flex flex-wrap gap-2">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
                     <div className="w-4 h-4 rounded-none bg-sepia-700 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Color: color.secondary.700 (sepia.700)</span>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Color: focus.ring.secondary (sepia.700, both themes)</span>
                   </div>
                   <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
                     <span className="text-sm font-mono text-[var(--text-primary)]">Ring Width: 2px</span>
@@ -1188,18 +1120,10 @@ export default function Buttons() {
                 </div>
               </div>
               <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Offset</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Placement</p>
                 <div className="flex flex-wrap gap-2">
                   <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Width: 2px</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Light): color.sepia.50 (page background)</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Dark): color.sepia.1000 (page background)</span>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Inset box-shadow inside the plate edge: no offset (the plate clip swallows outside outlines)</span>
                   </div>
                 </div>
               </div>
@@ -1225,7 +1149,7 @@ export default function Buttons() {
               <div className="flex flex-wrap gap-4 items-start">
                 {/* Default State */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-error-600 dark:bg-error-500 text-white">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-destructive-background)] text-[var(--button-destructive-text)]">
                     Destructive
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Default</span>
@@ -1233,7 +1157,7 @@ export default function Buttons() {
                 
                 {/* Hover State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-error-700 dark:bg-error-600 text-white">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-destructive-background-hover)] text-[var(--button-destructive-text)]">
                     Destructive
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Hover</span>
@@ -1242,7 +1166,7 @@ export default function Buttons() {
                 {/* Focused State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
                   <button 
-                    className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-error-600 dark:bg-error-500 text-white ring-2 ring-error-600 dark:ring-error-500 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000"
+                    className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-destructive-background)] text-[var(--button-destructive-text)] [box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-destructive)]"
                   >
                     Destructive
                   </button>
@@ -1251,7 +1175,7 @@ export default function Buttons() {
                 
                 {/* Pressed/Active State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 cursor-pointer h-10 px-5 py-2.5 bg-error-800 dark:bg-error-700 text-white">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-destructive-background-hover)] text-[var(--button-destructive-text)] brightness-95">
                     Destructive
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Pressed</span>
@@ -1259,7 +1183,7 @@ export default function Buttons() {
                 
                 {/* Disabled State - Forced */}
                 <div className="flex flex-col gap-2 items-center">
-                  <button className="inline-flex items-center justify-center font-mono text-sm rounded-button transition-colors duration-200 h-10 px-5 py-2.5 bg-error-600 dark:bg-error-500 text-white opacity-50 cursor-not-allowed">
+                  <button className="inline-flex items-center justify-center font-mono text-sm plate-round transition-colors [transition-duration:var(--duration-fast)] h-10 px-5 py-2.5 bg-[var(--button-destructive-background)] text-[var(--button-destructive-text)] opacity-50 cursor-not-allowed">
                     Destructive
                   </button>
                   <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Disabled</span>
@@ -1350,18 +1274,10 @@ export default function Buttons() {
                 </div>
               </div>
               <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Offset</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Placement</p>
                 <div className="flex flex-wrap gap-2">
                   <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Width: 2px</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Light): color.sepia.50 (page background)</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Dark): color.sepia.1000 (page background)</span>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Inset box-shadow inside the plate edge: no offset (the plate clip swallows outside outlines)</span>
                   </div>
                 </div>
               </div>
@@ -1404,7 +1320,7 @@ export default function Buttons() {
                   <span className="text-sm font-mono text-[var(--text-primary)]">Ring Width: focus.ring.width (2px)</span>
                 </div>
                 <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                  <span className="text-sm font-mono text-[var(--text-primary)]">Ring Offset: focus.ring.offset (2px)</span>
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Placement: inset box-shadow inside the plate edge (no offset)</span>
                 </div>
               </div>
             </div>

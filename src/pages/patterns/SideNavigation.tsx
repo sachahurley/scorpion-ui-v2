@@ -27,8 +27,8 @@ export default function SideNavigation() {
       <div className="flex flex-col gap-2 mb-10">
         <h2 className="text-2xl font-mono text-[var(--text-primary)]">Side Navigation</h2>
         <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-          Fixed sidebar navigation pattern with collapsible sections, hover states, and active state indicators. 
-          Uses secondary button styling (sepia colors) for all navigation states - providing consistent, subtle interactions throughout.
+          Fixed sidebar navigation pattern with collapsible sections, hover states, and active state indicators.
+          Rows are plates (plate-round): idle rows show secondary text, hover and active rows fill with var(--surface-muted) and flip their text to var(--accent).
         </p>
       </div>
 
@@ -50,40 +50,40 @@ export default function SideNavigation() {
           <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
             <div className="flex gap-6 items-start">
               {/* Mock sidebar preview */}
-              <div className="w-64 bg-sepia-50 dark:bg-sepia-975 rounded-button p-4 border border-sepia-200 dark:border-sepia-800">
+              <div className="w-64 bg-[var(--surface-container)] rounded-none p-4 border border-[var(--border-hairline)]">
                 <div className="space-y-2">
-                  {/* Home link - active state using secondary button styling */}
-                  <div className="flex items-center gap-3 px-3 py-2 rounded-button bg-sepia-700 text-sepia-50">
-                    <div className="w-7 h-7 bg-sepia-600 rounded"></div>
-                    <span className="text-sm font-mono font-bold">Home Page</span>
+                  {/* Home link - active state: surface.muted fill + accent text */}
+                  <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm bg-[var(--surface-muted)] text-[var(--accent)]">
+                    <div className="w-7 h-7 bg-[var(--surface-muted)] rounded-none"></div>
+                    <span>Home Page</span>
                   </div>
-                  
-                  {/* Foundation section - default state */}
-                  <div className="flex items-center gap-3 px-3 py-2 rounded-button">
-                    <div className="w-7 h-7 bg-sepia-300 dark:bg-sepia-700 rounded"></div>
-                    <span className="text-sm font-mono">Foundation</span>
+
+                  {/* Foundation section - default state: quiet secondary text */}
+                  <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm text-secondary-800 dark:text-secondary-500">
+                    <div className="w-7 h-7 bg-secondary-300 dark:bg-secondary-700 rounded-none"></div>
+                    <span>Foundation</span>
                   </div>
-                  
+
                   {/* Components section - default state */}
-                  <div className="flex items-center gap-3 px-3 py-2 rounded-button">
-                    <div className="w-7 h-7 bg-sepia-300 dark:bg-sepia-700 rounded"></div>
-                    <span className="text-sm font-mono">Components</span>
+                  <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm text-secondary-800 dark:text-secondary-500">
+                    <div className="w-7 h-7 bg-secondary-300 dark:bg-secondary-700 rounded-none"></div>
+                    <span>Components</span>
                   </div>
-                  
-                  {/* Patterns section - hover state using secondary button styling */}
-                  <div className="flex items-center gap-3 px-3 py-2 rounded-button bg-sepia-600 text-sepia-50">
-                    <div className="w-7 h-7 bg-sepia-500 rounded"></div>
-                    <span className="text-sm font-mono">Patterns</span>
+
+                  {/* Patterns section - hover state (same fill + accent as active) */}
+                  <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm bg-[var(--surface-muted)] text-[var(--accent)]">
+                    <div className="w-7 h-7 bg-[var(--surface-muted)] rounded-none"></div>
+                    <span>Patterns</span>
                   </div>
                 </div>
               </div>
-              
+
               <div className="flex-1">
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mb-2">
                   The sidebar uses a fixed-width layout (256px) with collapsible sections for organizing navigation.
                 </p>
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
-                  All navigation items use secondary button styling (sepia colors) - active pages use sepia-700 background, while hover states use sepia-600.
+                  Every row is a plate (plate-round). Idle rows sit as quiet secondary text; hover and active rows fill with var(--surface-muted) and flip their text to var(--accent). The active route simply holds the hover state.
                 </p>
               </div>
             </div>
@@ -108,36 +108,48 @@ export default function SideNavigation() {
             {/* Default State */}
             <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Default State</h4>
-              <div className="flex items-center gap-3 px-3 py-2 rounded-button bg-sepia-50 dark:bg-sepia-975 border border-sepia-200 dark:border-sepia-800">
-                <div className="w-7 h-7 bg-sepia-300 dark:bg-sepia-700 rounded"></div>
-                <span className="text-sm font-mono">Navigation Item</span>
+              <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm text-secondary-800 dark:text-secondary-500">
+                <div className="w-7 h-7 bg-secondary-300 dark:bg-secondary-700 rounded-none"></div>
+                <span>Navigation Item</span>
               </div>
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-3">
-                Neutral state with no user interaction
+                Quiet secondary text, no fill, no border
               </p>
             </div>
 
             {/* Hover State */}
             <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Hover State</h4>
-              <div className="flex items-center gap-3 px-3 py-2 rounded-button bg-sepia-600 text-sepia-50 border border-sepia-500">
-                <div className="w-7 h-7 bg-sepia-500 rounded"></div>
-                <span className="text-sm font-mono">Navigation Item</span>
+              <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm bg-[var(--surface-muted)] text-[var(--accent)]">
+                <div className="w-7 h-7 bg-[var(--surface-muted)] rounded-none"></div>
+                <span>Navigation Item</span>
               </div>
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-3">
-                Secondary button hover state with sepia-600 background
+                The plate fills with var(--surface-muted) and the text flips to var(--accent)
               </p>
             </div>
 
             {/* Active/Selected State */}
             <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Active/Selected State</h4>
-              <div className="flex items-center gap-3 px-3 py-2 rounded-button bg-sepia-700 text-sepia-50 border border-sepia-600">
-                <div className="w-7 h-7 bg-sepia-600 rounded"></div>
-                <span className="text-sm font-mono font-bold">Navigation Item</span>
+              <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm bg-[var(--surface-muted)] text-[var(--accent)]">
+                <div className="w-7 h-7 bg-[var(--surface-muted)] rounded-none"></div>
+                <span>Navigation Item</span>
               </div>
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-3">
-                Secondary button active state with sepia-700 background to indicate current page
+                The active route holds the filled + accent state (color plus fill, never color alone)
+              </p>
+            </div>
+
+            {/* Keyboard Focus State */}
+            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Keyboard Focus State</h4>
+              <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm text-secondary-800 dark:text-secondary-500 [box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]">
+                <div className="w-7 h-7 bg-secondary-300 dark:bg-secondary-700 rounded-none"></div>
+                <span>Navigation Item</span>
+              </div>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-3">
+                Inset focus ring (box-shadow) inside the plate edge: the clip swallows outside outlines
               </p>
             </div>
 
@@ -145,15 +157,15 @@ export default function SideNavigation() {
             <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Expanded Section</h4>
               <div className="space-y-1">
-                <div className="flex items-center gap-3 px-3 py-2 rounded-button bg-sepia-50 dark:bg-sepia-975 border border-sepia-200 dark:border-sepia-800">
-                  <div className="w-7 h-7 bg-sepia-300 dark:bg-sepia-700 rounded"></div>
-                  <span className="text-sm font-mono">Section</span>
+                <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm text-secondary-800 dark:text-secondary-500">
+                  <div className="w-7 h-7 bg-secondary-300 dark:bg-secondary-700 rounded-none"></div>
+                  <span>Section</span>
                   <svg className="w-4 h-4 ml-auto rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
                 <div className="ml-6 space-y-1">
-                  <div className="flex items-center gap-3 px-3 py-2 rounded-button bg-sepia-50 dark:bg-sepia-975 text-sm font-mono">
+                  <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm text-secondary-800 dark:text-secondary-500">
                     <svg className="w-7 h-7" viewBox="0 0 28 28" fill="none">
                       <path d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" stroke="currentColor" strokeWidth="2"/>
                     </svg>
@@ -176,65 +188,54 @@ export default function SideNavigation() {
       <section className="mb-10">
         <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Secondary Button Colors</h3>
+            <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Row Colors</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
-              All navigation items use secondary button styling with sepia colors - consistent across both light and dark modes
+              Hover and active rows share one recipe: a muted surface fill with accent text. Idle rows are quiet secondary text.
             </p>
           </div>
 
           <div className="space-y-6">
-            {/* Active State Colors */}
+            {/* Hover / Active State Colors */}
             <div>
-              <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Active State (Current Page)</h4>
+              <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Hover and Active State</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-12 h-12 rounded-button bg-sepia-700 border border-sepia-600"></div>
+                    <div className="w-12 h-12 rounded-none bg-[var(--surface-muted)] border border-[var(--border-hairline)]"></div>
                     <div>
-                      <p className="text-xs font-mono text-[var(--text-primary)]">color.sepia.700</p>
-                      <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">#695F4D</p>
+                      <p className="text-xs font-mono text-[var(--text-primary)]">var(--surface-muted)</p>
+                      <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Theme-aware fill</p>
                     </div>
                   </div>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background for active navigation items (both light & dark mode)</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Row fill on hover; the active route holds this fill</p>
                 </div>
-                
+
                 <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-12 h-12 rounded-button bg-sepia-50 border border-sepia-200"></div>
+                    <div className="w-12 h-12 rounded-none bg-[var(--accent)] border border-[var(--border-hairline)]"></div>
                     <div>
-                      <p className="text-xs font-mono text-[var(--text-primary)]">color.sepia.50</p>
-                      <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">#FDFCFB</p>
+                      <p className="text-xs font-mono text-[var(--text-primary)]">var(--accent)</p>
+                      <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Brand gold accent</p>
                     </div>
                   </div>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text color for active items (both light & dark mode)</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text color on hover and for the active route</p>
                 </div>
               </div>
             </div>
 
-            {/* Hover State Colors */}
+            {/* Idle State Colors */}
             <div>
-              <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Hover State</h4>
+              <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Idle State</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-12 h-12 rounded-button bg-sepia-600 border border-sepia-500"></div>
+                    <div className="w-12 h-12 rounded-none bg-secondary-800 dark:bg-secondary-500 border border-[var(--border-hairline)]"></div>
                     <div>
-                      <p className="text-xs font-mono text-[var(--text-primary)]">color.sepia.600</p>
-                      <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">#968A75</p>
+                      <p className="text-xs font-mono text-[var(--text-primary)]">secondary-800 / secondary-500</p>
+                      <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Light / dark text</p>
                     </div>
                   </div>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background on hover (both light & dark mode)</p>
-                </div>
-                
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-12 h-12 rounded-button bg-sepia-50 border border-sepia-200"></div>
-                    <div>
-                      <p className="text-xs font-mono text-[var(--text-primary)]">color.sepia.50</p>
-                      <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">#FDFCFB</p>
-                    </div>
-                  </div>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text color on hover (both light & dark mode)</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Idle row text; no fill and no border until interaction</p>
                 </div>
               </div>
             </div>
@@ -259,7 +260,7 @@ export default function SideNavigation() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-12 h-12 rounded-button bg-sepia-50 border border-sepia-200"></div>
+                  <div className="w-12 h-12 rounded-none bg-sepia-50 border border-sepia-200"></div>
                   <div>
                     <p className="text-xs font-mono text-[var(--text-primary)]">Light Mode Container</p>
                     <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">color.sepia.50 (#FDFCFB)</p>
@@ -270,7 +271,7 @@ export default function SideNavigation() {
 
               <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-12 h-12 rounded-button bg-sepia-975 border border-sepia-900"></div>
+                  <div className="w-12 h-12 rounded-none bg-sepia-975 border border-sepia-900"></div>
                   <div>
                     <p className="text-xs font-mono text-[var(--text-primary)]">Dark Mode Container</p>
                     <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">color.sepia.975 (#120D09)</p>
@@ -303,7 +304,7 @@ export default function SideNavigation() {
               <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Font Family: font.family.mono (Fragment Mono)</p>
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Font Size: font.size.sm (14px)</p>
-                <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Font Weight: 400 (regular) / 500 (active state)</p>
+                <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Font Weight: 400 (all states; active is color plus fill, never weight)</p>
               </div>
             </div>
 
@@ -339,8 +340,8 @@ export default function SideNavigation() {
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Border & Layout</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
-                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Radius</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">radius.button (12px) - for navigation items</p>
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Shape</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">plate-round (stepped clip-path) for navigation items; radius utilities retired</p>
                 </div>
                 
                 <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
@@ -379,7 +380,7 @@ export default function SideNavigation() {
           <div className="space-y-4">
             {/* Active State Code */}
             <div>
-              <h4 className="text-xs font-mono text-[var(--text-primary)] mb-2">Active Navigation Item (Secondary Button Style)</h4>
+              <h4 className="text-xs font-mono text-[var(--text-primary)] mb-2">Active Navigation Item (Plate Row)</h4>
               <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-secondary-950 dark:bg-black">
                 <code className="text-xs font-mono text-[var(--accent)]">
                   <span className="text-secondary-400">className=</span>
@@ -387,11 +388,11 @@ export default function SideNavigation() {
                   <br />
                   <span className="ml-4 text-green-400">flex items-center gap-3</span>
                   <br />
-                  <span className="ml-4 text-green-400">px-3 py-2 rounded-button</span>
+                  <span className="ml-4 text-green-400">px-3 py-2 plate-round font-mono text-sm</span>
                   <br />
-                  <span className="ml-4 text-[var(--accent)]">bg-sepia-700 text-sepia-50</span>
+                  <span className="ml-4 text-[var(--accent)]">bg-[var(--surface-muted)] text-[var(--accent)]</span>
                   <br />
-                  <span className="ml-4 text-blue-300">font-bold transition-colors</span>
+                  <span className="ml-4 text-blue-300">transition-colors [transition-duration:var(--duration-fast)]</span>
                   <br />
                   <span className="text-green-400">"</span>
                 </code>
@@ -400,7 +401,7 @@ export default function SideNavigation() {
 
             {/* Hover State Code */}
             <div>
-              <h4 className="text-xs font-mono text-[var(--text-primary)] mb-2">Default/Hover Navigation Item (Secondary Button Style)</h4>
+              <h4 className="text-xs font-mono text-[var(--text-primary)] mb-2">Default/Hover Navigation Item (Plate Row)</h4>
               <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-secondary-950 dark:bg-black">
                 <code className="text-xs font-mono text-[var(--accent)]">
                   <span className="text-secondary-400">className=</span>
@@ -408,11 +409,15 @@ export default function SideNavigation() {
                   <br />
                   <span className="ml-4 text-green-400">flex items-center gap-3</span>
                   <br />
-                  <span className="ml-4 text-green-400">px-3 py-2 rounded-button</span>
+                  <span className="ml-4 text-green-400">px-3 py-2 plate-round font-mono text-sm</span>
                   <br />
-                  <span className="ml-4 text-purple-300">hover:bg-sepia-600 hover:text-sepia-50</span>
+                  <span className="ml-4 text-green-400">text-secondary-800 dark:text-secondary-500</span>
                   <br />
-                  <span className="ml-4 text-blue-300">transition-colors</span>
+                  <span className="ml-4 text-purple-300">hover:bg-[var(--surface-muted)] hover:text-[var(--accent)]</span>
+                  <br />
+                  <span className="ml-4 text-blue-300">focus:outline-none focus-visible:[box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]</span>
+                  <br />
+                  <span className="ml-4 text-blue-300">transition-colors [transition-duration:var(--duration-fast)]</span>
                   <br />
                   <span className="text-green-400">"</span>
                 </code>
@@ -439,14 +444,14 @@ export default function SideNavigation() {
             <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
               <p className="text-xs font-mono text-[var(--text-primary)] mb-2">✓ Always indicate the active page</p>
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
-                Use the secondary button active state (sepia-700 background) to highlight which page the user is currently on. This provides crucial wayfinding.
+                Hold the filled state (var(--surface-muted) background with var(--accent) text) on the current page's row. This provides crucial wayfinding.
               </p>
             </div>
 
             <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
-              <p className="text-xs font-mono text-[var(--text-primary)] mb-2">✓ Use consistent button styling</p>
+              <p className="text-xs font-mono text-[var(--text-primary)] mb-2">✓ Use consistent row styling</p>
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
-                Navigation uses secondary button styling throughout - sepia-700 for active, sepia-600 for hover. This creates consistency with your button components.
+                Every row shares one plate recipe: quiet secondary text when idle, var(--surface-muted) fill with var(--accent) text on hover and for the active route. This keeps navigation consistent with the rest of the plate language.
               </p>
             </div>
 

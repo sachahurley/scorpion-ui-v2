@@ -123,7 +123,7 @@ export default function Animations() {
                 <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                   <div className="relative h-16">
                     <div 
-                      className={`absolute top-0 w-16 h-16 bg-primary-400 rounded-button transition-all ${isAnimating ? 'left-[calc(100%-4rem)]' : 'left-0'}`}
+                      className={`absolute top-0 w-16 h-16 bg-primary-400 rounded-none transition-all ${isAnimating ? 'left-[calc(100%-4rem)]' : 'left-0'}`}
                       style={{ 
                         transitionDuration: '150ms',
                         transitionTimingFunction: easing.css

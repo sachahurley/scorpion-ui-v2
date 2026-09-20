@@ -18,6 +18,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Dropdown } from "@/components/ui/Dropdown";
+import { Textarea } from "@/components/ui/Textarea";
 import { Switch } from "@/components/ui/Switch";
 import { TuiIcon } from "@/components/ui/TuiIcon";
 
@@ -516,12 +517,12 @@ export default function Cards() {
                 <label htmlFor="profile-bio" className="block text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-2">
                   Bio
                 </label>
-                <textarea
+                <Textarea
                   id="profile-bio"
                   value={profileBio}
                   onChange={(e) => setProfileBio(e.target.value)}
                   rows={3}
-                  className="w-full px-4 py-2.5 rounded-none border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-975 text-sepia-900 dark:text-sepia-50 font-mono text-sm placeholder:text-sepia-400 dark:placeholder:text-sepia-600 focus:outline-none focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-sepia-50 dark:focus:ring-offset-sepia-1000 transition-all duration-200"
+                  size="medium"
                   placeholder="Tell us about yourself..."
                 />
               </div>
@@ -797,12 +798,12 @@ export default function Cards() {
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">var(--surface-card)</p>
                 </div>
                 <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
-                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Radius</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">24px (rounded-none)</p>
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Shape</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Plate ring: plate-round-lg outer stroke layer, inner fill inset 1px (p-px)</p>
                 </div>
                 <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
-                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0.5px solid sepia-500/800</p>
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Stroke</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">1px var(--surface-container-stroke) via the outer plate layer</p>
                 </div>
                 <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Padding</p>
@@ -825,7 +826,7 @@ export default function Cards() {
                 </div>
                 <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Bottom</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0.5px solid sepia-500/800</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0.5px solid var(--surface-container-stroke)</p>
                 </div>
               </div>
             </div>
@@ -836,11 +837,11 @@ export default function Cards() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Background</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">sepia-50 / sepia-975</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">var(--surface-subtle)</p>
                 </div>
                 <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Top</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0.5px solid sepia-500/800</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0.5px solid var(--surface-container-stroke)</p>
                 </div>
               </div>
             </div>
