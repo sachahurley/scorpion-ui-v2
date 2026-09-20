@@ -86,60 +86,70 @@ export default function Inputs() {
             <div className="space-y-4">
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All interaction states:</p>
               
-              {/* Default State */}
+              {/* Default State - plate ring: wrapper = idle border color, control = fill inset 1px */}
               <div className="space-y-2">
                 <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Default</span>
-                <input 
-                  className="w-full font-mono text-sm rounded-button border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-975 text-sepia-900 dark:text-sepia-50 h-10 px-4 py-2.5 placeholder:text-sepia-400 dark:placeholder:text-sepia-600"
-                  placeholder="Enter text..."
-                  value=""
-                  readOnly
-                />
+                <div className="w-full plate-round p-px bg-[var(--field-border)]">
+                  <input
+                    className="w-full font-mono text-sm plate-round bg-[var(--field-background)] text-[var(--text-primary)] h-10 px-4 py-2.5 placeholder:text-[var(--field-placeholder)] focus:outline-none"
+                    placeholder="Enter text..."
+                    value=""
+                    readOnly
+                  />
+                </div>
               </div>
-              
-              {/* Hover State - Forced */}
+
+              {/* Hover State - Forced: ring walks to --field-border-hover */}
               <div className="space-y-2">
                 <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Hover</span>
-                <input 
-                  className="w-full font-mono text-sm rounded-button border border-sepia-400 dark:border-sepia-600 bg-white dark:bg-sepia-975 text-sepia-900 dark:text-sepia-50 h-10 px-4 py-2.5 placeholder:text-sepia-400 dark:placeholder:text-sepia-600"
-                  placeholder="Enter text..."
-                  value=""
-                  readOnly
-                />
+                <div className="w-full plate-round p-px bg-[var(--field-border-hover)]">
+                  <input
+                    className="w-full font-mono text-sm plate-round bg-[var(--field-background)] text-[var(--text-primary)] h-10 px-4 py-2.5 placeholder:text-[var(--field-placeholder)] focus:outline-none"
+                    placeholder="Enter text..."
+                    value=""
+                    readOnly
+                  />
+                </div>
               </div>
-              
-              {/* Focused State - Forced with focus ring */}
+
+              {/* Focused State - Forced: ring walks to --field-border-focus (no outside ring, the plate clip swallows it) */}
               <div className="space-y-2">
                 <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Focused</span>
-                <input 
-                  className="w-full font-mono text-sm rounded-button border border-primary-400 dark:border-primary-400 bg-white dark:bg-sepia-975 text-sepia-900 dark:text-sepia-50 h-10 px-4 py-2.5 ring-2 ring-primary-400 dark:ring-primary-400 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000 placeholder:text-sepia-400 dark:placeholder:text-sepia-600"
-                  placeholder="Enter text..."
-                  value=""
-                  readOnly
-                />
+                <div className="w-full plate-round p-px bg-[var(--field-border-focus)]">
+                  <input
+                    className="w-full font-mono text-sm plate-round bg-[var(--field-background)] text-[var(--text-primary)] h-10 px-4 py-2.5 placeholder:text-[var(--field-placeholder)] focus:outline-none"
+                    placeholder="Enter text..."
+                    value=""
+                    readOnly
+                  />
+                </div>
               </div>
-              
+
               {/* Disabled State - Forced */}
               <div className="space-y-2">
                 <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Disabled</span>
-                <input 
-                  className="w-full font-mono text-sm rounded-button border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-975 text-sepia-900 dark:text-sepia-50 h-10 px-4 py-2.5 opacity-50 cursor-not-allowed placeholder:text-sepia-400 dark:placeholder:text-sepia-600"
-                  placeholder="Enter text..."
-                  disabled
-                  value=""
-                  readOnly
-                />
+                <div className="w-full plate-round p-px bg-[var(--field-border)]">
+                  <input
+                    className="w-full font-mono text-sm plate-round bg-[var(--field-background)] text-[var(--text-primary)] h-10 px-4 py-2.5 opacity-50 cursor-not-allowed placeholder:text-[var(--field-placeholder)] focus:outline-none"
+                    placeholder="Enter text..."
+                    disabled
+                    value=""
+                    readOnly
+                  />
+                </div>
               </div>
-              
-              {/* Error State - Forced */}
+
+              {/* Error State - Forced: red ring + tinted fill */}
               <div className="space-y-2">
                 <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Error</span>
-                <input 
-                  className="w-full font-mono text-sm rounded-button border border-error-600 dark:border-error-500 bg-error-50 dark:bg-error-950/20 text-sepia-900 dark:text-sepia-50 h-10 px-4 py-2.5 placeholder:text-sepia-400 dark:placeholder:text-sepia-600"
-                  placeholder="Enter text..."
-                  value=""
-                  readOnly
-                />
+                <div className="w-full plate-round p-px bg-[var(--field-border-error)]">
+                  <input
+                    className="w-full font-mono text-sm plate-round bg-[var(--field-background-error)] text-[var(--text-primary)] h-10 px-4 py-2.5 placeholder:text-[var(--field-placeholder)] focus:outline-none"
+                    placeholder="Enter text..."
+                    value=""
+                    readOnly
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -444,7 +454,7 @@ export default function Inputs() {
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Border</h4>
               <div className="flex flex-wrap gap-2">
                 <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                  <span className="text-sm font-mono text-[var(--text-primary)]">Border Radius: radius.button (12px)</span>
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Shape: plate-round (stepped clip-path, radius utilities retired)</span>
                 </div>
                 <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
                   <span className="text-sm font-mono text-[var(--text-primary)]">Border Width: 1px</span>
@@ -456,30 +466,24 @@ export default function Inputs() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Focus States</h4>
               <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring (Light & Dark)</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Border Ramp</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Color: color.primary.400 (amber.400)</span>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Idle: var(--field-border)</span>
                   </div>
                   <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Ring Width: 2px</span>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Hover: var(--field-border-hover)</span>
+                  </div>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Focus: var(--field-border-focus)</span>
                   </div>
                 </div>
               </div>
               <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Offset</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Ring Placement</p>
                 <div className="flex flex-wrap gap-2">
                   <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Width: 2px</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Light): color.sepia.50 (page background)</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-1000 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Offset Color (Dark): color.sepia.1000 (page background)</span>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">The plate ring itself is the focus indicator: the wrapper layer swaps to var(--field-border-focus), no outside ring or offset (the plate clip swallows outside outlines)</span>
                   </div>
                 </div>
               </div>

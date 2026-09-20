@@ -80,65 +80,75 @@ export default function Textareas() {
             <div className="space-y-4">
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All interaction states:</p>
               
-              {/* Default State */}
+              {/* Default State - plate ring: wrapper = idle border color, control = fill inset 1px */}
               <div className="space-y-2">
                 <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Default</span>
-                <textarea 
-                  className="w-full font-mono text-sm rounded-none border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-975 text-sepia-900 dark:text-sepia-50 min-h-10 px-4 py-2.5 placeholder:text-sepia-400 dark:placeholder:text-sepia-600 resize-y"
-                  placeholder="Enter text..."
-                  rows={3}
-                  value=""
-                  readOnly
-                />
+                <div className="w-full plate-round p-px bg-[var(--field-border)]">
+                  <textarea
+                    className="w-full font-mono text-sm plate-round bg-[var(--field-background)] text-[var(--text-primary)] min-h-10 px-4 py-2.5 placeholder:text-[var(--field-placeholder)] focus:outline-none resize-y"
+                    placeholder="Enter text..."
+                    rows={3}
+                    value=""
+                    readOnly
+                  />
+                </div>
               </div>
-              
-              {/* Hover State - Forced */}
+
+              {/* Hover State - Forced: ring walks to --field-border-hover */}
               <div className="space-y-2">
                 <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Hover</span>
-                <textarea 
-                  className="w-full font-mono text-sm rounded-none border border-sepia-400 dark:border-sepia-600 bg-white dark:bg-sepia-975 text-sepia-900 dark:text-sepia-50 min-h-10 px-4 py-2.5 placeholder:text-sepia-400 dark:placeholder:text-sepia-600 resize-y"
-                  placeholder="Enter text..."
-                  rows={3}
-                  value=""
-                  readOnly
-                />
+                <div className="w-full plate-round p-px bg-[var(--field-border-hover)]">
+                  <textarea
+                    className="w-full font-mono text-sm plate-round bg-[var(--field-background)] text-[var(--text-primary)] min-h-10 px-4 py-2.5 placeholder:text-[var(--field-placeholder)] focus:outline-none resize-y"
+                    placeholder="Enter text..."
+                    rows={3}
+                    value=""
+                    readOnly
+                  />
+                </div>
               </div>
-              
-              {/* Focused State - Forced with focus ring */}
+
+              {/* Focused State - Forced: ring walks to --field-border-focus (no outside ring, the plate clip swallows it) */}
               <div className="space-y-2">
                 <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Focused</span>
-                <textarea 
-                  className="w-full font-mono text-sm rounded-none border border-primary-400 dark:border-primary-400 bg-white dark:bg-sepia-975 text-sepia-900 dark:text-sepia-50 min-h-10 px-4 py-2.5 ring-2 ring-primary-400 dark:ring-primary-400 ring-offset-2 ring-offset-sepia-50 dark:ring-offset-sepia-1000 placeholder:text-sepia-400 dark:placeholder:text-sepia-600 resize-y"
-                  placeholder="Enter text..."
-                  rows={3}
-                  value=""
-                  readOnly
-                />
+                <div className="w-full plate-round p-px bg-[var(--field-border-focus)]">
+                  <textarea
+                    className="w-full font-mono text-sm plate-round bg-[var(--field-background)] text-[var(--text-primary)] min-h-10 px-4 py-2.5 placeholder:text-[var(--field-placeholder)] focus:outline-none resize-y"
+                    placeholder="Enter text..."
+                    rows={3}
+                    value=""
+                    readOnly
+                  />
+                </div>
               </div>
-              
+
               {/* Disabled State - Forced */}
               <div className="space-y-2">
                 <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Disabled</span>
-                <textarea 
-                  className="w-full font-mono text-sm rounded-none border border-sepia-300 dark:border-sepia-700 bg-white dark:bg-sepia-975 text-sepia-900 dark:text-sepia-50 min-h-10 px-4 py-2.5 opacity-50 cursor-not-allowed placeholder:text-sepia-400 dark:placeholder:text-sepia-600 resize-y"
-                  placeholder="Enter text..."
-                  rows={3}
-                  disabled
-                  value=""
-                  readOnly
-                />
+                <div className="w-full plate-round p-px bg-[var(--field-border)]">
+                  <textarea
+                    className="w-full font-mono text-sm plate-round bg-[var(--field-background)] text-[var(--text-primary)] min-h-10 px-4 py-2.5 opacity-50 cursor-not-allowed placeholder:text-[var(--field-placeholder)] focus:outline-none resize-y"
+                    placeholder="Enter text..."
+                    rows={3}
+                    disabled
+                    value=""
+                    readOnly
+                  />
+                </div>
               </div>
-              
-              {/* Error State - Forced */}
+
+              {/* Error State - Forced: red ring + tinted fill */}
               <div className="space-y-2">
                 <span className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Error</span>
-                <textarea 
-                  className="w-full font-mono text-sm rounded-none border border-error-600 dark:border-error-500 bg-error-50 dark:bg-error-950/20 text-sepia-900 dark:text-sepia-50 min-h-10 px-4 py-2.5 placeholder:text-sepia-400 dark:placeholder:text-sepia-600 resize-y"
-                  placeholder="Enter text..."
-                  rows={3}
-                  value=""
-                  readOnly
-                />
+                <div className="w-full plate-round p-px bg-[var(--field-border-error)]">
+                  <textarea
+                    className="w-full font-mono text-sm plate-round bg-[var(--field-background-error)] text-[var(--text-primary)] min-h-10 px-4 py-2.5 placeholder:text-[var(--field-placeholder)] focus:outline-none resize-y"
+                    placeholder="Enter text..."
+                    rows={3}
+                    value=""
+                    readOnly
+                  />
+                </div>
               </div>
             </div>
           </div>

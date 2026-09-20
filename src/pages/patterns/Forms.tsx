@@ -1,350 +1,222 @@
 /**
- * SELECTS DOCUMENTATION PAGE
- * 
- * Comprehensive documentation for select dropdown components
- * Shows all sizes, states, and their corresponding design tokens
- * 
+ * FORMS PATTERN DOCUMENTATION PAGE
+ *
+ * How the field components compose into a full form.
+ *
  * Structure:
  * 1. Page header (title + description)
- * 2. Sizes section (small, medium, large)
- * 3. States section (default, hover, focused, disabled, error)
- * 4. With Labels section (proper form structure)
- * 5. Detailed token breakdown for selects
+ * 2. Account settings specimen: every field component working together
+ * 3. Layout guidance (labels, widths, button alignment)
+ * 4. Implementation example (one label + field pairing)
  */
 
+import { useState } from "react";
+import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
-import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Textarea } from "@/components/ui/Textarea";
+import { Radio } from "@/components/ui/Radio";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Switch } from "@/components/ui/Switch";
+import { Button } from "@/components/ui/Button";
 
-export default function Selects() {
+export default function Forms() {
+  // Specimen state: the error field stays in error until it has a value,
+  // the switch is a controlled toggle.
+  const [displayName, setDisplayName] = useState("");
+  const [publicProfile, setPublicProfile] = useState(true);
+
   return (
     <div className="container mx-auto px-5 lg:px-10 pt-5 lg:pt-10 pb-5 lg:pb-20">
-      {/* 
-        PAGE HEADER SECTION
-        Matches the style from Inputs.tsx
-      */}
+      {/* PAGE HEADER SECTION */}
       <div className="flex flex-col gap-2 mb-10">
-        <h2 className="text-2xl font-mono text-[var(--text-primary)]">Selects</h2>
+        <h2 className="text-2xl font-mono text-[var(--text-primary)]">Forms</h2>
         <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-          Dropdown select components with multiple sizes matching input heights. All selects use Fragment Mono at 14px and include hover, focus, disabled, and error states.
+          Composing inputs, selects, radios, checkboxes, switches, and textareas into complete forms. Every control shares the plate field recipe: idle hairline, hover, then the accent focus ring.
         </p>
       </div>
 
-      {/* 
-        SIZES SECTION
-        Shows three size variations
-        Small: 32px height, Medium: 40px height (default), Large: 48px height
+      {/*
+        ACCOUNT SETTINGS SPECIMEN
+        A complete form built from the real field components
       */}
       <section className="mb-10">
         <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Account Settings Specimen</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              Three size options matching input heights (32px, 40px, 48px) with consistent text size (14px Fragment Mono)
+              Text input, error state, select, radio group, checkbox group, switch, textarea, and the button row, all composed with real components.
             </p>
           </div>
-          
-          {/* Size comparison - all selects aligned */}
+
+          <div className="p-4 lg:p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <form className="max-w-md space-y-6" onSubmit={(e) => e.preventDefault()}>
+              {/* Display name: demonstrates the error state until filled */}
+              <div>
+                <Input
+                  label="Display name"
+                  placeholder="How you appear to others"
+                  value={displayName}
+                  onChange={(e) => setDisplayName(e.target.value)}
+                  error={displayName === ""}
+                  size="medium"
+                />
+                {displayName === "" && (
+                  <p className="mt-1 text-xs font-mono text-error-600 dark:text-error-500">
+                    Display name is required
+                  </p>
+                )}
+              </div>
+
+              {/* Email */}
+              <Input
+                label="Email"
+                type="email"
+                placeholder="you@example.com"
+                size="medium"
+              />
+
+              {/* Timezone select */}
+              <Select label="Timezone" size="medium" defaultValue="pt">
+                <option value="pt">Pacific Time (UTC-8)</option>
+                <option value="mt">Mountain Time (UTC-7)</option>
+                <option value="ct">Central Time (UTC-6)</option>
+                <option value="et">Eastern Time (UTC-5)</option>
+              </Select>
+
+              {/* Theme radio group */}
+              <fieldset>
+                <legend className="block font-mono text-sm text-secondary-800 dark:text-secondary-200 mb-2">
+                  Theme
+                </legend>
+                <div className="space-y-2">
+                  <Radio name="forms-theme" value="system" label="Match system" defaultChecked />
+                  <Radio name="forms-theme" value="light" label="Light" />
+                  <Radio name="forms-theme" value="dark" label="Dark" />
+                </div>
+              </fieldset>
+
+              {/* Notifications checkbox group */}
+              <fieldset>
+                <legend className="block font-mono text-sm text-secondary-800 dark:text-secondary-200 mb-2">
+                  Email notifications
+                </legend>
+                <div className="space-y-2">
+                  <Checkbox label="Product updates" defaultChecked />
+                  <Checkbox label="Weekly digest" defaultChecked />
+                  <Checkbox label="Marketing and promotions" />
+                </div>
+              </fieldset>
+
+              {/* Public profile switch */}
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="font-mono text-sm text-[var(--text-primary)]">Public profile</p>
+                  <p className="font-mono text-xs text-secondary-700 dark:text-secondary-600">
+                    Anyone can view your profile page
+                  </p>
+                </div>
+                <Switch
+                  checked={publicProfile}
+                  onCheckedChange={setPublicProfile}
+                  size="medium"
+                  label="Toggle public profile"
+                />
+              </div>
+
+              {/* Bio textarea */}
+              <Textarea
+                label="Bio"
+                placeholder="A short introduction..."
+                rows={4}
+                size="medium"
+              />
+
+              {/* Button row: primary action right, quiet action beside it */}
+              <div className="flex justify-end gap-3 pt-2">
+                <Button variant="ghost" size="medium" type="button">
+                  Cancel
+                </Button>
+                <Button variant="primary" size="medium" type="submit">
+                  Save changes
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/*
+        LAYOUT GUIDANCE SECTION
+        Brief rules for composing forms
+      */}
+      <section className="mb-10">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+          <div className="mb-6">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Layout Guidance</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
+              Conventions that keep forms scannable and predictable
+            </p>
+          </div>
+
           <div className="space-y-4">
-            <div className="flex flex-col gap-2">
-              <Select size="large">
-                <option value="">Large select (48px)</option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-              </Select>
-              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Height: 48px</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <Select size="medium">
-                <option value="">Medium select (40px)</option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-              </Select>
-              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Height: 40px (default)</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <Select size="small">
-                <option value="">Small select (32px)</option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-              </Select>
-              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Height: 32px</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 
-        STATES SECTION
-        Shows all interaction states side by side
-        Default, Hover, Focused, Disabled, Error
-      */}
-      <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
-          <div className="mb-6">
-            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">States</h3>
-            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              All interaction states with visual feedback for user actions
-            </p>
-          </div>
-          
-          {/* Interactive Examples */}
-          <div>
-            <h4 className="text-sm font-mono text-[var(--text-primary)] mb-4">Try It Yourself</h4>
-            <div className="space-y-4">
-              {/* Default State */}
-              <div className="space-y-2">
-                <label htmlFor="select-default" className="block text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">
-                  Default
-                </label>
-                <Select id="select-default">
-                  <option value="">Choose an option...</option>
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
-                </Select>
-              </div>
-
-              {/* Disabled State */}
-              <div className="space-y-2">
-                <label htmlFor="select-disabled" className="block text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">
-                  Disabled
-                </label>
-                <Select id="select-disabled" disabled>
-                  <option value="">This field is disabled</option>
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                </Select>
-              </div>
-
-              {/* Error State with Message */}
-              <div className="space-y-2">
-                <label htmlFor="select-error" className="block text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">
-                  Country
-                </label>
-                <Select id="select-error" error>
-                  <option value="">Select a country</option>
-                  <option value="us">United States</option>
-                  <option value="uk">United Kingdom</option>
-                  <option value="ca">Canada</option>
-                </Select>
-                <p className="text-xs font-mono text-error-600 dark:text-error-500 flex items-center gap-1">
-                  <TuiIcon name="AlertCircle" size="3" />
-                  Please select a country
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 
-        WITH LABELS SECTION
-        Proper form structure with labels
-      */}
-      <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
-          <div className="mb-6">
-            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Labels</h3>
-            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              Proper form structure with labels, helper text, and error messages
-            </p>
-          </div>
-          
-          <div className="space-y-6">
-            {/* Basic Select with Label */}
-            <div className="space-y-2">
-              <label htmlFor="country" className="block text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">
-                Country
-              </label>
-              <Select id="country">
-                <option value="">Select a country</option>
-                <option value="us">United States</option>
-                <option value="uk">United Kingdom</option>
-                <option value="ca">Canada</option>
-                <option value="au">Australia</option>
-              </Select>
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
-                Select your country of residence
+            <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Label placement</p>
+              <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
+                Labels sit above their field, left-aligned, in the small mono size. Radio and checkbox groups get a legend in the same style, with the options stacked below it. Never rely on placeholder text as the only label.
               </p>
             </div>
 
-            {/* Required Field */}
-            <div className="space-y-2">
-              <label htmlFor="language" className="block text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 relative">
-                <span className="text-error-600 dark:text-error-500 absolute -left-[12px]">*</span> Language
-              </label>
-              <Select id="language" required>
-                <option value="">Select a language</option>
-                <option value="en">English</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-                <option value="de">German</option>
-              </Select>
+            <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Field widths</p>
+              <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
+                Fields fill their column, and the column is capped (max-w-md here) so single-column forms stay readable. Keep one column unless fields are tightly related, such as city and postal code.
+              </p>
+            </div>
+
+            <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Button alignment</p>
+              <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
+                The primary action sits at the end of the row (right-aligned), with the quiet ghost action beside it. One primary button per form; error text renders directly under the field it belongs to.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 
-        USE CASES SECTION
-        Common select use cases
+      {/*
+        IMPLEMENTATION EXAMPLE SECTION
+        One label + field pairing printed as code
       */}
       <section className="mb-10">
         <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Use Cases</h3>
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Implementation Example</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              Common patterns for using select dropdowns in forms
+              A labelled field with an error message. The label prop wires htmlFor and id automatically.
             </p>
           </div>
-          
-          <div className="space-y-6">
-            {/* Form with Multiple Selects */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">User Profile</h4>
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <label htmlFor="timezone" className="block text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">
-                    Timezone
-                  </label>
-                  <Select id="timezone">
-                    <option value="">Select timezone</option>
-                    <option value="est">Eastern Time (EST)</option>
-                    <option value="cst">Central Time (CST)</option>
-                    <option value="mst">Mountain Time (MST)</option>
-                    <option value="pst">Pacific Time (PST)</option>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="currency" className="block text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">
-                    Currency
-                  </label>
-                  <Select id="currency">
-                    <option value="">Select currency</option>
-                    <option value="usd">USD ($)</option>
-                    <option value="eur">EUR (€)</option>
-                    <option value="gbp">GBP (£)</option>
-                    <option value="jpy">JPY (¥)</option>
-                  </Select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* 
-        TOKEN BREAKDOWN SECTION
-        Documentation of design tokens used in selects
-      */}
-      <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
-          <div className="mb-6">
-            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Select Token Breakdown</h3>
-            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              Complete documentation of all design tokens used in select components. Tokens match Input component for consistency.
-            </p>
-          </div>
-          
-          <div className="space-y-6">
-            {/* Colors Section */}
-            <div>
-              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Colors</h4>
-              
-              {/* Border Colors */}
-              <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Border</p>
-                <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Default (Light): color.sepia.300</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Default (Dark): color.sepia.700</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Focus: color.primary.400</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Error State Colors */}
-              <div className="mb-3">
-                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Error State</p>
-                <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-red-600 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Border (Light): color.error.600</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                    <div className="w-4 h-4 rounded-none bg-red-500 border border-secondary-300 dark:border-secondary-600"></div>
-                    <span className="text-sm font-mono text-[var(--text-primary)]">Border (Dark): color.error.500</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Typography Section */}
-            <div>
-              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Typography</h4>
-              <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                  <span className="text-sm font-mono text-[var(--text-primary)]">Font Family: <span className="font-mono">Fragment Mono</span></span>
-                </div>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                  <span className="text-sm font-mono text-[var(--text-primary)]">Font Size: <span className="text-sm">14px</span></span>
-                </div>
-              </div>
-            </div>
-
-            {/* Spacing Section */}
-            <div>
-              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Spacing</h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                {/* Small */}
-                <div>
-                  <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Small</p>
-                  <div className="flex flex-wrap gap-2">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                      <span className="text-sm font-mono text-[var(--text-primary)]">Height: 32px</span>
-                    </div>
-                    <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                      <span className="text-sm font-mono text-[var(--text-primary)]">Padding X: 12px</span>
-                    </div>
-                  </div>
-                </div>
-                {/* Medium */}
-                <div>
-                  <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Medium (Default)</p>
-                  <div className="flex flex-wrap gap-2">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                      <span className="text-sm font-mono text-[var(--text-primary)]">Height: 40px</span>
-                    </div>
-                    <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                      <span className="text-sm font-mono text-[var(--text-primary)]">Padding X: 16px</span>
-                    </div>
-                  </div>
-                </div>
-                {/* Large */}
-                <div>
-                  <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Large</p>
-                  <div className="flex flex-wrap gap-2">
-                    <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                      <span className="text-sm font-mono text-[var(--text-primary)]">Height: 48px</span>
-                    </div>
-                    <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
-                      <span className="text-sm font-mono text-[var(--text-primary)]">Padding X: 20px</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-secondary-950">
+            <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
+{`<div>
+  <Input
+    label="Display name"
+    placeholder="How you appear to others"
+    value={displayName}
+    onChange={(e) => setDisplayName(e.target.value)}
+    error={displayName === ""}
+    size="medium"
+  />
+  {displayName === "" && (
+    <p className="mt-1 text-xs font-mono text-error-600 dark:text-error-500">
+      Display name is required
+    </p>
+  )}
+</div>`}
+            </pre>
           </div>
         </div>
       </section>
     </div>
   );
 }
-
