@@ -11,18 +11,18 @@ export default function Dividers() {
     <div className="container mx-auto px-5 lg:px-10 pt-5 lg:pt-10 pb-5 lg:pb-20">
       {/* Page Header */}
       <div className="flex flex-col gap-2 mb-10">
-        <h2 className="text-2xl font-mono text-sepia-900 dark:text-sepia-50">Dividers</h2>
-        <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+        <h2 className="text-2xl font-mono text-[var(--text-primary)]">Dividers</h2>
+        <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
           Divider and separator components for visual separation. Supports horizontal, vertical, and text-labeled variants.
         </p>
       </div>
 
       {/* Variants Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Variants</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Variants</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Three divider styles for different use cases
             </p>
           </div>
@@ -30,13 +30,13 @@ export default function Dividers() {
           <div className="space-y-8">
             {/* Horizontal */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Horizontal</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Horizontal</h4>
               <Divider variant="horizontal" spacing="medium" />
             </div>
 
             {/* Vertical */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Vertical</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Vertical</h4>
               <div className="flex items-center gap-4 h-20">
                 <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Left</span>
                 <Divider variant="vertical" spacing="none" className="h-full" />
@@ -46,7 +46,7 @@ export default function Dividers() {
 
             {/* With Text */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">With Text Label</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">With Text Label</h4>
               <Divider variant="withText" text="OR" spacing="medium" />
             </div>
           </div>
@@ -55,17 +55,17 @@ export default function Dividers() {
 
       {/* Spacing Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Spacing Options</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Spacing Options</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Control vertical or horizontal spacing around dividers
             </p>
           </div>
           
           <div className="space-y-6">
             <div>
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mb-2">None (0px margin)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mb-2">None (0px margin)</p>
               <div className="bg-sepia-100 dark:bg-sepia-900 p-4 rounded-none">
                 <div className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Content above</div>
                 <Divider variant="horizontal" spacing="none" />
@@ -74,7 +74,7 @@ export default function Dividers() {
             </div>
 
             <div>
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mb-2">Small (4px margin)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mb-2">Small (4px margin)</p>
               <div className="bg-sepia-100 dark:bg-sepia-900 p-4 rounded-none">
                 <div className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Content above</div>
                 <Divider variant="horizontal" spacing="small" />
@@ -83,7 +83,7 @@ export default function Dividers() {
             </div>
 
             <div>
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mb-2">Medium (16px margin)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mb-2">Medium (16px margin)</p>
               <div className="bg-sepia-100 dark:bg-sepia-900 p-4 rounded-none">
                 <div className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Content above</div>
                 <Divider variant="horizontal" spacing="medium" />
@@ -92,7 +92,7 @@ export default function Dividers() {
             </div>
 
             <div>
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400 mb-2">Large (32px margin)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mb-2">Large (32px margin)</p>
               <div className="bg-sepia-100 dark:bg-sepia-900 p-4 rounded-none">
                 <div className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Content above</div>
                 <Divider variant="horizontal" spacing="large" />
@@ -105,10 +105,10 @@ export default function Dividers() {
 
       {/* Common Use Cases */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Common Use Cases</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Common Use Cases</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Real-world examples of divider usage
             </p>
           </div>
@@ -116,7 +116,7 @@ export default function Dividers() {
           <div className="space-y-6">
             {/* List Separators */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">List Separators</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">List Separators</h4>
               <div className="bg-sepia-50 dark:bg-sepia-975 p-4 rounded-none space-y-0">
                 <div className="py-3 text-sm font-mono text-sepia-900 dark:text-sepia-50">Item 1</div>
                 <Divider variant="horizontal" spacing="none" />
@@ -128,7 +128,7 @@ export default function Dividers() {
 
             {/* Section Dividers */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Section Dividers</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Section Dividers</h4>
               <div className="space-y-4">
                 <div>
                   <h5 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-2">Section A</h5>
@@ -144,7 +144,7 @@ export default function Dividers() {
 
             {/* Form Dividers */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Form Dividers</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Form Dividers</h4>
               <div className="bg-sepia-50 dark:bg-sepia-975 p-4 rounded-none space-y-4">
                 <div>
                   <label className="block text-xs font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-1">Email</label>
@@ -160,7 +160,7 @@ export default function Dividers() {
 
             {/* Vertical Layout */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Vertical Layout</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Vertical Layout</h4>
               <div className="flex items-center gap-4 h-16">
                 <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Left Column</span>
                 <Divider variant="vertical" spacing="none" className="h-full" />
@@ -175,10 +175,10 @@ export default function Dividers() {
 
       {/* Token Breakdown */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Token Breakdown</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Token Breakdown</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Design tokens used in divider components
             </p>
           </div>
@@ -186,55 +186,55 @@ export default function Dividers() {
           <div className="space-y-6">
             {/* Color Tokens */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Color Tokens</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Color Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Color</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Light: sepia-300</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Dark: sepia-700</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Color</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Light: sepia-300</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Dark: sepia-700</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Text Color</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Light: sepia-600</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Dark: sepia-400</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Text Color</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Light: sepia-600</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Dark: sepia-400</p>
                 </div>
               </div>
             </div>
 
             {/* Spacing Tokens */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Spacing Tokens</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Spacing Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">None</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">0px margin</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">None</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0px margin</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Small</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">4px margin</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Small</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">4px margin</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Medium</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">16px margin</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Medium</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">16px margin</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Large</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">32px margin</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Large</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">32px margin</p>
                 </div>
               </div>
             </div>
 
             {/* Typography Tokens */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Typography</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Typography</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Family</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Fragment Mono</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Font Family</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Fragment Mono</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Font Size</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">12px (text-xs)</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Font Size</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">12px (text-xs)</p>
                 </div>
               </div>
             </div>

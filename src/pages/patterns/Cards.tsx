@@ -135,8 +135,8 @@ export default function Cards() {
         Matches the style from other documentation pages
       */}
       <div className="flex flex-col gap-2 mb-10">
-        <h2 className="text-2xl font-mono text-sepia-900 dark:text-sepia-50">Cards</h2>
-        <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+        <h2 className="text-2xl font-mono text-[var(--text-primary)]">Cards</h2>
+        <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
           Reusable card components with header, content, and footer sections. Includes interactive examples for common use cases like authentication, profiles, and settings.
         </p>
       </div>
@@ -147,8 +147,8 @@ export default function Cards() {
       */}
       <section className="mb-10">
         <div className="mb-6">
-          <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sign In Card</h3>
-          <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+          <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sign In Card</h3>
+          <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
             Authentication card with email and password fields, validation states, and password visibility toggle.
           </p>
         </div>
@@ -254,8 +254,8 @@ export default function Cards() {
       */}
       <section className="mb-10">
         <div className="mb-6">
-          <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sign Up Card</h3>
-          <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+          <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sign Up Card</h3>
+          <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
             Registration card with multiple fields, password confirmation, and comprehensive validation.
           </p>
         </div>
@@ -435,8 +435,8 @@ export default function Cards() {
       */}
       <section className="mb-10">
         <div className="mb-6">
-          <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Profile Card</h3>
-          <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+          <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Profile Card</h3>
+          <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
             User profile card with editable information and action buttons.
           </p>
         </div>
@@ -536,8 +536,8 @@ export default function Cards() {
       */}
       <section className="mb-10">
         <div className="mb-6">
-          <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Settings Card</h3>
-          <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+          <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Settings Card</h3>
+          <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
             Settings card with toggle switches, dropdowns, and preference options.
           </p>
         </div>
@@ -702,8 +702,8 @@ export default function Cards() {
       */}
       <section className="mb-10">
         <div className="mb-6">
-          <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Testimonial Card</h3>
-          <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+          <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Testimonial Card</h3>
+          <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
             Testimonial card featuring a circular avatar, quote, and attribution with name, job title, and company.
           </p>
         </div>
@@ -779,10 +779,10 @@ export default function Cards() {
         Documentation of design tokens used in cards
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Card Token Breakdown</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Card Token Breakdown</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Complete documentation of all design tokens used in card components
             </p>
           </div>
@@ -790,57 +790,57 @@ export default function Cards() {
           <div className="space-y-6">
             {/* Card Container */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Card Container</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Card Container</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Background</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">var(--surface-card)</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Background</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">var(--surface-card)</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Radius</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">24px (rounded-none)</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Radius</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">24px (rounded-none)</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">0.5px solid sepia-500/800</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0.5px solid sepia-500/800</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Padding</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">16px mobile / 24px desktop</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Padding</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">16px mobile / 24px desktop</p>
                 </div>
               </div>
             </div>
 
             {/* Header Section */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Header Section</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Header Section</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Title Font</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">font-mono, 16px, bold</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Title Font</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">font-mono, 16px, bold</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Subtitle Font</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">font-mono, 14px, regular</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Subtitle Font</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">font-mono, 14px, regular</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Bottom</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">0.5px solid sepia-500/800</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Bottom</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0.5px solid sepia-500/800</p>
                 </div>
               </div>
             </div>
 
             {/* Footer Section */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Footer Section</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Footer Section</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Background</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">sepia-50 / sepia-975</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Background</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">sepia-50 / sepia-975</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Border Top</p>
-                  <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">0.5px solid sepia-500/800</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Top</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0.5px solid sepia-500/800</p>
                 </div>
               </div>
             </div>

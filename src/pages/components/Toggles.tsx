@@ -33,8 +33,8 @@ export default function Toggles() {
         Matches the style from Buttons.tsx and Inputs.tsx
       */}
       <div className="flex flex-col gap-2 mb-10">
-        <h2 className="text-2xl font-mono text-sepia-900 dark:text-sepia-50">Toggles & Switches</h2>
-        <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+        <h2 className="text-2xl font-mono text-[var(--text-primary)]">Toggles & Switches</h2>
+        <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
           Toggle switch components for binary on/off states. Available in three sizes matching the button and input component system.
         </p>
       </div>
@@ -44,10 +44,10 @@ export default function Toggles() {
         Small, medium, and large toggle variants
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sizes</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Three size options with proportional dimensions. Heights align with the button/input sizing system.
             </p>
           </div>
@@ -60,7 +60,7 @@ export default function Toggles() {
                 checked={true}
                 onCheckedChange={() => {}}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">size="small" (24px height)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="small" (24px height)</p>
             </div>
 
             {/* Medium Size */}
@@ -70,7 +70,7 @@ export default function Toggles() {
                 checked={true}
                 onCheckedChange={() => {}}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">size="medium" (32px height)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="medium" (32px height)</p>
             </div>
 
             {/* Large Size */}
@@ -80,7 +80,7 @@ export default function Toggles() {
                 checked={true}
                 onCheckedChange={() => {}}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">size="large" (40px height)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="large" (40px height)</p>
             </div>
           </div>
         </div>
@@ -91,10 +91,10 @@ export default function Toggles() {
         Default (unchecked), checked, and disabled states
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">States</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">States</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Toggle switches have three main states: unchecked (off), checked (on), and disabled.
             </p>
           </div>
@@ -107,7 +107,7 @@ export default function Toggles() {
                 checked={false}
                 onCheckedChange={() => {}}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Unchecked (Off)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Unchecked (Off)</p>
             </div>
 
             {/* Checked State */}
@@ -117,7 +117,7 @@ export default function Toggles() {
                 checked={true}
                 onCheckedChange={() => {}}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Checked (On)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Checked (On)</p>
             </div>
 
             {/* Disabled Unchecked */}
@@ -128,7 +128,7 @@ export default function Toggles() {
                 disabled={true}
                 onCheckedChange={() => {}}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Disabled (Off)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Disabled (Off)</p>
             </div>
 
             {/* Disabled Checked */}
@@ -139,7 +139,7 @@ export default function Toggles() {
                 disabled={true}
                 onCheckedChange={() => {}}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Disabled (On)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Disabled (On)</p>
             </div>
           </div>
         </div>
@@ -150,10 +150,10 @@ export default function Toggles() {
         Toggles with label text
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Labels</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Labels</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Toggles can include optional label text displayed next to the switch.
             </p>
           </div>
@@ -187,10 +187,10 @@ export default function Toggles() {
         Toggles with icons inside the knob (like ThemeToggle)
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Icons</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Icons</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Toggles can include icons inside the knob for visual indication. The ThemeToggle component uses this pattern.
             </p>
           </div>
@@ -199,7 +199,7 @@ export default function Toggles() {
             {/* ThemeToggle Example */}
             <div className="flex flex-col gap-2">
               <ThemeToggle />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
                 ThemeToggle component (small size with Moon/Sun icons)
               </p>
             </div>
@@ -213,7 +213,7 @@ export default function Toggles() {
                   icon={<TuiIcon name="Moon" size="3" className="text-primary-500" />}
                   onCheckedChange={() => {}}
                 />
-                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Small with icon</p>
+                <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Small with icon</p>
               </div>
               <div className="flex items-center gap-4">
                 <Switch
@@ -222,7 +222,7 @@ export default function Toggles() {
                   icon={<TuiIcon name="Sun" size="3" className="text-secondary-700" />}
                   onCheckedChange={() => {}}
                 />
-                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Medium with icon</p>
+                <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Medium with icon</p>
               </div>
               <div className="flex items-center gap-4">
                 <Switch
@@ -231,7 +231,7 @@ export default function Toggles() {
                   icon={<TuiIcon name="Moon" size="4" className="text-primary-500" />}
                   onCheckedChange={() => {}}
                 />
-                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Large with icon</p>
+                <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Large with icon</p>
               </div>
             </div>
           </div>
@@ -243,10 +243,10 @@ export default function Toggles() {
         Real-world examples with icons and descriptions
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Use Cases</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Use Cases</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Common patterns for using toggle switches in settings and preferences.
             </p>
           </div>
@@ -384,10 +384,10 @@ export default function Toggles() {
         All sizes side by side for visual comparison
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Size Comparison</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Size Comparison</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Visual comparison of all three sizes in both checked and unchecked states.
             </p>
           </div>
@@ -396,7 +396,7 @@ export default function Toggles() {
             {/* Small Size Row */}
             <div className="flex items-center gap-6">
               <div className="w-24">
-                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Small</p>
+                <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Small</p>
               </div>
               <Switch
                 size="small"
@@ -413,7 +413,7 @@ export default function Toggles() {
             {/* Medium Size Row */}
             <div className="flex items-center gap-6">
               <div className="w-24">
-                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Medium</p>
+                <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Medium</p>
               </div>
               <Switch
                 size="medium"
@@ -430,7 +430,7 @@ export default function Toggles() {
             {/* Large Size Row */}
             <div className="flex items-center gap-6">
               <div className="w-24">
-                <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Large</p>
+                <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Large</p>
               </div>
               <Switch
                 size="large"
@@ -452,10 +452,10 @@ export default function Toggles() {
         Documentation of design tokens used in switches
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Switch Token Breakdown</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Switch Token Breakdown</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Complete documentation of all design tokens used in switch components
             </p>
           </div>
@@ -463,20 +463,20 @@ export default function Toggles() {
           <div className="space-y-6">
             {/* Size Tokens */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Sizes</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Sizes</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Small</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Small</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Track: 24px × 44px</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Knob: 20px × 20px</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Medium</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Medium</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Track: 32px × 56px</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Knob: 24px × 24px</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Large</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Large</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Track: 40px × 72px</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Knob: 32px × 32px</p>
                 </div>
@@ -485,15 +485,15 @@ export default function Toggles() {
 
             {/* Color Tokens */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Colors</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Colors</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Checked State</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Checked State</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Track: primary-400 (amber-400)</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Knob: white / secondary-900</p>
                 </div>
-                <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
-                  <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50 mb-1">Unchecked State</p>
+                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                  <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Unchecked State</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Track: sepia-300 / sepia-700</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Knob: white / secondary-900</p>
                 </div>
@@ -502,8 +502,8 @@ export default function Toggles() {
 
             {/* Focus States */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Focus States</h4>
-              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Focus States</h4>
+              <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Focus Ring: 2px primary-400 ring with 2px offset</p>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Matches button and input focus states</p>
               </div>
@@ -511,8 +511,8 @@ export default function Toggles() {
 
             {/* Animation */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Animation</h4>
-              <div className="p-4 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Animation</h4>
+              <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Transition Duration: 300ms</p>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Easing: ease (default)</p>
               </div>

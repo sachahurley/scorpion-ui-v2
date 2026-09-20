@@ -33,7 +33,7 @@ interface TopBarProps {
 export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, openMusicPlayer, closeMusicPlayer }: TopBarProps) {
   return (
     <header 
-      className="fixed top-0 left-0 right-0 h-16 bg-[var(--surface-container)] border-b-[0.5px] border-solid border-[var(--surface-container-stroke)]"
+      className="fixed top-0 left-0 right-0 h-16 bg-[var(--surface-container)] border-b border-solid border-[var(--border-hairline)]"
       style={{ zIndex: 'var(--z-index-sticky)' }}
     >
       {/* Flex container: mobile menu button + branding on left, theme toggle on right */}
@@ -43,7 +43,7 @@ export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, 
           {/* Mobile Menu Button - Only visible on mobile (hidden on lg+ screens) */}
           <button
             onClick={toggleMobileMenu}
-            className="lg:hidden p-2 hover:bg-sepia-600 hover:text-sepia-50 rounded-button transition-colors"
+            className="lg:hidden p-2 plate-round hover:bg-[var(--surface-muted)] hover:text-[var(--accent)] transition-colors [transition-duration:var(--duration-fast)] focus:outline-none focus-visible:[box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]"
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {/* Show X icon when menu is open, hamburger icon when closed */}
@@ -90,7 +90,8 @@ export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, 
             />
             
             {/* Branding Text */}
-            <h1 className="text-lg font-bold font-mono">Scorpion UI</h1>
+            {/* Portfolio convention: weight 400, emphasis carried by the accent */}
+            <h1 className="text-lg font-mono text-[var(--accent)]">Scorpion UI</h1>
           </Link>
         </div>
 

@@ -12,8 +12,9 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="light"
-      enableSystem
+      /* Dark is the merged system's default (portfolio identity); no system
+         preference so the ported ThemeToggle's theme check stays accurate */
+      defaultTheme="dark"
       disableTransitionOnChange={false}
       {...props}
     >

@@ -5,7 +5,7 @@
  * ALL pages use the Layout with sidebar and top bar
  */
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@/theme/ThemeProvider";
 import { Layout } from "@/components/layout/Layout";
 import Home from "@/pages/Home";
@@ -54,8 +54,8 @@ function App() {
             <Route path="/foundation/animations" element={<Animations />} />
             <Route path="/foundation/z-index" element={<ZIndex />} />
             
-            {/* Legacy route redirect for backwards compatibility */}
-            <Route path="/tokens/colors" element={<Colors />} />
+            {/* Legacy URL: redirect instead of rendering a duplicate page */}
+            <Route path="/tokens/colors" element={<Navigate to="/foundation/base-colors" replace />} />
             
             {/* Components pages */}
             <Route path="/components" element={<ComponentsOverview />} />
