@@ -33,8 +33,8 @@ export default function Checkboxes() {
         Matches the style from other component pages
       */}
       <div className="flex flex-col gap-2 mb-10">
-        <h2 className="text-2xl font-mono text-sepia-900 dark:text-sepia-50">Checkboxes</h2>
-        <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+        <h2 className="text-2xl font-mono text-[var(--text-primary)]">Checkboxes</h2>
+        <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
           Checkbox components for multiple selection states. Available in three sizes with checked, unchecked, disabled, and error states.
         </p>
       </div>
@@ -44,10 +44,10 @@ export default function Checkboxes() {
         Small, medium, and large checkbox variants
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sizes</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Three size options with proportional dimensions. Sizes align with the button/input sizing system.
             </p>
           </div>
@@ -60,7 +60,7 @@ export default function Checkboxes() {
                 checked={true}
                 onCheckedChange={() => {}}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">size="small" (16px × 16px)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="small" (16px × 16px)</p>
             </div>
 
             {/* Medium Size */}
@@ -70,7 +70,7 @@ export default function Checkboxes() {
                 checked={true}
                 onCheckedChange={() => {}}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">size="medium" (20px × 20px)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="medium" (20px × 20px)</p>
             </div>
 
             {/* Large Size */}
@@ -80,7 +80,7 @@ export default function Checkboxes() {
                 checked={true}
                 onCheckedChange={() => {}}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">size="large" (24px × 24px)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="large" (24px × 24px)</p>
             </div>
           </div>
         </div>
@@ -91,55 +91,55 @@ export default function Checkboxes() {
         Unchecked, checked, disabled, and error states
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">States</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">States</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Checkboxes have four main states: unchecked, checked, disabled, and error.
             </p>
           </div>
           
           <div className="space-y-6">
             {/* All States Display */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
+            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
               <div className="space-y-4">
-                <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400 mb-4">All states:</p>
+                <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All states:</p>
                 
                 {/* Unchecked */}
                 <div className="flex items-center gap-4">
                   <Checkbox checked={false} onCheckedChange={() => {}} />
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Unchecked</span>
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Unchecked</span>
                 </div>
                 
                 {/* Checked */}
                 <div className="flex items-center gap-4">
                   <Checkbox checked={true} onCheckedChange={() => {}} />
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Checked</span>
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Checked</span>
                 </div>
                 
                 {/* Disabled Unchecked */}
                 <div className="flex items-center gap-4">
                   <Checkbox checked={false} disabled onCheckedChange={() => {}} />
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Disabled (Unchecked)</span>
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Disabled (Unchecked)</span>
                 </div>
                 
                 {/* Disabled Checked */}
                 <div className="flex items-center gap-4">
                   <Checkbox checked={true} disabled onCheckedChange={() => {}} />
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Disabled (Checked)</span>
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Disabled (Checked)</span>
                 </div>
                 
                 {/* Error State */}
                 <div className="flex items-center gap-4">
                   <Checkbox checked={false} error onCheckedChange={() => {}} />
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Error State</span>
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Error State</span>
                 </div>
               </div>
             </div>
 
             {/* Interactive Examples */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Try It Yourself</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-4">Try It Yourself</h4>
               <div className="space-y-4">
                 <Checkbox
                   checked={newsletter}
@@ -168,10 +168,10 @@ export default function Checkboxes() {
         Checkboxes with labels and helper text
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Labels</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Labels</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Checkboxes with labels, helper text, and error messages
             </p>
           </div>
@@ -216,17 +216,17 @@ export default function Checkboxes() {
         Common checkbox use cases in forms
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Use Cases</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Use Cases</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Common patterns for using checkboxes in forms
             </p>
           </div>
           
           <div className="space-y-6">
             {/* Preferences Form */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
+            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Notification Preferences</h4>
               <div className="space-y-3">
                 <Checkbox
@@ -248,7 +248,7 @@ export default function Checkboxes() {
             </div>
 
             {/* Multi-select Options */}
-            <div className="p-6 border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none bg-white dark:bg-sepia-950">
+            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Select Your Interests</h4>
               <div className="space-y-3">
                 <Checkbox checked={false} onCheckedChange={() => {}} label="Design" />
@@ -266,10 +266,10 @@ export default function Checkboxes() {
         Documentation of design tokens used in checkboxes
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Checkbox Token Breakdown</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Checkbox Token Breakdown</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Complete documentation of all design tokens used in checkbox components
             </p>
           </div>
@@ -277,30 +277,30 @@ export default function Checkboxes() {
           <div className="space-y-6">
             {/* Colors Section */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Colors</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Colors</h4>
               
               {/* Border Colors */}
               <div className="mb-3">
-                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Border</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Border</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Unchecked (Light): color.sepia.300</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Unchecked (Light): color.sepia.300</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Checked: color.primary.400</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-amber-400 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Checked: color.primary.400</span>
                   </div>
                 </div>
               </div>
 
               {/* Error State Colors */}
               <div className="mb-3">
-                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Error State</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Error State</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Border: color.error.600</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-red-600 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Border: color.error.600</span>
                   </div>
                 </div>
               </div>
@@ -308,16 +308,16 @@ export default function Checkboxes() {
 
             {/* Sizes Section */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Sizes</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Sizes</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Small: 16px × 16px</span>
+                <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Small: 16px × 16px</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Medium: 20px × 20px</span>
+                <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Medium: 20px × 20px</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Large: 24px × 24px</span>
+                <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Large: 24px × 24px</span>
                 </div>
               </div>
             </div>

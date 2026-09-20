@@ -35,8 +35,8 @@ export default function Dropdowns() {
         Matches the style from Buttons.tsx and Inputs.tsx
       */}
       <div className="flex flex-col gap-2 mb-10">
-        <h2 className="text-2xl font-mono text-sepia-900 dark:text-sepia-50">Dropdown Buttons</h2>
-        <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+        <h2 className="text-2xl font-mono text-[var(--text-primary)]">Dropdown Buttons</h2>
+        <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
           Action menu dropdowns that open a list of options. Includes keyboard navigation (arrow keys, enter, escape) and click-outside-to-close functionality.
         </p>
       </div>
@@ -46,10 +46,10 @@ export default function Dropdowns() {
         Simple dropdown with text-only items
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Basic Dropdown</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Basic Dropdown</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Simple action menu with text-only items. Click the button or use keyboard navigation.
             </p>
           </div>
@@ -82,10 +82,10 @@ export default function Dropdowns() {
         Small, medium, and large dropdown variants
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Sizes</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Dropdowns come in three sizes matching buttons and inputs. Corner radius matches the trigger button size.
             </p>
           </div>
@@ -103,7 +103,7 @@ export default function Dropdowns() {
                   { label: "Download", onClick: handleDownload },
                 ]}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">size="small" (32px, 6px radius)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="small" (32px, 6px radius)</p>
             </div>
 
             {/* Medium Size */}
@@ -118,7 +118,7 @@ export default function Dropdowns() {
                   { label: "Download", onClick: handleDownload },
                 ]}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">size="medium" (40px, 8px radius)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="medium" (40px, 8px radius)</p>
             </div>
 
             {/* Large Size */}
@@ -133,7 +133,7 @@ export default function Dropdowns() {
                   { label: "Download", onClick: handleDownload },
                 ]}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">size="large" (48px, 12px radius)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="large" (48px, 12px radius)</p>
             </div>
           </div>
         </div>
@@ -144,10 +144,10 @@ export default function Dropdowns() {
         Menu items with left-aligned icons
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Icons</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Icons</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Menu items with icons for better visual recognition of actions
             </p>
           </div>
@@ -193,10 +193,10 @@ export default function Dropdowns() {
         Using custom trigger buttons with different variants
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Custom Trigger Buttons</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Custom Trigger Buttons</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Dropdowns with custom trigger buttons using different variants
             </p>
           </div>
@@ -252,10 +252,10 @@ export default function Dropdowns() {
         Left vs Right aligned menus
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Menu Alignment</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Menu Alignment</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Control whether the menu appears aligned to the left or right of the trigger button
             </p>
           </div>
@@ -272,7 +272,7 @@ export default function Dropdowns() {
                   { label: "Option 3", onClick: () => console.log("Option 3") },
                 ]}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">align="left" (default)</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">align="left" (default)</p>
             </div>
 
             {/* Right Aligned */}
@@ -286,7 +286,7 @@ export default function Dropdowns() {
                   { label: "Option 3", onClick: () => console.log("Option 3") },
                 ]}
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">align="right"</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">align="right"</p>
             </div>
           </div>
         </div>
@@ -297,10 +297,10 @@ export default function Dropdowns() {
         Menu items with destructive/danger styling
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Destructive Actions</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Destructive Actions</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Dangerous actions styled in red to warn users. Typically placed at the bottom of the menu.
             </p>
           </div>
@@ -336,10 +336,10 @@ export default function Dropdowns() {
         Menu items with left icon grouped with label, and right icon aligned to right edge
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">With Left and Right Icons</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Left and Right Icons</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Menu items with a left icon grouped with the label, and a right icon aligned to the right edge. Useful for selection states, navigation indicators, or additional actions.
             </p>
           </div>
@@ -383,7 +383,7 @@ export default function Dropdowns() {
                 ]}
                 size="medium"
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Language selector with checkmark</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Language selector with checkmark</p>
             </div>
 
             {/* Navigation Example */}
@@ -416,7 +416,7 @@ export default function Dropdowns() {
                 ]}
                 size="medium"
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Navigation with chevron indicators</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Navigation with chevron indicators</p>
             </div>
 
             {/* Mixed States Example */}
@@ -447,7 +447,7 @@ export default function Dropdowns() {
                 ]}
                 size="medium"
               />
-              <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">View selector with active state</p>
+              <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">View selector with active state</p>
             </div>
           </div>
         </div>
@@ -457,10 +457,10 @@ export default function Dropdowns() {
         DISABLED STATE SECTION
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Disabled Items</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Disabled Items</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Menu items can be disabled when actions are not available
             </p>
           </div>
@@ -488,11 +488,11 @@ export default function Dropdowns() {
 
       {/* DROPDOWN TOKEN BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           {/* Card Title & Subtitle */}
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Dropdown Token Breakdown</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Dropdown Token Breakdown</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Complete documentation of all design tokens used in dropdown components
             </p>
           </div>
@@ -501,9 +501,9 @@ export default function Dropdowns() {
           <div className="space-y-6">
             {/* Trigger Button */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Trigger Button</h4>
-              <div className="p-4 bg-sepia-50 dark:bg-sepia-950 rounded-none">
-                <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Trigger Button</h4>
+              <div className="p-4 bg-secondary-50 dark:bg-secondary-950 rounded-none">
+                <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
                   The trigger button uses the same tokens as the Button component. See the{" "}
                   <a href="/components/buttons" className="text-primary-600 dark:text-primary-400 underline hover:text-primary-700 dark:hover:text-primary-300">
                     Buttons documentation
@@ -515,57 +515,57 @@ export default function Dropdowns() {
 
             {/* Menu Container Colors */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Menu Container</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Menu Container</h4>
               
               {/* Background */}
               <div className="mb-3">
-                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Background</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Background</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-white border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Light: color.white</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-white border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Light: color.white</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-975 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Dark: color.sepia.975</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-975 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Dark: color.sepia.975</span>
                   </div>
                 </div>
               </div>
 
               {/* Border */}
               <div className="mb-3">
-                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Border</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Border</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Light: color.sepia.300</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-300 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Light: color.sepia.300</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Dark: color.sepia.700</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-700 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Dark: color.sepia.700</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Width: 1px</span>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Width: 1px</span>
                   </div>
                 </div>
               </div>
 
               {/* Border Radius */}
               <div className="mb-3">
-                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Border Radius</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Border Radius</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">radius.container (24px)</span>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <span className="text-sm font-mono text-[var(--text-primary)]">radius.container (24px)</span>
                   </div>
                 </div>
               </div>
 
               {/* Shadow */}
               <div className="mb-3">
-                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Elevation</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Elevation</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">shadow-lg (Tailwind default)</span>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <span className="text-sm font-mono text-[var(--text-primary)]">shadow-lg (Tailwind default)</span>
                   </div>
                 </div>
               </div>
@@ -573,69 +573,69 @@ export default function Dropdowns() {
 
             {/* Menu Items */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Menu Items</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Menu Items</h4>
               
               {/* Default Item Colors */}
               <div className="mb-3">
-                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Default Item Text</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Default Item Text</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-900 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Light: color.sepia.900</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-900 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Light: color.sepia.900</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Dark: color.sepia.50</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-50 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Dark: color.sepia.50</span>
                   </div>
                 </div>
               </div>
 
               {/* Hover State */}
               <div className="mb-3">
-                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Hover Background</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Hover Background</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-100 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Light: color.sepia.100</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-100 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Light: color.sepia.100</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-sepia-900 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Dark: color.sepia.900</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-sepia-900 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Dark: color.sepia.900</span>
                   </div>
                 </div>
               </div>
 
               {/* Destructive Items */}
               <div className="mb-3">
-                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Destructive Item</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Destructive Item</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-red-600 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Text (Light): color.error.600</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-red-600 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Text (Light): color.error.600</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-red-500 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Text (Dark): color.error.500</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-red-500 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Text (Dark): color.error.500</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <div className="w-4 h-4 rounded-none bg-red-50 border border-sepia-300 dark:border-sepia-600"></div>
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Hover (Light): color.error.50</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <div className="w-4 h-4 rounded-none bg-red-50 border border-secondary-300 dark:border-secondary-600"></div>
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Hover (Light): color.error.50</span>
                   </div>
                 </div>
               </div>
 
               {/* Item Padding */}
               <div className="mb-3">
-                <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50 mb-2">Item Spacing</p>
+                <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Item Spacing</p>
                 <div className="flex flex-wrap gap-2">
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding X: 16px</span>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Padding X: 16px</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Padding Y: 12px</span>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Padding Y: 12px</span>
                   </div>
-                  <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                    <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Icon Gap: 12px</span>
+                  <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                    <span className="text-sm font-mono text-[var(--text-primary)]">Icon Gap: 12px</span>
                   </div>
                 </div>
               </div>
@@ -643,42 +643,42 @@ export default function Dropdowns() {
 
             {/* Typography */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Typography</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Typography</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Font Family: <span className="font-mono">Fragment Mono</span></span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Font Family: <span className="font-mono">Fragment Mono</span></span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Font Size: <span className="text-sm">14px</span></span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Font Size: <span className="text-sm">14px</span></span>
                 </div>
               </div>
             </div>
 
             {/* Z-Index */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Positioning</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Positioning</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Z-Index: zIndex.dropdown (1000)</span>
+                <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Z-Index: zIndex.dropdown (1000)</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Position: absolute</span>
+                <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Position: absolute</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Min Width: 200px</span>
+                <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Min Width: 200px</span>
                 </div>
               </div>
             </div>
 
             {/* Animation */}
             <div>
-              <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-3">Animation</h4>
+              <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Animation</h4>
               <div className="flex flex-wrap gap-2">
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Duration: 200ms</span>
+                <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Duration: 200ms</span>
                 </div>
-                <div className="inline-flex items-center px-3 py-1.5 bg-sepia-100 dark:bg-sepia-900 rounded-none border border-sepia-300 dark:border-sepia-700">
-                  <span className="text-sm font-mono text-sepia-900 dark:text-sepia-50">Effect: fade-in + slide-in</span>
+                <div className="inline-flex items-center px-3 py-1.5 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
+                  <span className="text-sm font-mono text-[var(--text-primary)]">Effect: fade-in + slide-in</span>
                 </div>
               </div>
             </div>
@@ -691,34 +691,34 @@ export default function Dropdowns() {
         Documentation for accessibility features
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 rounded-none p-4 lg:p-8">
+        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
           <div className="mb-6">
-            <h3 className="text-base font-mono text-sepia-900 dark:text-sepia-50 mb-1">Keyboard Navigation</h3>
-            <p className="text-sm font-mono text-sepia-600 dark:text-sepia-400">
+            <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Keyboard Navigation</h3>
+            <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Full keyboard support for accessibility
             </p>
           </div>
 
           <div className="p-6 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-none">
             <div className="space-y-4">
-              <p className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50">
+              <p className="text-sm font-mono text-[var(--text-primary)]">
                 ⌨️ Keyboard Shortcuts
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono text-sepia-600 dark:text-sepia-400">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono text-secondary-800 dark:text-secondary-500">
                 <div>
-                  <span className="font-bold text-sepia-900 dark:text-sepia-50">Enter / Space</span>
+                  <span className="text-[var(--text-primary)]">Enter / Space</span>
                   <p>Open dropdown or select focused item</p>
                 </div>
                 <div>
-                  <span className="font-bold text-sepia-900 dark:text-sepia-50">Escape</span>
+                  <span className="text-[var(--text-primary)]">Escape</span>
                   <p>Close dropdown</p>
                 </div>
                 <div>
-                  <span className="font-bold text-sepia-900 dark:text-sepia-50">Arrow Down</span>
+                  <span className="text-[var(--text-primary)]">Arrow Down</span>
                   <p>Move focus to next item</p>
                 </div>
                 <div>
-                  <span className="font-bold text-sepia-900 dark:text-sepia-50">Arrow Up</span>
+                  <span className="text-[var(--text-primary)]">Arrow Up</span>
                   <p>Move focus to previous item</p>
                 </div>
               </div>

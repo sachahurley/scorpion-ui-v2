@@ -1,52 +1,127 @@
 /**
- * SIDEBAR NAVIGATION COMPONENT
- * 
- * Fixed-width sidebar navigation with nested sections
- * Contains navigation links for Foundation and Components sections
- * 
- * Mobile Behavior:
- * - Hidden off-screen by default on mobile (translated left)
- * - Slides in from left when mobile menu is open
- * - Shows dark overlay/backdrop behind sidebar on mobile
- * - Clicking overlay or any nav link closes the menu
- * - On desktop (lg+): always visible, no overlay
+ * SIDEBAR NAVIGATION
+ *
+ * Data-driven nav on the merged DS plate language: every row is a quiet
+ * plate (plate-round) that fills with surface.muted and flips its text to
+ * the accent on hover, the same recipe as the portfolio's nav rows. The
+ * active route holds the filled + accent state (color plus fill, never a
+ * weight change). Sections are always visible; the old accordion state and
+ * per-link SVG markup are gone in favor of one NAV data structure.
  */
 
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-// TUI Tier 2: Lucide icons removed, using Unicode characters instead
-import { AboutCard } from "./AboutCard";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Button } from "@/components/ui/Button";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { AboutCard } from "./AboutCard";
 
 interface SidebarProps {
-  // Indicates if mobile menu is currently open
+  // Mobile menu open state (sidebar slides in below lg)
   isMobileMenuOpen: boolean;
-  // Function to close the mobile menu
+  // Closes the mobile menu after a nav click
   closeMobileMenu: () => void;
-  // Indicates if music player is currently open/visible
+  // Music player controls (mobile block only; desktop lives in TopBar)
   isMusicPlayerOpen: boolean;
-  // Function to open the music player
   openMusicPlayer: () => void;
-  // Function to close the music player
   closeMusicPlayer: () => void;
+}
+
+/** One nav section: a pixel-icon header plus its page rows. */
+interface NavSection {
+  label: string;
+  /** Path under public/Icons/Dark theme/ for the section's pixel icon. */
+  icon: string;
+  items: { to: string; label: string }[];
+}
+
+const NAV_SECTIONS: NavSection[] = [
+  {
+    label: "Foundation",
+    icon: "3. System folders/Library.png",
+    items: [
+      { to: "/foundation/base-colors", label: "Base Colors" },
+      { to: "/foundation/semantic-colors", label: "Semantic Colors" },
+      { to: "/foundation/typography", label: "Typography" },
+      { to: "/foundation/spacing", label: "Spacing" },
+      { to: "/foundation/surfaces-elevation", label: "Surfaces & Elevation" },
+      { to: "/foundation/focus-states", label: "Focus States" },
+      { to: "/foundation/animations", label: "Animations" },
+      { to: "/foundation/z-index", label: "Z-Index" },
+    ],
+  },
+  {
+    label: "Components",
+    icon: "3. System folders/Applications.png",
+    items: [
+      { to: "/components", label: "Overview" },
+      { to: "/components/buttons", label: "Buttons" },
+      { to: "/components/inputs", label: "Inputs" },
+      { to: "/components/dropdowns", label: "Dropdowns" },
+      { to: "/components/toggles", label: "Toggles" },
+      { to: "/components/textareas", label: "Textareas" },
+      { to: "/components/checkboxes", label: "Checkboxes" },
+      { to: "/components/radios", label: "Radios" },
+      { to: "/components/selects", label: "Selects" },
+      { to: "/components/badges", label: "Badges" },
+      { to: "/components/dividers", label: "Dividers" },
+      { to: "/components/tooltips", label: "Tooltips" },
+      { to: "/components/alerts", label: "Alerts" },
+      { to: "/components/avatars", label: "Avatars" },
+    ],
+  },
+  {
+    label: "Patterns",
+    icon: "2. System apps/Mission Control.png",
+    items: [
+      { to: "/patterns/side-navigation", label: "Side Navigation" },
+      { to: "/patterns/cards", label: "Cards" },
+      { to: "/patterns/forms", label: "Forms" },
+    ],
+  },
+];
+
+/**
+ * A single nav row on the plate recipe. Focus uses the inset ring
+ * (box-shadow) because the plate clip swallows outside outlines.
+ */
+function NavRow({
+  to,
+  active,
+  onNavigate,
+  children,
+}: {
+  to: string;
+  active: boolean;
+  onNavigate: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      to={to}
+      onClick={onNavigate}
+      aria-current={active ? "page" : undefined}
+      className={`
+        flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm
+        transition-colors [transition-duration:var(--duration-fast)]
+        focus:outline-none focus-visible:[box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]
+        ${
+          active
+            ? "bg-[var(--surface-muted)] text-[var(--accent)]"
+            : "text-secondary-800 dark:text-secondary-500 hover:bg-[var(--surface-muted)] hover:text-[var(--accent)]"
+        }
+      `}
+    >
+      {children}
+    </Link>
+  );
 }
 
 export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, openMusicPlayer, closeMusicPlayer }: SidebarProps) {
   const location = useLocation();
-  // All navigation sections start collapsed by default on page load
-  const [isFoundationExpanded, setIsFoundationExpanded] = useState(false);
-  const [isComponentsExpanded, setIsComponentsExpanded] = useState(false);
-  const [isPatternsExpanded, setIsPatternsExpanded] = useState(false);
-
-  // Helper to check if route is active
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <>
-      {/* Dark Overlay - Only visible on mobile when menu is open */}
-      {/* Clicking overlay closes the menu */}
-      {/* Uses z-index token for overlay layer (1030) */}
+      {/* Dark overlay - mobile only, closes the menu on click */}
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black/50 lg:hidden top-16"
@@ -56,29 +131,19 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, 
         />
       )}
 
-      {/* Sidebar Navigation */}
-      {/* Uses z-index token for modal layer since it appears above overlay on mobile */}
+      {/* Sidebar: container surface with a hairline seam against the page */}
       <aside
         className={`
-          w-full lg:w-64 h-screen bg-[var(--surface-container)] flex flex-col fixed left-0 top-16
+          w-full lg:w-64 bg-[var(--surface-container)] flex flex-col fixed left-0 top-16
+          border-r border-solid border-[var(--border-hairline)]
           transition-transform duration-300 ease-in-out
-          ${
-            // On mobile: slide in from left when open, hide off-screen when closed
-            // On desktop (lg+): always visible (translate-x-0)
-            isMobileMenuOpen 
-              ? 'translate-x-0' 
-              : '-translate-x-full lg:translate-x-0'
-          }
+          ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}
         style={{ height: 'calc(100vh - 4rem)', zIndex: 'var(--z-index-modal)' }}
       >
-      {/* Navigation Links - More padding on mobile for full-width, standard padding on desktop */}
-      <nav className="flex-1 overflow-y-auto px-6 lg:px-4 py-6 lg:py-4">
-        <div className="space-y-2">
-          {/* Mobile-Only Controls: Music Player + Theme Toggle */}
-          {/* Only visible on mobile screens (below lg breakpoint) */}
-          <div className="lg:hidden flex items-center gap-3 pb-4 mb-4 border-b border-sepia-600">
-            {/* Music Player Toggle Button - Opens music player when clicked */}
+        <nav aria-label="Design system" className="flex-1 overflow-y-auto px-6 lg:px-4 py-6 lg:py-4">
+          {/* Mobile-only controls: music player + theme toggle */}
+          <div className="lg:hidden flex items-center gap-3 pb-4 mb-4 border-b border-[var(--border-hairline)]">
             <Button
               onClick={isMusicPlayerOpen ? closeMusicPlayer : openMusicPlayer}
               variant="outline"
@@ -88,867 +153,46 @@ export function Sidebar({ isMobileMenuOpen, closeMobileMenu, isMusicPlayerOpen, 
             >
               <span className="font-mono" aria-hidden="true">♫</span>
             </Button>
-
-            {/* Theme toggle button */}
             <ThemeToggle />
           </div>
 
-          {/* Home Link with Icon - Uses secondary button styling */}
-          <Link
-            to="/"
-            onClick={closeMobileMenu}
-            className={`
-              flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-              transition-colors
-              ${
-                isActive("/")
-                  ? "bg-sepia-700 text-sepia-50 font-bold"
-                  : "hover:bg-sepia-600 hover:text-sepia-50"
-              }
-            `}
-          >
-            <img 
+          {/* Home */}
+          <NavRow to="/" active={isActive("/")} onNavigate={closeMobileMenu}>
+            <img
               src={`${import.meta.env.BASE_URL}Icons/Dark theme/2. System apps/Home.png`}
-              alt="Home" 
+              alt=""
               className="w-7 h-7 object-contain"
             />
-            <span>Home Page</span>
-          </Link>
+            <span>Home</span>
+          </NavRow>
 
-          {/* Foundation Section with Icon - Uses secondary button hover styling */}
-          <div>
-            <button
-              onClick={() => setIsFoundationExpanded(!isFoundationExpanded)}
-              className="w-full flex items-center gap-3 px-3 py-2 rounded-button hover:bg-sepia-600 hover:text-sepia-50 transition-colors font-mono text-sm"
-            >
-              <img 
-                src={`${import.meta.env.BASE_URL}Icons/Dark theme/3. System folders/Library.png`}
-                alt="Foundation" 
-                className="w-7 h-7 object-contain"
-              />
-              <span className="flex-1 text-left">Foundation</span>
-              <svg
-                className={`w-4 h-4 transition-transform ${
-                  isFoundationExpanded ? "rotate-180" : ""
-                }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
+          {/* Sections: pixel-icon header + plate rows, always visible */}
+          {NAV_SECTIONS.map((section) => (
+            <div key={section.label}>
+              <div className="flex items-center gap-3 px-3 pt-6 pb-2">
+                <img
+                  src={`${import.meta.env.BASE_URL}Icons/Dark theme/${section.icon}`}
+                  alt=""
+                  className="w-5 h-5 object-contain"
                 />
-              </svg>
-            </button>
-
-            {/* Foundation Sub-links with Icons - Uses secondary button styling */}
-            {isFoundationExpanded && (
-              <div className="mt-1 space-y-1">
-                <Link
-                  to="/foundation/base-colors"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/foundation/base-colors")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Base Colors</span>
-                </Link>
-                <Link
-                  to="/foundation/semantic-colors"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/foundation/semantic-colors")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Semantic Colors</span>
-                </Link>
-                <Link
-                  to="/foundation/typography"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/foundation/typography")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Typography</span>
-                </Link>
-                <Link
-                  to="/foundation/spacing"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/foundation/spacing")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Spacing</span>
-                </Link>
-                <Link
-                  to="/foundation/surfaces-elevation"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/foundation/surfaces-elevation")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Surfaces & Elevation</span>
-                </Link>
-                <Link
-                  to="/foundation/focus-states"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/foundation/focus-states")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Focus States</span>
-                </Link>
-                <Link
-                  to="/foundation/animations"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/foundation/animations")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Animations</span>
-                </Link>
-                <Link
-                  to="/foundation/z-index"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/foundation/z-index")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Z-Index</span>
-                </Link>
+                <span className="font-mono text-2xs uppercase tracking-wider text-secondary-700 dark:text-secondary-600">
+                  {section.label}
+                </span>
               </div>
-            )}
-          </div>
-
-          {/* Components Section with Icon - Uses secondary button hover styling */}
-          <div>
-            <button
-              onClick={() => setIsComponentsExpanded(!isComponentsExpanded)}
-              className="w-full flex items-center gap-3 px-3 py-2 rounded-button hover:bg-sepia-600 hover:text-sepia-50 transition-colors font-mono text-sm"
-            >
-              <img 
-                src={`${import.meta.env.BASE_URL}Icons/Dark theme/3. System folders/Applications.png`}
-                alt="Components" 
-                className="w-7 h-7 object-contain"
-              />
-              <span className="flex-1 text-left">Components</span>
-              <svg
-                className={`w-4 h-4 transition-transform ${
-                  isComponentsExpanded ? "rotate-180" : ""
-                }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-
-            {/* Components Sub-links with Icons - Uses secondary button styling */}
-            {isComponentsExpanded && (
-              <div className="mt-1 space-y-1">
-                <Link
-                  to="/components/buttons"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/buttons")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Buttons</span>
-                </Link>
-                <Link
-                  to="/components/inputs"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/inputs")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Inputs</span>
-                </Link>
-                <Link
-                  to="/components/dropdowns"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/dropdowns")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Dropdowns</span>
-                </Link>
-                <Link
-                  to="/components/toggles"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/toggles")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Toggles</span>
-                </Link>
-                <Link
-                  to="/components/textareas"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/textareas")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Textareas</span>
-                </Link>
-                <Link
-                  to="/components/checkboxes"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/checkboxes")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Checkboxes</span>
-                </Link>
-                <Link
-                  to="/components/radios"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/radios")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Radios</span>
-                </Link>
-                <Link
-                  to="/components/selects"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/selects")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Selects</span>
-                </Link>
-                <Link
-                  to="/components/badges"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/badges")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Badges</span>
-                </Link>
-                <Link
-                  to="/components/dividers"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/dividers")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Dividers</span>
-                </Link>
-                <Link
-                  to="/components/tooltips"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/tooltips")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Tooltips</span>
-                </Link>
-                <Link
-                  to="/components/alerts"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/alerts")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Alerts</span>
-                </Link>
-                <Link
-                  to="/components/avatars"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/components/avatars")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Avatars</span>
-                </Link>
+              <div className="space-y-1">
+                {section.items.map((item) => (
+                  <NavRow key={item.to} to={item.to} active={isActive(item.to)} onNavigate={closeMobileMenu}>
+                    <span>{item.label}</span>
+                  </NavRow>
+                ))}
               </div>
-            )}
-          </div>
+            </div>
+          ))}
+        </nav>
 
-          {/* Patterns Section with Icon - Uses secondary button hover styling */}
-          <div>
-            <button
-              onClick={() => setIsPatternsExpanded(!isPatternsExpanded)}
-              className="w-full flex items-center gap-3 px-3 py-2 rounded-button hover:bg-sepia-600 hover:text-sepia-50 transition-colors font-mono text-sm"
-            >
-              <img 
-                src={`${import.meta.env.BASE_URL}Icons/Dark theme/2. System apps/Mission Control.png`}
-                alt="Patterns" 
-                className="w-7 h-7 object-contain"
-              />
-              <span className="flex-1 text-left">Patterns</span>
-              <svg
-                className={`w-4 h-4 transition-transform ${
-                  isPatternsExpanded ? "rotate-180" : ""
-                }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-
-            {/* Patterns Sub-links with Icons - Uses secondary button styling */}
-            {isPatternsExpanded && (
-              <div className="mt-1 space-y-1">
-                <Link
-                  to="/patterns/side-navigation"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/patterns/side-navigation")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Side Navigation</span>
-                </Link>
-                <Link
-                  to="/patterns/cards"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/patterns/cards")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Cards</span>
-                </Link>
-                <Link
-                  to="/patterns/forms"
-                  onClick={closeMobileMenu}
-                  className={`
-                    flex items-center gap-3 px-3 py-2 rounded-button font-mono text-sm
-                    transition-colors
-                    ${
-                      isActive("/patterns/forms")
-                        ? "bg-sepia-700 text-sepia-50 font-bold"
-                        : "hover:bg-sepia-600 hover:text-sepia-50"
-                    }
-                  `}
-                >
-                  {/* L-shaped arrow SVG for sub-page navigation */}
-                  <svg 
-                    className="w-7 h-7" 
-                    viewBox="0 0 28 28" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path 
-                      d="M8 8 L8 16 L20 16 M16 12 L20 16 L16 20" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <span>Forms</span>
-                </Link>
-              </div>
-            )}
-          </div>
-        </div>
-      </nav>
-
-      {/* About Card - Fixed at bottom, nav scrolls underneath */}
-      <AboutCard />
-    </aside>
+        {/* About card - fixed at bottom, nav scrolls underneath */}
+        <AboutCard />
+      </aside>
     </>
   );
 }
-

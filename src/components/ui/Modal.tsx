@@ -5,10 +5,16 @@
  * Built entirely from design tokens defined in tokens.json
  * 
  * FEATURES:
- * - Fixed header with title and close button (always visible)
+ * - Fixed header with title and a secondary-plate close button (always visible)
+ * - Optional fixed footer band for CTAs via `footerContent`
  * - Scrollable content area (max-height: 66vh)
  * - Fade in/out animations (200ms duration)
  * - Backdrop scrim (semi-transparent overlay)
+ * - `docked` variant: on wide viewports (>=960px) the panel skips the scrim
+ *   and pins bottom-center as a NON-modal dialog (no aria-modal, no scroll
+ *   lock, page stays interactive), so the content behind stays in view while
+ *   the dialog acts on it. Below 960px docked falls back to the standard
+ *   centered modal, so consumers never branch on breakpoint themselves.
  * - Drop shadow using elevation tokens
  * - Click outside to close
  * - ESC key to close
@@ -17,17 +23,21 @@
  * DIMENSIONS:
  * - Width: 740px fixed
  * - Max height: 80% of viewport height
- * - Border radius: 24px (radius.container token)
- * 
+ *
+ * SHAPE: the panel is a large plate (--plate-round-lg, stepped one-bit corners)
+ * built with the ring recipe — outer layer is the stroke color clipped to the
+ * plate, inner layer is the card fill clipped 1px inset (clip-path slices real
+ * borders, so a border property cannot draw the ring).
+ *
  * TOKENS USED:
- * - surface.card: Card background color
- * - sepia.500/800: Border colors (light/dark)
- * - sepia.900/50: Primary text colors (light/dark)
- * - radius.container: 24px border radius
- * - elevation.2: Drop shadow
+ * - surface.card, surface.container-stroke, surface.overlay
+ * - text.primary (title)
+ * - plate.round-lg: panel silhouette
  */
 
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { Button } from "./Button";
+import { TuiIcon } from "./TuiIcon";
 
 // Define the props interface for the Modal component
 export interface ModalProps {
@@ -35,6 +45,24 @@ export interface ModalProps {
   onClose: () => void;                // Function to call when modal should close
   title: string;                      // Title text displayed in fixed header
   children: ReactNode;                // Content to display in scrollable area
+  /**
+   * Optional fixed footer for CTAs. Render DS Buttons here (e.g. a secondary
+   * "Cancel" + primary confirm); actions align to the right on a subtle band.
+   */
+  footerContent?: ReactNode;
+  /**
+   * Panel width (default 740). Numbers are px; strings pass through
+   * (e.g. "min(320px, 90vw)"). Small celebratory dialogs want ~320.
+   */
+  width?: number | string;
+  /**
+   * Dock instead of covering: on viewports >= 960px the panel pins
+   * bottom-center with no scrim and no scroll lock (a non-modal dialog),
+   * keeping the page behind visible and interactive. Below 960px this is
+   * ignored and the standard centered modal renders, so the responsive
+   * fallback lives here, not in the consumer.
+   */
+  docked?: boolean;
 }
 
 /**
@@ -45,7 +73,37 @@ export interface ModalProps {
  * @param title - Header title text
  * @param children - Modal content (will be scrollable if it exceeds max-height)
  */
-export function Modal({ isOpen, onClose, title, children }: ModalProps) {
+export function Modal({ isOpen, onClose, title, children, footerContent, width = 740, docked = false }: ModalProps) {
+  const panelRef = useRef<HTMLDivElement>(null);
+  const prevFocusRef = useRef<HTMLElement | null>(null);
+
+  // Docked applies on wide viewports only; below the breakpoint the docked
+  // request degrades to the standard centered modal.
+  const [wideViewport, setWideViewport] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(min-width: 960px)").matches
+  );
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 960px)");
+    const onChange = () => setWideViewport(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  const isDocked = docked && wideViewport;
+
+  // FOCUS MANAGEMENT: on open, remember the invoker and move focus into the
+  // dialog (the panel itself, so screen readers announce the dialog name);
+  // on close, hand focus back to wherever the user was.
+  useEffect(() => {
+    if (isOpen) {
+      prevFocusRef.current = document.activeElement as HTMLElement | null;
+      panelRef.current?.focus();
+      return () => {
+        prevFocusRef.current?.focus();
+        prevFocusRef.current = null;
+      };
+    }
+  }, [isOpen]);
+
   
   // EFFECT: Handle ESC key press to close modal
   // This listens for keyboard events and closes the modal when ESC is pressed
@@ -67,10 +125,10 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
     };
   }, [isOpen, onClose]);
 
-  // EFFECT: Prevent body scroll when modal is open
-  // This keeps the background page from scrolling while modal is active
+  // EFFECT: Prevent body scroll when modal is open. Docked mode is
+  // non-modal, so the page keeps scrolling underneath.
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && !isDocked) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -80,43 +138,27 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isOpen]);
+  }, [isOpen, isDocked]);
 
   // Don't render anything if modal is closed
   if (!isOpen) return null;
 
-  return (
-    <>
-      {/* 
-        BACKDROP / SCRIM
-        - Full-screen semi-transparent overlay
-        - Covers entire viewport with dark shade (including sidebar)
-        - Clicking it closes the modal
-        - Uses fade-in/fade-out animation
-        - Uses z-index token for modal layer (1040) to ensure it covers sidebar
-      */}
-      <div
-        className="fixed inset-0 bg-black/50 flex items-center justify-center p-5 animate-in fade-in duration-[200ms]"
-        style={{ zIndex: 'var(--z-index-modal)' }}
-        onClick={onClose}
-      >
-        {/* 
-          MODAL CONTAINER
-          - 740px fixed width
-          - Max height: 80% of viewport (80vh)
-          - Card styling with background, border, and shadow
-          - Clicking inside the modal does NOT close it (stopPropagation)
-          - Uses elevation-2 shadow tokens for medium elevation
-          - rounded-[24px] uses radius.container token
-        */}
+  // MODAL CONTAINER — plate ring recipe
+  // - Outer layer: stroke color clipped to the large plate (the ring)
+  // - Inner layer: card fill clipped 1px inset (p-px on the outer)
+  // - Clicking inside the panel does NOT close it (stopPropagation)
+  const panel = (
         <div
-          className="w-[740px] max-h-[80vh] bg-[var(--surface-card)] rounded-none flex flex-col overflow-hidden"
-          style={{
-            boxShadow: 'var(--elevation-2-shadow)',
-            border: '0.5px solid var(--elevation-2-border)'
-          }}
+          ref={panelRef}
+          tabIndex={-1}
+          className="max-w-full max-h-[80vh] plate-round-lg p-px bg-[var(--surface-container-stroke)] flex focus:outline-none"
+          style={{ width: typeof width === "number" ? `${width}px` : width }}
+          role="dialog"
+          aria-modal={isDocked ? undefined : "true"}
+          aria-label={title}
           onClick={(e) => e.stopPropagation()}
         >
+        <div className="w-full plate-round-lg bg-[var(--surface-card)] flex flex-col overflow-hidden">
           {/* 
             FIXED HEADER
             - Always visible at top (does not scroll)
@@ -125,26 +167,23 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
             - 24px padding matches card padding from Colors page
             - Border bottom separates header from content
           */}
-          {/* TUI Tier 2: double-line box-drawing title bar ╔══ Title ══╗ */}
-          <div className="flex items-center justify-between px-8 py-6 border-b-[0.5px] border-solid border-sepia-500 dark:border-sepia-800">
-            {/* Title with double-line box-drawing decoration */}
-            <h2 className="text-base font-mono text-sepia-900 dark:text-sepia-50 font-medium flex items-center gap-0 flex-1 min-w-0">
-              <span className="text-term-dim dark:text-term-amber whitespace-pre" aria-hidden="true">╔══ </span>
-              <span className="truncate">{title}</span>
-              <span className="text-term-dim dark:text-term-amber ml-1 flex-1 overflow-hidden whitespace-nowrap" aria-hidden="true">
-                {"═".repeat(80)}
-              </span>
-              <span className="text-term-dim dark:text-term-amber whitespace-pre" aria-hidden="true"> ══╗</span>
+          {/* Header — plain title (box-drawing decoration retired with the TUI tier) */}
+          <div className="flex items-center justify-between px-8 py-6 border-b-[0.5px] border-solid border-[var(--surface-container-stroke)]">
+            <h2 className="text-base font-mono text-[var(--text-primary)] font-medium flex-1 min-w-0 truncate">
+              {title}
             </h2>
 
-            {/* TUI close button: [x] text instead of icon */}
-            <button
+            {/* Close control: icon-only secondary plate button (square, gold ✗ glyph) */}
+            <Button
+              variant="secondary"
+              size="small"
+              type="button"
               onClick={onClose}
-              className="ml-4 font-mono text-sm text-term-dim dark:text-term-amber hover:text-term-red dark:hover:text-term-red transition-colors duration-200 leading-none"
               aria-label="Close modal"
+              className="ml-4 shrink-0"
             >
-              [x]
-            </button>
+              <TuiIcon name="X" />
+            </Button>
           </div>
 
           {/* 
@@ -154,10 +193,63 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
             - 24px padding matches card padding
             - overflow-y-auto adds scrollbar only when needed
           */}
-          <div className="overflow-y-auto px-8 py-6">
+          {/* tabIndex allows keyboard focus into the scroll region (axe scrollable-region-focusable / Safari). */}
+          <div className="overflow-y-auto px-8 py-6" tabIndex={0}>
             {children}
           </div>
+
+          {/* Optional fixed footer — CTA band, actions right-aligned. Same
+              card fill as the header (no tint), separated by the hairline. */}
+          {footerContent && (
+            <div className="flex items-center justify-end gap-3 px-8 py-5 border-t-[0.5px] border-solid border-[var(--surface-container-stroke)]">
+              {footerContent}
+            </div>
+          )}
         </div>
+        </div>
+  );
+
+  // DOCKED (wide viewports): no scrim, no backdrop click-away — the panel
+  // floats bottom-center over a live page. Elevation is a drop-shadow, not
+  // the boxShadow tokens: the plate clip-path slices box shadows off, and
+  // drop-shadow follows the stepped silhouette (values track
+  // elevation.high's dark blur).
+  if (isDocked) {
+    // Centered with flex, not a translate: the enter animation overrides
+    // transforms, so a -translate-x-1/2 center made the panel appear half
+    // a width to the right and snap into place. Flex centering keeps the
+    // entrance a pure fade, like the standard modal.
+    return (
+      <div
+        className="fixed inset-x-0 flex justify-center pointer-events-none animate-in fade-in"
+        style={{
+          zIndex: "var(--z-index-modal)",
+          bottom: "48px",
+          animationDuration: "var(--duration-normal)",
+          filter: "drop-shadow(0 10px 40px rgba(0, 0, 0, 0.35))",
+        }}
+      >
+        <div className="pointer-events-auto flex max-w-full">{panel}</div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {/*
+        BACKDROP / SCRIM
+        - Full-screen semi-transparent overlay
+        - Covers entire viewport with dark shade (including sidebar)
+        - Clicking it closes the modal
+        - Uses fade-in/fade-out animation
+        - Uses z-index token for modal layer (1040) to ensure it covers sidebar
+      */}
+      <div
+        className="fixed inset-0 flex items-center justify-center p-5 animate-in fade-in bg-[var(--surface-overlay)]"
+        style={{ zIndex: "var(--z-index-modal)", animationDuration: "var(--duration-normal)" }}
+        onClick={onClose}
+      >
+        {panel}
       </div>
     </>
   );
