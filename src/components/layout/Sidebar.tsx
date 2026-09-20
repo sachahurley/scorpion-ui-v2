@@ -66,6 +66,12 @@ const NAV_SECTIONS: NavSection[] = [
       { to: "/components/tooltips", label: "Tooltips" },
       { to: "/components/alerts", label: "Alerts" },
       { to: "/components/avatars", label: "Avatars" },
+      { to: "/components/list-rows", label: "List Rows" },
+      { to: "/components/sliders", label: "Sliders" },
+      { to: "/components/tables", label: "Tables" },
+      { to: "/components/tabs", label: "Tabs" },
+      { to: "/components/toasts", label: "Toasts" },
+      { to: "/components/bottom-sheets", label: "Bottom Sheets" },
     ],
   },
   {
@@ -75,6 +81,7 @@ const NAV_SECTIONS: NavSection[] = [
       { to: "/patterns/side-navigation", label: "Side Navigation" },
       { to: "/patterns/cards", label: "Cards" },
       { to: "/patterns/forms", label: "Forms" },
+      { to: "/patterns/case-study", label: "Case Study" },
     ],
   },
 ];
