@@ -248,3 +248,17 @@ Built with:
 ---
 
 **Scorpion UI v2** - A design system for your next project 🦂
+
+## Vendored design system
+
+This site wears the merged Scorp DS identity as a deliberate snapshot: token
+variables and the Tailwind preset live in `vendor/scorp-ds/`, and the files in
+`src/components/ui/` are copies of the scorp-ds component sources (with three
+mechanical Vite adaptations). It is NOT auto-synced when scorp-ds merges.
+
+- `npm run ds:check`: diff the snapshot against scorp-ds `origin/main`
+- `npm run vendor:ds`: re-sync from `origin/main`, then `npm run build`,
+  review the diff, and commit
+
+Source checkout: `~/Projects/scorp-ds` (override with `SCORP_DS_DIR`). The
+snapshot commit is recorded in `vendor/scorp-ds/VERSION`.
