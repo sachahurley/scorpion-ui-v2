@@ -18,6 +18,7 @@ import { Dropdown } from "@/components/ui/Dropdown";
 import { Button } from "@/components/ui/Button";
 // TUI Tier 2: Import TuiIcon for Unicode character icons
 import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Dropdowns() {
   // Sample handlers for demonstration
@@ -46,7 +47,7 @@ export default function Dropdowns() {
         Simple dropdown with text-only items
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Basic Dropdown</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -74,7 +75,7 @@ export default function Dropdowns() {
               ]}
             />
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -82,7 +83,7 @@ export default function Dropdowns() {
         Small, medium, and large dropdown variants
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -136,7 +137,7 @@ export default function Dropdowns() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="large" (48px, 12px radius)</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -144,7 +145,7 @@ export default function Dropdowns() {
         Menu items with left-aligned icons
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Icons</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -185,7 +186,7 @@ export default function Dropdowns() {
               ]}
             />
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -193,7 +194,7 @@ export default function Dropdowns() {
         Using custom trigger buttons with different variants
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Custom Trigger Buttons</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -244,7 +245,7 @@ export default function Dropdowns() {
               ]}
             />
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -252,7 +253,7 @@ export default function Dropdowns() {
         Left vs Right aligned menus
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Menu Alignment</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -289,7 +290,7 @@ export default function Dropdowns() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">align="right"</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -297,7 +298,7 @@ export default function Dropdowns() {
         Menu items with destructive/danger styling
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Destructive Actions</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -328,7 +329,7 @@ export default function Dropdowns() {
               ]}
             />
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -336,7 +337,7 @@ export default function Dropdowns() {
         Menu items with left icon grouped with label, and right icon aligned to right edge
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Left and Right Icons</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -450,14 +451,14 @@ export default function Dropdowns() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">View selector with active state</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
         DISABLED STATE SECTION
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Disabled Items</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -476,7 +477,7 @@ export default function Dropdowns() {
               ]}
             />
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -488,7 +489,7 @@ export default function Dropdowns() {
 
       {/* DROPDOWN TOKEN BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           {/* Card Title & Subtitle */}
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Dropdown Token Breakdown</h3>
@@ -683,7 +684,7 @@ export default function Dropdowns() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -691,7 +692,7 @@ export default function Dropdowns() {
         Documentation for accessibility features
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Keyboard Navigation</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -724,7 +725,7 @@ export default function Dropdowns() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

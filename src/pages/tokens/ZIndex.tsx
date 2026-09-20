@@ -8,6 +8,7 @@
  */
 
 import { useState } from "react";
+import { Panel } from "@/components/docs/Panel";
 
 export default function ZIndex() {
   const [activeLayer, setActiveLayer] = useState<string | null>(null);
@@ -35,7 +36,7 @@ export default function ZIndex() {
 
       {/* LAYER HIERARCHY VISUALIZATION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Layer Hierarchy</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -44,7 +45,7 @@ export default function ZIndex() {
           </div>
 
           {/* Stacked layers visualization */}
-          <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel>
             <div className="relative h-[400px]">
               {layers.map((layer, index) => (
                 <div
@@ -75,13 +76,13 @@ export default function ZIndex() {
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-4 text-center">
               ↑ Hover over layers to highlight them in the stack
             </p>
-          </div>
-        </div>
+          </Panel>
+        </Panel>
       </section>
 
       {/* TOKEN VALUES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Token Values</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -91,29 +92,29 @@ export default function ZIndex() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {layers.map((layer) => (
-              <div key={layer.name} className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-mono text-[var(--text-primary)]">{layer.name}</span>
                   <span className="text-sm font-mono font-bold text-primary-600 dark:text-primary-400">{layer.value}</span>
                 </div>
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{layer.description}</p>
-              </div>
+              </Panel>
             ))}
           </div>
 
           {/* Spacing explanation */}
-          <div className="mt-6 p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel className="mt-6">
             <p className="text-sm font-mono text-[var(--text-primary)] mb-2">20-Point Increment System</p>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
               Each layer is separated by 20 points, allowing for intermediate values if needed while maintaining clear hierarchy. Starting at 1000 leaves room below for special cases.
             </p>
-          </div>
-        </div>
+          </Panel>
+        </Panel>
       </section>
 
       {/* USAGE GUIDELINES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Usage Guidelines</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -122,7 +123,7 @@ export default function ZIndex() {
           </div>
 
           <div className="space-y-4">
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Layer Selection Rules</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• <span className="text-[var(--text-primary)]">base (0)</span> - All normal page content, cards, text</li>
@@ -133,9 +134,9 @@ export default function ZIndex() {
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• <span className="text-[var(--text-primary)]">popover (1050)</span> - Popovers that appear above modals</li>
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• <span className="text-[var(--text-primary)]">tooltip (1060)</span> - Tooltips (always on top)</li>
               </ul>
-            </div>
+            </Panel>
 
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Best Practices</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Always use tokens instead of arbitrary values</li>
@@ -144,7 +145,7 @@ export default function ZIndex() {
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Document any custom z-index values and their purpose</li>
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Test stacking with multiple overlays open simultaneously</li>
               </ul>
-            </div>
+            </Panel>
 
             <div className="p-6 bg-error-50 dark:bg-error-900/20 border border-error-200 dark:border-error-800 rounded-none">
               <p className="text-sm font-mono text-[var(--text-primary)] mb-2">🔴 Common Mistakes</p>
@@ -156,12 +157,12 @@ export default function ZIndex() {
               </ul>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* INTERACTIVE DEMO SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Interactive Demo</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -169,7 +170,7 @@ export default function ZIndex() {
             </p>
           </div>
 
-          <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel>
             {/* Layer toggle buttons */}
             <div className="flex flex-wrap gap-2 mb-6">
               <button
@@ -263,13 +264,13 @@ export default function ZIndex() {
                 </div>
               )}
             </div>
-          </div>
-        </div>
+          </Panel>
+        </Panel>
       </section>
 
       {/* IMPLEMENTATION SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Implementation</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -281,7 +282,7 @@ export default function ZIndex() {
             {/* Tailwind Classes */}
             <div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Using Tailwind Classes</p>
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-secondary-950">
+              <Panel innerClassName="bg-secondary-950 p-4 lg:p-6">
                 <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
 {`<!-- Tailwind doesn't have z-1040, use CSS variable instead -->
 <div className="z-[var(--z-index-modal)]">
@@ -293,13 +294,13 @@ export default function ZIndex() {
   Modal Content
 </div>`}
                 </pre>
-              </div>
+              </Panel>
             </div>
 
             {/* Component Examples */}
             <div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Real-World Examples</p>
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <ul className="space-y-3">
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
                     <span className="text-[var(--text-primary)]">Sidebar:</span> Use zIndex.sticky (1020) for fixed navigation
@@ -317,15 +318,15 @@ export default function ZIndex() {
                     <span className="text-[var(--text-primary)]">Tooltips:</span> Use zIndex.tooltip (1060) to always be visible
                   </li>
                 </ul>
-              </div>
+              </Panel>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* TROUBLESHOOTING SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Troubleshooting</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -334,7 +335,7 @@ export default function ZIndex() {
           </div>
 
           <div className="space-y-4">
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Element not appearing above another?</p>
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-2">Check if the parent has a stacking context:</p>
               <ul className="space-y-1 ml-4">
@@ -342,16 +343,16 @@ export default function ZIndex() {
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Is parent position relative/absolute/fixed?</li>
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Child z-index only works within parent's stacking context</li>
               </ul>
-            </div>
+            </Panel>
 
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Modal appearing behind sidebar?</p>
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
                 Ensure modal is rendered at root level (not nested inside sidebar). Use React portals or place modal/overlay components at app root.
               </p>
-            </div>
+            </Panel>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

@@ -16,6 +16,7 @@
 import { useState } from "react";
 import { Radio } from "@/components/ui/Radio";
 import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Radios() {
   // State for interactive examples
@@ -41,7 +42,7 @@ export default function Radios() {
         Small, medium, and large radio variants
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -86,7 +87,7 @@ export default function Radios() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="large" (24px × 24px)</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -94,7 +95,7 @@ export default function Radios() {
         Unchecked, checked, disabled, and error states
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">States</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -104,7 +105,7 @@ export default function Radios() {
           
           <div className="space-y-6">
             {/* All States Display */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <div className="space-y-4">
                 <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All states:</p>
                 
@@ -138,9 +139,9 @@ export default function Radios() {
                   <span className="text-sm font-mono text-[var(--text-primary)]">Error State</span>
                 </div>
               </div>
-            </div>
+            </Panel>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -148,7 +149,7 @@ export default function Radios() {
         Proper radio group implementation
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Radio Groups</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -158,7 +159,7 @@ export default function Radios() {
           
           <div className="space-y-6">
             {/* Subscription Plan Selection */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Select Your Plan</h4>
               <div className="space-y-3">
                 <Radio
@@ -183,10 +184,10 @@ export default function Radios() {
                   label="Enterprise - $49/month"
                 />
               </div>
-            </div>
+            </Panel>
 
             {/* Size Selection with Error */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Select Size</h4>
               <div className="space-y-3">
                 <Radio
@@ -211,10 +212,10 @@ export default function Radios() {
                   label="Large"
                 />
               </div>
-            </div>
+            </Panel>
 
             {/* Required Selection with Error */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-2">
                 Payment Method <span className="text-error-600 dark:text-error-500">*</span>
               </h4>
@@ -250,9 +251,9 @@ export default function Radios() {
                   Please select a payment method
                 </p>
               )}
-            </div>
+            </Panel>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -260,7 +261,7 @@ export default function Radios() {
         Documentation of design tokens used in radio buttons
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Radio Token Breakdown</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -316,7 +317,7 @@ export default function Radios() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

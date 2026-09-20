@@ -17,6 +17,7 @@ import { useState } from "react";
 import { Switch } from "@/components/ui/Switch";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Toggles() {
   // State for interactive examples
@@ -44,7 +45,7 @@ export default function Toggles() {
         Small, medium, and large toggle variants
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -83,7 +84,7 @@ export default function Toggles() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="large" (40px height)</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -91,7 +92,7 @@ export default function Toggles() {
         Default (unchecked), checked, and disabled states
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">States</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -142,7 +143,7 @@ export default function Toggles() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Disabled (On)</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -150,7 +151,7 @@ export default function Toggles() {
         Toggles with label text
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Labels</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -179,7 +180,7 @@ export default function Toggles() {
               onCheckedChange={() => {}}
             />
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -187,7 +188,7 @@ export default function Toggles() {
         Toggles with icons inside the knob (like ThemeToggle)
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Icons</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -235,7 +236,7 @@ export default function Toggles() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -243,7 +244,7 @@ export default function Toggles() {
         Real-world examples with icons and descriptions
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Use Cases</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -376,7 +377,7 @@ export default function Toggles() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -384,7 +385,7 @@ export default function Toggles() {
         All sizes side by side for visual comparison
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Size Comparison</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -444,7 +445,7 @@ export default function Toggles() {
               />
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -452,7 +453,7 @@ export default function Toggles() {
         Documentation of design tokens used in switches
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Switch Token Breakdown</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -465,21 +466,21 @@ export default function Toggles() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Sizes</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Small</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Track: 24px × 44px</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Knob: 20px × 20px</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Medium</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Track: 32px × 56px</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Knob: 24px × 24px</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Large</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Track: 40px × 72px</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Knob: 32px × 32px</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -487,38 +488,38 @@ export default function Toggles() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Colors</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Checked State</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Track: primary-400 (amber-400)</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Knob: white / secondary-900</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Unchecked State</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Track: sepia-300 / sepia-700</p>
                   <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Knob: white / secondary-900</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
             {/* Focus States */}
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Focus States</h4>
-              <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Focus Ring: 2px primary-400 ring with 2px offset</p>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Matches button and input focus states</p>
-              </div>
+              </Panel>
             </div>
 
             {/* Animation */}
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Animation</h4>
-              <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Transition Duration: 300ms</p>
                 <p className="text-xs font-mono text-sepia-600 dark:text-sepia-400">Easing: ease (default)</p>
-              </div>
+              </Panel>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

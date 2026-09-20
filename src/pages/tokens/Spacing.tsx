@@ -8,6 +8,8 @@
  * They're documented here as official design system tokens
  */
 
+
+import { Panel } from "@/components/docs/Panel";
 export default function Spacing() {
   // Define all spacing values for visualization
   const spacingValues = [
@@ -38,7 +40,7 @@ export default function Spacing() {
 
       {/* SPACING SCALE SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Spacing Scale</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -70,12 +72,12 @@ export default function Spacing() {
               </div>
             ))}
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 4PX BASE UNIT SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">4px Base Unit</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -83,7 +85,7 @@ export default function Spacing() {
             </p>
           </div>
 
-          <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel>
             <div className="space-y-3">
               <p className="text-sm font-mono text-[var(--text-primary)]">
                 <span>Base Unit:</span> 4px
@@ -100,13 +102,13 @@ export default function Spacing() {
                 <div className="text-xs font-mono text-secondary-700 dark:text-secondary-600">spacing.8 = 4px × 8</div>
               </div>
             </div>
-          </div>
-        </div>
+          </Panel>
+        </Panel>
       </section>
 
       {/* COMMON USE CASES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Common Use Cases</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -116,7 +118,7 @@ export default function Spacing() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Small Spacing */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Small Spacing (0-3)</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• spacing.0: Reset spacing to zero</li>
@@ -124,10 +126,10 @@ export default function Spacing() {
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• spacing.2 (8px): Icon-to-text spacing in buttons</li>
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• spacing.3 (12px): Small component padding</li>
               </ul>
-            </div>
+            </Panel>
 
             {/* Medium Spacing */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Medium Spacing (4-8)</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• spacing.4 (16px): Button horizontal padding</li>
@@ -135,33 +137,33 @@ export default function Spacing() {
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• spacing.6 (24px): Container padding, section gaps</li>
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• spacing.8 (32px): Large card padding</li>
               </ul>
-            </div>
+            </Panel>
 
             {/* Large Spacing */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Large Spacing (10-16)</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• spacing.10 (40px): Section margins</li>
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• spacing.12 (48px): Page section spacing</li>
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• spacing.16 (64px): Large layout gaps</li>
               </ul>
-            </div>
+            </Panel>
 
             {/* Extra Large Spacing */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Extra Large Spacing (20-24)</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• spacing.20 (80px): Major section dividers</li>
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• spacing.24 (96px): Page-level spacing</li>
               </ul>
-            </div>
+            </Panel>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* INTERACTIVE EXAMPLES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Interactive Examples</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -173,7 +175,7 @@ export default function Spacing() {
             {/* Padding Example */}
             <div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Component Padding</p>
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {/* Small padding */}
                   <div className="border-2 border-dashed border-primary-300 dark:border-primary-700 rounded">
@@ -196,13 +198,13 @@ export default function Spacing() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Panel>
             </div>
 
             {/* Gap Example */}
             <div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Element Gaps</p>
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <div className="space-y-6">
                   {/* gap-2 example */}
                   <div>
@@ -234,16 +236,16 @@ export default function Spacing() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Panel>
             </div>
 
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* USAGE GUIDELINES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Usage Guidelines</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -252,7 +254,7 @@ export default function Spacing() {
           </div>
 
           <div className="space-y-4">
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Tailwind Class Syntax</p>
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-3">
                 Use Tailwind's spacing utilities to apply these values:
@@ -263,9 +265,9 @@ export default function Spacing() {
                 <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Gap: <code className="px-2 py-1 bg-secondary-100 dark:bg-secondary-900">gap-2</code> (spacing.2 = 8px between flex/grid items)</p>
                 <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Specific sides: <code className="px-2 py-1 bg-secondary-100 dark:bg-secondary-900">px-4 py-2</code> (horizontal/vertical)</p>
               </div>
-            </div>
+            </Panel>
 
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Design Principles</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Stick to the 4px grid for visual consistency</li>
@@ -274,9 +276,9 @@ export default function Spacing() {
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Use large values (10-24) for section-level spacing</li>
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Maintain consistent spacing within component groups</li>
               </ul>
-            </div>
+            </Panel>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

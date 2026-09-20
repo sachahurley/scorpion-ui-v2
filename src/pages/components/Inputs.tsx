@@ -15,6 +15,7 @@
 
 import { Input } from "@/components/ui/Input";
 import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Inputs() {
   return (
@@ -41,7 +42,7 @@ export default function Inputs() {
         Heights match button component for visual consistency
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -64,7 +65,7 @@ export default function Inputs() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Height: 32px</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -73,7 +74,7 @@ export default function Inputs() {
         Default, Hover, Focused, Disabled, Error
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">States</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -82,7 +83,7 @@ export default function Inputs() {
           </div>
           
           {/* All States with forced visual representations */}
-          <div className="mb-8 p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel className="mb-8">
             <div className="space-y-4">
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All interaction states:</p>
               
@@ -152,7 +153,7 @@ export default function Inputs() {
                 </div>
               </div>
             </div>
-          </div>
+          </Panel>
 
           {/* Interactive Examples */}
           <div>
@@ -164,7 +165,7 @@ export default function Inputs() {
               <Input error placeholder="This input has an error" />
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -172,7 +173,7 @@ export default function Inputs() {
         Shows proper form structure with labels
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Labels</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -238,7 +239,7 @@ export default function Inputs() {
               />
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -246,7 +247,7 @@ export default function Inputs() {
         Different placeholder text examples
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Placeholder Examples</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -261,7 +262,7 @@ export default function Inputs() {
             <Input placeholder="e.g., John Smith" />
             <Input placeholder="Optional field" />
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -273,7 +274,7 @@ export default function Inputs() {
 
       {/* INPUT TOKEN BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           {/* Card Title & Subtitle */}
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Input Token Breakdown</h3>
@@ -489,7 +490,7 @@ export default function Inputs() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -497,7 +498,7 @@ export default function Inputs() {
         Important information about accessible form inputs
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Accessibility Guidelines</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -523,7 +524,7 @@ export default function Inputs() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

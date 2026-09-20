@@ -6,6 +6,8 @@
  * Sample text uses quotes from Point Break (1991)
  */
 
+
+import { Panel } from "@/components/docs/Panel";
 export default function Typography() {
   return (
     <div className="container mx-auto px-5 lg:px-10 pt-5 lg:pt-10 pb-5 lg:pb-20">
@@ -26,7 +28,7 @@ export default function Typography() {
         Large display of token name and font family name (48px) directly in amber container
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Font Family</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Primary typeface</p>
@@ -41,7 +43,7 @@ export default function Typography() {
               Fragment Mono
             </p>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -51,14 +53,14 @@ export default function Typography() {
         Each shows the Point Break quote at that size, plus token name and pixel value
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Font Sizes</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Type scale from 6xl (96px) to xs (12px) for all typography needs</p>
           </div>
           
           {/* Single container with all font sizes cascading from largest to smallest */}
-          <div className="border border-[var(--border-hairline)] rounded-none overflow-hidden bg-white dark:bg-secondary-950 p-6">
+          <Panel>
             <div className="flex flex-col gap-8">
               
               {/* font.size.6xl - 96px */}
@@ -172,8 +174,8 @@ export default function Typography() {
               </div>
 
             </div>
-          </div>
-        </div>
+          </Panel>
+        </Panel>
       </section>
 
       {/* 
@@ -182,7 +184,7 @@ export default function Typography() {
         These control the default text colors throughout the design system
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Text Hierarchy</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Theme-aware text colors for primary and secondary content</p>
@@ -218,11 +220,11 @@ export default function Typography() {
               </div>
 
               {/* Visual Example */}
-              <div className="mt-4 p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel className="mt-4">
                 <p className="text-base font-mono text-[var(--text-primary)]">
                   This text uses text.primary for maximum contrast and readability. It's used for headlines, body text, and important content.
                 </p>
-              </div>
+              </Panel>
             </div>
 
             {/* Secondary Text */}
@@ -252,15 +254,15 @@ export default function Typography() {
               </div>
 
               {/* Visual Example */}
-              <div className="mt-4 p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel className="mt-4">
                 <p className="text-base font-mono text-[var(--text-secondary)]">
                   This text uses text.secondary for supporting content like descriptions, captions, and metadata. It provides visual hierarchy through reduced contrast.
                 </p>
-              </div>
+              </Panel>
             </div>
 
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

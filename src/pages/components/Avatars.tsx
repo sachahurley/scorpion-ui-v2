@@ -6,6 +6,7 @@
 
 import { Avatar } from "@/components/ui/Avatar";
 import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Avatars() {
   return (
@@ -20,7 +21,7 @@ export default function Avatars() {
 
       {/* Variants Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Variants</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -57,12 +58,12 @@ export default function Avatars() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Icon</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Sizes Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -88,12 +89,12 @@ export default function Avatars() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Small (24px)</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Status Indicators */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Status Indicators</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -127,12 +128,12 @@ export default function Avatars() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Away</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Common Use Cases */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Common Use Cases</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -208,12 +209,12 @@ export default function Avatars() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Token Breakdown */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Token Breakdown</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -226,26 +227,26 @@ export default function Avatars() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Size Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Small</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">24px × 24px</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: 12px</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Medium</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">40px × 40px</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: 14px</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Large</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">64px × 64px</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: 18px</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">XL</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">96px × 96px</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: 24px</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -253,28 +254,28 @@ export default function Avatars() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Color Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Background</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Light: secondary-200</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Dark: secondary-800</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Text Color</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Light: secondary-900</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Dark: secondary-50</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Status Online</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">success-500</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Status Offline</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">secondary-400/600</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Status Away</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">warning-500</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -282,22 +283,22 @@ export default function Avatars() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Typography</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Font Family</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Fragment Mono</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Font Weight</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Bold (700)</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Radius</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">100% (circular)</p>
-                </div>
+                </Panel>
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

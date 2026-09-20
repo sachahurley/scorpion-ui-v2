@@ -13,6 +13,8 @@
  * 6. Detailed token breakdown
  */
 
+
+import { Panel } from "@/components/docs/Panel";
 export default function SideNavigation() {
   return (
     <div className="container mx-auto px-5 lg:px-10 pt-5 lg:pt-10 pb-5 lg:pb-20">
@@ -38,7 +40,7 @@ export default function SideNavigation() {
         Displays different states: default, hover, active
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Component Overview</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -47,7 +49,7 @@ export default function SideNavigation() {
           </div>
           
           {/* Visual representation - screenshot or mockup of sidebar */}
-          <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel>
             <div className="flex gap-6 items-start">
               {/* Mock sidebar preview */}
               <div className="w-64 bg-[var(--surface-container)] rounded-none p-4 border border-[var(--border-hairline)]">
@@ -87,8 +89,8 @@ export default function SideNavigation() {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
+          </Panel>
+        </Panel>
       </section>
 
       {/* 
@@ -96,7 +98,7 @@ export default function SideNavigation() {
         Shows all the different states: default, hover, active, expanded/collapsed
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Interactive States</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -106,7 +108,7 @@ export default function SideNavigation() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Default State */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Default State</h4>
               <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm text-secondary-800 dark:text-secondary-500">
                 <div className="w-7 h-7 bg-secondary-300 dark:bg-secondary-700 rounded-none"></div>
@@ -115,10 +117,10 @@ export default function SideNavigation() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-3">
                 Quiet secondary text, no fill, no border
               </p>
-            </div>
+            </Panel>
 
             {/* Hover State */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Hover State</h4>
               <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm bg-[var(--surface-muted)] text-[var(--accent)]">
                 <div className="w-7 h-7 bg-[var(--surface-muted)] rounded-none"></div>
@@ -127,10 +129,10 @@ export default function SideNavigation() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-3">
                 The plate fills with var(--surface-muted) and the text flips to var(--accent)
               </p>
-            </div>
+            </Panel>
 
             {/* Active/Selected State */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Active/Selected State</h4>
               <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm bg-[var(--surface-muted)] text-[var(--accent)]">
                 <div className="w-7 h-7 bg-[var(--surface-muted)] rounded-none"></div>
@@ -139,10 +141,10 @@ export default function SideNavigation() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-3">
                 The active route holds the filled + accent state (color plus fill, never color alone)
               </p>
-            </div>
+            </Panel>
 
             {/* Keyboard Focus State */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Keyboard Focus State</h4>
               <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm text-secondary-800 dark:text-secondary-500 [box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]">
                 <div className="w-7 h-7 bg-secondary-300 dark:bg-secondary-700 rounded-none"></div>
@@ -151,10 +153,10 @@ export default function SideNavigation() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-3">
                 Inset focus ring (box-shadow) inside the plate edge: the clip swallows outside outlines
               </p>
-            </div>
+            </Panel>
 
             {/* Expanded Section State */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Expanded Section</h4>
               <div className="space-y-1">
                 <div className="flex items-center gap-3 px-3 py-2 plate-round font-mono text-sm text-secondary-800 dark:text-secondary-500">
@@ -176,9 +178,9 @@ export default function SideNavigation() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-3">
                 Collapsible sections with nested navigation items
               </p>
-            </div>
+            </Panel>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -186,7 +188,7 @@ export default function SideNavigation() {
         Documents the Sepia colors used for all navigation states
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Row Colors</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -199,7 +201,7 @@ export default function SideNavigation() {
             <div>
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Hover and Active State</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-12 h-12 rounded-none bg-[var(--surface-muted)] border border-[var(--border-hairline)]"></div>
                     <div>
@@ -208,9 +210,9 @@ export default function SideNavigation() {
                     </div>
                   </div>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Row fill on hover; the active route holds this fill</p>
-                </div>
+                </Panel>
 
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-12 h-12 rounded-none bg-[var(--accent)] border border-[var(--border-hairline)]"></div>
                     <div>
@@ -219,7 +221,7 @@ export default function SideNavigation() {
                     </div>
                   </div>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text color on hover and for the active route</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -227,7 +229,7 @@ export default function SideNavigation() {
             <div>
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Idle State</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-12 h-12 rounded-none bg-secondary-800 dark:bg-secondary-500 border border-[var(--border-hairline)]"></div>
                     <div>
@@ -236,11 +238,11 @@ export default function SideNavigation() {
                     </div>
                   </div>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Idle row text; no fill and no border until interaction</p>
-                </div>
+                </Panel>
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -248,7 +250,7 @@ export default function SideNavigation() {
         Documents the background colors for the sidebar container itself
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Container Background Colors</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -258,7 +260,7 @@ export default function SideNavigation() {
 
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-12 h-12 rounded-none bg-sepia-50 border border-sepia-200"></div>
                   <div>
@@ -267,9 +269,9 @@ export default function SideNavigation() {
                   </div>
                 </div>
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Uses var(--surface-container) semantic token</p>
-              </div>
+              </Panel>
 
-              <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-12 h-12 rounded-none bg-sepia-975 border border-sepia-900"></div>
                   <div>
@@ -278,10 +280,10 @@ export default function SideNavigation() {
                   </div>
                 </div>
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Uses var(--surface-container) semantic token</p>
-              </div>
+              </Panel>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -289,7 +291,7 @@ export default function SideNavigation() {
         Comprehensive documentation of all design tokens used
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Complete Token Reference</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -301,37 +303,37 @@ export default function SideNavigation() {
             {/* Typography Tokens */}
             <div>
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Typography</h4>
-              <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Font Family: font.family.mono (Fragment Mono)</p>
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Font Size: font.size.sm (14px)</p>
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Font Weight: 400 (all states; active is color plus fill, never weight)</p>
-              </div>
+              </Panel>
             </div>
 
             {/* Spacing Tokens */}
             <div>
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Spacing</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Navigation Item Padding</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Horizontal: 12px (px-3)</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Vertical: 8px (py-2)</p>
-                </div>
+                </Panel>
                 
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Icon-Text Gap</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Gap: 12px (gap-3)</p>
-                </div>
+                </Panel>
 
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Container Padding</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">All sides: 16px (p-4)</p>
-                </div>
+                </Panel>
 
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Section Spacing</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Gap between items: 8px (space-y-2)</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -339,29 +341,29 @@ export default function SideNavigation() {
             <div>
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-3">Border & Layout</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Shape</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">plate-round (stepped clip-path) for navigation items; radius utilities retired</p>
-                </div>
+                </Panel>
                 
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Sidebar Width</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Fixed: 256px (w-64)</p>
-                </div>
+                </Panel>
 
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Icon Size</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">28px × 28px (w-7 h-7)</p>
-                </div>
+                </Panel>
 
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Transition</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">transition-colors (smooth color changes)</p>
-                </div>
+                </Panel>
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -369,7 +371,7 @@ export default function SideNavigation() {
         Shows actual Tailwind classes and implementation details
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Implementation Example</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -381,7 +383,7 @@ export default function SideNavigation() {
             {/* Active State Code */}
             <div>
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-2">Active Navigation Item (Plate Row)</h4>
-              <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-secondary-950 dark:bg-black">
+              <Panel innerClassName="bg-secondary-950 dark:bg-secondary-1000 p-4 lg:p-6">
                 <code className="text-xs font-mono text-[var(--accent)]">
                   <span className="text-secondary-400">className=</span>
                   <span className="text-green-400">"</span>
@@ -396,13 +398,13 @@ export default function SideNavigation() {
                   <br />
                   <span className="text-green-400">"</span>
                 </code>
-              </div>
+              </Panel>
             </div>
 
             {/* Hover State Code */}
             <div>
               <h4 className="text-xs font-mono text-[var(--text-primary)] mb-2">Default/Hover Navigation Item (Plate Row)</h4>
-              <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-secondary-950 dark:bg-black">
+              <Panel innerClassName="bg-secondary-950 dark:bg-secondary-1000 p-4 lg:p-6">
                 <code className="text-xs font-mono text-[var(--accent)]">
                   <span className="text-secondary-400">className=</span>
                   <span className="text-green-400">"</span>
@@ -421,10 +423,10 @@ export default function SideNavigation() {
                   <br />
                   <span className="text-green-400">"</span>
                 </code>
-              </div>
+              </Panel>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -432,7 +434,7 @@ export default function SideNavigation() {
         Best practices for using this pattern
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Usage Guidelines</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -441,35 +443,35 @@ export default function SideNavigation() {
           </div>
 
           <div className="space-y-4">
-            <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-xs font-mono text-[var(--text-primary)] mb-2">✓ Always indicate the active page</p>
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
                 Hold the filled state (var(--surface-muted) background with var(--accent) text) on the current page's row. This provides crucial wayfinding.
               </p>
-            </div>
+            </Panel>
 
-            <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-xs font-mono text-[var(--text-primary)] mb-2">✓ Use consistent row styling</p>
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
                 Every row shares one plate recipe: quiet secondary text when idle, var(--surface-muted) fill with var(--accent) text on hover and for the active route. This keeps navigation consistent with the rest of the plate language.
               </p>
-            </div>
+            </Panel>
 
-            <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-xs font-mono text-[var(--text-primary)] mb-2">✓ Maintain consistent spacing</p>
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
                 Use the same padding, gaps, and sizing across all navigation items for a cohesive feel.
               </p>
-            </div>
+            </Panel>
 
-            <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-xs font-mono text-[var(--text-primary)] mb-2">✓ Use icons consistently</p>
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
                 All navigation items at the same level should have icons of the same size (28px × 28px) for visual balance.
               </p>
-            </div>
+            </Panel>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );
