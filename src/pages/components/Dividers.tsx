@@ -5,6 +5,7 @@
  */
 
 import { Divider } from "@/components/ui/Divider";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Dividers() {
   return (
@@ -19,7 +20,7 @@ export default function Dividers() {
 
       {/* Variants Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Variants</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -50,12 +51,12 @@ export default function Dividers() {
               <Divider variant="withText" text="OR" spacing="medium" />
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Spacing Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Spacing Options</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -100,12 +101,12 @@ export default function Dividers() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Common Use Cases */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Common Use Cases</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -170,12 +171,12 @@ export default function Dividers() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Token Breakdown */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Token Breakdown</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -188,16 +189,16 @@ export default function Dividers() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Color Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Color</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Light: sepia-300</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Dark: sepia-700</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Text Color</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Light: sepia-600</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Dark: sepia-400</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -205,22 +206,22 @@ export default function Dividers() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Spacing Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">None</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0px margin</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Small</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">4px margin</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Medium</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">16px margin</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Large</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">32px margin</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -228,18 +229,18 @@ export default function Dividers() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Typography</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Font Family</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Fragment Mono</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Font Size</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">12px (text-xs)</p>
-                </div>
+                </Panel>
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

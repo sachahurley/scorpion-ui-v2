@@ -8,6 +8,7 @@
  */
 
 import { useState } from "react";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Animations() {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -47,7 +48,7 @@ export default function Animations() {
 
       {/* DURATION TOKENS SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Duration Tokens</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -69,7 +70,7 @@ export default function Animations() {
                 </div>
 
                 {/* Visual timing bar */}
-                <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <div className="relative h-8 bg-sepia-100 dark:bg-sepia-900 rounded overflow-hidden">
                     <div 
                       className={`h-full bg-primary-400 transition-all ${isAnimating ? 'w-full' : 'w-0'}`}
@@ -79,7 +80,7 @@ export default function Animations() {
                       }}
                     />
                   </div>
-                </div>
+                </Panel>
               </div>
             ))}
 
@@ -93,12 +94,12 @@ export default function Animations() {
               </button>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* EASING FUNCTIONS SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Easing Functions</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -120,7 +121,7 @@ export default function Animations() {
                 </div>
 
                 {/* Visual demonstration */}
-                <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <div className="relative h-16">
                     <div 
                       className={`absolute top-0 w-16 h-16 bg-primary-400 rounded-none transition-all ${isAnimating ? 'left-[calc(100%-4rem)]' : 'left-0'}`}
@@ -136,7 +137,7 @@ export default function Animations() {
                     {easing.name === "easing.easeOut" && "Starts fast, decelerates toward the end"}
                     {easing.name === "easing.easeInOut" && "Starts slow, speeds up in middle, slows at end"}
                   </p>
-                </div>
+                </Panel>
               </div>
             ))}
 
@@ -150,12 +151,12 @@ export default function Animations() {
               </button>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* USAGE GUIDELINES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Usage Guidelines</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -165,7 +166,7 @@ export default function Animations() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Duration Guidelines */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Duration Selection</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">instant (0ms)</span> - Instant changes, no transition</li>
@@ -174,10 +175,10 @@ export default function Animations() {
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">slow (100ms)</span> - Panel slides, drawer animations</li>
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">slower (150ms)</span> - Page transitions, complex animations</li>
               </ul>
-            </div>
+            </Panel>
 
             {/* Easing Guidelines */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Easing Selection</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">linear</span> - Loading bars, simple slides</li>
@@ -185,11 +186,11 @@ export default function Animations() {
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">easeOut</span> - Elements entering the screen</li>
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">easeInOut</span> - Position changes, most interactions</li>
               </ul>
-            </div>
+            </Panel>
           </div>
 
           {/* Best Practices */}
-          <div className="mt-6 p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel className="mt-6">
             <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Motion Design Principles</p>
             <ul className="space-y-2">
               <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Faster transitions (fast/normal) for hover states and color changes</li>
@@ -199,13 +200,13 @@ export default function Animations() {
               <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Use easeInOut for general interactions (balanced feel)</li>
               <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Keep animations subtle - they should enhance, not distract</li>
             </ul>
-          </div>
-        </div>
+          </Panel>
+        </Panel>
       </section>
 
       {/* INTERACTIVE COMPARISON SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Interactive Examples</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -274,12 +275,12 @@ export default function Animations() {
           <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-6 text-center">
             ↑ Hover over each card to see the duration + easing combination in action
           </p>
-        </div>
+        </Panel>
       </section>
 
       {/* IMPLEMENTATION SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Implementation</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -291,7 +292,7 @@ export default function Animations() {
             {/* Tailwind Classes */}
             <div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Using Tailwind Classes</p>
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-secondary-950">
+              <Panel innerClassName="bg-secondary-950 p-4 lg:p-6">
                 <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
 {`<div className="
   transition-colors 
@@ -301,13 +302,13 @@ export default function Animations() {
   /* Uses duration.normal + easing.easeInOut */
 </div>`}
                 </pre>
-              </div>
+              </Panel>
             </div>
 
             {/* CSS Variables */}
             <div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Using CSS Variables</p>
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-secondary-950">
+              <Panel innerClassName="bg-secondary-950 p-4 lg:p-6">
                 <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
 {`<div style={{ 
   transitionDuration: 'var(--duration-normal)',
@@ -316,13 +317,13 @@ export default function Animations() {
   /* Uses CSS custom properties */
 </div>`}
                 </pre>
-              </div>
+              </Panel>
             </div>
 
             {/* Common Patterns */}
             <div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Common Patterns</p>
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <ul className="space-y-2">
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Buttons: fast (50ms) + easeOut</li>
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Color changes: normal (75ms) + easeInOut</li>
@@ -330,10 +331,10 @@ export default function Animations() {
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Modals: slower (150ms) + easeOut</li>
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Theme switching: normal (75ms) + easeInOut</li>
                 </ul>
-              </div>
+              </Panel>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

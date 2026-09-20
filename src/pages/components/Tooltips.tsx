@@ -7,6 +7,7 @@
 import { Tooltip } from "@/components/ui/Tooltip";
 import { Button } from "@/components/ui/Button";
 import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Tooltips() {
   return (
@@ -21,7 +22,7 @@ export default function Tooltips() {
 
       {/* Positions Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Positions</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -58,12 +59,12 @@ export default function Tooltips() {
               </Tooltip>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Common Use Cases */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Common Use Cases</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -165,12 +166,12 @@ export default function Tooltips() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Token Breakdown */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Token Breakdown</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -183,24 +184,24 @@ export default function Tooltips() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Color Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Background</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">var(--surface-card)</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Text Color</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Light: sepia-900</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Dark: sepia-50</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Light: sepia-500</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Dark: sepia-800</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Shadow</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">var(--elevation-2-shadow)</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -208,15 +209,15 @@ export default function Tooltips() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Spacing Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Padding</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">12px horizontal (px-3)</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">8px vertical (py-2)</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Offset</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">8px gap from trigger (mt-2/mb-2/ml-2/mr-2)</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -224,30 +225,30 @@ export default function Tooltips() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Typography</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Font Family</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Fragment Mono</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Font Size</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">12px (text-xs)</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Radius</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0px (rounded-none)</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
             {/* Z-Index */}
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Z-Index</h4>
-              <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">var(--z-index-tooltip) = 1060</p>
-              </div>
+              </Panel>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

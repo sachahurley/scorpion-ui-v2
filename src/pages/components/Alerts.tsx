@@ -7,6 +7,7 @@
 import { Alert } from "@/components/ui/Alert";
 import { useState } from "react";
 import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Alerts() {
   const [dismissedAlerts, setDismissedAlerts] = useState<string[]>([]);
@@ -23,7 +24,7 @@ export default function Alerts() {
 
       {/* Variants Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Variants</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -38,12 +39,12 @@ export default function Alerts() {
             <Alert variant="error" title="Error" description="Something went wrong. Please try again." />
             <Alert variant="info" title="Information" description="Here's some helpful information for you." />
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* With Title and Description */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Title and Description</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -68,12 +69,12 @@ export default function Alerts() {
               description="The file upload failed due to network issues. Please check your connection and try again."
             />
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Dismissible Alerts */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Dismissible Alerts</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -115,12 +116,12 @@ export default function Alerts() {
               Reset alerts
             </button>
           )}
-        </div>
+        </Panel>
       </section>
 
       {/* Custom Icons */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Custom Icons</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -142,12 +143,12 @@ export default function Alerts() {
               iconLeft={<TuiIcon name="CheckCircle" size="5" />}
             />
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Description Only */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Description Only</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -161,12 +162,12 @@ export default function Alerts() {
             <Alert variant="error" description="An error occurred while processing your request." />
             <Alert variant="info" description="New updates are available. Check them out!" />
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Token Breakdown */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Token Breakdown</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -179,36 +180,36 @@ export default function Alerts() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Variant Colors</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-2">Default</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background: secondary-50/950</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Border: secondary-300/700</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Icon: secondary-700/300</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-2">Success</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background: success-50/950</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Border: success-300/700</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Icon: success-600/400</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-2">Warning</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background: warning-50/950</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Border: warning-300/700</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Icon: warning-600/400</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-2">Error</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background: error-50/950</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Border: error-300/700</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Icon: error-600/500</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-2">Info</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background: info-50/950</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Border: info-300/700</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Icon: info-600/400</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -216,14 +217,14 @@ export default function Alerts() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Spacing Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Padding</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">16px (p-4)</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Gap</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">12px (gap-3)</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -231,26 +232,26 @@ export default function Alerts() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Typography</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Font Family</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Fragment Mono</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Title Size</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">14px (text-sm), bold</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Description Size</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">14px (text-sm), regular</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Radius</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0px (rounded-none)</p>
-                </div>
+                </Panel>
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

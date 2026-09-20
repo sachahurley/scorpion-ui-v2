@@ -16,6 +16,7 @@
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Checkboxes() {
   // State for interactive examples
@@ -44,7 +45,7 @@ export default function Checkboxes() {
         Small, medium, and large checkbox variants
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -83,7 +84,7 @@ export default function Checkboxes() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">size="large" (24px × 24px)</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -91,7 +92,7 @@ export default function Checkboxes() {
         Unchecked, checked, disabled, and error states
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">States</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -101,7 +102,7 @@ export default function Checkboxes() {
           
           <div className="space-y-6">
             {/* All States Display */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <div className="space-y-4">
                 <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All states:</p>
                 
@@ -135,7 +136,7 @@ export default function Checkboxes() {
                   <span className="text-sm font-mono text-[var(--text-primary)]">Error State</span>
                 </div>
               </div>
-            </div>
+            </Panel>
 
             {/* Interactive Examples */}
             <div>
@@ -160,7 +161,7 @@ export default function Checkboxes() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -168,7 +169,7 @@ export default function Checkboxes() {
         Checkboxes with labels and helper text
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Labels</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -208,7 +209,7 @@ export default function Checkboxes() {
               )}
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -216,7 +217,7 @@ export default function Checkboxes() {
         Common checkbox use cases in forms
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Use Cases</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -226,7 +227,7 @@ export default function Checkboxes() {
           
           <div className="space-y-6">
             {/* Preferences Form */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Notification Preferences</h4>
               <div className="space-y-3">
                 <Checkbox
@@ -245,10 +246,10 @@ export default function Checkboxes() {
                   label="Marketing emails"
                 />
               </div>
-            </div>
+            </Panel>
 
             {/* Multi-select Options */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">Select Your Interests</h4>
               <div className="space-y-3">
                 <Checkbox checked={false} onCheckedChange={() => {}} label="Design" />
@@ -256,9 +257,9 @@ export default function Checkboxes() {
                 <Checkbox checked={false} onCheckedChange={() => {}} label="Marketing" />
                 <Checkbox checked={true} onCheckedChange={() => {}} label="Product" />
               </div>
-            </div>
+            </Panel>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -266,7 +267,7 @@ export default function Checkboxes() {
         Documentation of design tokens used in checkboxes
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Checkbox Token Breakdown</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -322,7 +323,7 @@ export default function Checkboxes() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

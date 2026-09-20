@@ -14,6 +14,7 @@
 
 import { Textarea } from "@/components/ui/Textarea";
 import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Textareas() {
   return (
@@ -35,7 +36,7 @@ export default function Textareas() {
         Small: 32px min-height, Medium: 40px min-height (default), Large: 48px min-height
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -58,7 +59,7 @@ export default function Textareas() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Min-height: 32px</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -67,7 +68,7 @@ export default function Textareas() {
         Default, Hover, Focused, Disabled, Error
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">States</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -76,7 +77,7 @@ export default function Textareas() {
           </div>
           
           {/* All States with forced visual representations */}
-          <div className="mb-8 p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel className="mb-8">
             <div className="space-y-4">
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All interaction states:</p>
               
@@ -151,7 +152,7 @@ export default function Textareas() {
                 </div>
               </div>
             </div>
-          </div>
+          </Panel>
 
           {/* Interactive Examples */}
           <div>
@@ -200,7 +201,7 @@ export default function Textareas() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -208,7 +209,7 @@ export default function Textareas() {
         Proper form structure with labels
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Labels</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -245,7 +246,7 @@ export default function Textareas() {
               />
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -253,7 +254,7 @@ export default function Textareas() {
         Documentation of design tokens used in textareas
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Textarea Token Breakdown</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -357,7 +358,7 @@ export default function Textareas() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

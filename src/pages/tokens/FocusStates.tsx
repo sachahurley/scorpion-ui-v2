@@ -13,6 +13,7 @@
  */
 
 import { Button } from "@/components/ui/Button";
+import { Panel } from "@/components/docs/Panel";
 
 export default function FocusStates() {
   return (
@@ -27,7 +28,7 @@ export default function FocusStates() {
 
       {/* WHY THE RING IS INSET SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Why the Ring Is Inset</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -36,17 +37,17 @@ export default function FocusStates() {
           </div>
 
           <div className="space-y-4">
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-3">
                 Buttons, fields, and nav rows are clipped with plate-round, a stepped clip-path that draws the one-bit corner silhouette. A clip-path removes everything outside its polygon, including outlines and offset box-shadow rings, so any focus treatment drawn outside the element would be invisible.
               </p>
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
                 The system therefore sets focus:outline-none and replaces the outline with an inset box-shadow: a 2px band drawn just inside the plate edge that follows the stepped corners exactly. Nothing renders outside the element, so nothing is clipped away.
               </p>
-            </div>
+            </Panel>
 
             {/* Visual demonstration: forced inset ring on the real primary recipe */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mb-3">Forced focus specimen: the ring sits inside the plate edge</p>
               <div className="inline-flex items-center justify-center font-mono text-sm plate-round cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-primary-background)] text-[var(--button-primary-text)] [box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]">
                 Focused plate
@@ -54,14 +55,14 @@ export default function FocusStates() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-3">
                 On the gold primary fill the primary ring reads as a tone band; the secondary, destructive, and field rings carry more contrast against their fills.
               </p>
-            </div>
+            </Panel>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* FOCUS RING PROPERTIES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Focus Ring Properties</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -93,12 +94,12 @@ export default function FocusStates() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* FOCUS RING COLORS SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Focus Ring Colors</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -123,7 +124,7 @@ export default function FocusStates() {
               </div>
 
               {/* Forced specimen + live example */}
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <div className="flex flex-wrap items-center gap-4">
                   <div className="inline-flex items-center justify-center font-mono text-sm plate-round cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-primary-background)] text-[var(--button-primary-text)] [box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]">
                     Forced
@@ -131,7 +132,7 @@ export default function FocusStates() {
                   <Button variant="primary">Click me, then Tab</Button>
                 </div>
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-3">Left: statically forced ring. Right: try clicking then pressing Tab to see the real ring.</p>
-              </div>
+              </Panel>
             </div>
 
             {/* Secondary Focus */}
@@ -149,14 +150,14 @@ export default function FocusStates() {
                 </div>
               </div>
 
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <div className="flex flex-wrap items-center gap-4">
                   <div className="inline-flex items-center justify-center font-mono text-sm plate-round cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-secondary-background)] text-[var(--button-secondary-text)] [box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-secondary)]">
                     Forced
                   </div>
                   <Button variant="secondary">Secondary button focus</Button>
                 </div>
-              </div>
+              </Panel>
             </div>
 
             {/* Error / Destructive Focus */}
@@ -178,14 +179,14 @@ export default function FocusStates() {
                 </div>
               </div>
 
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <div className="flex flex-wrap items-center gap-4">
                   <div className="inline-flex items-center justify-center font-mono text-sm plate-round cursor-pointer h-10 px-5 py-2.5 bg-[var(--button-destructive-background)] text-[var(--button-destructive-text)] [box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-destructive)]">
                     Forced
                   </div>
                   <Button variant="destructive">Destructive button focus</Button>
                 </div>
-              </div>
+              </Panel>
             </div>
 
             {/* Icon Focus */}
@@ -221,7 +222,7 @@ export default function FocusStates() {
               </div>
 
               {/* Forced field specimen using the real plate ring recipe */}
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mb-3">Forced focus specimen: the wrapper layer holds --field-border-focus</p>
                 <div className="max-w-sm plate-round p-px bg-[var(--field-border-focus)]">
                   <input
@@ -231,15 +232,15 @@ export default function FocusStates() {
                     readOnly
                   />
                 </div>
-              </div>
+              </Panel>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* INTERACTIVE DEMONSTRATION SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Interactive Demonstration</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -247,7 +248,7 @@ export default function FocusStates() {
             </p>
           </div>
 
-          <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel>
             <div className="flex flex-wrap gap-4">
               <Button variant="primary">Primary</Button>
               <Button variant="secondary">Secondary</Button>
@@ -259,13 +260,13 @@ export default function FocusStates() {
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600 mt-4">
               ⌨️ Press Tab to cycle through buttons and see their focus rings
             </p>
-          </div>
-        </div>
+          </Panel>
+        </Panel>
       </section>
 
       {/* ACCESSIBILITY GUIDELINES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Accessibility Guidelines</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -274,7 +275,7 @@ export default function FocusStates() {
           </div>
 
           <div className="space-y-4">
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">WCAG 2.1 Success Criterion 2.4.7</p>
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-3">
                 "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible."
@@ -282,9 +283,9 @@ export default function FocusStates() {
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
                 ✅ Scorpion UI meets this requirement with 2px inset focus rings on all interactive elements.
               </p>
-            </div>
+            </Panel>
 
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Best Practices</p>
               <ul className="space-y-2">
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Never remove a focus outline without replacing it: here <code className="px-2 py-1 bg-secondary-100 dark:bg-secondary-900">focus:outline-none</code> is always paired with the inset ring on focus-visible</li>
@@ -293,7 +294,7 @@ export default function FocusStates() {
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Focus state should be clearly different from hover state</li>
                 <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Test keyboard navigation in both light and dark themes</li>
               </ul>
-            </div>
+            </Panel>
 
             <div className="p-6 bg-warning-50 dark:bg-warning-900/20 border border-warning-200 dark:border-warning-800 rounded-none">
               <p className="text-sm font-mono text-[var(--text-primary)] mb-2">⚠️ Important</p>
@@ -302,12 +303,12 @@ export default function FocusStates() {
               </p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* IMPLEMENTATION EXAMPLES SECTION */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Implementation Examples</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -319,7 +320,7 @@ export default function FocusStates() {
             {/* Button Recipe */}
             <div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Buttons: inset ring via --btn-ring</p>
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-secondary-950">
+              <Panel innerClassName="bg-secondary-950 p-4 lg:p-6">
                 <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
 {`<button
   className="
@@ -338,13 +339,13 @@ export default function FocusStates() {
    icon            -> var(--focus-ring-icon)
    everything else -> var(--focus-ring-secondary) */`}
                 </pre>
-              </div>
+              </Panel>
             </div>
 
             {/* Field Recipe */}
             <div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Fields: the plate ring walks the border ramp</p>
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-secondary-950">
+              <Panel innerClassName="bg-secondary-950 p-4 lg:p-6">
                 <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
 {`{/* wrapper = border color clipped to the plate */}
 <div className="
@@ -361,10 +362,10 @@ export default function FocusStates() {
   " />
 </div>`}
                 </pre>
-              </div>
+              </Panel>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

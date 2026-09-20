@@ -8,6 +8,7 @@
 import { Badge } from "@/components/ui/Badge";
 import { TuiIcon } from "@/components/ui/TuiIcon";
 import { useState } from "react";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Badges() {
   const [dismissedBadges, setDismissedBadges] = useState<string[]>([]);
@@ -24,7 +25,7 @@ export default function Badges() {
 
       {/* Variants Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Variants</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -40,12 +41,12 @@ export default function Badges() {
             <Badge variant="error">Error</Badge>
             <Badge variant="info">Info</Badge>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Sizes Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -67,12 +68,12 @@ export default function Badges() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Height: 20px</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* With Icons Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Icons</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -87,12 +88,12 @@ export default function Badges() {
             <Badge variant="info" iconLeft={<TuiIcon name="Info" size="3" />}>New</Badge>
             <Badge variant="primary" iconLeft={<TuiIcon name="Tag" size="3" />}>Featured</Badge>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* With Close Button Section */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Dismissible Badges</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -130,12 +131,12 @@ export default function Badges() {
               Reset badges
             </button>
           )}
-        </div>
+        </Panel>
       </section>
 
       {/* Common Use Cases */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Common Use Cases</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -179,12 +180,12 @@ export default function Badges() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* Token Breakdown */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Token Breakdown</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -197,24 +198,24 @@ export default function Badges() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Size Tokens</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Small</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Height: 20px (h-5)</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Padding: 8px horizontal</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: 12px (text-xs)</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Medium</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Height: 24px (h-6)</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Padding: 10px horizontal</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: 12px (text-xs)</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Large</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Height: 28px (h-7)</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Padding: 12px horizontal</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: 14px (text-sm)</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -222,36 +223,36 @@ export default function Badges() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Variant Colors</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-2">Default</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background: secondary-200/800</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: secondary-900/50</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-2">Primary</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background: primary-100/900</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: primary-900/50</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-2">Success</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background: success-100/900</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: success-900/50</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-2">Warning</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background: warning-100/900</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: warning-900/50</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-2">Error</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background: error-100/900</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: error-900/50</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-2">Info</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Background: info-100/900</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Text: info-900/50</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -259,22 +260,22 @@ export default function Badges() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Typography</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Font Family</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Fragment Mono</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Font Weight</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Medium (500)</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Radius</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0px (rounded-none)</p>
-                </div>
+                </Panel>
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

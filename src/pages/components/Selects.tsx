@@ -14,6 +14,7 @@
 
 import { Select } from "@/components/ui/Select";
 import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Selects() {
   return (
@@ -35,7 +36,7 @@ export default function Selects() {
         Small: 32px height, Medium: 40px height (default), Large: 48px height
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -70,7 +71,7 @@ export default function Selects() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Height: 32px</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -79,7 +80,7 @@ export default function Selects() {
         Default, Hover, Focused, Disabled, Error
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">States</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -134,7 +135,7 @@ export default function Selects() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -142,7 +143,7 @@ export default function Selects() {
         Proper form structure with labels
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">With Labels</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -182,7 +183,7 @@ export default function Selects() {
               </Select>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -190,7 +191,7 @@ export default function Selects() {
         Common select use cases
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Use Cases</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -200,7 +201,7 @@ export default function Selects() {
           
           <div className="space-y-6">
             {/* Form with Multiple Selects */}
-            <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <h4 className="text-sm font-mono font-bold text-sepia-900 dark:text-sepia-50 mb-4">User Profile</h4>
               <div className="space-y-4">
                 <div className="space-y-2">
@@ -228,9 +229,9 @@ export default function Selects() {
                   </Select>
                 </div>
               </div>
-            </div>
+            </Panel>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -238,7 +239,7 @@ export default function Selects() {
         Documentation of design tokens used in selects
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Select Token Breakdown</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -342,7 +343,7 @@ export default function Selects() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

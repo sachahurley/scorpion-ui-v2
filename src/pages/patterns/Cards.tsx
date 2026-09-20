@@ -21,6 +21,7 @@ import { Dropdown } from "@/components/ui/Dropdown";
 import { Textarea } from "@/components/ui/Textarea";
 import { Switch } from "@/components/ui/Switch";
 import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Cards() {
   // Sign In Form State
@@ -780,7 +781,7 @@ export default function Cards() {
         Documentation of design tokens used in cards
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Card Token Breakdown</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -793,22 +794,22 @@ export default function Cards() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Card Container</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Background</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">var(--surface-card)</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Shape</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Plate ring: plate-round-lg outer stroke layer, inner fill inset 1px (p-px)</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Stroke</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">1px var(--surface-container-stroke) via the outer plate layer</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Padding</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">16px mobile / 24px desktop</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -816,18 +817,18 @@ export default function Cards() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Header Section</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Title Font</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">font-mono, 16px, bold</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Subtitle Font</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">font-mono, 14px, regular</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Bottom</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0.5px solid var(--surface-container-stroke)</p>
-                </div>
+                </Panel>
               </div>
             </div>
 
@@ -835,18 +836,18 @@ export default function Cards() {
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Footer Section</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Background</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">var(--surface-subtle)</p>
-                </div>
-                <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+                </Panel>
+                <Panel>
                   <p className="text-xs font-mono text-[var(--text-primary)] mb-1">Border Top</p>
                   <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">0.5px solid var(--surface-container-stroke)</p>
-                </div>
+                </Panel>
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

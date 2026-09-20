@@ -18,6 +18,7 @@ import { Radio } from "@/components/ui/Radio";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { Switch } from "@/components/ui/Switch";
 import { Button } from "@/components/ui/Button";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Forms() {
   // Specimen state: the error field stays in error until it has a value,
@@ -40,7 +41,7 @@ export default function Forms() {
         A complete form built from the real field components
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Account Settings Specimen</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -48,7 +49,7 @@ export default function Forms() {
             </p>
           </div>
 
-          <div className="p-4 lg:p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel>
             <form className="max-w-md space-y-6" onSubmit={(e) => e.preventDefault()}>
               {/* Display name: demonstrates the error state until filled */}
               <div>
@@ -141,8 +142,8 @@ export default function Forms() {
                 </Button>
               </div>
             </form>
-          </div>
-        </div>
+          </Panel>
+        </Panel>
       </section>
 
       {/*
@@ -150,7 +151,7 @@ export default function Forms() {
         Brief rules for composing forms
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Layout Guidance</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -159,28 +160,28 @@ export default function Forms() {
           </div>
 
           <div className="space-y-4">
-            <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Label placement</p>
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
                 Labels sit above their field, left-aligned, in the small mono size. Radio and checkbox groups get a legend in the same style, with the options stacked below it. Never rely on placeholder text as the only label.
               </p>
-            </div>
+            </Panel>
 
-            <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Field widths</p>
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
                 Fields fill their column, and the column is capped (max-w-md here) so single-column forms stay readable. Keep one column unless fields are tightly related, such as city and postal code.
               </p>
-            </div>
+            </Panel>
 
-            <div className="p-4 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+            <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Button alignment</p>
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
                 The primary action sits at the end of the row (right-aligned), with the quiet ghost action beside it. One primary button per form; error text renders directly under the field it belongs to.
               </p>
-            </div>
+            </Panel>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/*
@@ -188,7 +189,7 @@ export default function Forms() {
         One label + field pairing printed as code
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Implementation Example</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -196,7 +197,7 @@ export default function Forms() {
             </p>
           </div>
 
-          <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-secondary-950">
+          <Panel innerClassName="bg-secondary-950 p-4 lg:p-6">
             <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
 {`<div>
   <Input
@@ -214,8 +215,8 @@ export default function Forms() {
   )}
 </div>`}
             </pre>
-          </div>
-        </div>
+          </Panel>
+        </Panel>
       </section>
     </div>
   );

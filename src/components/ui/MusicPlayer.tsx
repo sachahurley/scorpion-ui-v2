@@ -1,712 +1,808 @@
 /**
- * MUSIC PLAYER COMPONENT (VISUAL PROTOTYPE)
- * 
- * A fixed-position music player that displays in the bottom-right corner
- * Visual prototype with demo content - perfect for design system showcase
- * 
- * FEATURES:
- * - Fixed position (bottom-right corner, always visible)
- * - Demo playlist with Roy Orbison songs
- * - Play/Pause control (visual simulation)
- * - Next song button (cycles through playlist)
- * - Real album cover images
- * - Song title display with artist name
- * - Paused by default (no auto-play)
- * - Full light/dark theme support
- * - No external dependencies or blocking issues
- * 
- * DIMENSIONS:
- * - Width: 380px (accommodates larger album art)
- * - Height: Auto (hugs content, dynamic based on text sizes)
- * - Album art: 108px × 108px (fixed size)
- * - Position: 24px from bottom, 24px from right
- * 
- * LAYOUT:
- * - Left: Album cover (108px square, perfectly aligned top/bottom with right content)
- * - Right: Song info + progress + controls (108px total, flush top and bottom)
- * 
- * TOKENS USED:
- * - surface.card: Card background color
- * - sepia.500/800: Border colors (light/dark)
- * - sepia.900/50: Primary text colors (light/dark)
- * - sepia.600/400: Secondary text for artist name
- * - radius.container: 24px border radius for card
- * - radius.button: 12px border radius for album cover
- * - elevation.2: Drop shadow (same as Modal)
+ * MUSIC PLAYER COMPONENT
+ *
+ * A fixed-position floating music player, restyled to match the Scorp DS
+ * "Patterns/MusicPlayer" now-playing pattern while keeping this site's real
+ * HTML5 audio engine.
+ *
+ * FROM THE DS PATTERN (visuals + interaction shell):
+ * - Compact now-playing card on the Card plate ring, elevation via a
+ *   drop-shadow filter (the plate clip-path slices box shadows off)
+ * - Transport controls as icon Buttons on the 40px medium plate; play/pause
+ *   emphasized with the primary gold fill
+ * - Real slider timeline (click, drag, arrow keys) with a two-stop gradient
+ *   fill over theme-scoped custom props
+ * - Shuffle/repeat as aria-pressed toggles with an inverted plate fill
+ * - Overflowing titles bounce-scroll (static under prefers-reduced-motion)
+ * - Polite aria-live announcements on track change
+ * - Chevron collapses the card into a ~56px mini bar (thumb, title/artist,
+ *   previous/play/next, expand, hairline progress)
+ * - Album tile on the plate-ring frame; desktop drag-affordance dot grid
+ *
+ * FROM THIS SITE (engine + lifecycle):
+ * - Real <audio> playback, playlist data, track switching, currentTime and
+ *   duration wiring (the DS story's useSimulatedPlayback swapped in reverse)
+ * - Fixed positioning (bottom-right default), desktop dragging with viewport
+ *   clamping, slide-in on mount and slide-out via the isClosing prop
+ * - Public API unchanged: MusicPlayer({ onClose, isClosing })
  */
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "./Button";
+import { Card } from "./Card";
+import { TuiIcon } from "./TuiIcon";
+import { cn } from "@/lib/utils";
 
-// Demo playlist data - Roy Orbison songs
-// In a real app, this would come from an API or database
-interface Song {
-  id: number;
+// ---------------------------------------------------------------------------
+// Playlist data
+// ---------------------------------------------------------------------------
+
+interface Track {
   artist: string;
   title: string;
-  albumCover: string;
-  duration: number; // Duration in seconds
+  /** Album art path; the plate-ring tile falls back to a glyph without it. */
+  albumCover?: string;
+  /** Audio file URL for this track. */
+  audioSrc: string;
+  /** Fallback length in seconds, used until the audio metadata loads. */
+  duration: number;
 }
 
-// Demo playlist with CC0 (Public Domain - No Attribution Required) 8-bit style music
-// Using royalty-free audio that works on localhost
-// All tracks are CC0 or Public Domain from various free music sources
-const DEMO_PLAYLIST: Song[] = [
+// Demo playlist. Audio is a reliable public domain source (CC0, no
+// attribution required); in production each track gets its own file.
+const PLAYLIST: Track[] = [
   {
-    id: 1,
     artist: "Sacha Hurley",
     title: "Stinger",
     albumCover: `${import.meta.env.BASE_URL}album-cover-stinger-001.png`,
-    duration: 120 // 2:00
+    audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    duration: 120,
   },
 ];
 
-/**
- * Helper function to format seconds as MM:SS
- * Example: 125 seconds → "2:05"
- */
-function formatTime(seconds: number): string {
-  const mins = Math.floor(seconds / 60);
-  const secs = Math.floor(seconds % 60);
-  return `${mins}:${secs.toString().padStart(2, '0')}`;
+/** Format seconds as M:SS, e.g. 125 -> "2:05". */
+function formatTime(totalSeconds: number): string {
+  const mins = Math.floor(totalSeconds / 60);
+  const secs = Math.floor(totalSeconds % 60);
+  return `${mins}:${secs.toString().padStart(2, "0")}`;
 }
+
+/**
+ * Pressed style for the shuffle/repeat toggles, keyed off aria-pressed: an
+ * inverted plate fill that reads in both themes. Variant swapping (icon ->
+ * secondary) is not a usable pressed indicator: in dark mode both variants
+ * resolve to identical resting colors.
+ */
+const TOGGLE_PRESSED_CLASSES = [
+  "aria-pressed:bg-secondary-800 aria-pressed:text-secondary-50 aria-pressed:hover:bg-secondary-700",
+  "dark:aria-pressed:bg-secondary-300 dark:aria-pressed:text-secondary-950 dark:aria-pressed:hover:bg-secondary-400",
+].join(" ");
+
+/** Elevation recipe shared with the docked Modal: the plate clip-path slices
+    box shadows off, so the shadow is a drop-shadow filter on the wrapper. */
+const PLATE_SHADOW = "drop-shadow(0 10px 40px rgba(0, 0, 0, 0.35))";
+
+// ---------------------------------------------------------------------------
+// Real audio engine: same shape as the DS story's useSimulatedPlayback, but
+// an <audio> element drives it (timeupdate feeds elapsed, seek writes
+// currentTime). The component renders the element with the returned props.
+// ---------------------------------------------------------------------------
+
+function useAudioPlayback(tracks: Track[]) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [trackIndex, setTrackIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
+  const [loadedDuration, setLoadedDuration] = useState(0);
+  const [isShuffling, setIsShuffling] = useState(false);
+  const [isRepeating, setIsRepeating] = useState(false);
+
+  const track = tracks[trackIndex];
+  // Real duration once metadata loads, playlist estimate until then.
+  const duration = loadedDuration || track.duration;
+
+  // Sync the element with isPlaying; re-run on track change so playback
+  // resumes after an auto-advance or a queue jump. Autoplay restrictions
+  // reject the play() promise, so state falls back to paused.
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) {
+      audio.play().catch(() => setIsPlaying(false));
+    } else {
+      audio.pause();
+    }
+  }, [isPlaying, trackIndex]);
+
+  // Any index but the current one, so shuffle never repeats the same track.
+  const randomOtherIndex = () =>
+    tracks.length < 2
+      ? trackIndex
+      : (trackIndex + 1 + Math.floor(Math.random() * (tracks.length - 1))) % tracks.length;
+
+  const selectTrack = (index: number) => {
+    setTrackIndex(index);
+    setElapsed(0);
+    // Rewind directly too: when tracks share an audio file (the demo
+    // playlist), the src does not change and the element never reloads.
+    const audio = audioRef.current;
+    if (audio) audio.currentTime = 0;
+  };
+
+  // Reset the loaded duration when the track changes so the estimate shows
+  // until the new file's metadata arrives.
+  useEffect(() => {
+    setLoadedDuration(0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [trackIndex]);
+
+  const togglePlay = () => {
+    // Restart a finished track instead of instantly re-finishing it.
+    if (!isPlaying && elapsed >= duration) {
+      setElapsed(0);
+      const audio = audioRef.current;
+      if (audio) audio.currentTime = 0;
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  const seek = (seconds: number) => {
+    const audio = audioRef.current;
+    if (audio) audio.currentTime = seconds;
+    setElapsed(seconds);
+  };
+
+  // Auto-advance when a track runs out (the ended event, not a tick check):
+  // random when shuffling, next in order, wrap when repeating, stop after
+  // the last otherwise.
+  const handleEnded = () => {
+    if (isShuffling) {
+      selectTrack(randomOtherIndex());
+    } else if (trackIndex < tracks.length - 1) {
+      selectTrack(trackIndex + 1);
+    } else if (isRepeating) {
+      selectTrack(0);
+      // Same-file playlists never change src, so restart playback directly.
+      audioRef.current?.play().catch(() => setIsPlaying(false));
+    } else {
+      setIsPlaying(false);
+      setElapsed(0);
+      const audio = audioRef.current;
+      if (audio) audio.currentTime = 0;
+    }
+  };
+
+  // Props for the <audio> element the component renders.
+  const audioProps = {
+    ref: audioRef,
+    src: track.audioSrc,
+    onTimeUpdate: () => {
+      const audio = audioRef.current;
+      if (audio) setElapsed(audio.currentTime);
+    },
+    onLoadedMetadata: () => {
+      const audio = audioRef.current;
+      if (audio && Number.isFinite(audio.duration)) setLoadedDuration(audio.duration);
+    },
+    onEnded: handleEnded,
+    onError: () => {
+      // Keep the UI consistent if the file fails to load mid-session.
+      setIsPlaying(false);
+    },
+  };
+
+  return {
+    tracks,
+    track,
+    trackIndex,
+    isPlaying,
+    elapsed,
+    duration,
+    isShuffling,
+    isRepeating,
+    selectTrack,
+    togglePlay,
+    seek,
+    previous: () => trackIndex > 0 && selectTrack(trackIndex - 1),
+    next: () =>
+      isShuffling
+        ? selectTrack(randomOtherIndex())
+        : trackIndex < tracks.length - 1
+          ? selectTrack(trackIndex + 1)
+          : isRepeating && selectTrack(0),
+    toggleShuffle: () => setIsShuffling(!isShuffling),
+    toggleRepeat: () => setIsRepeating(!isRepeating),
+    previousDisabled: trackIndex === 0,
+    nextDisabled: !isShuffling && !isRepeating && trackIndex === tracks.length - 1,
+    audioProps,
+  };
+}
+
+type PlaybackState = ReturnType<typeof useAudioPlayback>;
+
+// ---------------------------------------------------------------------------
+// Marquee text (copied from the DS pattern)
+// ---------------------------------------------------------------------------
+
+/**
+ * Single-line text that bounce-scrolls when it overflows its container and
+ * stays static when it fits: the line slides left until its end is revealed,
+ * holds briefly, then returns the way it came (infinite alternate). Duration
+ * derives from each line's own overflow distance, so stacked lines drift out
+ * of phase and read as independent. prefers-reduced-motion falls back to
+ * static truncation.
+ */
+function MarqueeText({ text, className }: { text: string; className?: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLSpanElement>(null);
+  const copyRef = useRef<HTMLSpanElement>(null);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const copy = copyRef.current;
+    if (!container || !copy) return;
+    // offsetWidth needs a layout box, hence inline-block on the copy: inline
+    // spans report scrollWidth 0 and overflow would never be detected.
+    const measure = () => setIsOverflowing(copy.offsetWidth > container.clientWidth + 1);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [text]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const track = trackRef.current;
+    const copy = copyRef.current;
+    if (!isOverflowing || !container || !track || !copy) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Travel only the hidden overflow, at ~30px/s over the moving 80% of the
+    // cycle; the 10% holds at each end give a reading pause before the bounce.
+    const distance = copy.offsetWidth - container.clientWidth;
+    const animation = track.animate(
+      [
+        { transform: "translateX(0)", offset: 0 },
+        { transform: "translateX(0)", offset: 0.1 },
+        { transform: `translateX(-${distance}px)`, offset: 0.9 },
+        { transform: `translateX(-${distance}px)`, offset: 1 },
+      ],
+      {
+        duration: ((distance / 30) * 1000) / 0.8,
+        iterations: Infinity,
+        direction: "alternate",
+        easing: "linear",
+      }
+    );
+    return () => animation.cancel();
+  }, [isOverflowing, text]);
+
+  return (
+    <div ref={containerRef} className={cn("overflow-hidden whitespace-nowrap", className)}>
+      <span ref={trackRef} className={isOverflowing ? "inline-flex w-max" : "block truncate"}>
+        <span ref={copyRef} className="inline-block whitespace-nowrap">
+          {text}
+        </span>
+      </span>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Drag affordance (copied from the DS pattern)
+// ---------------------------------------------------------------------------
+
+/** Drag affordance: desktop only, visually centered in the left padding
+    gutter (the wrapper spans the gutter width and flex-centers the dots, so
+    no off-scale pixel offsets are needed). Pointer-only convenience, hence
+    aria-hidden; every control stays reachable without it. */
+function DragHandle({
+  dragHandleProps,
+  gutterClassName = "w-4 lg:w-6",
+}: {
+  dragHandleProps?: React.HTMLAttributes<HTMLDivElement>;
+  /** Width classes matching the host layout's left padding gutter. */
+  gutterClassName?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        // left-px: the visual gutter starts inside the 1px plate stroke, so
+        // the wrapper must too or the dots sit a step left of center.
+        "absolute left-px top-1/2 hidden -translate-y-1/2 cursor-grab touch-none active:cursor-grabbing lg:flex lg:justify-center",
+        gutterClassName
+      )}
+      aria-hidden="true"
+      {...dragHandleProps}
+    >
+      <div className="grid grid-cols-2 gap-0.5">
+        {Array.from({ length: 6 }, (_, dot) => (
+          <span
+            key={dot}
+            className="h-0.5 w-0.5 rounded-none bg-secondary-900 dark:bg-secondary-200"
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Album art on the plate-ring frame
+// ---------------------------------------------------------------------------
+
+/** Plate-ring album fill: cover art when available, glyph fallback. */
+function AlbumFill({ track }: { track: Track }) {
+  const [failed, setFailed] = useState(false);
+
+  // Retry the image when the track changes.
+  useEffect(() => setFailed(false), [track.albumCover]);
+
+  if (track.albumCover && !failed) {
+    return (
+      <img
+        src={track.albumCover}
+        alt=""
+        className="h-full w-full object-cover"
+        onError={() => setFailed(true)}
+      />
+    );
+  }
+  return <TuiIcon name="Music2" size="8" className="text-secondary-900 dark:text-secondary-200" />;
+}
+
+// ---------------------------------------------------------------------------
+// Expanded now-playing card (structure copied from the DS pattern)
+// ---------------------------------------------------------------------------
+
+function MusicPlayerCard({
+  player,
+  onClose,
+  onCollapse,
+  dragHandleProps,
+}: {
+  player: PlaybackState;
+  onClose?: () => void;
+  /** Collapse to the mini bar; renders the chevron affordance when provided. */
+  onCollapse?: () => void;
+  /** Pointer handlers for the drag handle; the consumer owns the actual move logic. */
+  dragHandleProps?: React.HTMLAttributes<HTMLDivElement>;
+}) {
+  const { track } = player;
+  const seekPercentage = Math.min(100, (player.elapsed / player.duration) * 100);
+
+  // Album tile sizing: the tile stretches flush with the content box (top of
+  // the artist line to the bottom of the transport row) and the observer
+  // mirrors that height into the width, so the square hugs its height. CSS
+  // aspect-square cannot resolve here: the flex row's height depends on its
+  // own items, so the browser falls back to content width.
+  const tileRef = useRef<HTMLDivElement>(null);
+  const [tileWidth, setTileWidth] = useState<number | undefined>(undefined);
+  useEffect(() => {
+    const tile = tileRef.current;
+    if (!tile) return;
+    const observer = new ResizeObserver(() => setTileWidth(tile.offsetHeight));
+    observer.observe(tile);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <Card className="relative w-full">
+      {/* Screen reader parity with the visual track change. */}
+      <span className="sr-only" aria-live="polite">
+        {`Now playing: ${track.title}, ${track.artist}`}
+      </span>
+
+      <DragHandle dragHandleProps={dragHandleProps} />
+
+      {(onClose || onCollapse) && (
+        <div className="absolute right-4 top-4 flex items-center gap-1 lg:right-6 lg:top-6">
+          {onCollapse && (
+            <Button
+              variant="icon"
+              size="small"
+              type="button"
+              aria-label="Collapse player"
+              aria-expanded={true}
+              onClick={onCollapse}
+            >
+              <TuiIcon name="ChevronDown" />
+            </Button>
+          )}
+          {onClose && (
+            <Button
+              variant="icon"
+              size="small"
+              type="button"
+              aria-label="Close music player"
+              onClick={onClose}
+            >
+              <TuiIcon name="X" />
+            </Button>
+          )}
+        </div>
+      )}
+
+      <div className="flex items-stretch gap-3">
+        {/* Album tile: same plate-ring frame as the equipment tiles (stroke
+            clipped to the plate, fill re-clipped 1px inset). Flush with the
+            content box top and bottom; width hugs the measured height. */}
+        <div
+          ref={tileRef}
+          className="plate-round flex-shrink-0 self-stretch bg-[var(--surface-container-stroke)] p-px"
+          style={{ width: tileWidth }}
+        >
+          <div className="plate-round flex h-full w-full items-center justify-center overflow-hidden bg-secondary-200 dark:bg-secondary-800">
+            <AlbumFill track={track} />
+          </div>
+        </div>
+
+        <div className="flex min-w-0 flex-1 flex-col justify-center gap-2 font-mono">
+          <div
+            className={cn(
+              "min-w-0",
+              onClose && onCollapse ? "pr-20" : onClose || onCollapse ? "pr-10" : ""
+            )}
+          >
+            <MarqueeText
+              text={track.artist}
+              className="text-xs text-secondary-700 dark:text-secondary-500"
+            />
+            <MarqueeText
+              text={track.title}
+              className="text-sm font-medium text-[var(--text-primary)]"
+            />
+          </div>
+
+          <div>
+            <div className="mb-0.5 flex items-center justify-between text-xs text-secondary-900 dark:text-secondary-200">
+              <span>{formatTime(player.elapsed)}</span>
+              <span>{formatTime(player.duration)}</span>
+            </div>
+            {/* Seekable timeline: native range input, so click/drag/arrow keys
+                come free. Fill is a two-stop gradient over theme-scoped custom
+                props; the thumb is a sharp text-primary nub. */}
+            <input
+              type="range"
+              min={0}
+              max={Math.max(1, Math.round(player.duration))}
+              step={1}
+              value={Math.round(player.elapsed)}
+              onChange={(event) => player.seek(Number(event.target.value))}
+              aria-label="Seek"
+              aria-valuetext={`${formatTime(player.elapsed)} of ${formatTime(player.duration)}`}
+              className="h-2 w-full cursor-pointer appearance-none rounded-none
+                [--scrub-fill:var(--color-secondary-600)] [--scrub-track:var(--color-secondary-200)]
+                dark:[--scrub-fill:var(--color-secondary-400)] dark:[--scrub-track:var(--color-secondary-800)]
+                focus:outline-none focus-visible:[box-shadow:0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]
+                [&::-moz-range-thumb]:h-2 [&::-moz-range-thumb]:w-1 [&::-moz-range-thumb]:rounded-none [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-[var(--text-primary)]
+                [&::-webkit-slider-thumb]:h-2 [&::-webkit-slider-thumb]:w-1 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-none [&::-webkit-slider-thumb]:bg-[var(--text-primary)]"
+              style={{
+                background: `linear-gradient(to right, var(--scrub-fill) ${seekPercentage}%, var(--scrub-track) ${seekPercentage}%)`,
+              }}
+            />
+          </div>
+
+          {/* Transport: uniform 40px medium plates; play carries the
+              emphasis through its primary fill alone. Shuffle/repeat are
+              pressed toggles whose plate fill changes with state, not
+              color alone. */}
+          <div className="flex items-center justify-center gap-2">
+            <Button
+              variant="icon"
+              size="medium"
+              type="button"
+              aria-pressed={player.isShuffling}
+              aria-label="Shuffle"
+              className={TOGGLE_PRESSED_CLASSES}
+              onClick={player.toggleShuffle}
+            >
+              <TuiIcon name="Shuffle" />
+            </Button>
+            <Button
+              variant="icon"
+              size="medium"
+              type="button"
+              aria-label="Previous track"
+              disabled={player.previousDisabled}
+              onClick={player.previous}
+            >
+              <TuiIcon name="SkipBack" />
+            </Button>
+            <Button
+              variant="primary"
+              size="medium"
+              type="button"
+              aria-label={player.isPlaying ? "Pause" : "Play"}
+              onClick={player.togglePlay}
+            >
+              <TuiIcon name={player.isPlaying ? "Pause" : "Play"} />
+            </Button>
+            <Button
+              variant="icon"
+              size="medium"
+              type="button"
+              aria-label="Next track"
+              disabled={player.nextDisabled}
+              onClick={player.next}
+            >
+              <TuiIcon name="SkipForward" />
+            </Button>
+            <Button
+              variant="icon"
+              size="medium"
+              type="button"
+              aria-pressed={player.isRepeating}
+              aria-label="Repeat"
+              className={TOGGLE_PRESSED_CLASSES}
+              onClick={player.toggleRepeat}
+            >
+              <TuiIcon name="Repeat" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </Card>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Collapsed mini bar (structure copied from the DS pattern)
+// ---------------------------------------------------------------------------
+
+/**
+ * Collapsed mini bar: the same playback state at mini-player density (~56px).
+ * Core transport only (previous, play/pause, next, expand); shuffle, repeat,
+ * close, and seeking live in the expanded card. The hairline progress strip
+ * is display-only: a 4px seek target would be an accessibility trap.
+ */
+function MusicPlayerBar({
+  player,
+  onExpand,
+  dragHandleProps,
+}: {
+  player: PlaybackState;
+  onExpand: () => void;
+  /** Pointer handlers for the drag handle; the consumer owns the actual move logic. */
+  dragHandleProps?: React.HTMLAttributes<HTMLDivElement>;
+}) {
+  const { track } = player;
+  const seekPercentage = Math.min(100, (player.elapsed / player.duration) * 100);
+
+  return (
+    // Compact plate ring: Card's recipe at bar density (Card's fixed
+    // content padding is too deep for a mini bar).
+    <div className="plate-round-lg bg-[var(--surface-container-stroke)] p-px">
+      <div className="plate-round-lg relative flex items-center gap-3 bg-[var(--surface-card)] p-2 pl-4 lg:pl-5">
+        {/* Screen reader parity with the visual track change. */}
+        <span className="sr-only" aria-live="polite">
+          {`Now playing: ${track.title}, ${track.artist}`}
+        </span>
+
+        <DragHandle dragHandleProps={dragHandleProps} gutterClassName="w-4 lg:w-5" />
+
+        {/* Album thumb: plate ring at thumb scale. */}
+        <div className="plate-round h-10 w-10 flex-shrink-0 bg-[var(--surface-container-stroke)] p-px">
+          <div className="plate-round flex h-full w-full items-center justify-center overflow-hidden bg-secondary-200 dark:bg-secondary-800">
+            <AlbumFill track={track} />
+          </div>
+        </div>
+
+        {/* Artist eyebrow above title, matching the card's meta-above-title
+            house convention. */}
+        <div className="min-w-0 flex-1 font-mono">
+          <MarqueeText
+            text={track.artist}
+            className="text-xs text-secondary-700 dark:text-secondary-500"
+          />
+          <MarqueeText
+            text={track.title}
+            className="text-xs font-medium text-[var(--text-primary)]"
+          />
+        </div>
+
+        {/* Transport group sits tight (gap-2); the expand control stands
+            apart (root gap + ml-3) so mode switching reads as a separate
+            cluster from playback. Transport is uniform 40px medium; play
+            carries the emphasis through its primary fill alone. */}
+        <div className="flex items-center gap-2">
+          <Button
+            variant="icon"
+            size="medium"
+            type="button"
+            aria-label="Previous track"
+            disabled={player.previousDisabled}
+            onClick={player.previous}
+          >
+            <TuiIcon name="SkipBack" />
+          </Button>
+          <Button
+            variant="primary"
+            size="medium"
+            type="button"
+            aria-label={player.isPlaying ? "Pause" : "Play"}
+            onClick={player.togglePlay}
+          >
+            <TuiIcon name={player.isPlaying ? "Pause" : "Play"} />
+          </Button>
+          <Button
+            variant="icon"
+            size="medium"
+            type="button"
+            aria-label="Next track"
+            disabled={player.nextDisabled}
+            onClick={player.next}
+          >
+            <TuiIcon name="SkipForward" />
+          </Button>
+        </div>
+        {/* Expand matches the card's collapse control at small (32px);
+            only the transport cluster is 40px. */}
+        <Button
+          variant="icon"
+          size="small"
+          type="button"
+          aria-label="Expand player"
+          aria-expanded={false}
+          className="ml-3"
+          onClick={onExpand}
+        >
+          <TuiIcon name="ChevronUp" />
+        </Button>
+
+        {/* Hairline progress along the bar's bottom edge (display only). */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-0.5 bg-secondary-200 dark:bg-secondary-800"
+          role="progressbar"
+          aria-label="Playback progress"
+          aria-valuemin={0}
+          aria-valuemax={Math.round(player.duration)}
+          aria-valuenow={Math.round(player.elapsed)}
+          aria-valuetext={`${formatTime(player.elapsed)} of ${formatTime(player.duration)}`}
+        >
+          <div
+            className="h-full bg-secondary-600 dark:bg-secondary-400"
+            style={{ width: `${seekPercentage}%` }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Floating widget shell (this site's positioning, drag, and open/close
+// lifecycle, unchanged public API)
+// ---------------------------------------------------------------------------
 
 interface MusicPlayerProps {
   onClose: () => void;
   isClosing?: boolean;
 }
 
+// Estimated footprint for viewport clamping while dragging. Height is a
+// working estimate (the card hugs content); exact clamping is not critical,
+// the player just needs to stay reachable.
+const PLAYER_WIDTH = 380;
+const PLAYER_HEIGHT_ESTIMATE = 170;
+const EDGE_MARGIN = 24;
+
 /**
- * MusicPlayer Component
- * 
- * This component creates a mini music control panel that:
- * 1. Displays a demo playlist
- * 2. Simulates play/pause functionality
- * 3. Allows cycling through songs with next button
- * 4. Shows song info and album covers
- * 5. Can be closed via close button (calls onClose)
+ * MusicPlayer: the floating now-playing widget. Rendered by Layout when
+ * isMusicPlayerOpen is true; onClose starts the slide-out (Layout flips
+ * isClosing, waits out the transition, then unmounts).
  */
 export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
-  // STATE: Track whether music is currently "playing"
-  const [isPlaying, setIsPlaying] = useState(false);
-  
-  // STATE: Current song index in the playlist
-  // Starts at 0 (first song)
-  const [currentSongIndex, setCurrentSongIndex] = useState(0);
-  
-  // STATE: Current playback time in seconds
-  // Updated by the audio element's timeupdate event
-  const [currentTime, setCurrentTime] = useState(0);
-  
-  // STATE: Actual duration from loaded audio
-  const [duration, setDuration] = useState(0);
-  
-  // STATE: Track whether audio is muted
-  const [isMuted, setIsMuted] = useState(false);
-  
-  // STATE: Position of the music player on screen
-  // Allows dragging the player to any location
-  // Default: bottom-right corner (24px from edges)
-  // Note: Height is now dynamic (hugs content), using estimated height of ~170px for positioning
-  const [position, setPosition] = useState({ x: window.innerWidth - 380 - 24, y: window.innerHeight - 170 - 24 });
-  
-  // STATE: Track if player is being dragged
+  const player = useAudioPlayback(PLAYLIST);
+
+  // Collapsed vs expanded layout; playback state lives in the hook above,
+  // so the track keeps playing across the transition.
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  // Position state for desktop dragging; default bottom-right corner.
+  const [position, setPosition] = useState({
+    x: window.innerWidth - PLAYER_WIDTH - EDGE_MARGIN,
+    y: window.innerHeight - PLAYER_HEIGHT_ESTIMATE - EDGE_MARGIN,
+  });
   const [isDragging, setIsDragging] = useState(false);
-  
-  // STATE: Track initial mouse position when drag starts
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
-  
-  // STATE: Track if component just mounted (for slide-in animation)
   const [justMounted, setJustMounted] = useState(true);
-  
-  // STATE: Track if we're on desktop (for conditional drag behavior)
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
-  
-  // REF: Reference to the HTML5 audio element
-  // This allows us to control playback programmatically
-  const audioRef = useRef<HTMLAudioElement>(null);
-  
-  // Get the current song from the playlist
-  // This updates automatically when currentSongIndex changes
-  const currentSong = DEMO_PLAYLIST[currentSongIndex];
-  
-  // Calculate progress percentage for the progress bar
-  // Returns value between 0 and 100
-  // Use actual duration from audio if available, otherwise use playlist duration
-  const actualDuration = duration || currentSong.duration;
-  const progressPercentage = (currentTime / actualDuration) * 100;
 
-  // EFFECT: Sync audio playback with isPlaying state
-  // When isPlaying changes, play or pause the actual audio
+  // Slide-in animation on mount: start off-screen, then release after a
+  // frame so the transition runs.
   useEffect(() => {
-    if (!audioRef.current) {
-      console.log("Audio ref not ready yet");
-      return;
-    }
-
-    if (isPlaying) {
-      // Play the audio
-      console.log("Attempting to play audio...");
-      audioRef.current.play()
-        .then(() => {
-          console.log("✅ Audio playing successfully!");
-        })
-        .catch((error) => {
-          console.error("❌ Error playing audio:", error);
-          console.log("This is likely a browser autoplay restriction. User must interact with the page first.");
-          console.log("Try: Click anywhere on the page, then click play again.");
-          // If autoplay is blocked, reset playing state
-          setIsPlaying(false);
-        });
-    } else {
-      // Pause the audio
-      console.log("Pausing audio...");
-      audioRef.current.pause();
-    }
-  }, [isPlaying]);
-
-  // EFFECT: Reset audio when song changes
-  // Load new audio source and reset playback
-  useEffect(() => {
-    if (!audioRef.current) return;
-    
-    // Reset time when song changes
-    setCurrentTime(0);
-    setDuration(0);
-    
-    // Pause if playing
-    audioRef.current.pause();
-    setIsPlaying(false);
-    
-    // Audio will load when src changes in JSX
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentSongIndex]);
-
-  // EFFECT: Sync muted state with audio element
-  useEffect(() => {
-    if (!audioRef.current) return;
-    audioRef.current.muted = isMuted;
-  }, [isMuted]);
-
-  // EFFECT: Handle drag event listeners
-  // Attaches mousemove and mouseup events to document when dragging
-  useEffect(() => {
-    if (isDragging) {
-      // Add event listeners to track mouse movement and release
-      document.addEventListener('mousemove', handleDragMove);
-      document.addEventListener('mouseup', handleDragEnd);
-      
-      // Change cursor to grabbing while dragging
-      document.body.style.cursor = 'grabbing';
-      
-      // Cleanup: Remove event listeners when dragging stops
-      return () => {
-        document.removeEventListener('mousemove', handleDragMove);
-        document.removeEventListener('mouseup', handleDragEnd);
-        document.body.style.cursor = 'default';
-      };
-    }
-  }, [isDragging, dragStart, position]);
-
-  // EFFECT: Slide-in animation on mount
-  // Sets justMounted to false after a brief delay to trigger animation
-  useEffect(() => {
-    // After component mounts, wait 100ms then start slide-in animation
-    const timer = setTimeout(() => {
-      setJustMounted(false);
-    }, 100);
-    
+    const timer = setTimeout(() => setJustMounted(false), 100);
     return () => clearTimeout(timer);
   }, []);
 
-  // EFFECT: Handle window resize to keep player visible (desktop only)
-  // Adjusts player position when window is resized to prevent it going off-screen
-  // Only applies on desktop (>= 1024px) where dragging is enabled
-  // Also updates isDesktop state for responsive behavior
+  // Desktop drag: mouse listeners on the document while dragging, with
+  // viewport clamping so the player cannot be lost off-screen.
+  useEffect(() => {
+    if (!isDragging) return;
+    const handleDragMove = (e: MouseEvent) => {
+      const maxX = window.innerWidth - PLAYER_WIDTH;
+      const maxY = window.innerHeight - PLAYER_HEIGHT_ESTIMATE;
+      setPosition({
+        x: Math.max(0, Math.min(e.clientX - dragStart.x, maxX)),
+        y: Math.max(0, Math.min(e.clientY - dragStart.y, maxY)),
+      });
+    };
+    const handleDragEnd = () => setIsDragging(false);
+    document.addEventListener("mousemove", handleDragMove);
+    document.addEventListener("mouseup", handleDragEnd);
+    document.body.style.cursor = "grabbing";
+    return () => {
+      document.removeEventListener("mousemove", handleDragMove);
+      document.removeEventListener("mouseup", handleDragEnd);
+      document.body.style.cursor = "default";
+    };
+  }, [isDragging, dragStart]);
+
+  // Keep the player visible across window resizes (desktop only, where the
+  // draggable inline position applies).
   useEffect(() => {
     const handleResize = () => {
       const desktopView = window.innerWidth >= 1024;
       setIsDesktop(desktopView);
-      
-      // Only adjust position on desktop
       if (desktopView) {
-        setPosition((prevPosition) => {
-          // Calculate maximum allowed positions based on new window size
-          const maxX = window.innerWidth - 380 - 24; // player width + margin
-          const maxY = window.innerHeight - 170 - 24; // player height (estimated) + margin
-          
-          // Keep player within bounds
-          return {
-            x: Math.min(prevPosition.x, maxX),
-            y: Math.min(prevPosition.y, maxY),
-          };
-        });
+        setPosition((prev) => ({
+          x: Math.min(prev.x, window.innerWidth - PLAYER_WIDTH - EDGE_MARGIN),
+          y: Math.min(prev.y, window.innerHeight - PLAYER_HEIGHT_ESTIMATE - EDGE_MARGIN),
+        }));
       }
     };
-
-    // Add resize listener
-    window.addEventListener('resize', handleResize);
-    
-    // Cleanup
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  /**
-   * Toggle between play and pause
-   * Controls the actual HTML5 audio element
-   */
-  const togglePlayPause = () => {
-    console.log("Play/Pause clicked. Current state:", isPlaying);
-    console.log("Audio element exists:", !!audioRef.current);
-    if (audioRef.current) {
-      console.log("Audio src:", audioRef.current.src);
-      console.log("Audio ready state:", audioRef.current.readyState);
-    }
-    setIsPlaying(!isPlaying);
-  };
-
-  /**
-   * Toggle between mute and unmute
-   * Controls the audio volume state
-   */
-  const toggleMute = () => {
-    setIsMuted(!isMuted);
-  };
-
-  /**
-   * Skip to next song in playlist
-   * Cycles back to start when reaching the end
-   */
-  const handleNext = () => {
-    setCurrentSongIndex((prev) => {
-      // If we're at the last song, go back to first
-      // Otherwise, go to next song
-      return prev === DEMO_PLAYLIST.length - 1 ? 0 : prev + 1;
-    });
-  };
-
-  /**
-   * Go to previous song in playlist
-   * Only works if not on first song
-   */
-  const handlePrevious = () => {
-    setCurrentSongIndex((prev) => {
-      // Only go back if we're not already at the first song
-      return prev > 0 ? prev - 1 : prev;
-    });
-  };
-
-  /**
-   * Check if Previous button should be disabled
-   * Disabled when on the first track (index 0)
-   */
-  const isPreviousDisabled = currentSongIndex === 0;
-
-  /**
-   * Check if Next button should be disabled
-   * Disabled when on the last track or if there's only one song
-   */
-  const isNextDisabled = currentSongIndex === DEMO_PLAYLIST.length - 1;
-
-  /**
-   * Handle audio time update
-   * Called continuously as audio plays
-   */
-  const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
-    }
-  };
-
-  /**
-   * Handle audio metadata loaded
-   * Sets the actual duration from the audio file
-   */
-  const handleLoadedMetadata = () => {
-    if (audioRef.current) {
-      setDuration(audioRef.current.duration);
-    }
-  };
-
-  /**
-   * Handle audio ended
-   * Reset to beginning when song finishes
-   */
-  const handleAudioEnded = () => {
-    setIsPlaying(false);
-    setCurrentTime(0);
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-    }
-  };
-
-  /**
-   * DRAG FUNCTIONALITY: Start dragging
-   * Called when user clicks on the drag handle
-   * Records starting mouse position
-   * Only works on desktop (>= 1024px)
-   */
-  const handleDragStart = (e: React.MouseEvent) => {
-    // Only allow dragging on desktop
-    if (!isDesktop) return;
-    
-    setIsDragging(true);
-    // Record where the mouse was when dragging started
-    // We'll use this to calculate how far the mouse has moved
-    setDragStart({
-      x: e.clientX - position.x,
-      y: e.clientY - position.y,
-    });
-  };
-
-  /**
-   * DRAG FUNCTIONALITY: Handle mouse movement
-   * Updates player position as mouse moves
-   * Only active when isDragging is true
-   */
-  const handleDragMove = (e: MouseEvent) => {
-    if (!isDragging) return;
-
-    // Calculate new position based on mouse movement
-    const newX = e.clientX - dragStart.x;
-    const newY = e.clientY - dragStart.y;
-
-    // Keep player within screen bounds
-    // Prevent dragging off-screen
-    const maxX = window.innerWidth - 380; // player width
-    const maxY = window.innerHeight - 170; // player height (estimated, dynamic)
-    
-    setPosition({
-      x: Math.max(0, Math.min(newX, maxX)),
-      y: Math.max(0, Math.min(newY, maxY)),
-    });
-  };
-
-  /**
-   * DRAG FUNCTIONALITY: Stop dragging
-   * Called when user releases mouse button
-   */
-  const handleDragEnd = () => {
-    setIsDragging(false);
+  const dragHandleProps: React.HTMLAttributes<HTMLDivElement> = {
+    onMouseDown: (e) => {
+      if (!isDesktop) return;
+      setIsDragging(true);
+      setDragStart({ x: e.clientX - position.x, y: e.clientY - position.y });
+    },
   };
 
   return (
     <>
-      {/* 
-        HIDDEN AUDIO ELEMENT
-        - HTML5 audio for actual music playback
-        - Controlled by our UI buttons
-        - Using public domain music from reliable source
-        - CC0/Public Domain - No attribution required
-        - Note: In production, each song would have its own unique audio file
-      */}
-      <audio
-        ref={audioRef}
-        onTimeUpdate={handleTimeUpdate}
-        onLoadedMetadata={handleLoadedMetadata}
-        onEnded={handleAudioEnded}
-        onError={(e) => {
-          console.error("Audio loading error:", e);
-          console.log("If audio won't play, try clicking anywhere on the page first (browser autoplay policy)");
-        }}
-        // Using a reliable public domain audio source
-        // This URL is known to work with HTML5 audio on localhost
-        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-      />
-      
+      {/* Hidden audio element: the real playback engine. The UI above is
+          wired to it through useAudioPlayback. */}
+      <audio {...player.audioProps} />
+
       <div
-        className="fixed w-[calc(100%-48px)] lg:w-[380px] bg-[var(--surface-card)] rounded-none overflow-visible border-[0.5px] border-solid border-sepia-500 dark:border-sepia-800 left-6 bottom-6 lg:left-auto lg:bottom-auto"
+        className="fixed w-[calc(100%-48px)] lg:w-[380px] left-6 bottom-6 lg:left-auto lg:bottom-auto"
         style={{
-          // Uses z-index token for popover layer (1050)
-          zIndex: 'var(--z-index-popover)',
-          // Dynamic positioning based on state (allows dragging on desktop only)
-          // Mobile: Uses Tailwind classes (left-6 bottom-6)
-          // Desktop (lg+): Uses inline styles for draggable positioning
-          ...(isDesktop ? {
-            left: `${position.x}px`,
-            top: `${position.y}px`,
-          } : {}),
-          // Using elevation-1 tokens for shadow
-          // Border now matches page cards (sepia-500 light / sepia-800 dark)
-          boxShadow: 'var(--elevation-1-shadow)',
-          // Slide-in animation from bottom, slide-out in opposite direction
-          // Slide in: starts off-screen (translateY 200px) and slides up to translateY(0)
-          // Slide out: slides down from translateY(0) to translateY(200px)
-          // No fade - clean slide motion only
-          transform: isClosing ? 'translateY(200px)' : (justMounted ? 'translateY(200px)' : 'translateY(0)'),
-          transition: justMounted ? 'none' : 'transform 0.5s ease-out',
+          // Popover layer token keeps the player above page content.
+          zIndex: "var(--z-index-popover)",
+          // Mobile pins to the bottom-left via classes; desktop positions
+          // with inline styles so dragging works.
+          ...(isDesktop ? { left: `${position.x}px`, top: `${position.y}px` } : {}),
+          // Elevation: drop-shadow filter, not box-shadow (the plate
+          // clip-path slices box shadows off). Same recipe as the docked
+          // Modal in the DS.
+          filter: PLATE_SHADOW,
+          // Slide-in from the bottom on mount, slide-out on close. No fade,
+          // clean slide motion only.
+          transform:
+            isClosing || justMounted ? "translateY(200px)" : "translateY(0)",
+          transition: justMounted ? "none" : "transform 0.5s ease-out",
         }}
       >
-      {/* 
-        DRAG HANDLE - CENTER LEFT SIDE
-        - Positioned in the padding space between left edge and album art
-        - Perfectly centered in available padding (16px p-4 space)
-        - 6 dots in a 2×3 grid pattern (2px × 2px dots, 2px gaps)
-        - White dots in dark mode, black dots in light mode
-        - No background - just the dots
-        - Changes cursor to grab/grabbing on hover/drag
-        - HIDDEN ON MOBILE: Only visible on desktop (lg+) where dragging is enabled
-      */}
-      <div
-        onMouseDown={handleDragStart}
-        className="hidden lg:block absolute top-1/2 -translate-y-1/2 cursor-grab active:cursor-grabbing"
-        style={{
-          // Position in center of left padding space
-          // Padding is 16px (p-4), dots are 6px wide (2px+2px+2px)
-          // To center: (16px - 6px) ÷ 2 = 5px from left edge
-          left: '5px'
-        }}
-        aria-label="Drag to move music player"
-      >
-        {/* 2×3 grid of dots: 2px dots with 2px gaps */}
-        <div className="grid grid-cols-2 gap-[2px]">
-          {/* Row 1 */}
-          <div className="w-[2px] h-[2px] rounded-none bg-sepia-900 dark:bg-sepia-50"></div>
-          <div className="w-[2px] h-[2px] rounded-none bg-sepia-900 dark:bg-sepia-50"></div>
-          {/* Row 2 */}
-          <div className="w-[2px] h-[2px] rounded-none bg-sepia-900 dark:bg-sepia-50"></div>
-          <div className="w-[2px] h-[2px] rounded-none bg-sepia-900 dark:bg-sepia-50"></div>
-          {/* Row 3 */}
-          <div className="w-[2px] h-[2px] rounded-none bg-sepia-900 dark:bg-sepia-50"></div>
-          <div className="w-[2px] h-[2px] rounded-none bg-sepia-900 dark:bg-sepia-50"></div>
-        </div>
-      </div>
-
-      {/* 
-        CLOSE BUTTON - TOP RIGHT CORNER
-        - Positioned absolutely in top-right corner
-        - Small icon button with X icon
-        - Closes/hides the music player when clicked
-        - Visible on both mobile and desktop
-        - Uses ghost variant for subtle, minimal appearance
-      */}
-      <div className="absolute top-2 right-2">
-        <Button
-          onClick={onClose}
-          variant="ghost"
-          size="medium"
-          className="lg:h-8 lg:w-8 lg:rounded-none"
-          aria-label="Close music player"
-        >
-          <span className="font-mono font-bold text-base lg:text-sm" aria-hidden="true">✗</span>
-        </Button>
-      </div>
-
-      {/* 
-        MAIN CONTAINER WITH PADDING
-        - Uses p-4 padding (16px) to match About Card component
-        - Height hugs content (auto)
-      */}
-      <div className="p-4 flex flex-col">
-        {/* 
-          TOP SECTION: Album cover + Song info + Controls
-          - Flexbox row layout
-          - Takes available space
-        */}
-        <div className="flex flex-row gap-3 items-stretch">
-          {/* 
-            LEFT SECTION: ALBUM COVER
-            - Shows album art from current song
-            - Square format, fills available vertical space
-            - Rounded corners (12px)
-            - Background color while loading
-            - Cover fit to fill container (crops to fit)
-          */}
-          <div className="w-[84px] h-[84px] lg:w-[140px] lg:h-full flex-shrink-0">
-            <div className="w-full h-full rounded-none bg-sepia-200 dark:bg-sepia-800 overflow-hidden border-[0.5px] border-solid border-sepia-900 dark:border-sepia-900 flex items-center justify-center">
-            {currentSong.albumCover ? (
-              <img
-                src={currentSong.albumCover}
-                alt={`${currentSong.title} album cover`}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  // If image fails to load, show placeholder
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-            ) : (
-              // Placeholder when no album cover available
-              <div className="w-full h-full flex items-center justify-center text-sepia-400 dark:text-sepia-600 text-2xl">
-                ♪
-              </div>
-            )}
-            </div>
-          </div>
-
-          {/* 
-            RIGHT SECTION: SONG INFO + PROGRESS + CONTROLS
-            - Vertically stacked layout (flex-col with gap-2 for 8px spacing)
-            - Takes remaining space
-            - Content centered vertically (justify-center)
-            - 8px gap between each section (song info, progress, controls)
-            - Elements "hug" together in center instead of spreading
-          */}
-          <div className="flex-1 flex flex-col justify-center gap-2">
-            {/* 
-              SONG INFO SECTION
-              - Shows artist name and song title from current song
-              - Truncates with ellipsis if too long
-              - Uses primary text color token
-              - Stacked vertically with tight spacing
-              - No bottom margin (justify-between handles spacing)
-            */}
-            <div className="overflow-hidden">
-              {/* Artist/Band Name - slightly smaller and secondary color */}
-              <div className="text-xs text-sepia-600 dark:text-sepia-400 font-mono leading-tight mb-0.5 truncate">
-                {currentSong.artist}
-              </div>
-              {/* Song Title - primary text */}
-              <div className="text-sm text-sepia-900 dark:text-sepia-50 font-mono leading-snug line-clamp-2">
-                {currentSong.title}
-              </div>
-            </div>
-
-            {/* 
-              PROGRESS BAR SECTION
-              - Shows time elapsed and total duration
-              - Visual progress bar fills from left to right
-              - Between song info and controls
-              - No bottom margin (justify-between handles spacing)
-            */}
-            <div className="w-full">
-              {/* 
-                TIME DISPLAY
-                - Current time on left, total duration on right
-                - Small mono font matching overall design
-              */}
-              <div className="flex justify-between items-center mb-1">
-                <span className="text-xs text-sepia-600 dark:text-sepia-400 font-mono">
-                  {formatTime(currentTime)}
-                </span>
-                <span className="text-xs text-sepia-600 dark:text-sepia-400 font-mono">
-                  {formatTime(actualDuration)}
-                </span>
-              </div>
-
-              {/* 
-                PROGRESS BAR
-                - Background track (light gray)
-                - Filled portion (accent color) animates based on currentTime
-                - Height: 6px for better visibility
-                - Rounded ends for polished look
-              */}
-              <div className="w-full h-1.5 bg-sepia-200 dark:bg-sepia-800 rounded-none overflow-hidden">
-                {/* Progress fill - width animates based on actual playback */}
-                <div 
-                  className="h-full bg-sepia-600 dark:bg-sepia-400 rounded-none transition-all duration-100 ease-linear"
-                  style={{ width: `${progressPercentage}%` }}
-                />
-              </div>
-            </div>
-
-            {/* 
-              CONTROLS ROW
-              - Horizontal layout with space-between
-              - Left group: Previous | Play/Pause | Next (gap-1 = 4px between)
-              - Right: Volume button (pushed to far right)
-            */}
-            <div className="flex items-center justify-between">
-              {/* LEFT GROUP: Playback controls */}
-              <div className="flex items-center gap-2">
-                {/* 
-                  PREVIOUS BUTTON
-                  - Go back to previous song in playlist
-                  - Disabled when on first track (can't go back further)
-                  - Shows left arrow with line icon (line + triangle, properly centered)
-                  - Now uses Button component with secondary variant
-                  - 32px square button using design system tokens
-                  - Optical centering: slight adjustments for visual balance
-                */}
-                <Button
-                  onClick={handlePrevious}
-                  disabled={isPreviousDisabled}
-                  variant="secondary"
-                  size="medium"
-                  className="lg:h-8 lg:w-8 lg:rounded-none"
-                  aria-label="Previous song"
-                >
-                  <span className="flex items-center justify-center w-5 h-5 lg:w-4 lg:h-4">
-                    <span className="flex items-center font-sans leading-none justify-center" style={{ letterSpacing: '-1px', fontSize: '20px' }}>
-                      <span className="text-[20px] lg:text-base">│</span>
-                      <span className="text-[20px] lg:text-base">◀</span>
-                    </span>
-                  </span>
-                </Button>
-
-                {/* 
-                  PLAY/PAUSE BUTTON
-                  - Icon-only button (no text)
-                  - Shows play ▶ or pause ⏸ based on isPlaying state
-                  - Now uses Button component with secondary variant
-                  - 32px square button using design system tokens
-                  - Optical centering: play icon shifted right, pause centered
-                */}
-                <Button
-                  onClick={togglePlayPause}
-                  variant="secondary"
-                  size="medium"
-                  className="lg:h-8 lg:w-8 lg:rounded-none"
-                  aria-label={isPlaying ? "Pause" : "Play"}
-                >
-                  <span className="flex items-center justify-center w-5 h-5 lg:w-4 lg:h-4">
-                    <span className="text-[20px] lg:text-base" style={{ fontSize: '20px', lineHeight: '1', transform: isPlaying ? 'translateY(0px)' : 'translateY(-1px)' }}>{isPlaying ? "⏸" : "▶"}</span>
-                  </span>
-                </Button>
-
-                {/* 
-                  NEXT BUTTON
-                  - Skip to next song in playlist
-                  - Disabled when on last track (can't go forward further)
-                  - Shows next track icon (triangle + line, properly centered)
-                  - Now uses Button component with secondary variant
-                  - 32px square button using design system tokens
-                  - Optical centering: slight adjustments for visual balance
-                */}
-                <Button
-                  onClick={handleNext}
-                  disabled={isNextDisabled}
-                  variant="secondary"
-                  size="medium"
-                  className="lg:h-8 lg:w-8 lg:rounded-none"
-                  aria-label="Next song"
-                >
-                  <span className="flex items-center justify-center w-5 h-5 lg:w-4 lg:h-4">
-                    <span className="flex items-center font-sans leading-none justify-center" style={{ letterSpacing: '-1px', fontSize: '20px' }}>
-                      <span className="text-[20px] lg:text-base">▶</span>
-                      <span className="text-[20px] lg:text-base">│</span>
-                    </span>
-                  </span>
-                </Button>
-              </div>
-
-              {/* RIGHT: Volume control */}
-              {/* 
-                VOLUME/MUTE BUTTON
-                - Toggle between muted and unmuted
-                - Shows Volume2 icon when unmuted, VolumeX icon when muted
-                - Uses Lucide React icons (not emoji)
-                - Uses Button component with secondary variant
-                - 32px square button using design system tokens
-                - Positioned on far right with space from other controls
-              */}
-              <Button
-                onClick={toggleMute}
-                variant="secondary"
-                size="medium"
-                className="lg:h-8 lg:w-8 lg:rounded-none"
-                aria-label={isMuted ? "Unmute" : "Mute"}
-              >
-                {/* TUI Tier 2: Unicode characters instead of Lucide icons */}
-                {isMuted ? (
-                  <span className="font-mono font-bold text-base lg:text-sm" aria-hidden="true">✖</span>
-                ) : (
-                  <span className="font-mono font-bold text-base lg:text-sm" aria-hidden="true">♫</span>
-                )}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
+        {isCollapsed ? (
+          <MusicPlayerBar
+            player={player}
+            onExpand={() => setIsCollapsed(false)}
+            dragHandleProps={dragHandleProps}
+          />
+        ) : (
+          <MusicPlayerCard
+            player={player}
+            onClose={onClose}
+            onCollapse={() => setIsCollapsed(true)}
+            dragHandleProps={dragHandleProps}
+          />
+        )}
       </div>
     </>
   );

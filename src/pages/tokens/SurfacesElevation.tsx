@@ -13,6 +13,8 @@
  * - 4 levels (0-3) with increasing border visibility
  */
 
+
+import { Panel } from "@/components/docs/Panel";
 export default function SurfacesElevation() {
   return (
     <div className="container mx-auto px-5 lg:px-10 pt-5 lg:pt-10 pb-5 lg:pb-20">
@@ -32,7 +34,7 @@ export default function SurfacesElevation() {
         Shows all surface tokens with light and dark values
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Surface Tokens</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -70,9 +72,9 @@ export default function SurfacesElevation() {
               </div>
 
               {/* Visual Example */}
-              <div className="mt-4 p-8 border border-[var(--border-hairline)] rounded-none bg-[var(--surface-page)]">
+              <Panel className="mt-4" innerClassName="bg-[var(--surface-page)] p-4 lg:p-6">
                 <p className="text-sm font-mono text-[var(--text-primary)]">This container uses surface.page</p>
-              </div>
+              </Panel>
             </div>
 
             {/* surface.container */}
@@ -103,9 +105,9 @@ export default function SurfacesElevation() {
               </div>
 
               {/* Visual Example */}
-              <div className="mt-4 p-8 border border-[var(--border-hairline)] rounded-none bg-[var(--surface-container)]">
+              <Panel className="mt-4" innerClassName="bg-[var(--surface-container)] p-4 lg:p-6">
                 <p className="text-sm font-mono text-[var(--text-primary)]">This container uses surface.container</p>
-              </div>
+              </Panel>
             </div>
 
             {/* surface.card */}
@@ -136,9 +138,9 @@ export default function SurfacesElevation() {
               </div>
 
               {/* Visual Example */}
-              <div className="mt-4 p-8 border border-[var(--border-hairline)] rounded-none bg-[var(--surface-card)]">
+              <Panel className="mt-4">
                 <p className="text-sm font-mono text-[var(--text-primary)]">This container uses surface.card</p>
-              </div>
+              </Panel>
             </div>
 
             {/* surface.container-stroke */}
@@ -175,7 +177,7 @@ export default function SurfacesElevation() {
             </div>
 
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -183,7 +185,7 @@ export default function SurfacesElevation() {
         Flat design -- depth is communicated through borders only, no shadows
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Depth System (TUI)</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
@@ -312,7 +314,7 @@ export default function SurfacesElevation() {
             </div>
 
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -320,7 +322,7 @@ export default function SurfacesElevation() {
         When to use each border level
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Depth Usage Guidelines</h3>
             <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">When to use each border level for visual hierarchy</p>
@@ -328,46 +330,46 @@ export default function SurfacesElevation() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Level 0: Flush</p>
                 <ul className="space-y-2">
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">Inline elements</li>
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">Elements flush with parent</li>
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">No separation needed</li>
                 </ul>
-              </div>
+              </Panel>
 
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Level 1: Subtle</p>
                 <ul className="space-y-2">
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">Content cards</li>
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">List items</li>
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">Default containers</li>
                 </ul>
-              </div>
+              </Panel>
             </div>
 
             <div className="space-y-4">
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Level 2: Medium</p>
                 <ul className="space-y-2">
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">Dropdown menus</li>
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">Popovers and tooltips</li>
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">Hover states</li>
                 </ul>
-              </div>
+              </Panel>
 
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Level 3: Strong</p>
                 <ul className="space-y-2">
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">Modal dialogs</li>
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">Overlay panels</li>
                   <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">Critical alerts</li>
                 </ul>
-              </div>
+              </Panel>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );

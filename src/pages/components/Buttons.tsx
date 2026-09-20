@@ -15,6 +15,7 @@
 import { Button } from "@/components/ui/Button";
 // TUI Tier 2: Import TuiIcon for Unicode character icons
 import { TuiIcon } from "@/components/ui/TuiIcon";
+import { Panel } from "@/components/docs/Panel";
 
 export default function Buttons() {
   return (
@@ -41,7 +42,7 @@ export default function Buttons() {
         Uses the same container style as other documentation pages
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Variants</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -58,7 +59,7 @@ export default function Buttons() {
             <Button variant="outline">Outline</Button>
             <Button variant="destructive">Destructive</Button>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -68,7 +69,7 @@ export default function Buttons() {
         All use 14px Fragment Mono text
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Sizes</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -91,7 +92,7 @@ export default function Buttons() {
               <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Height: 32px</p>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -103,7 +104,7 @@ export default function Buttons() {
 
       {/* BUTTONS WITH LEFT ICONS */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Buttons with Left Icons</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -152,12 +153,12 @@ export default function Buttons() {
               <Button variant="outline" iconLeft={<TuiIcon name="ArrowLeft" />}>Go Back</Button>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* BUTTONS WITH RIGHT ICONS */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Buttons with Right Icons</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -206,12 +207,12 @@ export default function Buttons() {
               <Button variant="ghost" iconRight={<TuiIcon name="ArrowRight" />}>View Details</Button>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* ICON-ONLY BUTTONS */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Icon-Only Buttons</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -300,7 +301,7 @@ export default function Buttons() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -314,7 +315,7 @@ export default function Buttons() {
 
       {/* PRIMARY BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           {/* Card Title & Subtitle - Updated text sizes: title=16px (text-base), subtitle=14px (text-sm) */}
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Primary Button</h3>
@@ -324,7 +325,7 @@ export default function Buttons() {
           </div>
           
           {/* Visual Example - All button states shown side by side */}
-          <div className="mb-8 p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel className="mb-8">
             <div className="space-y-4">
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All interaction states:</p>
               <div className="flex flex-wrap gap-4 items-start">
@@ -371,7 +372,7 @@ export default function Buttons() {
                 </div>
               </div>
             </div>
-          </div>
+          </Panel>
 
           {/* Token Documentation Cards - Redesigned with pills/chips, no containers */}
           <div className="space-y-6">
@@ -522,12 +523,12 @@ export default function Buttons() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* SECONDARY BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Secondary Button</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -536,7 +537,7 @@ export default function Buttons() {
           </div>
           
           {/* Visual Example - All button states shown side by side */}
-          <div className="mb-8 p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel className="mb-8">
             <div className="space-y-4">
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All interaction states:</p>
               <div className="flex flex-wrap gap-4 items-start">
@@ -583,7 +584,7 @@ export default function Buttons() {
                 </div>
               </div>
             </div>
-          </div>
+          </Panel>
 
           <div className="space-y-6">
             <div>
@@ -664,12 +665,12 @@ export default function Buttons() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* GHOST BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Ghost Button</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -678,7 +679,7 @@ export default function Buttons() {
           </div>
           
           {/* Visual Example - All button states shown side by side */}
-          <div className="mb-8 p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel className="mb-8">
             <div className="space-y-4">
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All interaction states:</p>
               <div className="flex flex-wrap gap-4 items-start">
@@ -725,7 +726,7 @@ export default function Buttons() {
                 </div>
               </div>
             </div>
-          </div>
+          </Panel>
 
           <div className="space-y-6">
             <div>
@@ -814,12 +815,12 @@ export default function Buttons() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* LINK BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Link Button</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -828,7 +829,7 @@ export default function Buttons() {
           </div>
           
           {/* Visual Example - All button states shown side by side */}
-          <div className="mb-8 p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel className="mb-8">
             <div className="space-y-4">
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All interaction states:</p>
               <div className="flex flex-wrap gap-4 items-start">
@@ -875,7 +876,7 @@ export default function Buttons() {
                 </div>
               </div>
             </div>
-          </div>
+          </Panel>
 
           <div className="space-y-6">
             <div>
@@ -957,12 +958,12 @@ export default function Buttons() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* OUTLINE BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Outline Button</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -971,7 +972,7 @@ export default function Buttons() {
           </div>
           
           {/* Visual Example - All button states shown side by side */}
-          <div className="mb-8 p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel className="mb-8">
             <div className="space-y-4">
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All interaction states:</p>
               <div className="flex flex-wrap gap-4 items-start">
@@ -1018,7 +1019,7 @@ export default function Buttons() {
                 </div>
               </div>
             </div>
-          </div>
+          </Panel>
 
           <div className="space-y-6">
             <div>
@@ -1129,12 +1130,12 @@ export default function Buttons() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* DESTRUCTIVE BUTTON BREAKDOWN */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Destructive Button</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -1143,7 +1144,7 @@ export default function Buttons() {
           </div>
           
           {/* Visual Example - All button states shown side by side */}
-          <div className="mb-8 p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+          <Panel className="mb-8">
             <div className="space-y-4">
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">All interaction states:</p>
               <div className="flex flex-wrap gap-4 items-start">
@@ -1190,7 +1191,7 @@ export default function Buttons() {
                 </div>
               </div>
             </div>
-          </div>
+          </Panel>
 
           <div className="space-y-6">
             <div>
@@ -1283,7 +1284,7 @@ export default function Buttons() {
               </div>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
 
       {/* 
@@ -1292,7 +1293,7 @@ export default function Buttons() {
         This is component-specific; full focus documentation is in foundation
       */}
       <section className="mb-10">
-        <div className="bg-[var(--surface-card)] border border-[var(--border-hairline)] rounded-none p-4 lg:p-8">
+        <Panel>
           <div className="mb-6">
             <h3 className="text-base font-mono text-[var(--text-primary)] mb-1">Focus States</h3>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
@@ -1373,7 +1374,7 @@ export default function Buttons() {
             {/* Interactive Test */}
             <div>
               <h4 className="text-sm font-mono text-[var(--text-primary)] mb-3">Test Keyboard Navigation</h4>
-              <div className="p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950">
+              <Panel>
                 <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">
                   Press Tab to cycle through these buttons and see their focus rings:
                 </p>
@@ -1382,10 +1383,10 @@ export default function Buttons() {
                   <Button variant="secondary">Secondary</Button>
                   <Button variant="destructive">Destructive</Button>
                 </div>
-              </div>
+              </Panel>
             </div>
           </div>
-        </div>
+        </Panel>
       </section>
     </div>
   );
