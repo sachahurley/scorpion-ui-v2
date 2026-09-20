@@ -50,6 +50,9 @@ interface Track {
 
 // Demo playlist. Audio is a reliable public domain source (CC0, no
 // attribution required); in production each track gets its own file.
+// Three tracks on purpose: with one, shuffle was a no-op, previous was
+// permanently disabled, and the queue controls looked broken. The long
+// second title also exercises the marquee (it must overflow to scroll).
 const PLAYLIST: Track[] = [
   {
     artist: "Sacha Hurley",
@@ -57,6 +60,20 @@ const PLAYLIST: Track[] = [
     albumCover: `${import.meta.env.BASE_URL}album-cover-stinger-001.png`,
     audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
     duration: 120,
+  },
+  {
+    artist: "Sacha Hurley",
+    title: "Burrow at Dusk (Extended Desert Session)",
+    albumCover: `${import.meta.env.BASE_URL}album-cover-stinger-001.png`,
+    audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    duration: 425,
+  },
+  {
+    artist: "Sacha Hurley",
+    title: "Exoskeleton",
+    albumCover: `${import.meta.env.BASE_URL}album-cover-stinger-001.png`,
+    audioSrc: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    duration: 320,
   },
 ];
 
