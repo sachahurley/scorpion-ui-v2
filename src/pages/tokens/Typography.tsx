@@ -8,6 +8,7 @@
 
 
 import { Panel } from "@/components/docs/Panel";
+import { tokenValue } from "@/lib/tokenValue";
 export default function Typography() {
   return (
     <div className="container mx-auto px-5 lg:px-10 pt-5 lg:pt-10 pb-5 lg:pb-20">
@@ -36,10 +37,10 @@ export default function Typography() {
           
           {/* Font family displayed at 48px directly in the container */}
           <div className="flex flex-col gap-2">
-            <p className="font-mono text-sepia-900 dark:text-sepia-50" style={{ fontSize: '48px' }}>
+            <p className="font-mono text-sepia-900 dark:text-sepia-50" style={{ fontSize: 'var(--font-size-3xl)' }}>
               font.family.mono
             </p>
-            <p className="font-mono text-sepia-600 dark:text-sepia-400" style={{ fontSize: '48px' }}>
+            <p className="font-mono text-sepia-600 dark:text-sepia-400" style={{ fontSize: 'var(--font-size-3xl)' }}>
               Fragment Mono
             </p>
           </div>
@@ -56,120 +57,142 @@ export default function Typography() {
         <Panel>
           <div className="mb-6">
             <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Font Sizes</h3>
-            <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Type scale from 6xl (96px) to xs (12px) for all typography needs</p>
+            <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">Type scale from 6xl down to 3xs, resolved live from the font-size tokens</p>
           </div>
           
           {/* Single container with all font sizes cascading from largest to smallest */}
           <Panel>
             <div className="flex flex-col gap-8">
               
-              {/* font.size.6xl - 96px */}
+              {/* font.size.6xl */}
               <div className="flex flex-col gap-2">
-                <p className="font-mono text-sepia-900 dark:text-sepia-50" style={{ fontSize: '96px', lineHeight: '1.1' }}>
+                <p className="font-mono text-sepia-900 dark:text-sepia-50" style={{ fontSize: 'var(--font-size-6xl)', lineHeight: '1.1' }}>
                   Fear causes hesitation
                 </p>
                 <div className="flex flex-col gap-1 mt-2">
                   <p className="text-xs font-mono text-[var(--text-primary)]">font.size.6xl</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">96px</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{tokenValue('--font-size-6xl')}</p>
                 </div>
               </div>
 
-              {/* font.size.5xl - 80px */}
+              {/* font.size.5xl */}
               <div className="flex flex-col gap-2">
-                <p className="font-mono text-sepia-900 dark:text-sepia-50" style={{ fontSize: '80px', lineHeight: '1.1' }}>
+                <p className="font-mono text-sepia-900 dark:text-sepia-50" style={{ fontSize: 'var(--font-size-5xl)', lineHeight: '1.1' }}>
                   Fear causes hesitation
                 </p>
                 <div className="flex flex-col gap-1 mt-2">
                   <p className="text-xs font-mono text-[var(--text-primary)]">font.size.5xl</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">80px</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{tokenValue('--font-size-5xl')}</p>
                 </div>
               </div>
 
-              {/* font.size.4xl - 64px */}
+              {/* font.size.4xl */}
               <div className="flex flex-col gap-2">
-                <p className="font-mono text-sepia-900 dark:text-sepia-50" style={{ fontSize: '64px', lineHeight: '1.15' }}>
+                <p className="font-mono text-sepia-900 dark:text-sepia-50" style={{ fontSize: 'var(--font-size-4xl)', lineHeight: '1.15' }}>
                   Fear causes hesitation
                 </p>
                 <div className="flex flex-col gap-1 mt-2">
                   <p className="text-xs font-mono text-[var(--text-primary)]">font.size.4xl</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">64px</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{tokenValue('--font-size-4xl')}</p>
                 </div>
               </div>
 
-              {/* font.size.3xl - 48px */}
+              {/* font.size.3xl */}
               <div className="flex flex-col gap-2">
-                <p className="font-mono text-sepia-900 dark:text-sepia-50" style={{ fontSize: '48px', lineHeight: '1.2' }}>
+                <p className="font-mono text-sepia-900 dark:text-sepia-50" style={{ fontSize: 'var(--font-size-3xl)', lineHeight: '1.2' }}>
                   Fear causes hesitation, and hesitation will cause your worst fears to come true.
                 </p>
                 <div className="flex flex-col gap-1 mt-2">
                   <p className="text-xs font-mono text-[var(--text-primary)]">font.size.3xl</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">48px</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{tokenValue('--font-size-3xl')}</p>
                 </div>
               </div>
 
-              {/* font.size.2xl - 24px */}
+              {/* font.size.2xl */}
               <div className="flex flex-col gap-2">
                 <p className="text-2xl font-mono text-sepia-900 dark:text-sepia-50">
                   Fear causes hesitation, and hesitation will cause your worst fears to come true.
                 </p>
                 <div className="flex flex-col gap-1 mt-2">
                   <p className="text-xs font-mono text-[var(--text-primary)]">font.size.2xl</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">24px</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{tokenValue('--font-size-2xl')}</p>
                 </div>
               </div>
 
-              {/* font.size.xl - 20px */}
+              {/* font.size.xl */}
               <div className="flex flex-col gap-2">
                 <p className="text-xl font-mono text-sepia-900 dark:text-sepia-50">
                   Fear causes hesitation, and hesitation will cause your worst fears to come true.
                 </p>
                 <div className="flex flex-col gap-1 mt-2">
                   <p className="text-xs font-mono text-[var(--text-primary)]">font.size.xl</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">20px</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{tokenValue('--font-size-xl')}</p>
                 </div>
               </div>
 
-              {/* font.size.lg - 18px */}
+              {/* font.size.lg */}
               <div className="flex flex-col gap-2">
                 <p className="text-lg font-mono text-sepia-900 dark:text-sepia-50">
                   Fear causes hesitation, and hesitation will cause your worst fears to come true.
                 </p>
                 <div className="flex flex-col gap-1 mt-2">
                   <p className="text-xs font-mono text-[var(--text-primary)]">font.size.lg</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">18px</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{tokenValue('--font-size-lg')}</p>
                 </div>
               </div>
 
-              {/* font.size.base - 16px */}
+              {/* font.size.base */}
               <div className="flex flex-col gap-2">
                 <p className="text-base font-mono text-sepia-900 dark:text-sepia-50">
                   Fear causes hesitation, and hesitation will cause your worst fears to come true.
                 </p>
                 <div className="flex flex-col gap-1 mt-2">
                   <p className="text-xs font-mono text-[var(--text-primary)]">font.size.base</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">16px</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{tokenValue('--font-size-base')}</p>
                 </div>
               </div>
 
-              {/* font.size.sm - 14px */}
+              {/* font.size.sm */}
               <div className="flex flex-col gap-2">
                 <p className="text-sm font-mono text-sepia-900 dark:text-sepia-50">
                   Fear causes hesitation, and hesitation will cause your worst fears to come true.
                 </p>
                 <div className="flex flex-col gap-1 mt-2">
                   <p className="text-xs font-mono text-[var(--text-primary)]">font.size.sm</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">14px</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{tokenValue('--font-size-sm')}</p>
                 </div>
               </div>
 
-              {/* font.size.xs - 12px */}
+              {/* font.size.xs */}
               <div className="flex flex-col gap-2">
                 <p className="text-xs font-mono text-sepia-900 dark:text-sepia-50">
                   Fear causes hesitation, and hesitation will cause your worst fears to come true.
                 </p>
                 <div className="flex flex-col gap-1 mt-2">
                   <p className="text-xs font-mono text-[var(--text-primary)]">font.size.xs</p>
-                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">12px</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{tokenValue('--font-size-xs')}</p>
+                </div>
+              </div>
+
+              {/* font.size.2xs — tooltips, meta captions */}
+              <div className="flex flex-col gap-2">
+                <p className="text-2xs font-mono text-sepia-900 dark:text-sepia-50">
+                  Fear causes hesitation, and hesitation will cause your worst fears to come true.
+                </p>
+                <div className="flex flex-col gap-1 mt-2">
+                  <p className="text-xs font-mono text-[var(--text-primary)]">font.size.2xs</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{tokenValue('--font-size-2xs')}</p>
+                </div>
+              </div>
+
+              {/* font.size.3xs — dense game chrome; use sparingly */}
+              <div className="flex flex-col gap-2">
+                <p className="text-3xs font-mono text-sepia-900 dark:text-sepia-50">
+                  Fear causes hesitation, and hesitation will cause your worst fears to come true.
+                </p>
+                <div className="flex flex-col gap-1 mt-2">
+                  <p className="text-xs font-mono text-[var(--text-primary)]">font.size.3xs</p>
+                  <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">{tokenValue('--font-size-3xs')}</p>
                 </div>
               </div>
 

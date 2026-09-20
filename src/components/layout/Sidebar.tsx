@@ -72,6 +72,7 @@ const NAV_SECTIONS: NavSection[] = [
       { to: "/components/tabs", label: "Tabs" },
       { to: "/components/toasts", label: "Toasts" },
       { to: "/components/bottom-sheets", label: "Bottom Sheets" },
+      { to: "/components/modals", label: "Modals" },
     ],
   },
   {
@@ -81,6 +82,7 @@ const NAV_SECTIONS: NavSection[] = [
       { to: "/patterns/side-navigation", label: "Side Navigation" },
       { to: "/patterns/cards", label: "Cards" },
       { to: "/patterns/forms", label: "Forms" },
+      { to: "/patterns/music-player", label: "Music Player" },
       { to: "/patterns/case-study", label: "Case Study" },
     ],
   },

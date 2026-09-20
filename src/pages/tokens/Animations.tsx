@@ -9,31 +9,33 @@
 
 import { useState } from "react";
 import { Panel } from "@/components/docs/Panel";
+import { tokenMs, tokenValue } from "@/lib/tokenValue";
 
 export default function Animations() {
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Duration values -- TUI: snappy, near-instant responses
-  const durations = [
-    { name: "duration.instant", value: "0ms", ms: 0 },
-    { name: "duration.fast", value: "50ms", ms: 50 },
-    { name: "duration.normal", value: "75ms", ms: 75 },
-    { name: "duration.slow", value: "100ms", ms: 100 },
-    { name: "duration.slower", value: "150ms", ms: 150 },
-  ];
+  // Duration tokens, resolved from the vendored tokens.css at render time.
+  // This page used to hand-transcribe the values and taught 50/75/100/150ms
+  // long after the DS moved to 120/200/300/500ms - never print a literal.
+  const durations = ["instant", "fast", "normal", "slow", "slower"].map((step) => ({
+    name: `duration.${step}`,
+    cssVar: `--duration-${step}`,
+    value: tokenMs(`--duration-${step}`),
+  }));
 
-  // Easing functions
+  // Easing tokens, resolved the same way (kebab-case vars, camelCase names)
   const easings = [
-    { name: "easing.linear", value: "linear", css: "linear" },
-    { name: "easing.easeIn", value: "cubic-bezier(0.4, 0, 1, 1)", css: "cubic-bezier(0.4, 0, 1, 1)" },
-    { name: "easing.easeOut", value: "cubic-bezier(0, 0, 0.2, 1)", css: "cubic-bezier(0, 0, 0.2, 1)" },
-    { name: "easing.easeInOut", value: "cubic-bezier(0.4, 0, 0.2, 1)", css: "cubic-bezier(0.4, 0, 0.2, 1)" },
-  ];
+    { name: "easing.linear", cssVar: "--easing-linear" },
+    { name: "easing.easeIn", cssVar: "--easing-ease-in" },
+    { name: "easing.easeOut", cssVar: "--easing-ease-out" },
+    { name: "easing.easeInOut", cssVar: "--easing-ease-in-out" },
+  ].map((e) => ({ ...e, value: tokenValue(e.cssVar) }));
 
-  // Trigger animation
+  // Trigger animation; reset once the longest duration has finished
+  const longestMs = Math.max(...durations.map((d) => parseFloat(d.value) || 0));
   const triggerAnimation = () => {
     setIsAnimating(true);
-    setTimeout(() => setIsAnimating(false), 600); // Reset after longest duration
+    setTimeout(() => setIsAnimating(false), longestMs + 150);
   };
 
   return (
@@ -74,8 +76,8 @@ export default function Animations() {
                   <div className="relative h-8 bg-sepia-100 dark:bg-sepia-900 rounded overflow-hidden">
                     <div 
                       className={`h-full bg-primary-400 transition-all ${isAnimating ? 'w-full' : 'w-0'}`}
-                      style={{ 
-                        transitionDuration: duration.value,
+                      style={{
+                        transitionDuration: `var(${duration.cssVar})`,
                         transitionTimingFunction: 'linear'
                       }}
                     />
@@ -125,9 +127,9 @@ export default function Animations() {
                   <div className="relative h-16">
                     <div 
                       className={`absolute top-0 w-16 h-16 bg-primary-400 rounded-none transition-all ${isAnimating ? 'left-[calc(100%-4rem)]' : 'left-0'}`}
-                      style={{ 
-                        transitionDuration: '150ms',
-                        transitionTimingFunction: easing.css
+                      style={{
+                        transitionDuration: 'var(--duration-slower)',
+                        transitionTimingFunction: `var(${easing.cssVar})`
                       }}
                     />
                   </div>
@@ -169,11 +171,11 @@ export default function Animations() {
             <Panel>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Duration Selection</p>
               <ul className="space-y-2">
-                <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">instant (0ms)</span> - Instant changes, no transition</li>
-                <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">fast (50ms)</span> - Quick interactions, hover states</li>
-                <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">normal (75ms)</span> - Default transitions, color changes</li>
-                <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">slow (100ms)</span> - Panel slides, drawer animations</li>
-                <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">slower (150ms)</span> - Page transitions, complex animations</li>
+                <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">instant ({tokenMs('--duration-instant')})</span> - Instant changes, no transition</li>
+                <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">fast ({tokenMs('--duration-fast')})</span> - The plate-hover workhorse; quick interactions</li>
+                <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">normal ({tokenMs('--duration-normal')})</span> - Default transitions, fades, color changes</li>
+                <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">slow ({tokenMs('--duration-slow')})</span> - Panel slides, drawer animations</li>
+                <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500"><span className="text-[var(--text-primary)]">slower ({tokenMs('--duration-slower')})</span> - Page transitions, complex animations</li>
               </ul>
             </Panel>
 
@@ -216,7 +218,7 @@ export default function Animations() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Fast + EaseOut */}
-            <div className="group p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950 transition-all duration-[50ms] ease-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
+            <div className="group p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950 transition-all duration-[var(--duration-fast)] ease-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
               <div className="flex gap-2 mb-3">
                 <div className="inline-flex items-center px-2 py-1 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
                   <span className="text-xs font-mono text-[var(--text-primary)]">fast</span>
@@ -226,11 +228,11 @@ export default function Animations() {
                 </div>
               </div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Hover States</p>
-              <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">50ms + easeOut for near-instant, snappy hover effects</p>
+              <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">{tokenMs('--duration-fast')} + easeOut for snappy hover effects</p>
             </div>
 
             {/* Normal + EaseInOut */}
-            <div className="group p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950 transition-all duration-[75ms] ease-in-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
+            <div className="group p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950 transition-all duration-[var(--duration-normal)] ease-in-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
               <div className="flex gap-2 mb-3">
                 <div className="inline-flex items-center px-2 py-1 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
                   <span className="text-xs font-mono text-[var(--text-primary)]">normal</span>
@@ -240,11 +242,11 @@ export default function Animations() {
                 </div>
               </div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Color Transitions</p>
-              <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">75ms + easeInOut for crisp, balanced color changes</p>
+              <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">{tokenMs('--duration-normal')} + easeInOut for balanced color changes</p>
             </div>
 
             {/* Slow + EaseOut */}
-            <div className="group p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950 transition-all duration-[100ms] ease-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:scale-105 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
+            <div className="group p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950 transition-all duration-[var(--duration-slow)] ease-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:scale-105 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
               <div className="flex gap-2 mb-3">
                 <div className="inline-flex items-center px-2 py-1 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
                   <span className="text-xs font-mono text-[var(--text-primary)]">slow</span>
@@ -254,11 +256,11 @@ export default function Animations() {
                 </div>
               </div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Scale Transforms</p>
-              <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">100ms + easeOut for quick scaling animations</p>
+              <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">{tokenMs('--duration-slow')} + easeOut for scaling animations</p>
             </div>
 
             {/* Slower + EaseInOut */}
-            <div className="group p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950 transition-all duration-[150ms] ease-in-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
+            <div className="group p-6 border border-[var(--border-hairline)] rounded-none bg-white dark:bg-secondary-950 transition-all duration-[var(--duration-slower)] ease-in-out hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-400 dark:hover:border-primary-600 cursor-pointer">
               <div className="flex gap-2 mb-3">
                 <div className="inline-flex items-center px-2 py-1 bg-secondary-100 dark:bg-secondary-900 rounded-none border border-secondary-300 dark:border-secondary-700">
                   <span className="text-xs font-mono text-[var(--text-primary)]">slower</span>
@@ -268,7 +270,7 @@ export default function Animations() {
                 </div>
               </div>
               <p className="text-sm font-mono text-[var(--text-primary)] mb-2">Complex Animations</p>
-              <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">150ms + easeInOut for the longest transitions</p>
+              <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">{tokenMs('--duration-slower')} + easeInOut for the longest transitions</p>
             </div>
           </div>
 
@@ -296,7 +298,7 @@ export default function Animations() {
                 <pre className="text-xs font-mono text-primary-300 overflow-x-auto">
 {`<div className="
   transition-colors 
-  duration-[75ms]
+  duration-[var(--duration-normal)]
   ease-in-out
 ">
   /* Uses duration.normal + easing.easeInOut */
@@ -325,11 +327,11 @@ export default function Animations() {
               <p className="text-sm font-mono text-[var(--text-primary)] mb-3">Common Patterns</p>
               <Panel>
                 <ul className="space-y-2">
-                  <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Buttons: fast (50ms) + easeOut</li>
-                  <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Color changes: normal (75ms) + easeInOut</li>
-                  <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Dropdowns: slow (100ms) + easeOut</li>
-                  <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Modals: slower (150ms) + easeOut</li>
-                  <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Theme switching: normal (75ms) + easeInOut</li>
+                  <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Buttons: fast ({tokenMs('--duration-fast')}) + easeOut</li>
+                  <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Color changes: normal ({tokenMs('--duration-normal')}) + easeInOut</li>
+                  <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Dropdowns: slow ({tokenMs('--duration-slow')}) + easeOut</li>
+                  <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Modals: fade at normal ({tokenMs('--duration-normal')})</li>
+                  <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">• Theme switching: normal ({tokenMs('--duration-normal')}) + easeInOut</li>
                 </ul>
               </Panel>
             </div>
