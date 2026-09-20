@@ -1,0 +1,29 @@
+name: ds-check
+
+# Fails when the vendored Scorp DS copy drifts from scorp-ds origin/main.
+# The showcase is a deliberate snapshot, so drift is allowed to EXIST —
+# this check makes it visible instead of silent: red here means "run
+# npm run vendor:ds (or /vendor-portfolio Part B) and ship the sync".
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 6 * * *" # daily: catches DS merges that happened without a re-vendor
+  workflow_dispatch:
+
+jobs:
+  ds-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out scorp-ds (source of truth)
+        uses: actions/checkout@v4
+        with:
+          repository: sachahurley/scorp-ds
+          path: .scorp-ds-truth
+
+      - name: Diff vendored DS against scorp-ds main
+        run: SCORP_DS_DIR="$GITHUB_WORKSPACE/.scorp-ds-truth" bash scripts/vendor-ds.sh check
