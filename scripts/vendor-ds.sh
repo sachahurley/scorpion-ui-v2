@@ -4,9 +4,11 @@
 #
 # Re-vendors the merged Scorp DS visual language into this showcase:
 #   1. vendor/scorp-ds/tokens.css + tailwind.preset.cjs  (token layer)
-#   2. src/components/ui/<Component>.tsx                 (17 DS component
-#      sources, with three mechanical Vite adaptations applied)
-#   3. vendor/scorp-ds/VERSION                           (source commit)
+#   2. src/components/ui/<Component>.tsx                 (every component in
+#      the COMPONENTS list below, with three mechanical Vite adaptations)
+#   3. src/components/ui/Stack.tsx + src/lib/utils.ts    (barrel exports that
+#      live outside components/: the Stack primitive and the cn() helper)
+#   4. vendor/scorp-ds/VERSION                           (source commit)
 #
 # Source of truth: origin/main of the scorp-ds repo, read via git from the
 # checkout at $SCORP_DS_DIR (default ~/Projects/scorp-ds). The checkout's
@@ -41,6 +43,14 @@ COMPONENTS=(Alert Avatar Badge BottomSheet Button Card CaseStudy Checkbox
   Divider Dropdown Input ListRow Modal Radio Select Slider Switch Table
   Tabs Textarea ThemeToggle Toast Tooltip TuiIcon)
 
+# Known deliberate forks — NOT synced, listed so every check run surfaces
+# them as decisions rather than silent drift. Review each when its DS
+# counterpart changes.
+KNOWN_FORKS=(
+  "src/components/ui/MusicPlayer.tsx — site-owned audio engine wearing the DS Patterns/MusicPlayer shell"
+  "src/theme/ThemeProvider.tsx — hand-adapted DS ThemeProvider (drops enableSystem)"
+)
+
 STAGE="$(mktemp -d)"
 trap 'rm -rf "$STAGE"' EXIT
 
@@ -60,6 +70,17 @@ for c in "${COMPONENTS[@]}"; do
     -e 's|from "\.\./lib/utils"|from "@/lib/utils"|g' \
     > "$STAGE/ui/$c.tsx"
 done
+
+# Barrel exports that live outside components/: the Stack primitive (same
+# adaptations) and the cn() helper (copied verbatim so it stops being a
+# by-luck-identical hand copy).
+ds_file "packages/components/src/primitives/Stack.tsx" | sed \
+  -e 's/process\.env\.NODE_ENV === "production"/import.meta.env.PROD/g' \
+  -e 's/NodeJS\.Timeout/ReturnType<typeof setTimeout>/g' \
+  -e 's|from "\.\./lib/utils"|from "@/lib/utils"|g' \
+  > "$STAGE/ui/Stack.tsx"
+mkdir -p "$STAGE/lib"
+ds_file "packages/components/src/lib/utils.ts" > "$STAGE/lib/utils.ts"
 
 # --- diff or apply ---------------------------------------------------------
 drift=0
@@ -82,8 +103,13 @@ compare_or_copy "$STAGE/vendor/tailwind.preset.cjs" "$REPO_ROOT/vendor/scorp-ds/
 for c in "${COMPONENTS[@]}"; do
   compare_or_copy "$STAGE/ui/$c.tsx" "$REPO_ROOT/src/components/ui/$c.tsx"
 done
+compare_or_copy "$STAGE/ui/Stack.tsx" "$REPO_ROOT/src/components/ui/Stack.tsx"
+compare_or_copy "$STAGE/lib/utils.ts" "$REPO_ROOT/src/lib/utils.ts"
 
 if [ "$MODE" = "check" ]; then
+  for f in "${KNOWN_FORKS[@]}"; do
+    echo "fork    $f"
+  done
   # VERSION is informational; report it without counting it as drift
   if ! diff -q "$STAGE/vendor/VERSION" "$REPO_ROOT/vendor/scorp-ds/VERSION" >/dev/null 2>&1; then
     echo "note    vendor/scorp-ds/VERSION differs (source: $(cat "$STAGE/vendor/VERSION"))"
