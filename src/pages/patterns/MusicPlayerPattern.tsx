@@ -90,6 +90,13 @@ export default function MusicPlayerPattern() {
         >
           Storybook MusicPlayer pattern story
         </Link>
+        ; the full written spec is the{" "}
+        <Link
+          href="https://www.notion.so/3e29a6335da181539511c66130c83240"
+          external
+        >
+          Music player pattern spec
+        </Link>
         .
       </p>
       </div>

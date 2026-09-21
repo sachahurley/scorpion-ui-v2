@@ -19,6 +19,7 @@ import CaseStudyPage from "@/pages/patterns/CaseStudy";
 import MusicPlayerPattern from "@/pages/patterns/MusicPlayerPattern";
 import Screens from "@/pages/demos/Screens";
 import Skills from "@/pages/Skills";
+import Specs from "@/pages/Specs";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/demos/music-player" element={<MusicPlayerPattern />} />
             <Route path="/demos/screens" element={<Screens />} />
             <Route path="/skills" element={<Skills />} />
+            <Route path="/specs" element={<Specs />} />
 
             {/* Old pattern pages that kept a home here: redirect to it */}
             <Route path="/patterns/music-player" element={<Navigate to="/demos/music-player" replace />} />

@@ -307,8 +307,8 @@ export default function Home() {
             <Link as={RouterLink} asProps={{ to: "/skills" }} className="text-sm">
               Skills
             </Link>
-            <Link href="https://www.notion.so/3e29a6335da181be8280c9bfc8730512" external className="text-sm">
-              Specs (Notion)
+            <Link as={RouterLink} asProps={{ to: "/specs" }} className="text-sm">
+              Specs
             </Link>
           </div>
         </section>
