@@ -81,7 +81,7 @@ scorpion-design-system/
 
 ### Deployment
 
-The site is a Vite + React Router SPA deployed to GitHub Pages under the base path `/scorpion-design-system/`. `npm run deploy` builds, copies `index.html` to `404.html` (SPA fallback), and pushes `dist/` to the `gh-pages` branch.
+The site is a Vite + React Router SPA deployed to GitHub Pages under the base path `/scorpion-design-system/`. `npm run deploy` runs `scripts/deploy.sh`, the single deploy path: it builds, copies `index.html` to `404.html` (SPA fallback), verifies the copy, and pushes `dist/` to the `gh-pages` branch. Never run `npx gh-pages -d dist` by hand: that skips the fallback and breaks every deep link on the live site.
 
 ## 🤝 Credits
 
