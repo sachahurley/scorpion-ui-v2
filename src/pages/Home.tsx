@@ -98,7 +98,7 @@ export default function Home() {
         {/* Subtitle - Short description */}
         <section className="mb-6 mx-5 lg:mx-10">
           <p className="font-mono text-base lg:text-2xl text-[var(--text-primary)] leading-relaxed">
-            A token-based design system for learning React, TypeScript, and modern UI architecture.
+            A working example of implementing a design system with AI tools: tokens first, React and TypeScript, every rule written for agents.
           </p>
         </section>
 
