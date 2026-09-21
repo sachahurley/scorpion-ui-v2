@@ -18,6 +18,7 @@ import { useLocation } from "react-router-dom";
 import { TopBar } from "./TopBar";
 import { MobileNav } from "./TopNav";
 import { MusicPlayer } from "@/components/ui/MusicPlayer";
+import { LightModeNotice } from "@/components/LightModeNotice";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -124,6 +125,9 @@ export function Layout({ children }: LayoutProps) {
       {isMusicPlayerOpen && (
         <MusicPlayer onClose={closeMusicPlayer} isClosing={isMusicPlayerClosing} />
       )}
+
+      {/* Dialog shown when the user switches into light mode (under construction) */}
+      <LightModeNotice />
     </div>
   );
 }
