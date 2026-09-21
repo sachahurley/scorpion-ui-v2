@@ -1,10 +1,10 @@
-# Scorpion UI v2
+# Scorpion Design System
 
 A modern, token-based design system and component library built with React, TypeScript, and Tailwind CSS. Features comprehensive documentation for design tokens, reusable components, and light/dark theme support.
 
 ## 🎨 What is This?
 
-Scorpion UI v2 is a **design system documentation site** that showcases:
+Scorpion Design System is a **design system documentation site** that showcases:
 
 - **Design Tokens**: Colors, typography, spacing, and other design primitives defined in JSON
 - **Component Library**: Reusable React components built strictly from design tokens
@@ -37,7 +37,7 @@ Scorpion UI v2 is a **design system documentation site** that showcases:
 ## 📁 Project Structure
 
 ```
-scorpion-ui-v2/
+scorpion-design-system/
 ├── src/
 │   ├── tokens/
 │   │   └── tokens.json          # Design tokens (colors, typography, etc.)
@@ -187,7 +187,7 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 ## 📦 Using in Another Project
 
-Want to use Scorpion UI in your portfolio or other projects? Here's how:
+Want to use Scorpion Design System in your portfolio or other projects? Here's how:
 
 ### Option 1: Copy Components (Recommended for Learning)
 
@@ -247,7 +247,7 @@ Built with:
 
 ---
 
-**Scorpion UI v2** - A design system for your next project 🦂
+**Scorpion Design System** - A design system for your next project 🦂
 
 ## Vendored design system
 

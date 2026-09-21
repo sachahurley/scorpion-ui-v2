@@ -1,7 +1,7 @@
 /**
  * HOME PAGE
  * 
- * Clean, minimal introduction to Scorpion UI v2
+ * Clean, minimal introduction to Scorpion Design System
  * Features animated hero, three feature cards, and about card
  * All cards match the exact styling from other token pages
  */
@@ -51,12 +51,12 @@ export default function Home() {
               {/* Spacer - Right of left torch */}
               <div className="w-4 lg:w-8 shrink-0"></div>
               
-              {/* Scorpion UI Graphic - Fills available width, height matches container */}
+              {/* Scorpion Design System Graphic - Fills available width, height matches container */}
               {/* Aspect ratio: 2924:521 (very wide, short) */}
               <div className="flex-1 min-w-0 flex items-center justify-center h-full">
                 <img 
                   src={ASSETS.scorpionUIGraphic3b}
-                  alt="Scorpion UI"
+                  alt="Scorpion Design System"
                   className="w-full h-full object-contain block dark:hidden"
                   style={{
                     filter: 'brightness(0) saturate(100%) invert(10%) sepia(21%) saturate(939%) hue-rotate(344deg) brightness(94%) contrast(91%)'
@@ -64,7 +64,7 @@ export default function Home() {
                 />
                 <img 
                   src={ASSETS.scorpionUIGraphic3b}
-                  alt="Scorpion UI"
+                  alt="Scorpion Design System"
                   className="w-full h-full object-contain block hidden dark:block"
                   style={{
                     filter: 'brightness(0) saturate(100%) invert(99%) sepia(7%) saturate(221%) hue-rotate(328deg) brightness(104%) contrast(96%)'
@@ -126,7 +126,7 @@ export default function Home() {
             <Button
               variant="secondary"
               size="large"
-              href="https://github.com/sachahurley/scorpion-ui-v2"
+              href="https://github.com/sachahurley/scorpion-design-system"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full lg:w-auto"

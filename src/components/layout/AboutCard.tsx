@@ -102,7 +102,7 @@ export function AboutCard() {
           <div className="px-4 pb-4 pt-3 border-t border-[var(--border-hairline)]">
             {/* About Text Content - starts directly with content */}
             <p className="text-xs font-mono font-normal text-secondary-800 dark:text-secondary-500 mb-4 leading-relaxed">
-              I created Scorpion UI to learn React, TypeScript, and modern design systems while using as many AI tools as possible to re-invent my design workflow. This is a living design system that demonstrates token-based theming and component architecture.
+              I created Scorpion Design System to learn React, TypeScript, and modern design systems while using as many AI tools as possible to re-invent my design workflow. This is a living design system that demonstrates token-based theming and component architecture.
             </p>
             
             {/* Link to LinkedIn */}

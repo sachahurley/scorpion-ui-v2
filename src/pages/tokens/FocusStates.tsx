@@ -281,7 +281,7 @@ export default function FocusStates() {
                 "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible."
               </p>
               <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-                ✅ Scorpion UI meets this requirement with 2px inset focus rings on all interactive elements.
+                ✅ Scorpion Design System meets this requirement with 2px inset focus rings on all interactive elements.
               </p>
             </Panel>
 

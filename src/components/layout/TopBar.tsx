@@ -8,7 +8,7 @@
  * 
  * Mobile Navigation:
  * - Shows hamburger/X menu button on mobile (hidden on desktop)
- * - Button positioned to left of Scorpion UI branding
+ * - Button positioned to left of Scorpion Design System branding
  * - Hamburger (☰) when closed, X when open
  */
 
@@ -38,7 +38,7 @@ export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, 
     >
       {/* Flex container: mobile menu button + branding on left, theme toggle on right */}
       <div className="h-full pl-4 lg:pl-7 pr-6 flex items-center justify-between gap-3">
-        {/* Left side: Mobile menu button + Clickable Scorpion UI branding */}
+        {/* Left side: Mobile menu button + Clickable Scorpion Design System branding */}
         <div className="flex items-center gap-3">
           {/* Mobile Menu Button - Only visible on mobile (hidden on lg+ screens) */}
           <button
@@ -80,18 +80,18 @@ export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, 
             )}
           </button>
 
-          {/* Clickable Scorpion UI branding - links to home */}
+          {/* Clickable Scorpion Design System branding - links to home */}
           <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             {/* Scorpion Logo - dark in light mode, light in dark mode */}
             <img 
               src={ASSETS.scorpionHeroV2} 
-              alt="Scorpion UI" 
+              alt="Scorpion Design System" 
               className="w-8 h-8 object-contain dark:invert"
             />
             
             {/* Branding Text */}
             {/* Portfolio convention: weight 400, emphasis carried by the accent */}
-            <h1 className="text-lg font-mono text-[var(--accent)]">Scorpion UI</h1>
+            <h1 className="text-lg font-mono text-[var(--accent)]">Scorpion Design System</h1>
           </Link>
         </div>
 
