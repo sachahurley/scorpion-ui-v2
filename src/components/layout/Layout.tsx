@@ -1,13 +1,13 @@
 /**
  * LAYOUT COMPONENT
  * 
- * Main layout wrapper with fixed top bar and fixed-width sidebar
+ * Main layout wrapper with a fixed top bar carrying the five-page nav
  * Applied to all pages including home
- * 
+ *
  * Mobile Navigation:
  * - Manages mobile menu state (open/closed)
- * - Passes toggle functions to TopBar and Sidebar
- * - Sidebar slides in from left on mobile screens
+ * - Passes toggle functions to TopBar and MobileNav
+ * - MobileNav panel slides in below the top bar on mobile screens
  * 
  * Scroll Behavior:
  * - Automatically scrolls to top when navigating between pages
@@ -16,7 +16,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { TopBar } from "./TopBar";
-import { Sidebar } from "./Sidebar";
+import { MobileNav } from "./TopNav";
 import { MusicPlayer } from "@/components/ui/MusicPlayer";
 
 interface LayoutProps {
@@ -102,25 +102,22 @@ export function Layout({ children }: LayoutProps) {
         closeMusicPlayer={closeMusicPlayer}
       />
 
-      <div className="flex">
-        {/* Sidebar - fixed width on desktop, slides in on mobile */}
-        {/* Pass mobile menu state, close function, and music player controls to Sidebar */}
-        <Sidebar 
-          isMobileMenuOpen={isMobileMenuOpen}
-          closeMobileMenu={closeMobileMenu}
-          isMusicPlayerOpen={isMusicPlayerOpen}
-          openMusicPlayer={openMusicPlayer}
-          closeMusicPlayer={closeMusicPlayer}
-        />
+      {/* Mobile menu - slide-in panel with the five nav rows */}
+      {/* Pass mobile menu state, close function, and music player controls to MobileNav */}
+      <MobileNav
+        isMobileMenuOpen={isMobileMenuOpen}
+        closeMobileMenu={closeMobileMenu}
+        isMusicPlayerOpen={isMusicPlayerOpen}
+        openMusicPlayer={openMusicPlayer}
+        closeMusicPlayer={closeMusicPlayer}
+      />
 
-        {/* Main Content Area - scrolls under top bar */}
-        {/* On mobile: remove left margin (ml-64 becomes ml-0) */}
-        <main className="flex-1 pt-16 lg:ml-64 border-l-[0.5px] border-solid border-[var(--surface-container-stroke)]">
-          <div className="min-h-screen bg-[var(--surface-page)]">
-            {children}
-          </div>
-        </main>
-      </div>
+      {/* Main Content Area - full width, scrolls under top bar */}
+      <main className="pt-16">
+        <div className="min-h-screen bg-[var(--surface-page)]">
+          {children}
+        </div>
+      </main>
 
       {/* Music Player - Fixed bottom-right corner, visible on all pages */}
       {/* Only rendered when open */}

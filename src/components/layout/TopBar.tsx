@@ -2,20 +2,22 @@
  * TOP BAR COMPONENT
  * 
  * Fixed top bar that spans full width
- * Contains Scorpion logo, branding, and theme toggle
+ * Contains Scorpion logo, branding, the five-page top nav, and theme toggle
  * Clicking the logo/text takes you back to home page
  * Theme toggle is positioned in the top right corner
- * 
+ *
  * Mobile Navigation:
  * - Shows hamburger/X menu button on mobile (hidden on desktop)
  * - Button positioned to left of Scorpion Design System branding
  * - Hamburger (☰) when closed, X when open
+ * - The nav rows themselves live in the MobileNav slide-in panel (Layout)
  */
 
 import { Link } from "react-router-dom";
 import { ASSETS } from "@/lib/assets";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Button } from "@/components/ui/Button";
+import { TopNav } from "./TopNav";
 
 interface TopBarProps {
   // Indicates if mobile menu is currently open
@@ -95,9 +97,12 @@ export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, 
           </Link>
         </div>
 
-        {/* Right side: Music player toggle + Theme toggle */}
+        {/* Right side: page nav + music player toggle + theme toggle */}
         {/* Hidden on mobile (below lg breakpoint), visible on desktop */}
         <div className="hidden lg:flex items-center gap-2">
+          {/* Five-page top navigation (desktop rendering) */}
+          <TopNav />
+
           {/* Music Player Toggle Button - Opens music player when clicked */}
           {/* Disabled when music player is already open */}
           <Button

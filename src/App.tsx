@@ -1,47 +1,23 @@
 /**
  * MAIN APP COMPONENT
- * 
- * Sets up routing and theme provider for the entire application
- * ALL pages use the Layout with sidebar and top bar
+ *
+ * Sets up routing and theme provider for the entire application.
+ * Five pages, all on the Layout with the top nav:
+ * Home, Essay, Case Study, Music Player demo, Screens demo.
+ *
+ * The old documentation routes (foundation, components, tokens, patterns)
+ * redirect: reference docs now live in the deployed Storybook at
+ * https://sachahurley.github.io/scorp-ds/
  */
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@/theme/ThemeProvider";
 import { Layout } from "@/components/layout/Layout";
 import Home from "@/pages/Home";
-import Colors from "@/pages/tokens/Colors";
-import SemanticColors from "@/pages/tokens/SemanticColors";
-import Typography from "@/pages/tokens/Typography";
-import SurfacesElevation from "@/pages/tokens/SurfacesElevation";
-import Spacing from "@/pages/tokens/Spacing";
-import FocusStates from "@/pages/tokens/FocusStates";
-import Animations from "@/pages/tokens/Animations";
-import ZIndex from "@/pages/tokens/ZIndex";
-import ComponentsOverview from "@/pages/components/ComponentsOverview";
-import Buttons from "@/pages/components/Buttons";
-import Inputs from "@/pages/components/Inputs";
-import Dropdowns from "@/pages/components/Dropdowns";
-import Toggles from "@/pages/components/Toggles";
-import Textareas from "@/pages/components/Textareas";
-import Checkboxes from "@/pages/components/Checkboxes";
-import Radios from "@/pages/components/Radios";
-import Selects from "@/pages/components/Selects";
-import Badges from "@/pages/components/Badges";
-import Dividers from "@/pages/components/Dividers";
-import Tooltips from "@/pages/components/Tooltips";
-import Alerts from "@/pages/components/Alerts";
-import Avatars from "@/pages/components/Avatars";
-import Sliders from "@/pages/components/Sliders";
-import Tables from "@/pages/components/Tables";
-import TabsPage from "@/pages/components/TabsPage";
-import Toasts from "@/pages/components/Toasts";
-import ListRows from "@/pages/components/ListRows";
-import BottomSheets from "@/pages/components/BottomSheets";
-import Modals from "@/pages/components/Modals";
-import SideNavigation from "@/pages/patterns/SideNavigation";
-import Forms from "@/pages/patterns/Forms";
+import Essay from "@/pages/Essay";
 import CaseStudyPage from "@/pages/patterns/CaseStudy";
 import MusicPlayerPattern from "@/pages/patterns/MusicPlayerPattern";
+import Screens from "@/pages/demos/Screens";
 
 function App() {
   return (
@@ -49,50 +25,25 @@ function App() {
       <BrowserRouter basename="/scorpion-design-system">
         <Layout>
           <Routes>
-            {/* All pages now use the same layout with sidebar */}
+            {/* The five pages */}
             <Route path="/" element={<Home />} />
-            
-            {/* Foundation pages */}
-            <Route path="/foundation/base-colors" element={<Colors />} />
-            <Route path="/foundation/semantic-colors" element={<SemanticColors />} />
-            <Route path="/foundation/typography" element={<Typography />} />
-            <Route path="/foundation/spacing" element={<Spacing />} />
-            <Route path="/foundation/surfaces-elevation" element={<SurfacesElevation />} />
-            <Route path="/foundation/focus-states" element={<FocusStates />} />
-            <Route path="/foundation/animations" element={<Animations />} />
-            <Route path="/foundation/z-index" element={<ZIndex />} />
-            
-            {/* Legacy URL: redirect instead of rendering a duplicate page */}
-            <Route path="/tokens/colors" element={<Navigate to="/foundation/base-colors" replace />} />
-            
-            {/* Components pages */}
-            <Route path="/components" element={<ComponentsOverview />} />
-            <Route path="/components/buttons" element={<Buttons />} />
-            <Route path="/components/inputs" element={<Inputs />} />
-            <Route path="/components/dropdowns" element={<Dropdowns />} />
-            <Route path="/components/toggles" element={<Toggles />} />
-            <Route path="/components/textareas" element={<Textareas />} />
-            <Route path="/components/checkboxes" element={<Checkboxes />} />
-            <Route path="/components/radios" element={<Radios />} />
-            <Route path="/components/selects" element={<Selects />} />
-            <Route path="/components/badges" element={<Badges />} />
-            <Route path="/components/dividers" element={<Dividers />} />
-            <Route path="/components/tooltips" element={<Tooltips />} />
-            <Route path="/components/alerts" element={<Alerts />} />
-            <Route path="/components/avatars" element={<Avatars />} />
-            <Route path="/components/list-rows" element={<ListRows />} />
-            <Route path="/components/sliders" element={<Sliders />} />
-            <Route path="/components/tables" element={<Tables />} />
-            <Route path="/components/tabs" element={<TabsPage />} />
-            <Route path="/components/toasts" element={<Toasts />} />
-            <Route path="/components/bottom-sheets" element={<BottomSheets />} />
-            <Route path="/components/modals" element={<Modals />} />
-            
-            {/* Patterns pages */}
-            <Route path="/patterns/side-navigation" element={<SideNavigation />} />
-            <Route path="/patterns/forms" element={<Forms />} />
-            <Route path="/patterns/music-player" element={<MusicPlayerPattern />} />
-            <Route path="/patterns/case-study" element={<CaseStudyPage />} />
+            <Route path="/essay" element={<Essay />} />
+            <Route path="/case-study" element={<CaseStudyPage />} />
+            <Route path="/demos/music-player" element={<MusicPlayerPattern />} />
+            <Route path="/demos/screens" element={<Screens />} />
+
+            {/* Old pattern pages that kept a home here: redirect to it */}
+            <Route path="/patterns/music-player" element={<Navigate to="/demos/music-player" replace />} />
+            <Route path="/patterns/case-study" element={<Navigate to="/case-study" replace />} />
+
+            {/* Retired documentation routes (docs live in Storybook now) */}
+            <Route path="/foundation/*" element={<Navigate to="/" replace />} />
+            <Route path="/components/*" element={<Navigate to="/" replace />} />
+            <Route path="/tokens/*" element={<Navigate to="/" replace />} />
+            <Route path="/patterns/*" element={<Navigate to="/" replace />} />
+
+            {/* Anything else lands on Home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Layout>
       </BrowserRouter>
