@@ -26,6 +26,7 @@ const NAV_ITEMS: { to: string; label: string }[] = [
   { to: "/case-study", label: "Case Study" },
   { to: "/demos/music-player", label: "Music Player" },
   { to: "/demos/screens", label: "Screens" },
+  { to: "/skills", label: "Skills" },
 ];
 
 /**
