@@ -1,7 +1,7 @@
 /**
- * MUSIC PLAYER PATTERN PAGE
+ * MUSIC PLAYER DEMO PAGE
  *
- * Documents the floating now-playing pattern (DS: Patterns/MusicPlayer).
+ * The floating now-playing pattern (DS: Patterns/MusicPlayer), live.
  * This site's player is a deliberate fork of the DS pattern: identical
  * presentational shell (card, collapsed bar, marquee, plate recipes), but
  * a real <audio> engine instead of the DS story's simulated playback -
@@ -9,17 +9,13 @@
  *
  * The page mounts its own player instance (same wiring as Layout: the
  * close handler plays the slide-out, then unmounts after the animation).
- *
- * Structure:
- * 1. Page header (title + description)
- * 2. Live demo: open/close the real player from this page
- * 3. Composition: what the pattern is built from
- * 4. States and behaviors
+ * Composition and state documentation lives in the deployed Storybook.
  */
 
 import { useRef, useState } from "react";
 import { MusicPlayer } from "@/components/ui/MusicPlayer";
 import { Button } from "@/components/ui/Button";
+import { Link } from "@/components/ui/Link";
 import { Panel } from "@/components/docs/Panel";
 
 // Matches the player's slide-out transition (0.5s) before unmounting
@@ -77,65 +73,17 @@ export default function MusicPlayerPattern() {
         </Panel>
       </section>
 
-      {/* COMPOSITION SECTION */}
-      <section className="mb-10">
-        <Panel>
-          <div className="mb-6">
-            <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">Composition</h3>
-            <p className="text-xs font-mono text-secondary-700 dark:text-secondary-600">
-              Everything on the plate recipe; no new primitives
-            </p>
-          </div>
-          <ul className="space-y-2">
-            <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              <span className="text-[var(--text-primary)]">Card / bar plates</span> - plate-round-lg
-              and plate-round rings (stroke layer + fill layer) with a hoisted drop shadow
-            </li>
-            <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              <span className="text-[var(--text-primary)]">Timeline</span> - native range input
-              styled on the tokens, two-stop progress gradient, square thumb nub
-            </li>
-            <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              <span className="text-[var(--text-primary)]">Marquee title</span> - 30px/s alternate
-              scroll, 10% end holds, only when the title overflows; disabled under reduced motion
-            </li>
-            <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              <span className="text-[var(--text-primary)]">Transport</span> - 40px plate toggles
-              (shuffle/repeat show the pressed state), 32px chevron and close
-            </li>
-          </ul>
-        </Panel>
-      </section>
-
-      {/* STATES SECTION */}
-      <section className="mb-10">
-        <Panel>
-          <div className="mb-6">
-            <h3 className="text-sm font-mono text-[var(--text-primary)] mb-1">States & Behavior</h3>
-          </div>
-          <ul className="space-y-2">
-            <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              • Expanded card and collapsed bar share one state; the chevron toggles between them
-            </li>
-            <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              • Mounts with a slide-in from the bottom edge and slides out on close - the page
-              unmounts it only after the transition finishes
-            </li>
-            <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              • Mouse-drag repositioning on viewports 1024px and wider, clamped to the viewport;
-              mobile pins bottom-left
-            </li>
-            <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              • Track changes are announced politely to screen readers; seeking is the native
-              range input's arrow-key behavior
-            </li>
-            <li className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              • This is the site-owned twin of the DS Patterns/MusicPlayer story: presentational
-              shell identical, playback engine real - registered as a known fork in vendor-ds.sh
-            </li>
-          </ul>
-        </Panel>
-      </section>
+      {/* REFERENCE DOCS: composition and state documentation lives in Storybook */}
+      <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
+        Composition, states, and token usage are documented in the{" "}
+        <Link
+          href="https://sachahurley.github.io/scorp-ds/?path=/docs/patterns-musicplayer--docs"
+          external
+        >
+          Storybook MusicPlayer pattern story
+        </Link>
+        .
+      </p>
     </div>
   );
 }

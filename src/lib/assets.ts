@@ -59,6 +59,12 @@ export const ASSETS = {
     // Theme System card
     systemPrefsLight: asset('/Icons/Light theme/2. System apps/System preferences.png'),
     systemPrefsDark: asset('/Icons/Dark theme/2. System apps/System preferences.png'),
+    // Essay card
+    notesLight: asset('/Icons/Light theme/2. System apps/Notes.png'),
+    notesDark: asset('/Icons/Dark theme/2. System apps/Notes.png'),
+    // Case Study card
+    booksLight: asset('/Icons/Light theme/2. System apps/Books.png'),
+    booksDark: asset('/Icons/Dark theme/2. System apps/Books.png'),
   },
 } as const;
 
