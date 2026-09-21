@@ -78,7 +78,7 @@ Error generating stack: `+a.message+`
             shrink-0
             ${E.track}
             plate-round
-            transition-colors [transition-duration:var(--duration-slow)]
+            transition-colors [transition-duration:var(--duration-normal)]
             focus:outline-none focus-visible:[box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]
             ${h?"opacity-50 cursor-not-allowed":"cursor-pointer"}
             ${u?"bg-[var(--button-primary-background)]":"bg-secondary-300 dark:bg-secondary-700"}
@@ -88,7 +88,7 @@ Error generating stack: `+a.message+`
               plate-round
               bg-[var(--field-background)]
               shadow-none
-              transform transition-transform [transition-duration:var(--duration-slow)] [transition-timing-function:steps(3)]
+              transform transition-transform [transition-duration:var(--duration-normal)]
             `,style:{transform:E.knobTranslate},children:p&&r.jsx("span",{className:E.iconSize,children:p})})}),c&&!m&&r.jsx("span",{className:`text-sm font-mono ${h?"text-secondary-700 dark:text-secondary-400":"text-[var(--text-primary)]"}`,children:c})]})});In.displayName="Switch";function oh(){const{theme:u,setTheme:o}=vv(),[f,c]=N.useState(!1);if(N.useEffect(()=>{c(!0)},[]),!f)return r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsx("div",{className:"w-11 h-6 rounded-none bg-[var(--field-border)]"}),r.jsx("span",{className:"text-sm font-mono text-[var(--text-secondary)]",children:"Theme"})]});const m=u==="dark",h=()=>{o(m?"light":"dark")};return r.jsxs("div",{className:"flex items-center gap-3",children:[r.jsx(In,{checked:m,onCheckedChange:h,size:"small",icon:m?r.jsx("span",{className:"w-3 h-3 inline-flex items-center justify-center font-mono text-[10px] text-[var(--border-focus)]","aria-hidden":"true",children:"☾"}):r.jsx("span",{className:"w-3 h-3 inline-flex items-center justify-center font-mono text-[10px] text-[var(--text-secondary)]","aria-hidden":"true",children:"☀"}),"aria-label":`Switch to ${m?"light":"dark"} theme`}),r.jsx("span",{className:"text-sm font-mono text-[var(--text-primary)]",children:m?"Dark":"Light"})]})}const Ze=N.forwardRef(({variant:u="primary",size:o="medium",disabled:f=!1,className:c="",children:m,iconLeft:h,iconRight:p,href:j,target:v,rel:y,"aria-label":A,"aria-labelledby":E,...H},G)=>{const L=`
       inline-flex items-center justify-center
       font-mono text-sm
