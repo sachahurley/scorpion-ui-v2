@@ -40,7 +40,7 @@ ds_file() { git -C "$SCORP_DS_DIR" show "$REF:$1"; }
 # Components mirrored from the DS (MusicPlayer is site-owned: it wears the
 # DS pattern shell but keeps the site's real audio engine).
 COMPONENTS=(Alert Avatar Badge BottomSheet Button Card CaseStudy Checkbox
-  Divider Dropdown Input ListRow Modal Radio Select Slider Switch Table
+  Divider Dropdown Input Link ListRow Modal Radio Select Slider Switch Table
   Tabs Textarea ThemeToggle Toast Tooltip TuiIcon)
 
 # Known deliberate forks — NOT synced, listed so every check run surfaces
