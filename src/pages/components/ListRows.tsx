@@ -160,10 +160,10 @@ export default function ListRows() {
                 <li>
                   <ListRow
                     as={Link}
-                    asProps={{ to: "/patterns/cards" }}
+                    asProps={{ to: "/patterns/side-navigation" }}
                     meta="Pattern"
-                    title="Cards"
-                    description="The framed content tier of the container system."
+                    title="Side Navigation"
+                    description="The plate-row nav rail with collapsible sections."
                   />
                 </li>
                 <li>
