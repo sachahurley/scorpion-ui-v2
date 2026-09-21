@@ -46,7 +46,7 @@ import MusicPlayerPattern from "@/pages/patterns/MusicPlayerPattern";
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter basename="/scorpion-ui-v2">
+      <BrowserRouter basename="/scorpion-design-system">
         <Layout>
           <Routes>
             {/* All pages now use the same layout with sidebar */}

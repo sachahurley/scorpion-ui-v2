@@ -1307,7 +1307,7 @@ export default function Buttons() {
               📖 Complete Documentation
             </p>
             <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
-              For complete focus state documentation, accessibility guidelines, and implementation details, see the <a href="/scorpion-ui-v2/foundation/focus-states" className="text-primary-600 dark:text-primary-400 underline hover:text-primary-700 dark:hover:text-primary-300">Focus States foundation page</a>.
+              For complete focus state documentation, accessibility guidelines, and implementation details, see the <a href="/scorpion-design-system/foundation/focus-states" className="text-primary-600 dark:text-primary-400 underline hover:text-primary-700 dark:hover:text-primary-300">Focus States foundation page</a>.
             </p>
           </div>
 
