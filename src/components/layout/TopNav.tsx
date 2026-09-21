@@ -27,6 +27,7 @@ const NAV_ITEMS: { to: string; label: string }[] = [
   { to: "/demos/music-player", label: "Music Player" },
   { to: "/demos/screens", label: "Screens" },
   { to: "/skills", label: "Skills" },
+  { to: "/specs", label: "Specs" },
 ];
 
 /**

@@ -12,15 +12,12 @@
  * https://github.com/sachahurley/scorp-ds/tree/main/.claude/skills
  */
 
+import { Link as RouterLink } from "react-router-dom";
 import { CaseStudyBlocks, type CaseStudyBlock } from "@/components/ui/CaseStudy";
 import { Link } from "@/components/ui/Link";
 
 const SKILLS_SOURCE_URL =
   "https://github.com/sachahurley/scorp-ds/tree/main/.claude/skills";
-
-// Notion mirror of docs/specs/*.md — the per-component spec pages
-const NOTION_SPECS_URL =
-  "https://www.notion.so/3e29a6335da181be8280c9bfc8730512";
 
 // The page, section by section. Blocks render in array order.
 const SKILLS: CaseStudyBlock[] = [
@@ -159,8 +156,8 @@ export default function Skills() {
           <Link href={SKILLS_SOURCE_URL} external className="text-sm">
             Skill definitions on GitHub
           </Link>
-          <Link href={NOTION_SPECS_URL} external className="text-sm">
-            Specs in Notion
+          <Link as={RouterLink} asProps={{ to: "/specs" }} className="text-sm">
+            Browse all specs
           </Link>
         </div>
       </div>

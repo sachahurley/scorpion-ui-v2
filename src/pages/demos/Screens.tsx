@@ -15,6 +15,7 @@
  */
 
 import { useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -25,6 +26,7 @@ import { Avatar } from "@/components/ui/Avatar";
 import { Badge } from "@/components/ui/Badge";
 import { TuiIcon } from "@/components/ui/TuiIcon";
 import { Panel } from "@/components/docs/Panel";
+import { Link } from "@/components/ui/Link";
 
 // The shell's three destinations. Icon names are TuiIcon glyph keys.
 type ScreenId = "sign-in" | "settings" | "profile";
@@ -356,6 +358,19 @@ export default function Screens() {
           </div>
         </div>
       </Panel>
+
+      {/* REFERENCE DOCS: the settings view follows the Settings panel pattern spec */}
+      <p className="mt-10 text-sm font-mono text-secondary-800 dark:text-secondary-500">
+        The Settings view follows the{" "}
+        <Link
+          href="https://www.notion.so/3e29a6335da18154b397f15127c41c97"
+          external
+        >
+          Settings panel pattern spec
+        </Link>
+        ; every component composed here has its own spec on the{" "}
+        <Link as={RouterLink} asProps={{ to: "/specs" }}>Specs page</Link>.
+      </p>
       </div>
     </div>
   );
