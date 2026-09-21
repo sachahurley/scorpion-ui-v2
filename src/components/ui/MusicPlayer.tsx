@@ -27,7 +27,7 @@
  * - Public API unchanged: MusicPlayer({ onClose, isClosing })
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Button } from "./Button";
 import { Card } from "./Card";
 import { TuiIcon } from "./TuiIcon";
@@ -447,7 +447,11 @@ function MusicPlayerCard({
         <div
           ref={tileRef}
           className="plate-round flex-shrink-0 self-stretch bg-[var(--surface-container-stroke)] p-px"
-          style={{ width: tileWidth }}
+          // Width 0 until the first measurement: with no width constraint the
+          // album image's natural size (1024px) would dictate the row layout
+          // for a frame, and the observer would then mirror that runaway
+          // height back into the width, locking the tile at full image size.
+          style={{ width: tileWidth ?? 0 }}
         >
           <div className="plate-round flex h-full w-full items-center justify-center overflow-hidden bg-secondary-200 dark:bg-secondary-800">
             <AlbumFill track={track} />
@@ -697,9 +701,10 @@ interface MusicPlayerProps {
   isClosing?: boolean;
 }
 
-// Estimated footprint for viewport clamping while dragging. Height is a
-// working estimate (the card hugs content); exact clamping is not critical,
-// the player just needs to stay reachable.
+// Footprint for the default bottom-right placement. The height estimate only
+// seeds the initial position; drag/resize clamping measures the rendered
+// element, because the collapsed bar is roughly half the card's height and a
+// fixed estimate would fence the bar off the bottom of the viewport.
 const PLAYER_WIDTH = 380;
 const PLAYER_HEIGHT_ESTIMATE = 170;
 const EDGE_MARGIN = 24;
@@ -726,6 +731,12 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
   const [justMounted, setJustMounted] = useState(true);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
 
+  // Rendered root, measured for viewport clamping: the collapsed bar and the
+  // expanded card have very different heights, so clamp against the real one.
+  const rootRef = useRef<HTMLDivElement>(null);
+  const measuredHeight = () =>
+    rootRef.current?.offsetHeight || PLAYER_HEIGHT_ESTIMATE;
+
   // Slide-in animation on mount: start off-screen, then release after a
   // frame so the transition runs.
   useEffect(() => {
@@ -739,7 +750,7 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
     if (!isDragging) return;
     const handleDragMove = (e: MouseEvent) => {
       const maxX = window.innerWidth - PLAYER_WIDTH;
-      const maxY = window.innerHeight - PLAYER_HEIGHT_ESTIMATE;
+      const maxY = window.innerHeight - measuredHeight();
       setPosition({
         x: Math.max(0, Math.min(e.clientX - dragStart.x, maxX)),
         y: Math.max(0, Math.min(e.clientY - dragStart.y, maxY)),
@@ -765,13 +776,23 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
       if (desktopView) {
         setPosition((prev) => ({
           x: Math.min(prev.x, window.innerWidth - PLAYER_WIDTH - EDGE_MARGIN),
-          y: Math.min(prev.y, window.innerHeight - PLAYER_HEIGHT_ESTIMATE - EDGE_MARGIN),
+          y: Math.min(prev.y, window.innerHeight - measuredHeight() - EDGE_MARGIN),
         }));
       }
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Re-clamp after the collapse/expand toggle re-renders: expanding a bar
+  // that was docked at the bottom edge must not push the card off-screen.
+  useLayoutEffect(() => {
+    if (!isDesktop) return;
+    setPosition((prev) => ({
+      ...prev,
+      y: Math.min(prev.y, Math.max(0, window.innerHeight - measuredHeight())),
+    }));
+  }, [isCollapsed, isDesktop]);
 
   const dragHandleProps: React.HTMLAttributes<HTMLDivElement> = {
     onMouseDown: (e) => {
@@ -788,6 +809,7 @@ export function MusicPlayer({ onClose, isClosing = false }: MusicPlayerProps) {
       <audio {...player.audioProps} />
 
       <div
+        ref={rootRef}
         className="fixed w-[calc(100%-48px)] lg:w-[380px] left-6 bottom-6 lg:left-auto lg:bottom-auto"
         style={{
           // Popover layer token keeps the player above page content.
