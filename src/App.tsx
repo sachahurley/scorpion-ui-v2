@@ -39,7 +39,6 @@ import ListRows from "@/pages/components/ListRows";
 import BottomSheets from "@/pages/components/BottomSheets";
 import Modals from "@/pages/components/Modals";
 import SideNavigation from "@/pages/patterns/SideNavigation";
-import Cards from "@/pages/patterns/Cards";
 import Forms from "@/pages/patterns/Forms";
 import CaseStudyPage from "@/pages/patterns/CaseStudy";
 import MusicPlayerPattern from "@/pages/patterns/MusicPlayerPattern";
@@ -91,7 +90,6 @@ function App() {
             
             {/* Patterns pages */}
             <Route path="/patterns/side-navigation" element={<SideNavigation />} />
-            <Route path="/patterns/cards" element={<Cards />} />
             <Route path="/patterns/forms" element={<Forms />} />
             <Route path="/patterns/music-player" element={<MusicPlayerPattern />} />
             <Route path="/patterns/case-study" element={<CaseStudyPage />} />

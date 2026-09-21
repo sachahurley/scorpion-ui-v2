@@ -80,7 +80,6 @@ const NAV_SECTIONS: NavSection[] = [
     icon: "2. System apps/Mission Control.png",
     items: [
       { to: "/patterns/side-navigation", label: "Side Navigation" },
-      { to: "/patterns/cards", label: "Cards" },
       { to: "/patterns/forms", label: "Forms" },
       { to: "/patterns/music-player", label: "Music Player" },
       { to: "/patterns/case-study", label: "Case Study" },
