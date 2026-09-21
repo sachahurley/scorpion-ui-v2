@@ -624,12 +624,13 @@ function MusicPlayerBar({
 
         {/* Transport group sits tight (gap-2); the expand control stands
             apart (root gap + ml-3) so mode switching reads as a separate
-            cluster from playback. Transport is uniform 40px medium; play
+            cluster from playback. The whole bar runs the smallest control
+            size (32px small, matching the card's collapse control); play
             carries the emphasis through its primary fill alone. */}
         <div className="flex items-center gap-2">
           <Button
             variant="icon"
-            size="medium"
+            size="small"
             type="button"
             aria-label="Previous track"
             disabled={player.previousDisabled}
@@ -639,7 +640,7 @@ function MusicPlayerBar({
           </Button>
           <Button
             variant="primary"
-            size="medium"
+            size="small"
             type="button"
             aria-label={player.isPlaying ? "Pause" : "Play"}
             onClick={player.togglePlay}
@@ -648,7 +649,7 @@ function MusicPlayerBar({
           </Button>
           <Button
             variant="icon"
-            size="medium"
+            size="small"
             type="button"
             aria-label="Next track"
             disabled={player.nextDisabled}
@@ -657,8 +658,7 @@ function MusicPlayerBar({
             <TuiIcon name="SkipForward" />
           </Button>
         </div>
-        {/* Expand matches the card's collapse control at small (32px);
-            only the transport cluster is 40px. */}
+        {/* Expand matches the transport cluster at small (32px). */}
         <Button
           variant="icon"
           size="small"
