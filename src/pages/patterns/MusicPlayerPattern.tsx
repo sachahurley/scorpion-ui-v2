@@ -69,9 +69,14 @@ export default function MusicPlayerPattern() {
               Close player
             </Button>
           </div>
-          {isOpen && <MusicPlayer onClose={closePlayer} isClosing={isClosing} />}
         </Panel>
       </section>
+
+      {/* The player mounts OUTSIDE the Panel: the plate recipe is a
+          clip-path, which clips descendant painting, and a fixed-position
+          child at viewport coordinates lands outside the clip region and
+          disappears entirely. */}
+      {isOpen && <MusicPlayer onClose={closePlayer} isClosing={isClosing} />}
 
       {/* REFERENCE DOCS: composition and state documentation lives in Storybook */}
       <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500">
