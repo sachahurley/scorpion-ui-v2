@@ -26,7 +26,7 @@ const ESSAY: CaseStudyBlock[] = [
   { type: "headline", title: "The Philosophy" },
   {
     type: "prose",
-    text: "As product design evolves with AI-first tools, design-system-first has become essential, not optional. The quality of your input—whether design tokens in Figma or a code-based design system—directly determines the quality and accuracy of AI-generated outputs. Pixel-perfect products require systematic, high-quality foundations that AI agents can reliably draw from.",
+    text: "As product design evolves with AI-first tools, design-system-first has become essential, not optional. The quality of your input, whether design tokens in Figma or a code-based design system, directly determines the quality and accuracy of AI-generated outputs. Pixel-perfect products require systematic, high-quality foundations that AI agents can reliably draw from.",
   },
 
   // THE CHALLENGE
@@ -68,7 +68,7 @@ const ESSAY: CaseStudyBlock[] = [
     items: [
       {
         title: "Start with Established Foundations",
-        text: "Leverage existing frameworks like Tailwind colors as your starting point. Build base colors first, then semantic colors, then typography. Create documentation simultaneously—you're designing and maintaining the design system hand-in-hand.",
+        text: "Leverage existing frameworks like Tailwind colors as your starting point. Build base colors first, then semantic colors, then typography. Create documentation simultaneously: you're designing and maintaining the design system hand-in-hand.",
       },
       {
         title: "The Cursor → Figma → Cursor Loop",
@@ -99,7 +99,7 @@ const ESSAY: CaseStudyBlock[] = [
   },
   {
     type: "prose",
-    text: "This documentation becomes your controlled palette—the guardrails that constrain what AI agents can use when generating product flows.",
+    text: "This documentation becomes your controlled palette: the guardrails that constrain what AI agents can use when generating product flows.",
   },
 
   // APPROACH 2: EXISTING CODE TOKEN SYSTEM
@@ -114,7 +114,7 @@ const ESSAY: CaseStudyBlock[] = [
     items: [
       {
         title: "Extract the Existing Token System",
-        text: "Dive into the codebase and pull out all existing design tokens. Document the complete token structure: base colors and semantic colors; typography scales and weights; spacing and radius values; component-specific tokens (buttons, inputs, cards, etc.). Create a comprehensive markdown file listing every token name and its value. This is your learning tool—you're adopting the company's existing naming conventions.",
+        text: "Dive into the codebase and pull out all existing design tokens. Document the complete token structure: base colors and semantic colors; typography scales and weights; spacing and radius values; component-specific tokens (buttons, inputs, cards, etc.). Create a comprehensive markdown file listing every token name and its value. This is your learning tool: you're adopting the company's existing naming conventions.",
       },
       {
         title: "Build Visual Documentation Using Existing Tokens",
@@ -122,7 +122,7 @@ const ESSAY: CaseStudyBlock[] = [
       },
       {
         title: "The Cursor → Figma → Cursor Loop (Learning the System)",
-        text: "Use Cursor to express the existing tokens in HTML documentation. Use HTML-to-Figma plugin to pull these documented components into Figma. In Figma, refine the visual presentation (but keep the token names consistent with code). Create color swatches, type specimens, component examples—all labeled with the existing token names. Use Figma MCP to create links to your refined documentation design. Feed these back to Cursor to update the documentation pixel-perfectly.",
+        text: "Use Cursor to express the existing tokens in HTML documentation. Use HTML-to-Figma plugin to pull these documented components into Figma. In Figma, refine the visual presentation (but keep the token names consistent with code). Create color swatches, type specimens, component examples, all labeled with the existing token names. Use Figma MCP to create links to your refined documentation design. Feed these back to Cursor to update the documentation pixel-perfectly.",
       },
       {
         title: "Internalize the Naming Conventions",
@@ -140,7 +140,7 @@ const ESSAY: CaseStudyBlock[] = [
   },
   {
     type: "prose",
-    text: "The Key Difference: You're not creating a new system—you're making the existing system visible and learnable. By pulling tokens from code and documenting them visually, you create the missing bridge between engineering and design while adopting the company's established conventions.",
+    text: "The Key Difference: You're not creating a new system; you're making the existing system visible and learnable. By pulling tokens from code and documenting them visually, you create the missing bridge between engineering and design while adopting the company's established conventions.",
   },
 
   // THE PAYOFF
