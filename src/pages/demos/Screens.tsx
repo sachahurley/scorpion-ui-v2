@@ -301,6 +301,9 @@ export default function Screens() {
 
   return (
     <div className="container mx-auto px-5 lg:px-10 pt-5 lg:pt-10 pb-5 lg:pb-20">
+      {/* Shared page measure: every page outside Home centers on the same
+          max-w-2xl column (the Essay/Case Study editorial width). */}
+      <div className="mx-auto max-w-2xl">
       {/* PAGE HEADER SECTION */}
       <div className="flex flex-col gap-2 mb-10">
         <h2 className="text-2xl font-mono text-[var(--text-primary)]">Screens</h2>
@@ -353,6 +356,7 @@ export default function Screens() {
           </div>
         </div>
       </Panel>
+      </div>
     </div>
   );
 }
