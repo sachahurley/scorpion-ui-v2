@@ -1,30 +1,27 @@
 #!/usr/bin/env bash
 #
-# deploy.sh
+# deploy.sh — manual deploy to GitHub Pages.
 #
-# The ONE way to deploy this site to GitHub Pages. Builds, creates the SPA
-# 404 fallback, refuses to publish without it, then pushes dist/ to the
-# gh-pages branch.
+# NOTE: the primary deployer is CI (.github/workflows/deploy.yml), which
+# builds and publishes dist/ on every push to main. Use this script only
+# when you need to push the site by hand (e.g. CI is down or you are
+# testing an unmerged branch).
 #
-# Why the fallback matters: this is a BrowserRouter SPA on GitHub Pages.
-# Pages only knows about real files, so a deep link like /components is
-# served from 404.html, which must be a copy of index.html for the app to
-# boot and render the route client-side. A deploy that skips the copy
-# (e.g. running `npx gh-pages -d dist` by hand) breaks every deep link
-# and refresh, which is exactly what happened once before. Always run
-# `npm run deploy`; never invoke gh-pages directly.
+# The SPA 404 fallback (dist/404.html, a copy of index.html) is created by
+# `npm run build` itself, so BOTH this script and the CI workflow ship it.
+# It must exist because this is a BrowserRouter SPA on GitHub Pages: deep
+# links like /components are served from 404.html, and without it every
+# deep link and refresh hits GitHub's generic 404 page. This script
+# verifies the fallback and refuses to publish without it.
 
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-echo "==> Building"
+echo "==> Building (includes SPA 404 fallback)"
 npm run build
 
-echo "==> Creating SPA 404 fallback"
-cp dist/index.html dist/404.html
-
 if ! cmp -s dist/index.html dist/404.html; then
-  echo "ERROR: dist/404.html does not match dist/index.html; refusing to deploy." >&2
+  echo "ERROR: dist/404.html is missing or does not match dist/index.html; refusing to deploy." >&2
   exit 1
 fi
 
