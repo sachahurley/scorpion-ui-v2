@@ -363,7 +363,7 @@ export default function Screens() {
       <p className="mt-10 text-sm font-mono text-secondary-800 dark:text-secondary-500">
         The Settings view follows the{" "}
         <Link
-          href="https://www.notion.so/3e29a6335da18154b397f15127c41c97"
+          href="https://github.com/sachahurley/scorp-ds/blob/main/docs/specs/patterns-settings-panel.md"
           external
         >
           Settings panel pattern spec

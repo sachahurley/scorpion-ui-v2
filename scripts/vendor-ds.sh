@@ -11,7 +11,10 @@
 #      + src/lib/field.tsx (internal helper/error-text plumbing the form
 #      components import) + src/lib/size.ts (internal sm|md|lg size-scale
 #      helper the sized components import)
-#   4. vendor/scorp-ds/VERSION                           (source commit)
+#   4. src/data/specs-index.json                         (Specs page index,
+#      generated from docs/specs/*.md by scripts/gen-specs-index.mjs; links
+#      each spec to its rendered markdown on GitHub)
+#   5. vendor/scorp-ds/VERSION                           (source commit)
 #
 # Source of truth: origin/main of the scorp-ds repo, read via git from the
 # checkout at $SCORP_DS_DIR (default ~/Projects/scorp-ds). The checkout's
@@ -96,6 +99,9 @@ ds_file "packages/components/src/lib/size.ts" | sed \
   -e 's/process\.env\.NODE_ENV === "production"/import.meta.env.PROD/g' \
   > "$STAGE/lib/size.ts"
 
+# --- stage the Specs page index (generated from the spec files) ------------
+node "$REPO_ROOT/scripts/gen-specs-index.mjs" "$SCORP_DS_DIR" "$REF" "$STAGE/specs-index.json"
+
 # --- diff or apply ---------------------------------------------------------
 drift=0
 compare_or_copy() {
@@ -121,6 +127,8 @@ compare_or_copy "$STAGE/ui/Stack.tsx" "$REPO_ROOT/src/components/ui/Stack.tsx"
 compare_or_copy "$STAGE/lib/utils.ts" "$REPO_ROOT/src/lib/utils.ts"
 compare_or_copy "$STAGE/lib/field.tsx" "$REPO_ROOT/src/lib/field.tsx"
 compare_or_copy "$STAGE/lib/size.ts" "$REPO_ROOT/src/lib/size.ts"
+mkdir -p "$REPO_ROOT/src/data"
+compare_or_copy "$STAGE/specs-index.json" "$REPO_ROOT/src/data/specs-index.json"
 
 if [ "$MODE" = "check" ]; then
   for f in "${KNOWN_FORKS[@]}"; do

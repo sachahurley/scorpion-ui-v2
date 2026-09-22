@@ -46,7 +46,7 @@ const SKILLS: CaseStudyBlock[] = [
       },
       {
         title: "/update-spec",
-        text: "Generate or update the spec for any layer of the system (tokens, primitives, components, patterns, screens) and sync it to Notion.",
+        text: "Generate or update the spec for any layer of the system (tokens, primitives, components, patterns, screens), written from the source into docs/specs.",
       },
       {
         title: "/compose-screen",
@@ -54,7 +54,7 @@ const SKILLS: CaseStudyBlock[] = [
       },
       {
         title: "/ds-health",
-        text: "Full health check across all design system layers: specs, tokens, storybook, docs sync, static analysis, and tests, with a prioritized report.",
+        text: "Full health check across all design system layers: spec drift and staleness, tokens, storybook, static analysis, and tests, with a prioritized report.",
       },
       {
         title: "/generate-component-refs",
@@ -62,7 +62,7 @@ const SKILLS: CaseStudyBlock[] = [
       },
       {
         title: "/release-notes",
-        text: "Generate a formatted changelog, bump the package version, sync it to Notion, and tag the release.",
+        text: "Generate a formatted changelog, bump the package version, and tag the release.",
       },
     ],
   },
@@ -107,26 +107,18 @@ const SKILLS: CaseStudyBlock[] = [
   {
     type: "headline",
     title: "Sync and Operations",
-    text: "Keeping the mirrors honest: docs in Notion, vendored copies in consumer sites. Local files are always the source of truth.",
+    text: "Keeping specs and consumers honest: specs match the source, and every consumer site carries the current vendored copy.",
   },
   {
     type: "list",
     items: [
       {
         title: "/sync-specs",
-        text: "Detect changed files across all layers and batch-update their specs and Notion pages.",
-      },
-      {
-        title: "/sync-docs",
-        text: "Push local documentation files to their Notion pages; Notion is a read-only mirror.",
-      },
-      {
-        title: "/sync-skill-docs",
-        text: "Keep the Notion skills index in sync with the skill definitions in the codebase.",
+        text: "Detect changed files across all layers and batch-update their specs in docs/specs.",
       },
       {
         title: "/vendor-portfolio",
-        text: "After any merge to main, re-vendor the design system into both consumer sites (the portfolio and this showcase) and ship their update PRs.",
+        text: "After any merge to main, re-vendor the design system into all three consumer sites (the portfolio, this showcase, and the scorp-protodash prototype) and ship their update PRs.",
       },
     ],
   },
@@ -139,7 +131,7 @@ const SKILLS: CaseStudyBlock[] = [
   },
   {
     type: "prose",
-    text: "The sync skills mirror all 32 of them to Notion, where they read as documents: 25 components and primitives, 5 patterns, the token parser, and the spec changelog. The markdown in the repo is the source of truth; the Notion pages are a read-only mirror.",
+    text: "The markdown in the repo is the only copy, and GitHub renders it as readable documents. The Specs page indexes every one of them, generated from the spec files each time the design system is vendored.",
   },
 ];
 
