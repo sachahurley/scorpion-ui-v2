@@ -9,7 +9,8 @@
 #   3. src/components/ui/Stack.tsx + src/lib/utils.ts    (barrel exports that
 #      live outside components/: the Stack primitive and the cn() helper)
 #      + src/lib/field.tsx (internal helper/error-text plumbing the form
-#      components import)
+#      components import) + src/lib/size.ts (internal sm|md|lg size-scale
+#      helper the sized components import)
 #   4. vendor/scorp-ds/VERSION                           (source commit)
 #
 # Source of truth: origin/main of the scorp-ds repo, read via git from the
@@ -65,12 +66,12 @@ git -C "$SCORP_DS_DIR" log --oneline -1 "$REF" > "$STAGE/vendor/VERSION"
 # --- stage component sources with the Vite adaptations ---------------------
 mkdir -p "$STAGE/ui"
 for c in "${COMPONENTS[@]}"; do
-  # Adaptations: no Node types in the app tsconfig, and cn lives at @/lib/utils
+  # Adaptations: no Node types in the app tsconfig, and every internal lib
+  # helper (utils, field, size, ...) lives at @/lib/<name>
   ds_file "packages/components/src/components/$c.tsx" | sed \
     -e 's/process\.env\.NODE_ENV === "production"/import.meta.env.PROD/g' \
     -e 's/NodeJS\.Timeout/ReturnType<typeof setTimeout>/g' \
-    -e 's|from "\.\./lib/utils"|from "@/lib/utils"|g' \
-    -e 's|from "\.\./lib/field"|from "@/lib/field"|g' \
+    -e 's|from "\.\./lib/\([A-Za-z-]*\)"|from "@/lib/\1"|g' \
     > "$STAGE/ui/$c.tsx"
 done
 
@@ -89,6 +90,11 @@ ds_file "packages/components/src/lib/utils.ts" > "$STAGE/lib/utils.ts"
 ds_file "packages/components/src/lib/field.tsx" | sed \
   -e 's|from "\.\./components/\([A-Za-z]*\)"|from "@/components/ui/\1"|g' \
   > "$STAGE/lib/field.tsx"
+# size.ts: shared sm|md|lg scale; its dev-only legacy-size warning needs the
+# same NODE_ENV adaptation as the components.
+ds_file "packages/components/src/lib/size.ts" | sed \
+  -e 's/process\.env\.NODE_ENV === "production"/import.meta.env.PROD/g' \
+  > "$STAGE/lib/size.ts"
 
 # --- diff or apply ---------------------------------------------------------
 drift=0
@@ -114,6 +120,7 @@ done
 compare_or_copy "$STAGE/ui/Stack.tsx" "$REPO_ROOT/src/components/ui/Stack.tsx"
 compare_or_copy "$STAGE/lib/utils.ts" "$REPO_ROOT/src/lib/utils.ts"
 compare_or_copy "$STAGE/lib/field.tsx" "$REPO_ROOT/src/lib/field.tsx"
+compare_or_copy "$STAGE/lib/size.ts" "$REPO_ROOT/src/lib/size.ts"
 
 if [ "$MODE" = "check" ]; then
   for f in "${KNOWN_FORKS[@]}"; do
