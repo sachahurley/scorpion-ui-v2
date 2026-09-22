@@ -6,8 +6,9 @@
 #   1. vendor/scorp-ds/tokens.css + tailwind.preset.cjs  (token layer)
 #   2. src/components/ui/<Component>.tsx                 (every component in
 #      the DS source tree, with three mechanical Vite adaptations)
-#   3. src/components/ui/Stack.tsx + src/lib/utils.ts    (barrel exports that
-#      live outside components/: the Stack primitive and the cn() helper)
+#   3. src/components/ui/<Primitive>.tsx + src/lib/utils.ts (barrel exports
+#      that live outside components/: every layout primitive in the DS
+#      primitives/ tree, and the cn() helper)
 #      + src/lib/field.tsx (internal helper/error-text plumbing the form
 #      components import) + src/lib/size.ts (internal sm|md|lg size-scale
 #      helper the sized components import)
@@ -80,14 +81,23 @@ for c in "${COMPONENTS[@]}"; do
     > "$STAGE/ui/$c.tsx"
 done
 
-# Barrel exports that live outside components/: the Stack primitive (same
-# adaptations) and the cn() helper (copied verbatim so it stops being a
-# by-luck-identical hand copy).
-ds_file "packages/components/src/primitives/Stack.tsx" | sed \
-  -e 's/process\.env\.NODE_ENV === "production"/import.meta.env.PROD/g' \
-  -e 's/NodeJS\.Timeout/ReturnType<typeof setTimeout>/g' \
-  -e 's|from "\.\./lib/utils"|from "@/lib/utils"|g' \
-  > "$STAGE/ui/Stack.tsx"
+# Barrel exports that live outside components/: the layout primitives (Stack,
+# Box, Inline, Grid, Container, Center, VisuallyHidden, ...), read from the
+# source tree so new ones vendor themselves. They land alongside the
+# components in src/components/ui, so their sibling imports ("./Stack") still
+# resolve and their lib imports get the @/ alias. The cn() helper is copied
+# verbatim below so it stops being a by-luck-identical hand copy.
+PRIMITIVES=()
+while IFS= read -r path; do
+  [ -n "$path" ] && PRIMITIVES+=("$(basename "$path" .tsx)")
+done < <(git -C "$SCORP_DS_DIR" ls-tree --name-only "$REF" packages/components/src/primitives/)
+for p in "${PRIMITIVES[@]}"; do
+  ds_file "packages/components/src/primitives/$p.tsx" | sed \
+    -e 's/process\.env\.NODE_ENV === "production"/import.meta.env.PROD/g' \
+    -e 's/NodeJS\.Timeout/ReturnType<typeof setTimeout>/g' \
+    -e 's|from "\.\./lib/\([A-Za-z-]*\)"|from "@/lib/\1"|g' \
+    > "$STAGE/ui/$p.tsx"
+done
 # Internal helpers (cn, field messages, size scale, positioning, hooks): all
 # of them, read from the source tree so new helpers vendor themselves. They
 # sit at src/lib here, so imports of sibling helpers and of components are
@@ -130,7 +140,9 @@ compare_or_copy "$STAGE/vendor/tailwind.preset.cjs" "$REPO_ROOT/vendor/scorp-ds/
 for c in "${COMPONENTS[@]}"; do
   compare_or_copy "$STAGE/ui/$c.tsx" "$REPO_ROOT/src/components/ui/$c.tsx"
 done
-compare_or_copy "$STAGE/ui/Stack.tsx" "$REPO_ROOT/src/components/ui/Stack.tsx"
+for p in "${PRIMITIVES[@]}"; do
+  compare_or_copy "$STAGE/ui/$p.tsx" "$REPO_ROOT/src/components/ui/$p.tsx"
+done
 for f in "${LIB_FILES[@]}"; do
   compare_or_copy "$STAGE/lib/$f" "$REPO_ROOT/src/lib/$f"
 done
