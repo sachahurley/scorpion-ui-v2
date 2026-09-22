@@ -1,1 +1,1 @@
-110fbe5 Replace bracket markers and text glyphs with 1-bit icons; add Menu icon (#41)
+74d42ee Unified size scale (sm | md | lg) backed by control-height tokens (#42)
