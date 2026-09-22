@@ -5,7 +5,7 @@
 # Re-vendors the merged Scorp DS visual language into this showcase:
 #   1. vendor/scorp-ds/tokens.css + tailwind.preset.cjs  (token layer)
 #   2. src/components/ui/<Component>.tsx                 (every component in
-#      the COMPONENTS list below, with three mechanical Vite adaptations)
+#      the DS source tree, with three mechanical Vite adaptations)
 #   3. src/components/ui/Stack.tsx + src/lib/utils.ts    (barrel exports that
 #      live outside components/: the Stack primitive and the cn() helper)
 #      + src/lib/field.tsx (internal helper/error-text plumbing the form
@@ -43,11 +43,13 @@ git -C "$SCORP_DS_DIR" fetch origin main -q 2>/dev/null || \
 REF="origin/main"
 ds_file() { git -C "$SCORP_DS_DIR" show "$REF:$1"; }
 
-# Components mirrored from the DS (MusicPlayer is site-owned: it wears the
-# DS pattern shell but keeps the site's real audio engine).
-COMPONENTS=(Alert Avatar Badge BottomSheet Button Card CaseStudy Checkbox
-  Divider Dropdown Input Link ListRow Modal Radio Select Slider Switch Table
-  Tabs Textarea ThemeToggle Toast Tooltip TuiIcon)
+# Every component the DS exports, read from its source tree so new ones
+# vendor themselves (MusicPlayer is site-owned: it wears the DS pattern
+# shell but keeps the site's real audio engine, and is not a DS component).
+COMPONENTS=()
+while IFS= read -r path; do
+  [ -n "$path" ] && COMPONENTS+=("$(basename "$path" .tsx)")
+done < <(git -C "$SCORP_DS_DIR" ls-tree --name-only "$REF" packages/components/src/components/)
 
 # Known deliberate forks — NOT synced, listed so every check run surfaces
 # them as decisions rather than silent drift. Review each when its DS
@@ -86,18 +88,23 @@ ds_file "packages/components/src/primitives/Stack.tsx" | sed \
   -e 's/NodeJS\.Timeout/ReturnType<typeof setTimeout>/g' \
   -e 's|from "\.\./lib/utils"|from "@/lib/utils"|g' \
   > "$STAGE/ui/Stack.tsx"
+# Internal helpers (cn, field messages, size scale, positioning, hooks): all
+# of them, read from the source tree so new helpers vendor themselves. They
+# sit at src/lib here, so imports of sibling helpers and of components are
+# pointed at the @/ aliases.
+LIB_FILES=()
+while IFS= read -r path; do
+  [ -n "$path" ] && LIB_FILES+=("$(basename "$path")")
+done < <(git -C "$SCORP_DS_DIR" ls-tree --name-only "$REF" packages/components/src/lib/)
 mkdir -p "$STAGE/lib"
-ds_file "packages/components/src/lib/utils.ts" > "$STAGE/lib/utils.ts"
-# field.tsx imports DS components relative to src/lib; here components live
-# under src/components/ui, so point those imports at the @/ alias.
-ds_file "packages/components/src/lib/field.tsx" | sed \
-  -e 's|from "\.\./components/\([A-Za-z]*\)"|from "@/components/ui/\1"|g' \
-  > "$STAGE/lib/field.tsx"
-# size.ts: shared sm|md|lg scale; its dev-only legacy-size warning needs the
-# same NODE_ENV adaptation as the components.
-ds_file "packages/components/src/lib/size.ts" | sed \
-  -e 's/process\.env\.NODE_ENV === "production"/import.meta.env.PROD/g' \
-  > "$STAGE/lib/size.ts"
+for f in "${LIB_FILES[@]}"; do
+  ds_file "packages/components/src/lib/$f" | sed \
+    -e 's/process\.env\.NODE_ENV === "production"/import.meta.env.PROD/g' \
+    -e 's/NodeJS\.Timeout/ReturnType<typeof setTimeout>/g' \
+    -e 's|from "\./\([A-Za-z-]*\)"|from "@/lib/\1"|g' \
+    -e 's|from "\.\./components/\([A-Za-z]*\)"|from "@/components/ui/\1"|g' \
+    > "$STAGE/lib/$f"
+done
 
 # --- stage the Specs page index (generated from the spec files) ------------
 node "$REPO_ROOT/scripts/gen-specs-index.mjs" "$SCORP_DS_DIR" "$REF" "$STAGE/specs-index.json"
@@ -124,9 +131,9 @@ for c in "${COMPONENTS[@]}"; do
   compare_or_copy "$STAGE/ui/$c.tsx" "$REPO_ROOT/src/components/ui/$c.tsx"
 done
 compare_or_copy "$STAGE/ui/Stack.tsx" "$REPO_ROOT/src/components/ui/Stack.tsx"
-compare_or_copy "$STAGE/lib/utils.ts" "$REPO_ROOT/src/lib/utils.ts"
-compare_or_copy "$STAGE/lib/field.tsx" "$REPO_ROOT/src/lib/field.tsx"
-compare_or_copy "$STAGE/lib/size.ts" "$REPO_ROOT/src/lib/size.ts"
+for f in "${LIB_FILES[@]}"; do
+  compare_or_copy "$STAGE/lib/$f" "$REPO_ROOT/src/lib/$f"
+done
 mkdir -p "$REPO_ROOT/src/data"
 compare_or_copy "$STAGE/specs-index.json" "$REPO_ROOT/src/data/specs-index.json"
 
