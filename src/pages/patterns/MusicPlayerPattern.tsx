@@ -92,7 +92,7 @@ export default function MusicPlayerPattern() {
         </Link>
         ; the full written spec is the{" "}
         <Link
-          href="https://www.notion.so/3e29a6335da181539511c66130c83240"
+          href="https://github.com/sachahurley/scorp-ds/blob/main/docs/specs/patterns-music-player.md"
           external
         >
           Music player pattern spec
