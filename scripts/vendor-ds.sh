@@ -8,6 +8,8 @@
 #      the COMPONENTS list below, with three mechanical Vite adaptations)
 #   3. src/components/ui/Stack.tsx + src/lib/utils.ts    (barrel exports that
 #      live outside components/: the Stack primitive and the cn() helper)
+#      + src/lib/field.tsx (internal helper/error-text plumbing the form
+#      components import)
 #   4. vendor/scorp-ds/VERSION                           (source commit)
 #
 # Source of truth: origin/main of the scorp-ds repo, read via git from the
@@ -68,6 +70,7 @@ for c in "${COMPONENTS[@]}"; do
     -e 's/process\.env\.NODE_ENV === "production"/import.meta.env.PROD/g' \
     -e 's/NodeJS\.Timeout/ReturnType<typeof setTimeout>/g' \
     -e 's|from "\.\./lib/utils"|from "@/lib/utils"|g' \
+    -e 's|from "\.\./lib/field"|from "@/lib/field"|g' \
     > "$STAGE/ui/$c.tsx"
 done
 
@@ -81,6 +84,7 @@ ds_file "packages/components/src/primitives/Stack.tsx" | sed \
   > "$STAGE/ui/Stack.tsx"
 mkdir -p "$STAGE/lib"
 ds_file "packages/components/src/lib/utils.ts" > "$STAGE/lib/utils.ts"
+ds_file "packages/components/src/lib/field.tsx" > "$STAGE/lib/field.tsx"
 
 # --- diff or apply ---------------------------------------------------------
 drift=0
@@ -105,6 +109,7 @@ for c in "${COMPONENTS[@]}"; do
 done
 compare_or_copy "$STAGE/ui/Stack.tsx" "$REPO_ROOT/src/components/ui/Stack.tsx"
 compare_or_copy "$STAGE/lib/utils.ts" "$REPO_ROOT/src/lib/utils.ts"
+compare_or_copy "$STAGE/lib/field.tsx" "$REPO_ROOT/src/lib/field.tsx"
 
 if [ "$MODE" = "check" ]; then
   for f in "${KNOWN_FORKS[@]}"; do
