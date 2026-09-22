@@ -84,7 +84,11 @@ ds_file "packages/components/src/primitives/Stack.tsx" | sed \
   > "$STAGE/ui/Stack.tsx"
 mkdir -p "$STAGE/lib"
 ds_file "packages/components/src/lib/utils.ts" > "$STAGE/lib/utils.ts"
-ds_file "packages/components/src/lib/field.tsx" > "$STAGE/lib/field.tsx"
+# field.tsx imports DS components relative to src/lib; here components live
+# under src/components/ui, so point those imports at the @/ alias.
+ds_file "packages/components/src/lib/field.tsx" | sed \
+  -e 's|from "\.\./components/\([A-Za-z]*\)"|from "@/components/ui/\1"|g' \
+  > "$STAGE/lib/field.tsx"
 
 # --- diff or apply ---------------------------------------------------------
 drift=0
