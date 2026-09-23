@@ -1,1 +1,1 @@
-9ef7e44 Visual regression on Playwright, and drop the inert Chromatic addon (#58)
+65bd95b Move visual interactions into Storybook play functions, delete the map (#64)
