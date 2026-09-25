@@ -133,6 +133,17 @@ const SKILLS: CaseStudyBlock[] = [
     type: "prose",
     text: "The markdown in the repo is the only copy, and GitHub renders it as readable documents. The Specs page indexes every one of them, generated from the spec files each time the design system is vendored.",
   },
+
+  // WHAT CHECKS THE OUTPUT
+  {
+    type: "headline",
+    title: "What Checks Their Work",
+    text: "A skill makes an agent repeatable. It does not make it right.",
+  },
+  {
+    type: "prose",
+    text: "Nothing above can fail on its own: a skill is a document, and an agent following one can still write a hardcoded value, leave a spec behind its source, or change how a component looks without noticing. That is the harness's job. Every pull request runs lint, types, unit tests, an API-surface check, an accessibility pass in both themes, and a screenshot diff, and none of it cares which agent opened it.",
+  },
 ];
 
 export default function Skills() {
@@ -147,6 +158,9 @@ export default function Skills() {
         <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2">
           <Link href={SKILLS_SOURCE_URL} external className="text-sm">
             Skill definitions on GitHub
+          </Link>
+          <Link as={RouterLink} asProps={{ to: "/harness" }} className="text-sm">
+            The harness that checks them
           </Link>
           <Link as={RouterLink} asProps={{ to: "/specs" }} className="text-sm">
             Browse all specs

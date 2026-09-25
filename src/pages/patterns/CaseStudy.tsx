@@ -10,7 +10,9 @@
  * the deployed Storybook (Patterns/CaseStudyBlocks).
  */
 
+import { Link as RouterLink } from "react-router-dom";
 import { CaseStudyBlocks, type CaseStudyBlock } from "@/components/ui/CaseStudy";
+import { Link } from "@/components/ui/Link";
 
 // The case study, section by section. Blocks render in array order.
 const STUDY: CaseStudyBlock[] = [
@@ -30,7 +32,7 @@ const STUDY: CaseStudyBlock[] = [
   },
   {
     type: "prose",
-    text: "The system started with tokens, not components. Every color, type size, spacing step, and motion duration lives in a single W3C-format JSON file, organized in three layers: global scales (amber, sepia, and the status hues), then light and dark semantic layers that map those scales onto surfaces, text, and focus. A parser turns the JSON into CSS custom properties and a Tailwind preset, so components only ever reference semantic names like primary-400 or surface-card. The rule that made it stick: raw values are allowed in exactly one file, and everything downstream is a reference.",
+    text: "The system started with tokens, not components. Every color, type size, spacing step, and motion duration lives in a single W3C-format JSON file, organized in three layers: global scales (amber, sepia, and the status hues), then light and dark semantic layers that map those scales onto surfaces, text, and focus. The JSON and the CSS custom properties beside it are both written by hand, on purpose: the CSS carries measured contrast ratios and one documented exception that no generator would reproduce, and a unit test fails the build the moment the two disagree. Components reference only semantic names like primary-400 or surface-card. The rule that made it stick: raw values are allowed in exactly one file, and everything downstream is a reference.",
   },
   {
     type: "prose",
@@ -39,6 +41,10 @@ const STUDY: CaseStudyBlock[] = [
   {
     type: "prose",
     text: "Most of the code was written by AI agents working from written rules: a project constitution that bans hardcoded values, per-component specs, and a set of repeatable skills for audits, token changes, and doc sync. My job shifted from typing components to designing the constraints and reviewing the diffs. When an agent got something wrong, the fix was usually a better rule, not a better prompt.",
+  },
+  {
+    type: "prose",
+    text: "Then the written rules got teeth. Every \"never\" in the project constitution became a lint rule that fails at error, the three test commands that nobody was running got a CI workflow, spec staleness stopped being a guess from file timestamps and became a hash of each component's public API, and every story started being screenshotted in both themes and diffed against a committed image. None of that changed how the system looks. It changed what a green pull request means.",
   },
   {
     type: "prose",
@@ -54,6 +60,10 @@ const STUDY: CaseStudyBlock[] = [
       {
         title: "Constraints make agents accurate",
         text: "AI agents are only as good as the guardrails they build inside. The no-hardcoding rule, the semantic-alias rule, and the plate corner language turned subjective review into mechanical checks.",
+      },
+      {
+        title: "A rule that cannot fail is a comment",
+        text: "The written rules were already good. What changed everything was giving each one a check that fails out loud in CI, and only adding a check the codebase already satisfied, so each one froze a clean state instead of opening a backlog.",
       },
       {
         title: "Vendoring keeps consumers honest",
@@ -75,6 +85,20 @@ export default function CaseStudyPage() {
       {/* Reading column: breakout figures size against this inline-size container */}
       <div className="mx-auto max-w-2xl [container-type:inline-size]">
         <CaseStudyBlocks blocks={STUDY} />
+
+        {/* Outbound links: the block vocabulary has no link block, so they
+            live in a footer row matching the Home, Skills and Harness pages */}
+        <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2">
+          <Link as={RouterLink} asProps={{ to: "/harness" }} className="text-sm">
+            What checks all of this
+          </Link>
+          <Link as={RouterLink} asProps={{ to: "/skills" }} className="text-sm">
+            The skills the agents run
+          </Link>
+          <Link as={RouterLink} asProps={{ to: "/essay" }} className="text-sm">
+            The essay behind the approach
+          </Link>
+        </div>
       </div>
     </div>
   );

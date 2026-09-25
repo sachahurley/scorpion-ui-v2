@@ -1,11 +1,22 @@
 /**
  * HOME PAGE
  *
- * Clean, minimal introduction to Scorpion Design System
- * Features animated hero, three "what's inside" cards pointing at the
- * deployed Storybook (the system's reference docs), and two feature cards
- * for the Essay and Case Study pages
- * All cards match the exact styling from the rest of the site
+ * Clean, minimal introduction to Scorpion Design System.
+ *
+ * Three card rows, one per kind of destination:
+ *   1. What's inside  -> the deployed Storybook (the system's reference docs)
+ *   2. Writing        -> the Essay and Case Study pages
+ *   3. The system     -> Skills, Specs and Harness, the three pages about
+ *                        how the system is built, documented and checked
+ *
+ * The counts in the first row are read from the generated harness index, not
+ * typed here. This page previously claimed the library "currently includes
+ * buttons and UI primitives" long after it had passed forty components, and
+ * claimed the token CSS was generated from the JSON when both files are
+ * hand-maintained (scorp-ds decision 0007). Numbers that can go stale in
+ * silence now come from the same file the Harness page reads.
+ *
+ * All cards match the exact styling from the rest of the site.
  */
 
 import { Link as RouterLink } from "react-router-dom";
@@ -13,6 +24,10 @@ import { ASSETS } from "@/lib/assets";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Link } from "@/components/ui/Link";
+import harnessIndex from "@/data/harness-index.json";
+
+// The generated counts (see scripts/gen-harness-index.mjs)
+const n = harnessIndex.counts;
 
 // The deployed Storybook: the system's reference documentation.
 // Deep links use the docs page ids from the Storybook build (autodocs).
@@ -98,7 +113,7 @@ export default function Home() {
         {/* Subtitle - Short description */}
         <section className="mb-6 mx-5 lg:mx-10">
           <p className="font-mono text-base lg:text-2xl text-[var(--text-primary)] leading-relaxed">
-            A working example of implementing a design system with AI tools: tokens first, React and TypeScript, every rule written for agents.
+            A working example of building a design system with AI agents: tokens first, React and TypeScript, every rule written down and wired to a check that fails.
           </p>
         </section>
 
@@ -176,7 +191,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-sm font-mono text-[var(--text-primary)] mb-2">Design Tokens</h3>
                 <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">
-                  A growing token system starting with colors and typography. All tokens are defined in JSON and automatically converted to CSS variables, making them work seamlessly with Tailwind.
+                  {n.tokens} tokens in one W3C-format JSON file: colour scales, type, spacing, motion, plates, breakpoints. A global layer plus light and dark semantic layers, exposed to Tailwind through a preset.
                 </p>
                 <Link href={STORYBOOK_TOKENS_URL} external className="text-sm">
                   Browse tokens in Storybook
@@ -202,7 +217,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-sm font-mono text-[var(--text-primary)] mb-2">Components</h3>
                 <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">
-                  React components built strictly from design tokens. Currently includes buttons and UI primitives, with more components being added as the system grows into a complete library.
+                  {n.components} components and {n.primitives} layout primitives, built only from token-backed classes. {n.lintRules} lint rules make a hardcoded value a build failure rather than a review comment.
                 </p>
                 <Link href={STORYBOOK_COMPONENTS_URL} external className="text-sm">
                   Browse components in Storybook
@@ -228,7 +243,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-sm font-mono text-[var(--text-primary)] mb-2">Theme System</h3>
                 <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">
-                  Fully functional light and dark modes with smooth transitions. Every design token adapts automatically to the selected theme, ensuring consistent styling across all components.
+                  Light and dark are separate semantic layers, and every story is accessibility-tested and screenshotted in both. Dark is the default; the light theme is still catching up to it.
                 </p>
                 <Link href={STORYBOOK_THEME_URL} external className="text-sm">
                   Browse theming in Storybook
@@ -295,20 +310,103 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Footer links - GitHub + Storybook */}
+        {/* Three Cards - how the system is built, documented and checked.
+            These used to be bare links in the footer row below, which gave the
+            three pages about the system itself less presence than the two
+            essays about it. */}
+        <section className="mb-10 px-5 lg:px-10">
+          <div className="grid md:grid-cols-3 gap-5">
+            {/* Card 6: Skills */}
+            <Card>
+              <div>
+                {/* Terminal Icon - switches between light/dark */}
+                <div className="mb-4">
+                  <img
+                    src={ASSETS.icons.terminalLight}
+                    alt="Skills"
+                    className="w-12 h-12 block dark:hidden"
+                  />
+                  <img
+                    src={ASSETS.icons.terminalDark}
+                    alt="Skills"
+                    className="w-12 h-12 hidden dark:block"
+                  />
+                </div>
+                <h3 className="text-sm font-mono text-[var(--text-primary)] mb-2">Skills</h3>
+                <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">
+                  The named workflows the agents run: a spec update, an audit, a release, or a re-vendor is one slash command, and the skill defines every step so any session produces the same result.
+                </p>
+                <Link as={RouterLink} asProps={{ to: "/skills" }} className="text-sm">
+                  See the skills
+                </Link>
+              </div>
+            </Card>
+
+            {/* Card 7: Specs */}
+            <Card>
+              <div>
+                {/* Dictionary Icon - switches between light/dark */}
+                <div className="mb-4">
+                  <img
+                    src={ASSETS.icons.dictionaryLight}
+                    alt="Specs"
+                    className="w-12 h-12 block dark:hidden"
+                  />
+                  <img
+                    src={ASSETS.icons.dictionaryDark}
+                    alt="Specs"
+                    className="w-12 h-12 hidden dark:block"
+                  />
+                </div>
+                <h3 className="text-sm font-mono text-[var(--text-primary)] mb-2">Specs</h3>
+                <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">
+                  {n.specs} spec files, one per component, primitive and pattern: status, intent, anatomy, props, token map, states, and the accessibility contract. The repo copy is the only copy.
+                </p>
+                <Link as={RouterLink} asProps={{ to: "/specs" }} className="text-sm">
+                  Browse the specs
+                </Link>
+              </div>
+            </Card>
+
+            {/* Card 8: Harness */}
+            <Card>
+              <div>
+                {/* Activity Monitor Icon - switches between light/dark */}
+                <div className="mb-4">
+                  <img
+                    src={ASSETS.icons.activityLight}
+                    alt="Harness"
+                    className="w-12 h-12 block dark:hidden"
+                  />
+                  <img
+                    src={ASSETS.icons.activityDark}
+                    alt="Harness"
+                    className="w-12 h-12 hidden dark:block"
+                  />
+                </div>
+                <h3 className="text-sm font-mono text-[var(--text-primary)] mb-2">Harness</h3>
+                <p className="text-sm font-mono text-secondary-800 dark:text-secondary-500 mb-4">
+                  Everything that can fail: {n.lintRules} lint rules, a token drift test, an API-surface contract, axe over {n.stories} stories in both themes, and {n.baselines} screenshots diffed on every pull request.
+                </p>
+                <Link as={RouterLink} asProps={{ to: "/harness" }} className="text-sm">
+                  See what checks it
+                </Link>
+              </div>
+            </Card>
+          </div>
+        </section>
+
+        {/* Footer links - the two sources this site is a front door to */}
         <section className="px-5 lg:px-10">
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             <Link href="https://github.com/sachahurley/scorpion-design-system" external className="text-sm">
-              GitHub
+              This site on GitHub
+            </Link>
+            <Link href="https://github.com/sachahurley/scorp-ds" external className="text-sm">
+              The design system on GitHub
             </Link>
             <Link href={STORYBOOK_URL} external className="text-sm">
               Storybook
-            </Link>
-            <Link as={RouterLink} asProps={{ to: "/skills" }} className="text-sm">
-              Skills
-            </Link>
-            <Link as={RouterLink} asProps={{ to: "/specs" }} className="text-sm">
-              Specs
             </Link>
           </div>
         </section>
