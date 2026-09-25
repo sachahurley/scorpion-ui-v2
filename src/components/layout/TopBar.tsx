@@ -2,9 +2,14 @@
  * TOP BAR COMPONENT
  * 
  * Fixed top bar that spans full width
- * Contains Scorpion logo, branding, the five-page top nav, and theme toggle
+ * Contains Scorpion logo, branding, the eight-page top nav, and theme toggle
  * Clicking the logo/text takes you back to home page
  * Theme toggle is positioned in the top right corner
+ *
+ * The desktop nav appears at xl (1280), not lg. Eight labels plus the
+ * branding, the music toggle and the theme toggle do not fit in a 64px bar
+ * at 1024: the wordmark wrapped to three lines and broke out of the bar.
+ * Below xl the slide-in panel carries the same rows.
  *
  * Mobile Navigation:
  * - Shows hamburger/X menu button on mobile (hidden on desktop)
@@ -39,13 +44,13 @@ export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, 
       style={{ zIndex: 'var(--z-index-sticky)' }}
     >
       {/* Flex container: mobile menu button + branding on left, theme toggle on right */}
-      <div className="h-full pl-4 lg:pl-7 pr-6 flex items-center justify-between gap-3">
+      <div className="h-full pl-4 xl:pl-7 pr-6 flex items-center justify-between gap-3">
         {/* Left side: Mobile menu button + Clickable Scorpion Design System branding */}
         <div className="flex items-center gap-3">
-          {/* Mobile Menu Button - Only visible on mobile (hidden on lg+ screens) */}
+          {/* Mobile Menu Button - Only visible below xl, where the top nav appears */}
           <button
             onClick={toggleMobileMenu}
-            className="lg:hidden p-2 plate-round hover:bg-[var(--surface-muted)] hover:text-[var(--accent)] transition-colors [transition-duration:var(--duration-fast)] focus:outline-none focus-visible:[box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]"
+            className="xl:hidden p-2 plate-round hover:bg-[var(--surface-muted)] hover:text-[var(--accent)] transition-colors [transition-duration:var(--duration-fast)] focus:outline-none focus-visible:[box-shadow:inset_0_0_0_var(--focus-ring-width)_var(--focus-ring-primary)]"
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {/* Show X icon when menu is open, hamburger icon when closed */}
@@ -93,14 +98,14 @@ export function TopBar({ isMobileMenuOpen, toggleMobileMenu, isMusicPlayerOpen, 
             
             {/* Branding Text */}
             {/* Portfolio convention: weight 400, emphasis carried by the accent */}
-            <h1 className="text-lg font-mono text-[var(--accent)]">Scorpion Design System</h1>
+            <h1 className="text-lg font-mono text-[var(--accent)] whitespace-nowrap">Scorpion Design System</h1>
           </Link>
         </div>
 
         {/* Right side: page nav + music player toggle + theme toggle */}
-        {/* Hidden on mobile (below lg breakpoint), visible on desktop */}
-        <div className="hidden lg:flex items-center gap-2">
-          {/* Five-page top navigation (desktop rendering) */}
+        {/* Hidden below xl, where MobileNav takes over */}
+        <div className="hidden xl:flex items-center gap-2">
+          {/* Eight-page top navigation (desktop rendering) */}
           <TopNav />
 
           {/* Music Player Toggle Button - Opens music player when clicked */}

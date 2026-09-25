@@ -65,6 +65,15 @@ export const ASSETS = {
     // Case Study card
     booksLight: asset('/Icons/Light theme/2. System apps/Books.png'),
     booksDark: asset('/Icons/Dark theme/2. System apps/Books.png'),
+    // Skills card
+    terminalLight: asset('/Icons/Light theme/2. System apps/Terminal.png'),
+    terminalDark: asset('/Icons/Dark theme/2. System apps/Terminal.png'),
+    // Specs card
+    dictionaryLight: asset('/Icons/Light theme/2. System apps/Dictionary.png'),
+    dictionaryDark: asset('/Icons/Dark theme/2. System apps/Dictionary.png'),
+    // Harness card
+    activityLight: asset('/Icons/Light theme/2. System apps/Activity Monitor.png'),
+    activityDark: asset('/Icons/Dark theme/2. System apps/Activity Monitor.png'),
   },
 } as const;
 

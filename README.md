@@ -1,16 +1,30 @@
 # Scorpion Design System
 
-A lean five-page portfolio site for the Scorpion Design System: a TUI-inspired, token-based system built with React, TypeScript, and Tailwind CSS. The site runs on a vendored snapshot of the design system and links out to the deployed Storybook for all reference documentation.
+A lean eight-page portfolio site for the Scorpion Design System: a TUI-inspired, token-based system built with React, TypeScript, and Tailwind CSS. The site runs on a vendored snapshot of the design system and links out to the deployed Storybook for all reference documentation.
 
 ## 🎨 What is This?
 
-This is the design system's **portfolio front door**, not its documentation site. Five pages:
+This is the design system's **portfolio front door**, not its documentation site. Eight pages in three groups:
 
-- `/` - **Home**: hero, what's inside, and links into the Storybook reference docs
+**Front door**
+
+- `/` - **Home**: hero, three card rows (what's inside, the writing, the system itself)
+
+**The writing**
+
 - `/essay` - **Essay**: "Design Systems for AI-First Product Development"
 - `/case-study` - **Case Study**: "Building the Scorpion Design System"
+
+**The demos**
+
 - `/demos/music-player` - **Music Player**: the floating now-playing pattern with a real audio engine
 - `/demos/screens` - **Screens**: a working mini-app (sign-in, settings, profile) composed from DS components
+
+**The system itself**
+
+- `/skills` - **Skills**: the named agent workflows that build and maintain scorp-ds
+- `/specs` - **Specs**: every component spec, indexed from `docs/specs/*.md` in scorp-ds
+- `/harness` - **Harness**: the lint rules, CI workflows, contracts, visual baselines and decision records that make each written rule fail out loud
 
 Reference documentation (tokens, components, patterns, theming) lives in the deployed Storybook:
 
@@ -53,16 +67,26 @@ scorpion-design-system/
 │   ├── pages/
 │   │   ├── Home.tsx             # Homepage
 │   │   ├── Essay.tsx            # The AI-first design systems essay
+│   │   ├── Skills.tsx           # The agent workflows
+│   │   ├── Specs.tsx            # The spec index (reads specs-index.json)
+│   │   ├── Harness.tsx          # The verification story (reads harness-index.json)
 │   │   ├── patterns/
 │   │   │   ├── CaseStudy.tsx    # Building the Scorpion Design System
 │   │   │   └── MusicPlayerPattern.tsx  # Live music player demo
 │   │   └── demos/
 │   │       └── Screens.tsx      # Mini-app screens demo
+│   ├── data/                    # GENERATED at vendor time, do not hand-edit
+│   │   ├── specs-index.json     # Specs page index
+│   │   └── harness-index.json   # Harness page facts (rules, workflows, counts)
 │   ├── theme/
 │   │   └── ThemeProvider.tsx    # Theme management
 │   ├── index.css                # Imports the vendored token CSS variables
-│   └── App.tsx                  # Router setup (5 routes + redirects)
+│   └── App.tsx                  # Router setup (8 routes + redirects)
 ├── vendor/scorp-ds/             # Vendored token CSS + Tailwind preset snapshot
+├── scripts/
+│   ├── vendor-ds.sh             # Re-vendor / check the DS snapshot
+│   ├── gen-specs-index.mjs      # Builds src/data/specs-index.json
+│   └── gen-harness-index.mjs    # Builds src/data/harness-index.json
 ├── tailwind.config.ts           # Tailwind config using the vendored preset
 └── README.md                    # This file!
 ```
@@ -76,8 +100,8 @@ scorpion-design-system/
 - `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
 - `npm run deploy` - Publish `dist/` to GitHub Pages (gh-pages branch, base `/scorpion-design-system/`)
-- `npm run ds:check` - Diff the vendored DS snapshot against scorp-ds
-- `npm run vendor:ds` - Re-sync the vendored DS snapshot
+- `npm run ds:check` - Diff the vendored DS snapshot against scorp-ds (includes both generated indexes)
+- `npm run vendor:ds` - Re-sync the vendored DS snapshot and regenerate both indexes
 
 ### Deployment
 
@@ -107,6 +131,22 @@ mechanical Vite adaptations). It is NOT auto-synced when scorp-ds merges.
 - `npm run ds:check`: diff the snapshot against scorp-ds `origin/main`
 - `npm run vendor:ds`: re-sync from `origin/main`, then `npm run build`,
   review the diff, and commit
+
+### Generated page data
+
+Two files under `src/data/` are **generated, never hand-edited**. Both are
+written by `vendor:ds` and diffed by `ds:check`, so a page cannot quietly quote
+a number the design system no longer has:
+
+- `specs-index.json` - built by `scripts/gen-specs-index.mjs` from
+  `docs/specs/*.md`. Drives the Specs page.
+- `harness-index.json` - built by `scripts/gen-harness-index.mjs` from the
+  `scorp/*` lint rules, the CI workflows, the decision-record README, the
+  insight files, and file counts (components, specs, stories, visual
+  baselines, tokens). Drives the Harness page, and the counts on Home.
+
+The harness generator fails loudly rather than writing a confident zero: if a
+parse finds no lint rules, no baselines or no decision rows, it exits non-zero.
 
 Source checkout: `~/Projects/scorp-ds` (override with `SCORP_DS_DIR`). The
 snapshot commit is recorded in `vendor/scorp-ds/VERSION`.

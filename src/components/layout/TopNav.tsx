@@ -1,11 +1,11 @@
 /**
  * TOP NAVIGATION
  *
- * The site's five-page navigation on the DS plate language, replacing the
+ * The site's eight-page navigation on the DS plate language, replacing the
  * old documentation sidebar. Two renderings share one NAV_ITEMS source:
  *
- * - TopNav: horizontal plate rows inside the TopBar (desktop, lg+)
- * - MobileNav: the slide-in panel below the TopBar (mobile), keeping the
+ * - TopNav: horizontal plate rows inside the TopBar (desktop, xl+)
+ * - MobileNav: the slide-in panel below the TopBar (below xl), keeping the
  *   old sidebar's overlay + translate animation and its mobile-only
  *   music player / theme toggle controls
  *
@@ -19,7 +19,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/Button";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
-/** The five pages, in nav order. */
+/** The eight pages, in nav order: home, the two long-form pages, the two
+ *  demos, then the three pages about the system itself. */
 const NAV_ITEMS: { to: string; label: string }[] = [
   { to: "/", label: "Home" },
   { to: "/essay", label: "Essay" },
@@ -28,6 +29,7 @@ const NAV_ITEMS: { to: string; label: string }[] = [
   { to: "/demos/screens", label: "Screens" },
   { to: "/skills", label: "Skills" },
   { to: "/specs", label: "Specs" },
+  { to: "/harness", label: "Harness" },
 ];
 
 /**
@@ -69,14 +71,14 @@ function NavRow({
 /**
  * TopNav Component
  *
- * Desktop navigation: the five plate rows in a horizontal run, rendered
- * inside the TopBar (hidden below lg, where MobileNav takes over).
+ * Desktop navigation: the eight plate rows in a horizontal run, rendered
+ * inside the TopBar (hidden below xl, where MobileNav takes over).
  */
 export function TopNav() {
   const location = useLocation();
 
   return (
-    <nav aria-label="Site" className="hidden lg:flex items-center gap-1">
+    <nav aria-label="Site" className="hidden xl:flex items-center gap-1">
       {NAV_ITEMS.map((item) => (
         <NavRow key={item.to} to={item.to} active={location.pathname === item.to}>
           {item.label}
@@ -87,7 +89,7 @@ export function TopNav() {
 }
 
 export interface MobileNavProps {
-  // Mobile menu open state (panel slides in below lg)
+  // Mobile menu open state (panel slides in below xl)
   isMobileMenuOpen: boolean;
   // Closes the mobile menu after a nav click
   closeMobileMenu: () => void;
@@ -102,7 +104,7 @@ export interface MobileNavProps {
  *
  * The mobile menu: a full-width panel that slides in from the left below
  * the TopBar (same overlay + translate recipe as the old sidebar), holding
- * the five nav rows plus the mobile-only music player and theme controls.
+ * the eight nav rows plus the mobile-only music player and theme controls.
  */
 export function MobileNav({
   isMobileMenuOpen,
@@ -118,7 +120,7 @@ export function MobileNav({
       {/* Dark overlay - closes the menu on click */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 lg:hidden top-16"
+          className="fixed inset-0 bg-black/50 xl:hidden top-16"
           style={{ zIndex: 'var(--z-index-overlay)' }}
           onClick={closeMobileMenu}
           aria-hidden="true"
@@ -128,7 +130,7 @@ export function MobileNav({
       {/* Menu panel: container surface, slides in under the TopBar */}
       <div
         className={`
-          lg:hidden w-full bg-[var(--surface-container)] fixed left-0 top-16
+          xl:hidden w-full bg-[var(--surface-container)] fixed left-0 top-16
           border-b border-solid border-[var(--border-hairline)]
           transition-transform duration-300 ease-in-out
           ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}

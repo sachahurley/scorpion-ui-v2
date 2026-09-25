@@ -12,7 +12,9 @@
  * vocabulary - edit the ESSAY array to revise the content.
  */
 
+import { Link as RouterLink } from "react-router-dom";
 import { CaseStudyBlocks, type CaseStudyBlock } from "@/components/ui/CaseStudy";
+import { Link } from "@/components/ui/Link";
 
 // The essay, section by section. Blocks render in array order.
 const ESSAY: CaseStudyBlock[] = [
@@ -157,6 +159,17 @@ export default function Essay() {
       {/* Reading column: breakout figures size against this inline-size container */}
       <div className="mx-auto max-w-2xl [container-type:inline-size]">
         <CaseStudyBlocks blocks={ESSAY} />
+
+        {/* Outbound links: the essay argues the approach, these show it applied.
+            Matches the footer row on Home, Case Study, Skills and Harness. */}
+        <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2">
+          <Link as={RouterLink} asProps={{ to: "/case-study" }} className="text-sm">
+            The same argument, applied
+          </Link>
+          <Link as={RouterLink} asProps={{ to: "/harness" }} className="text-sm">
+            How the guardrails are enforced
+          </Link>
+        </div>
       </div>
     </div>
   );
