@@ -1,0 +1,35 @@
+"$schema" = "https://conductor.build/schemas/settings.repo.schema.json"
+
+# Conductor workspace config for the showcase site.
+#
+# Each workspace is a git worktree, so node_modules is never carried over
+# (it is gitignored). `setup` installs from the lockfile on workspace
+# creation so a new workspace is ready to run immediately.
+#
+# Vite is configured with base: '/scorpion-design-system/' for GitHub Pages,
+# so the dev server serves the site at
+# http://localhost:$CONDUCTOR_PORT/scorpion-design-system/ (not at /).
+
+[scripts]
+setup = "npm ci"
+# Each workspace gets its own port, so several can serve at once.
+run_mode = "concurrent"
+
+[scripts.run.dev]
+# --strictPort so the server fails loudly instead of silently drifting off
+# the port Conductor allocated for this workspace.
+command = "npm run dev -- --port $CONDUCTOR_PORT --strictPort"
+available_in = [ "local" ]
+default = true
+icon = "play"
+
+[scripts.run.ds-check]
+# Reports whether the vendored copy of scorp-ds is behind that repo's
+# origin/main. Read-only: it never writes into vendor/.
+command = "npm run ds:check"
+icon = "git-compare"
+
+[scripts.run.build]
+# The same build GitHub Pages runs on push to main (tsc -b + vite build).
+command = "npm run build"
+icon = "hammer"
